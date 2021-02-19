@@ -71,7 +71,7 @@
 						<div class="content">
 							<h2>나에게 꼭 맞는 영양제는 무엇일까?</h2>
 							<p>아래 버튼을 클릭해서 영양제 추천을 받아보세요</p>
-							<a href="#main" class="button scrolly">GO</a>
+							<a href="search.jsp" class="button scrolly">GO</a>
 						</div>
 					</section>
 					<div class="container">
