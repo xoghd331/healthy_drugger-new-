@@ -19,25 +19,15 @@
 			<!-- 카테고리 탭 생성하는 코드 : Nav -->
 				<nav id="nav"  style="position:fixed">
 					<ul style="display : inline">
-						<li class="current"><a href="main.jsp">Home</a></li>
+						<li ><a href="main.jsp">Home</a></li>
 						<li>
 							<a href="#">커뮤니티</a>
 							<ul>
-								<li><a href="#">Lorem ipsum dolor</a></li>
-								<li><a href="#">Magna phasellus</a></li>
-								<li>
-									<a href="#">Phasellus consequat</a>
-									<ul>
-										<li><a href="#">Lorem ipsum dolor</a></li>
-										<li><a href="#">Phasellus consequat</a></li>
-										<li><a href="#">Magna phasellus</a></li>
-										<li><a href="#">Etiam dolore nisl</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Veroeros feugiat</a></li>
+								<li><a href="#">자유게시판</a></li>
+								<li><a href="#">Q&A</a></li>
 							</ul>
 						</li><!-- 커뮤니티 탭 -->
-						<li><a href="search.jsp">영양제 검색</a></li>
+						<li class="current"><a href="search.jsp">영양제 검색</a></li>
 						<li><a href="Community/List2.jsp">게시판</a></li>
 						<li><a href="issue.jsp">건강 이슈</a></li>
 					</ul><!-- home~~건강이슈 탭 -->
