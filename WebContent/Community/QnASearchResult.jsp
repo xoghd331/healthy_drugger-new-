@@ -1,4 +1,4 @@
-<%@page import="com.model.UserDTO"%>
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.QnADTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.QnADAO"%>

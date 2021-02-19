@@ -1,4 +1,4 @@
-<%@page import="com.model.UserDTO"%>
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.QnADTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.QnADAO"%>
@@ -125,7 +125,7 @@
 <!-- -----------------------------------------------게시판 리스트 끝----------------------------------------------- -->
 <!-- -----------------------------------------------검색 시작----------------------------------------------- -->
 				<table width = "100%" border="0">
-					<form method = post action = "QnASearchResult.jsp">
+					<form method = post action = "../QnASearchResult.jsp">
 					<tr> <!-- 검색 및 쓰기버튼 -->
 						<td colspan = "5">
 							<select name = "search">

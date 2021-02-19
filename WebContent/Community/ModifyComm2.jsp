@@ -1,4 +1,4 @@
-<%@page import="com.model.UserDTO"%>
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.CommDAO"%>
 <%@page import="com.model.CommDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -45,7 +45,7 @@
 </head>
 <body>
 	<table width="1980px">
-	<form name = CommModifyform method = post action = "CommModifyServiceCon">	
+	<form name = CommModifyform method = post action = "../CommModifyServiceCon">	
 			<tr>
 				<td width="20%"></td>
 				<td>

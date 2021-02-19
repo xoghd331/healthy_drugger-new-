@@ -1,4 +1,4 @@
-<%@page import="com.model.UserDTO"%>
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.BoardDAO"%>

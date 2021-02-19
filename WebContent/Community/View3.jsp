@@ -1,4 +1,4 @@
-<%@page import="com.model.UserDTO"%>
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.CommDTO"%>
 <%@page import="com.model.CommDAO"%>
 <%@page import="com.model.BoardDTO"%>

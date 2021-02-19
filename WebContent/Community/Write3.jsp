@@ -1,7 +1,7 @@
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.BoardDAO"%>
-<%@page import="com.model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 
@@ -63,7 +63,7 @@
 	<!-- -----------------------------------------------상단 끝----------------------------------------------- -->
 	<!-- -----------------------------------------------작성 공간----------------------------------------------- -->
 					<table width = "1184px" align = "center" align = "center" cellpadding = "0" cellspacing = "0">
-						<form name = Writeform method = post action = "WriteServiceCon3">
+						<form name = Writeform method = post action = "../WriteServiceCon3">
 							<tr height="1" bgcolor="#000000">
 								<td width="1184" colspan="6"></td>
 							</tr>

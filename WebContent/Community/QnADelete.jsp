@@ -1,4 +1,4 @@
-<%@page import="com.model.UserDTO"%>
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.QnADAO"%>
 <%@page import="com.model.QnADTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -57,7 +57,7 @@
 <%if (info != null) {
 	if (info.getId().equals("admin")) {%>
 					<table>
-						<form name = Deleteform method = post action = "AdminQnADeleteServiceCon">
+						<form name = Deleteform method = post action = "../AdminQnADeleteServiceCon">
 <!-- -----------------------------------------------力  格----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "26px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">力 格</td>
@@ -85,7 +85,7 @@
 	<%} else if (info.getId().equals(dto.getQ_username())) {%>
 <!-- -----------------------------------------------肺弊牢 蜡历老 锭 昏力----------------------------------------------- -->
 					<table>
-						<form name = Deleteform method = post action = "QnADeleteServiceCon">
+						<form name = Deleteform method = post action = "../QnADeleteServiceCon">
 <!-- -----------------------------------------------力  格----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "26px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">力 格</td>
@@ -114,7 +114,7 @@
 } else {%>
 <!-- -----------------------------------------------厚肺弊牢 蜡历老 锭 昏力----------------------------------------------- -->
 					<table>
-						<form name = Deleteform method = post action = "QnADeleteServiceCon">
+						<form name = Deleteform method = post action = "../QnADeleteServiceCon">
 <!-- -----------------------------------------------力  格----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "50px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">力 格</td>

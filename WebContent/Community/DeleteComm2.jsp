@@ -1,4 +1,4 @@
-<%@page import="com.model.UserDTO"%>
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.CommDAO"%>
 <%@page import="com.model.CommDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -38,7 +38,7 @@ dto = dao.getComm(idx, cidx);
 		<%if (info != null) {
 			if (info.getId().equals("admin")) {%>
 <!-- --------------------------------admin이면 AdminCommDeleteServiceCon으로-------------------------------- -->
-		<form name=Deleteform method=post action="AdminCommDeleteServiceCon">
+		<form name=Deleteform method=post action="../AdminCommDeleteServiceCon">
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">

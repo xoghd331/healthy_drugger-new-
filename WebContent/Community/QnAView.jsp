@@ -1,9 +1,9 @@
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.reQnADTO"%>
 <%@page import="com.model.reQnADAO"%>
 <%@page import="com.model.QnADTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.QnADAO"%>
-<%@page import="com.model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     

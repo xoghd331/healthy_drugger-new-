@@ -1,6 +1,6 @@
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.BoardDAO"%>
 <%@page import="com.model.BoardDTO"%>
-<%@page import="com.model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     
@@ -46,7 +46,7 @@
 							<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 							<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
 								<td bgcolor = "#B1DDAB"></td>
-								<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "main.jsp"><img src = 'img/title.png' height = 150></a></td>
+								<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../Community/main.jsp"><img src = 'img/title.png' height = 150></a></td>
 								<td bgcolor = "#B1DDAB" align = "right"></td>
 							</tr>
 							<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
@@ -58,7 +58,7 @@
 <%if (info != null) {
 	if (info.getId().equals("admin")) {%>
 					<table>
-						<form name = Deleteform method = post action = "AdminDeleteServiceCon">
+						<form name = Deleteform method = post action = "../AdminDeleteServiceCon">
 <!-- -----------------------------------------------제  목----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "26px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">제 목</td>

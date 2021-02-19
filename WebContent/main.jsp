@@ -24,8 +24,8 @@
 					<li>
 						<a href="#">커뮤니티</a>
 						<ul>
-							<li><a href="#">자유게시판</a></li>
-							<li><a href="#">Q&A</a></li>
+							<li><a href="Community/List3.jsp">자유게시판</a></li>
+							<li><a href="Community/QnAList.jsp">Q&A</a></li>
 						</ul>
 					</li><!-- 커뮤니티  탭 -->
 					<li><a href="search.jsp">영양제 검색</a></li>
@@ -190,11 +190,11 @@
 																	dolor sit non aliquet sed, tempor et dolor. Praesent a dapibus velit. Curabitur
 																	accumsan.
 																</p>
-																<button type="button" class="button" onclick="location='Community/Write2.jsp'">글쓰러 가기</button>
+																<button type="button" class="button" onclick="location='Community/Write3.jsp'">글쓰러 가기</button>
 																<!-- <input type = button value = "글쓰기" onclick = "location='Write.jsp'">
 																  <a href="#" class="button">글쓰러 가기</a>
 																-->
-																<button type="button" class="button" onclick="location='Community/List2.jsp' ">게시판으로 이동</button>
+																<button type="button" class="button" onclick="location='Community/List3.jsp' ">게시판으로 이동</button>
 															</article>
 
 													</div>

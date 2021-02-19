@@ -1,4 +1,4 @@
-<%@page import="com.model.UserDTO"%>
+<%@page import="com.user.UserDTO"%>
 <%@page import="com.model.reQnADAO"%>
 <%@page import="com.model.reQnADTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -58,7 +58,7 @@
 <%if (info != null) {
 	if (info.getId().equals("admin")) {%>
 					<table>
-						<form name = Deleteform method = post action = "AdminReQnADeleteServiceCon">
+						<form name = Deleteform method = post action = "../AdminReQnADeleteServiceCon">
 <!-- -----------------------------------------------力  格----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "26px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">力 格</td>
@@ -86,7 +86,7 @@
 	<%} else if (info.getId().equals(dto.getRQ_username())) {%>
 <!-- -----------------------------------------------肺弊牢 蜡历老 锭 昏力----------------------------------------------- -->
 					<table>
-						<form name = Deleteform method = post action = "ReQnADeleteServiceCon">
+						<form name = Deleteform method = post action = "../ReQnADeleteServiceCon">
 <!-- -----------------------------------------------力  格----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "26px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">力 格</td>
