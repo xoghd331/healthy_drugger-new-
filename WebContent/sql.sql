@@ -42,3 +42,5 @@ CREATE SEQUENCE issue_seq
     INCREMENT BY 1;
     
 select * from ISSUE
+
+drop table issue
