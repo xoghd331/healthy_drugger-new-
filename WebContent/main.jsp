@@ -28,7 +28,7 @@
 							<li><a href="#">Q&A</a></li>
 						</ul>
 					</li><!-- 커뮤니티  탭 -->
-					<li><a href="left-sidebar.html">영양제 검색</a></li>
+					<li><a href="search.jsp">영양제 검색</a></li>
 					<li><a href="right-sidebar.html">미정</a></li>
 					<li><a href="issue.jsp">건강 이슈</a></li>
 				</ul><!-- 홈탭부터 건강이슈탭까지 -->
