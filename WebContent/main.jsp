@@ -63,11 +63,6 @@
 					</div>
 				</header>
 		</div>
-		
-		<!-- top버튼 -->
-		<a href="#top" style="display: scroll; position: fixed; bottom: 10px; right: 5px;">
-			<img src="images/topPill.png" width="50px" height="70px" alt="" >
-		</a>	
 
 			<!-- Main -->
 				<section id="main">
@@ -263,6 +258,11 @@
 											</div>
 										</div>
 									</section> <!-- 커뮤탭  섹션 종료 -->
+									
+									<!-- top버튼 -->
+									<a id="toTop" href="#top">
+										<img src="images/topPill.png" width="60px" height="100px" alt="" >
+									</a>
 
 							</div>
 						</div>
@@ -325,6 +325,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/top.js"></script>
 			
 <!-- JAVASCRIPTS -->
 <script src="mainLayout/scripts/jquery.min.js"></script>

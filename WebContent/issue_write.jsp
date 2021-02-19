@@ -1,25 +1,79 @@
+<%@page import="com.issue.issueDTO"%>
+<%@page import="com.issue.issueDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.user.UserDTO"%>
+<!DOCTYPE HTML>
+
 <html>
-<head>
-    <title>게시판 - 글쓰기</title>
-    
-    <style type="text/css">
-        #title{
-            height : 16;
-            font-family :'돋움';
-            font-size : 12;
-            text-align :center;
-        }
-    </style>
-    
-</head>
-<body>
- 
-    <div align="center">
-    <br>
-    <b><font size="6" color="gray">글쓰기</font></b>
+	<head>
+		<title>Healthy News</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/issueWrite.css" />
+	</head>
+	<body class="is-preload" style="padding-top:0px">
+	
+	<%
+			UserDTO info = (UserDTO)session.getAttribute("info");
+			ArrayList<issueDTO> issueList = new ArrayList<issueDTO>();
+			issueDAO issueDao = new issueDAO();
+			issueList = issueDao.selectIssue();
+	%>
+	
+		<div id="page-wrapper">
+		<!-- 카테고리 Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="main.jsp">Home</a></li>
+					<li>
+						<a href="#">커뮤니티</a>
+						<ul>
+							<li><a href="#">자유게시판</a></li>
+							<li><a href="#">Q&A</a></li>
+						</ul>
+					</li>
+					<li><a href="left-sidebar.html">영양제 검색</a></li>						
+					<li><a href="right-sidebar.html">미정</a></li>
+					<li class="current"><a href="issue.jsp">건강 이슈</a></li>
+				</ul>
+					
+			<!-- 로그인 회원가입 버튼 -->
+				<ul style="position:absolute ; top:0px;right:0px">
+					<%if(info != null){ %> <!-- 로그인 성공 -->
+						<%if(info.getId().equals("admin")) {%> <!-- admin -->
+							<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">회원정보 관리</button></li>
+							<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
+							<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button><li>
+						<%}else{%>
+							<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
+							<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button></li>
+						<%} %>
+					<%}else{%> <!-- 로그인 실패시  : 로그인, 회원가입 버튼 출력-->
+					<!-- <a href="#menu">로그인</a> -->
+						<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">로그인</button></li>
+						<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">회원가입</button></li>
+					<%} %>
+				</ul>
+			</nav>
+			
+			<!-- Header -->
+				<header id="header">
+					<div class="logo container">
+						<div>
+							<a href="main.jsp" id="logo">
+								<img src="images/logo2.png" width="100%" height="130%">
+							</a>
+						</div>
+						
+					</div>
+				</header>
+
+			  <div align="center">
+    <br><br><br>
+    <b><font size="18" color="gray">글쓰기</font></b>
     <br>
     </div>
     
@@ -63,6 +117,47 @@
         </tr>
     </table>    
     </form>
-    
-</body>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="container">
+						<div class="row gtr-200">
+							<div class="col-12">
+
+								<!-- About -->
+									<section>
+										<h2 class="major"><span></span></h2>
+									</section>
+
+							</div>
+											<!-- top버튼 -->
+											<a id="toTop" href="#top">
+												<img src="images/topPill.png" width="60px" height="100px" alt="" >
+											</a>
+
+						</div>
+
+						<!-- Copyright -->
+							<div id="copyright">
+								<ul class="menu">
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
+								</ul>
+							</div>
+
+					</div>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/top.js"></script>
+
+	</body>
 </html>

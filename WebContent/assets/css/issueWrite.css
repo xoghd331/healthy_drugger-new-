@@ -2387,6 +2387,7 @@ input, select, textarea {
 		top: 0.65em;
 	}
 
+
 /* Nav */
 
 	body {
@@ -2612,7 +2613,6 @@ input, select, textarea {
 
 	#footer {
 		text-align: center;
-		padding: 8em 0 8em 0;
 	}
 
 		#footer a {
@@ -2620,7 +2620,7 @@ input, select, textarea {
 		}
 
 		#footer h2.major {
-			margin: 0 0 1.5em 0;
+			margin: 0 ;
 		}
 
 			#footer h2.major span {
@@ -3184,10 +3184,20 @@ input, select, textarea {
 .write{
 	float: right;
 }    
-	
+#title{
+	text-align: center;
+	font-size: 18px;
+	text-transform: uppercase;
+	padding: 3em 0 0 0;
+	margin: 0 auto;
+}
+
 /*TOP버튼*/
 #toTop { position: fixed; /* 포지션 고정 */ 
 		 bottom: 80px; /* 밑에서 100px */ 
 		 right: 40px;
 		 display: none; /* 보여지지 없음 - 기본적으로 안보여지게 */
-		 z-index: 9999; /* 포지션을 먼저 지정후 z-좌표(레이어) : 9999입니다. */ }	
+		 z-index: 9999; /* 포지션을 먼저 지정후 z-좌표(레이어) : 9999입니다. */ }
+
+	
+	

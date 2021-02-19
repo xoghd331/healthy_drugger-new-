@@ -36,7 +36,7 @@
 						</ul>
 					</li>
 					<li><a href="left-sidebar.html">영양제 검색</a></li>						<li><a href="right-sidebar.html">미정</a></li>
-					<li class="current"><a href="issue.html">건강 이슈</a></li>
+					<li class="current"><a href="issue.jsp">건강 이슈</a></li>
 				</ul>
 					
 			<!-- 로그인 회원가입 버튼 -->
@@ -192,6 +192,11 @@
 											<li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
 										</ul>
 									</section>
+									
+									<!-- top버튼 -->
+									<a id="toTop" href="#top">
+										<img src="images/topPill.png" width="60px" height="100px" alt="" >
+									</a>
 
 							</div>
 						</div>
@@ -216,6 +221,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/top.js"></script>
 
 	</body>
 </html>
