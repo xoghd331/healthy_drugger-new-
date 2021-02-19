@@ -15,10 +15,10 @@
 <body class="is-preload" style="padding-top:0px">
 	<div id="page-wrapper">
 
-		<%
-	//selectUser라는 메소드를 사용하기 위해 불러옴
+	<%
+		//selectUser라는 메소드를 사용하기 위해 불러옴
 		UserDAO dao = new UserDAO();
-	//dao.selectUser(결과값)을 arraylist에 담아줌.
+		//dao.selectUser(결과값)을 arraylist에 담아줌.
 		ArrayList<UserDTO> list = dao.selectUser();
 		
 	%>
