@@ -23,29 +23,20 @@
 		</header>
 		<!-- 로고 탭 종료 -->
 
-		<section id=main>
-			<nav id="login">
-				<ul>
-					<form action="../login" method="post">
-						<fieldset >
-							<legend></legend>
-							<p>
-								<label>아이디<input type="text" placeholder="ID을 입력하세요"
-									name="id"></label>
-							</p>
-							<p>
-								<label>비밀번호<input type="password"
-									placeholder="PW를 입력하세요" name="pw"></label>
-							</p>
-						</fieldset>
+		<section id=main >
+			<div style="width:500px; margin:auto" align="center">
+				<form action="../login" method="post">
+					<div>
+						<div>아이디<input type="text" placeholder="ID을 입력하세요" name="id" > </div>
+						<div>비밀번호<input type="password" placeholder="PW를 입력하세요" name="pw" ></div>
+					</div>
 						
-						<div align="center">
-							<input type="submit" value="LogIn" class="button fit">
-							<a href="../main.jsp" class="button next scrolly">되돌아가기</a>
-						</div>
-					</form>
-				</ul>
-			</nav>
+					<div align="center">
+						<input type="submit" value="LogIn" class="button fit">
+						<a href="../main.jsp" class="button next scrolly">되돌아가기</a>
+					</div>
+				</form>
+			</div>
 		</section>
 	</div>
 </body>
