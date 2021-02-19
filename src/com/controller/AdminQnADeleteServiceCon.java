@@ -28,7 +28,7 @@ public class AdminQnADeleteServiceCon extends HttpServlet {
 		
 		dao.deleteQuestions(num);
 		
-		response.sendRedirect("QnAList.jsp");
+		response.sendRedirect("Community/QnAList.jsp");
 	}
 
 }

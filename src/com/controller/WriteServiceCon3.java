@@ -33,7 +33,7 @@ public class WriteServiceCon3 extends HttpServlet {
 			System.out.println("글 작성 실패");
 		}
 		
-		response.sendRedirect("List3.jsp");
+		response.sendRedirect("Community/List3.jsp");
 	}
 
 }

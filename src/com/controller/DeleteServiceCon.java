@@ -31,7 +31,7 @@ public class DeleteServiceCon extends HttpServlet {
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
-		response.sendRedirect("List3.jsp");
+		response.sendRedirect("Community/List3.jsp");
 	}
 	
 

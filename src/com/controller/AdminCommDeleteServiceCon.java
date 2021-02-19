@@ -24,7 +24,7 @@ public class AdminCommDeleteServiceCon extends HttpServlet {
 		
 		dao.deleteComm(cnum);
 			
-		response.sendRedirect("View3.jsp?idx=" + bnum + "&pg=<%=pg%>");
+		response.sendRedirect("Community/View3.jsp?idx=" + bnum + "&pg=<%=pg%>");
 	}
 
 }

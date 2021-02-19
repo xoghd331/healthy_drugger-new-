@@ -32,7 +32,7 @@ public class QnAModifyServiceCon extends HttpServlet {
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
-		response.sendRedirect("QnAView.jsp?idx=" + num + "&pg=<%=pg%>");
+		response.sendRedirect("Community/QnAView.jsp?idx=" + num + "&pg=<%=pg%>");
 	}
 
 }

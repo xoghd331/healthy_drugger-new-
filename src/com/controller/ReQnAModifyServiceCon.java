@@ -38,7 +38,7 @@ public class ReQnAModifyServiceCon extends HttpServlet {
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
-		response.sendRedirect("QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
+		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
 	}
 
 }

@@ -24,7 +24,7 @@ public class AdminDeleteServiceCon extends HttpServlet {
 		
 		dao.deleteWrite(num);
 		
-		response.sendRedirect("List3.jsp");
+		response.sendRedirect("Community/List3.jsp");
 	}
 
 }

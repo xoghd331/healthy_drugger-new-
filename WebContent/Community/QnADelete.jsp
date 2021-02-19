@@ -45,7 +45,7 @@
 							<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 							<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
 								<td bgcolor = "#B1DDAB"></td>
-								<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "main.jsp"><img src = 'img/title.png' height = 150></a></td>
+								<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
 								<td bgcolor = "#B1DDAB" align = "right"></td>
 							</tr>
 							<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>

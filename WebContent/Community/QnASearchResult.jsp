@@ -79,7 +79,7 @@
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 						<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
 							<td bgcolor = "#B1DDAB"></td>
-							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "main.jsp"><img src = 'img/title.png' height = 150></a></td>
+							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
 							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "글쓰기" OnClick = "window.location = 'QnAWrite.jsp'"></td>
 						</tr>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
@@ -121,7 +121,7 @@
 								<%
 									if(dto.isDayNew()){
 								%>
-										<img src = 'img/new.jpg'>
+										<img src = '../img/new.jpg'>
 								<%
 									} %>
 							</td>
@@ -131,7 +131,7 @@
 							<td align = "center"><%=list.get(i).getQ_view() %></td>
 							<%if (info != null) {
 								if (info.getId().equals("admin")) {%>
-							<td><a href = "QnADelete.jsp?idx=<%=dto.getQ_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a></td>
+							<td><a href = "QnADelete.jsp?idx=<%=dto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a></td>
 							<%		} 
 								}%>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>

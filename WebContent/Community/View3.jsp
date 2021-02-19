@@ -74,7 +74,7 @@
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 						<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
 							<td bgcolor = "#B1DDAB"></td>
-							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "main.jsp"><img src = 'img/title.png' height = 150></a></td>
+							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
 							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "글쓰기" OnClick = "window.location = 'Write3.jsp'"></td>
 						</tr>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
@@ -101,16 +101,16 @@
 							<%if (info.getId().equals("admin")) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+								<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
 						<!-- -----------------------------------------------관리자면 무조건 띄우기 끝----------------------------------------------- -->
 							<%} else if (info.getId().equals(vdto.getB_username())) { %>
 						<!-- -----------------------------------------------로그인 한 유저 = getB_username() 띄우기----------------------------------------------- -->
 								<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-									<a href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "img/modify.png" width = "20px" height = "20px"></a>
+									<a href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 								</td>
 								<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-									<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+									<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 								</td>
 						<!-- -----------------------------------------------로그인 한 유저 = getB_username() 띄우기 끝------------------------------------------------->
 							<%} else { %>
@@ -124,10 +124,10 @@
 						} else {%>
 						<!-- -----------------------------------------------로그인 한 유저가 아니면 무조건 띄위기----------------------------------------------- -->
 									<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-										<a href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "img/modify.png" width = "20px" height = "20px"></a>
+										<a href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 									</td>
 									<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-										<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+										<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 									</td>
 						<!-- -----------------------------------------------로그인 한 유저가 아니면 무조건 띄위기 끝----------------------------------------------- -->
 						<%} %>
@@ -168,11 +168,11 @@
 						<%
 							if (i+1 == 1) {
 						%>
-							<td width = "592px" style = "padding-left : 15px" bgcolor = "#eeeeee"><img src = "img/goldcrown.png" width = "20px" height = "20px">	<b><%=c_list.get(i).getC_username()%></b></td>
+							<td width = "592px" style = "padding-left : 15px" bgcolor = "#eeeeee"><img src = "../img/goldcrown.png" width = "20px" height = "20px">	<b><%=c_list.get(i).getC_username()%></b></td>
 						<%	} else if (i+1 == 2) {%>
-							<td width = "592px" style = "padding-left : 15px" bgcolor = "#eeeeee"><img src = "img/silvercrown.png" width = "20px" height = "20px">	<b><%=c_list.get(i).getC_username()%></b></td>
+							<td width = "592px" style = "padding-left : 15px" bgcolor = "#eeeeee"><img src = "../img/silvercrown.png" width = "20px" height = "20px">	<b><%=c_list.get(i).getC_username()%></b></td>
 						<%	} else if (i+1 == 3) { %>
-							<td width = "592px" style = "padding-left : 15px" bgcolor = "#eeeeee"><img src = "img/coppercrown.png" width = "20px" height = "20px">	<b><%=c_list.get(i).getC_username()%></b></td>
+							<td width = "592px" style = "padding-left : 15px" bgcolor = "#eeeeee"><img src = "../img/coppercrown.png" width = "20px" height = "20px">	<b><%=c_list.get(i).getC_username()%></b></td>
 						<%	} else { %>
 							<td width = "592px" style = "padding-left : 15px" bgcolor = "#eeeeee"><b><%=c_list.get(i).getC_username()%></b></td>
 						<%	} %>
@@ -185,16 +185,16 @@
 						<!-- -----------------------------------------------관리자면 무조건 띄우기----------------------------------------------- -->
 									<td width = "74px" align = "center" bgcolor = "#eeeeee"></td>
 									<td width = "74px" align = "center" bgcolor = "#eeeeee">
-										<a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+										<a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 									</td>
 						<!-- -----------------------------------------------관리자면 무조건 띄우기 끝----------------------------------------------- -->
 								<%} else if (info.getId().equals(c_list.get(i).getC_username())) {%>
 						<!-- -----------------------------------------------로그인 한 유저 = getC_username() 띄우기----------------------------------------------- -->
 									<td width = "74px" align = "center" bgcolor = "#eeeeee">
-										<a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "img/modify.png" width = "20px" height = "20px"></a>
+										<a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 									</td>
 									<td width = "74px" align = "center" bgcolor = "#eeeeee">
-										<a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+										<a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 									</td>
 						<!-- -----------------------------------------------로그인 한 유저 = getC_username() 띄우기 끝------------------------------------------------->
 									<%} else { %>
@@ -205,8 +205,8 @@
 									<% }
 							} else { %>
 						<!-- -----------------------------------------------로그인 한 유저가 아니면 무조건 띄위기----------------------------------------------- -->
-							<td width = "74px" align = "center" bgcolor = "#eeeeee"><a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "img/modify.png" width = "20px" height = "20px"></a></td>
-							<td width = "74px" align = "center" bgcolor = "#eeeeee"><a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "img/delete.png" width = "20px" height = "20px"></a></td>
+							<td width = "74px" align = "center" bgcolor = "#eeeeee"><a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a></td>
+							<td width = "74px" align = "center" bgcolor = "#eeeeee"><a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a></td>
 						<!-- -----------------------------------------------로그인 한 유저가 아니면 무조건 띄위기 끝----------------------------------------------- -->
 							<%}
 						%>
@@ -342,7 +342,7 @@
 								<%
 									if(dto.isDayNew()){
 								%>
-										<img src = 'img/new.jpg'>
+										<img src = '../img/new.jpg'>
 								<%
 									} %>
 							</td>
@@ -352,7 +352,7 @@
 							<td align = "center"><%=dto.getB_view() %></td>
 							<%if (info != null) {
 								if (info.getId().equals("admin")) {%>
-							<td><a href = "Delete3.jsp?idx=<%=dto.getB_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a></td>
+							<td><a href = "Delete3.jsp?idx=<%=dto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a></td>
 							<%		} 
 								}%>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>

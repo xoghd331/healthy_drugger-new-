@@ -83,7 +83,7 @@
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 						<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
 							<td bgcolor = "#B1DDAB"></td>
-							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "main.jsp"><img src = 'img/title.png' height = 150></a></td>
+							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
 							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "글쓰기" OnClick = "window.location = 'QnAWrite.jsp'"></td>
 						</tr>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
@@ -112,16 +112,16 @@
 		<% if (info.getId().equals("admin")) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
 <!-- -----------------------------------------------관리자면 삭제 버튼 무조건 활성화 끔----------------------------------------------- -->
 <!-- -----------------------------------------------로그인와 작성자가 일치하면 수정 삭제 버튼 활성화----------------------------------------------- -->
 			<%} else if (info.getId().equals(qdto.getQ_username())) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "img/modify.png" width = "20px" height = "20px"></a>
+								<a href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 							</td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
 <!-- -----------------------------------------------로그인와 작성자가 일치하면 수정 삭제 버튼 활성화 끔----------------------------------------------- -->
 <!-- -----------------------------------------------로그인와 작성자가 불일치하면 수정 삭제 버튼 비활성화----------------------------------------------- -->
@@ -133,10 +133,10 @@
 	 } else { %>
 <!-- -----------------------------------------------비로그인 회원이면 삭제 버튼 무조건 활성화----------------------------------------------- -->
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "img/modify.png" width = "20px" height = "20px"></a>
+								<a href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 							</td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
 <!-- -----------------------------------------------비로그인 회원이면 삭제 버튼 무조건 활성화 끔----------------------------------------------- -->
 	<%}%>
@@ -189,16 +189,16 @@
 				<% if (info.getId().equals("admin")) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+								<a href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
 <!-- -----------------------------------------------관리자면 삭제 버튼 무조건 활성화 끔----------------------------------------------- -->
 <!-- -----------------------------------------------로그인와 작성자가 일치하면 수정 삭제 버튼 활성화----------------------------------------------- -->
 				<%} else if (info.getId().equals(rq_list.get(i).getRQ_username())) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "ReQnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "img/modify.png" width = "20px" height = "20px"></a>
+								<a href = "ReQnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 							</td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "img/delete.png" width = "20px" height = "20px"></a>
+								<a href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
 <!-- -----------------------------------------------로그인와 작성자가 일치하면 수정 삭제 버튼 활성화 끔----------------------------------------------- -->
 <!-- -----------------------------------------------로그인와 작성자가 불일치하면 수정 삭제 버튼 비활성화----------------------------------------------- -->
@@ -335,7 +335,7 @@ if (info != null) {%>
 								<%
 									if(dto.isDayNew()){
 								%>
-										<img src = 'img/new.jpg'>
+										<img src = '../img/new.jpg'>
 								<%
 									} %>
 							</td>
@@ -345,7 +345,7 @@ if (info != null) {%>
 							<td align = "center"><%=dto.getQ_view() %></td>
 							<%if (info != null) {
 								if (info.getId().equals("admin")) {%>
-							<td><a href = "QnADelete.jsp?idx=<%=dto.getQ_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a></td>
+							<td><a href = "QnADelete.jsp?idx=<%=dto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a></td>
 							<%		} 
 								}%>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>

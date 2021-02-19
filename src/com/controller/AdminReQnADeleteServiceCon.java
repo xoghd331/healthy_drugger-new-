@@ -25,6 +25,6 @@ public class AdminReQnADeleteServiceCon extends HttpServlet {
 		
 		dao.deleteReQuestions(rqnum);
 			
-		response.sendRedirect("QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
+		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
 	}
 }

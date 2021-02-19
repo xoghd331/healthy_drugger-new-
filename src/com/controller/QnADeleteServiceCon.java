@@ -30,7 +30,7 @@ public class QnADeleteServiceCon extends HttpServlet {
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
-		response.sendRedirect("QnAList.jsp");
+		response.sendRedirect("Community/QnAList.jsp");
 	}
 
 }

@@ -33,7 +33,7 @@ public class ModifyServiceCon extends HttpServlet {
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
-		response.sendRedirect("View3.jsp?idx=" + num + "&pg=<%=pg%>");
+		response.sendRedirect("Community/View3.jsp?idx=" + num + "&pg=<%=pg%>");
 	}
 
 }

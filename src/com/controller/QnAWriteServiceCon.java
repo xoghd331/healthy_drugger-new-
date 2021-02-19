@@ -32,7 +32,7 @@ public class QnAWriteServiceCon extends HttpServlet {
 			System.out.println("글 작성 실패");
 		}
 		
-		response.sendRedirect("QnAList.jsp");
+		response.sendRedirect("Community/QnAList.jsp");
 	}
 
 }
