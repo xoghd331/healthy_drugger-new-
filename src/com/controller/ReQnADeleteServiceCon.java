@@ -7,32 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.CommDAO;
-import com.model.CommDTO;
+import com.model.reQnADAO;
+import com.model.reQnADTO;
 
-@WebServlet("/CommModifyServiceCon")
-public class CommModifyServiceCon extends HttpServlet {
-	
+@WebServlet("/ReQnADeleteServiceCon")
+public class ReQnADeleteServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
-		int cnum = Integer.parseInt(request.getParameter("Cnum"));
-		int bnum = Integer.parseInt(request.getParameter("Bnum"));
 		String username = request.getParameter("username");
+		int qnum = Integer.parseInt(request.getParameter("qnum"));
+		int rqnum = Integer.parseInt(request.getParameter("rqnum"));
+		String title = request.getParameter("title");
 		String password = request.getParameter("password");
-		String content = request.getParameter("content");
-		
-		CommDAO dao = new CommDAO();
-		CommDTO dto = new CommDTO();
-		boolean ch = dao.checkPW(cnum, password);
+
+		reQnADAO dao = new reQnADAO();
+		reQnADTO dto = new reQnADTO();
+		boolean ch = dao.checkPW(rqnum, password);
 		
 		if (ch == true) {
-			dao.modifyComm(content, cnum);
+			dao.deleteReQuestions(rqnum);
 			
-			System.out.println("댓글이 수정되었습니다.");
+			System.out.println("글이 삭제되었습니다.");
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
-		response.sendRedirect("View3.jsp?idx=" + bnum + "&pg=<%=pg%>");
+		response.sendRedirect("QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
 	}
 
 }

@@ -9,13 +9,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class BoardDAO {
-	
+public class QnADAO {
 	private Connection conn;
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	private int cnt = 0;
-	private BoardDTO info;
+	private QnADTO info;
 
 	public void conn() {
 		try {
@@ -50,13 +49,13 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public int count() {
 		
 		try {
 			conn();
 			
-			String sql = "SELECT COUNT(*) FROM board";
+			String sql = "SELECT COUNT(*) FROM qna";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			
@@ -72,19 +71,19 @@ public class BoardDAO {
 		return cnt;
 	}
 	
-	public int insertWrite(BoardDTO dto) {
+	public int insertQuestions(QnADTO dto) {
 		
 		try {
 			conn();
 			
-			String sql = "INSERT INTO board VALUES (num_board.nextval, ?, ?, ?, ?, sysdate, 0, 0)";
+			String sql = "INSERT INTO qna VALUES (num_qna.nextval, ?, ?, ?, ?, sysdate, 0, 0)";
 			
 			psmt = conn.prepareStatement(sql);
 			
-			psmt.setString(1, dto.getB_username());
-			psmt.setString(2, dto.getB_password());
-			psmt.setString(3, dto.getB_title());
-			psmt.setString(4, dto.getB_content());
+			psmt.setString(1, dto.getQ_username());
+			psmt.setString(2, dto.getQ_password());
+			psmt.setString(3, dto.getQ_title());
+			psmt.setString(4, dto.getQ_content());
 			
 			cnt = psmt.executeUpdate();
 			
@@ -97,14 +96,14 @@ public class BoardDAO {
 		return cnt;
 	}
 	
-	public ArrayList<BoardDTO> selectWrite() {
+	public ArrayList<QnADTO> selectQuestions() {
 		
-		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		ArrayList<QnADTO> list = new ArrayList<QnADTO>();
 		
 		try {
 			conn();
 			
-			String sql = "SELECT b_num, b_title, b_username, b_date, b_like, b_view FROM board ORDER BY b_num DESC";
+			String sql = "SELECT q_num, q_title, q_username, q_date, q_like, q_view FROM qna ORDER BY q_num DESC";
 			
 			psmt = conn.prepareStatement(sql);
 			
@@ -129,7 +128,7 @@ public class BoardDAO {
 				int like = rs.getInt(5);
 				int view = rs.getInt(6);
 				
-				info = new BoardDTO(num, title, username, yea, like, view, dayNew);
+				info = new QnADTO(num, title, username, yea, like, view, dayNew);
 				list.add(info);
 			}
 		} catch (SQLException e) {
@@ -140,27 +139,27 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public BoardDTO viewWrite(int num) {
+	public QnADTO viewQuestions(int num) {
 		
-		BoardDTO dto = new BoardDTO();
+		QnADTO dto = new QnADTO();
 		
 		try {
 			conn();
 			
-			String sql = "SELECT b_num, b_title, b_username, b_view, b_date, b_content, b_like FROM board WHERE b_num = ?";
+			String sql = "SELECT q_num, q_title, q_username, q_view, q_date, q_content, q_like FROM qna WHERE q_num = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, num);
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
-				dto.setB_num(rs.getInt(1));
-				dto.setB_title(rs.getString(2));
-				dto.setB_username(rs.getString(3));
-				dto.setB_view(rs.getInt(4));
-				dto.setB_date(rs.getString(5));
-				dto.setB_content(rs.getString(6));
-				dto.setB_like(rs.getInt(7));
+				dto.setQ_num(rs.getInt(1));
+				dto.setQ_title(rs.getString(2));
+				dto.setQ_username(rs.getString(3));
+				dto.setQ_view(rs.getInt(4));
+				dto.setQ_date(rs.getString(5));
+				dto.setQ_content(rs.getString(6));
+				dto.setQ_like(rs.getInt(7));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -175,7 +174,7 @@ public class BoardDAO {
 		try {
 			conn();
 			
-			String sql = "UPDATE board SET b_view = b_view+1 WHERE b_num = ?";
+			String sql = "UPDATE qna SET q_view = q_view+1 WHERE q_num = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, num);
@@ -188,14 +187,14 @@ public class BoardDAO {
 		}
 	}
 	
-	public ArrayList<BoardDTO> searchTitle(String in_search) {
+	public ArrayList<QnADTO> searchQTitle(String in_search) {
 		
-		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		ArrayList<QnADTO> list = new ArrayList<QnADTO>();
 		
 		try {
 			conn();
 			
-			String sql = "SELECT b_num, b_title, b_username, b_date, b_like, b_view FROM board WHERE b_title LIKE ? ORDER BY b_num DESC";
+			String sql = "SELECT q_num, q_title, q_username, q_date, q_like, q_view FROM qna WHERE q_title LIKE ? ORDER BY q_num DESC";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%"+in_search+"%");
@@ -221,7 +220,7 @@ public class BoardDAO {
 				int like = rs.getInt(5);
 				int view = rs.getInt(6);
 				
-				info = new BoardDTO(num, title, username, yea, like, view, dayNew);
+				info = new QnADTO(num, title, username, yea, like, view, dayNew);
 				list.add(info);
 			}
 		} catch (SQLException e) {
@@ -232,14 +231,14 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public ArrayList<BoardDTO> searchContent(String in_search) {
+	public ArrayList<QnADTO> searchQContent(String in_search) {
 		
-		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		ArrayList<QnADTO> list = new ArrayList<QnADTO>();
 		
 		try {
 			conn();
 			
-			String sql = "SELECT b_num, b_title, b_username, b_date, b_like, b_view FROM board WHERE DBMS_LOB.INSTR(b_content, '" + in_search + "') > 0 ORDER BY b_num DESC";
+			String sql = "SELECT q_num, q_title, q_username, q_date, q_like, q_view FROM qna WHERE DBMS_LOB.INSTR(q_content, '" + in_search + "') > 0 ORDER BY q_num DESC";
 			
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -263,7 +262,7 @@ public class BoardDAO {
 				int like = rs.getInt(5);
 				int view = rs.getInt(6);
 				
-				info = new BoardDTO(num, title, username, yea, like, view, dayNew);
+				info = new QnADTO(num, title, username, yea, like, view, dayNew);
 				list.add(info);
 			}
 		} catch (SQLException e) {
@@ -274,14 +273,14 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public ArrayList<BoardDTO> searchWrite(String in_search) {
+	public ArrayList<QnADTO> searchQWrite(String in_search) {
 		
-		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		ArrayList<QnADTO> list = new ArrayList<QnADTO>();
 		
 		try {
 			conn();
 			
-			String sql = "SELECT b_num, b_title, b_username, b_date, b_like, b_view FROM board WHERE b_username LIKE ? ORDER BY b_num DESC";
+			String sql = "SELECT q_num, q_title, q_username, q_date, q_like, q_view FROM qna WHERE q_username LIKE ? ORDER BY q_num DESC";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%" + in_search + "%");
@@ -307,7 +306,7 @@ public class BoardDAO {
 				int like = rs.getInt(5);
 				int view = rs.getInt(6);
 				
-				info = new BoardDTO(num, title, username, yea, like, view, dayNew);
+				info = new QnADTO(num, title, username, yea, like, view, dayNew);
 				list.add(info);
 			}
 		} catch (SQLException e) {
@@ -318,28 +317,28 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public BoardDTO getBoard(int idx) {
+	public QnADTO getQuestions(int idx) {
 		
-		BoardDTO dto = new BoardDTO();
+		QnADTO dto = new QnADTO();
 		
 		try {
 			conn();
 			
-			String sql = "SELECT * FROM board WHERE b_num = ?";
+			String sql = "SELECT * FROM qna WHERE q_num = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, idx);
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
-				dto.setB_num(rs.getInt(1));
-				dto.setB_username(rs.getString(2));
-				dto.setB_password(rs.getString(3));
-				dto.setB_title(rs.getString(4));
-				dto.setB_content(rs.getString(5));
-				dto.setB_date(rs.getString(6));
-				dto.setB_view(rs.getInt(7));
-				dto.setB_like(rs.getInt(8));
+				dto.setQ_num(rs.getInt(1));
+				dto.setQ_username(rs.getString(2));
+				dto.setQ_password(rs.getString(3));
+				dto.setQ_title(rs.getString(4));
+				dto.setQ_content(rs.getString(5));
+				dto.setQ_date(rs.getString(6));
+				dto.setQ_view(rs.getInt(7));
+				dto.setQ_like(rs.getInt(8));
 			}
 			
 		} catch (SQLException e) {
@@ -355,7 +354,7 @@ public class BoardDAO {
 		try {
 			conn();
 			
-			String sql = "SELECT b_num FROM board where b_num = ? and b_password = ?";
+			String sql = "SELECT q_num FROM qna where q_num = ? and q_password = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, idx);
 			psmt.setString(2, password);
@@ -374,12 +373,12 @@ public class BoardDAO {
 		return ch;
 	}
 	
-	public void modifyWrite(String title, String content, int idx) {
+	public void modifyQuestions(String title, String content, int idx) {
 		
 		try {
 			conn();
 			
-			String sql = "UPDATE board SET b_title = ?, b_content = ? WHERE b_num = ?";
+			String sql = "UPDATE qna SET q_title = ?, q_content = ? WHERE q_num = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			
@@ -396,12 +395,12 @@ public class BoardDAO {
 		}
 	}
 	
-	public void deleteWrite(int idx) {
+	public void deleteQuestions(int idx) {
 		
 		try {
 			conn();
 			
-			String sql = "DELETE FROM board WHERE b_num = ?";
+			String sql = "DELETE FROM qna WHERE q_num = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			
@@ -415,4 +414,11 @@ public class BoardDAO {
 			close();
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
 }

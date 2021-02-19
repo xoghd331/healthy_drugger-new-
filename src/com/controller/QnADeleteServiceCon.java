@@ -7,32 +7,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.BoardDAO;
-import com.model.BoardDTO;
+import com.model.QnADAO;
+import com.model.QnADTO;
 
-@WebServlet("/DeleteServiceCon")
-public class DeleteServiceCon extends HttpServlet {
-	
+@WebServlet("/QnADeleteServiceCon")
+public class QnADeleteServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
-		String username = request.getParameter("b_username");
+		String username = request.getParameter("q_username");
 		int num = Integer.parseInt(request.getParameter("num"));
-		String title = request.getParameter("b_title");
-		String password = request.getParameter("b_password");
+		String title = request.getParameter("q_title");
+		String password = request.getParameter("q_password");
 
-		BoardDAO dao = new BoardDAO();
-		BoardDTO dto = new BoardDTO();
+		QnADAO dao = new QnADAO();
+		QnADTO dto = new QnADTO();
 		boolean ch = dao.checkPW(num, password);
 		
 		if (ch == true) {
-			dao.deleteWrite(num);
+			dao.deleteQuestions(num);
 			
 			System.out.println("글이 삭제되었습니다.");
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
-		response.sendRedirect("List3.jsp");
+		response.sendRedirect("QnAList.jsp");
 	}
-	
 
 }

@@ -10,29 +10,30 @@ import javax.servlet.http.HttpServletResponse;
 import com.model.BoardDAO;
 import com.model.BoardDTO;
 
-@WebServlet("/DeleteServiceCon")
-public class DeleteServiceCon extends HttpServlet {
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
-		String username = request.getParameter("b_username");
-		int num = Integer.parseInt(request.getParameter("num"));
-		String title = request.getParameter("b_title");
-		String password = request.getParameter("b_password");
+@WebServlet("/WriteServiceCon3")
+public class WriteServiceCon3 extends HttpServlet {
 
-		BoardDAO dao = new BoardDAO();
-		BoardDTO dto = new BoardDTO();
-		boolean ch = dao.checkPW(num, password);
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if (ch == true) {
-			dao.deleteWrite(num);
-			
-			System.out.println("글이 삭제되었습니다.");
+		request.setCharacterEncoding("EUC-KR");
+
+		String username = request.getParameter("b_username");
+		String password = request.getParameter("b_password");
+		String title = request.getParameter("b_title");
+		String content = request.getParameter("b_content");
+		
+		BoardDAO dao = new BoardDAO();
+		BoardDTO dto = new BoardDTO(username, password, title, content);
+		
+		int cnt = dao.insertWrite(dto);
+		
+		if (cnt > 0) {
+			System.out.println("글 작성 성공");
 		} else {
-			System.out.println("비밀번호가 틀렸습니다.");
+			System.out.println("글 작성 실패");
 		}
+		
 		response.sendRedirect("List3.jsp");
 	}
-	
 
 }

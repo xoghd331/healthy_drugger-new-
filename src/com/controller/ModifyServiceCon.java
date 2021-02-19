@@ -16,10 +16,11 @@ public class ModifyServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
 		int num = Integer.parseInt(request.getParameter("num"));
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+		String username = request.getParameter("b_username");
+		String password = request.getParameter("b_password");
+		String title = request.getParameter("b_title");
+		String content = request.getParameter("b_content");
+		int idx;
 		
 		BoardDAO dao = new BoardDAO();
 		BoardDTO dto = new BoardDTO();
@@ -32,7 +33,7 @@ public class ModifyServiceCon extends HttpServlet {
 		} else {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
-		response.sendRedirect("Community/List2.jsp");
+		response.sendRedirect("View3.jsp?idx=" + num + "&pg=<%=pg%>");
 	}
 
 }

@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CommDAO {
-	
+public class reQnADAO {
+		
 	private Connection conn;
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	private int cnt = 0;
-	private CommDTO info;
+	private reQnADTO info;
 	
 	public void conn() {
 		try {
@@ -49,12 +49,12 @@ public class CommDAO {
 		}
 	}
 	
-	public int commCount(int num) {
+	public int reQnACount(int num) {
 		
 		try {
 			conn();
 			
-			String sql = "SELECT COUNT(*) FROM comm WHERE b_num = ?";
+			String sql = "SELECT COUNT(*) FROM rqna WHERE q_num = ?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, num);
@@ -73,19 +73,20 @@ public class CommDAO {
 		return cnt;
 	}
 	
-	public int insertComm(CommDTO dto) {
+	public int insertReQuestions(reQnADTO dto) {
 		
 		try {
 			conn();
 			
-			String sql = "INSERT INTO comm VALUES (?, num_comm.nextval, ?, ?, ?, sysdate, 0)";
+			String sql = "INSERT INTO rqna VALUES (?, num_rqna.nextval, ?, ?, ?, ?, sysdate, 0)";
 			
 			psmt = conn.prepareStatement(sql);
 			
-			psmt.setInt(1, dto.getB_num());
-			psmt.setString(2, dto.getC_username());
-			psmt.setString(3, dto.getC_password());
-			psmt.setString(4, dto.getC_content());
+			psmt.setInt(1, dto.getQ_num());
+			psmt.setString(2, dto.getRQ_username());
+			psmt.setString(3, dto.getRQ_password());
+			psmt.setString(4, dto.getRQ_title());
+			psmt.setString(5, dto.getRQ_content());
 			
 			cnt = psmt.executeUpdate();
 			
@@ -98,14 +99,14 @@ public class CommDAO {
 		return cnt;
 	}
 	
-	public ArrayList<CommDTO> selectComm(int num) {
+	public ArrayList<reQnADTO> selectReQuestions(int num) {
 		
-		ArrayList<CommDTO> list = new ArrayList<CommDTO>();
+		ArrayList<reQnADTO> list = new ArrayList<reQnADTO>();
 		
 		try {
 			conn();
 			
-			String sql = "SELECT c_num, c_username, c_password, c_content, c_date, c_like FROM comm WHERE b_num = ? ORDER BY c_num ASC";
+			String sql = "SELECT rq_num, rq_title, rq_username, rq_content, rq_date, rq_like FROM rqna WHERE q_num = ? ORDER BY q_num ASC";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, num);
@@ -113,14 +114,14 @@ public class CommDAO {
 			rs = psmt.executeQuery();
 			
 			while (rs.next()) {
-				int c_num = rs.getInt(1);
-				String c_username = rs.getString(2);
-				String c_password = rs.getString(3);
-				String c_content = rs.getString(4);
-				String c_date = rs.getString(5);
-				int c_like = rs.getInt(6);
+				int rq_num = rs.getInt(1);
+				String rq_title = rs.getString(2);
+				String rq_username = rs.getString(3);
+				String rq_content = rs.getString(4);
+				String rq_date = rs.getString(5);
+				int rq_like = rs.getInt(6);
 				
-				info = new CommDTO(c_num, c_username, c_password, c_content, c_date, c_like);
+				info = new reQnADTO(rq_num, rq_title, rq_username, rq_content, rq_date, rq_like);
 				list.add(info);
 			}
 		} catch (SQLException e) {
@@ -131,28 +132,58 @@ public class CommDAO {
 		return list;
 	}
 	
-	public CommDTO getComm(int idx, int cidx) {
+	public reQnADTO viewReQuestions(int rqnum) {
 		
-		CommDTO dto = new CommDTO();
+		reQnADTO dto = new reQnADTO();
 		
 		try {
 			conn();
 			
-			String sql = "SELECT * FROM comm WHERE b_num = ? AND c_num = ?";
+			String sql = "SELECT rq_num, rq_title, rq_username, rq_date, rq_content, q_like FROM rqna WHERE rq_num = ?";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, idx);
-			psmt.setInt(2, cidx);
+			psmt.setInt(1, rqnum);
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
-				dto.setB_num(rs.getInt(1));
-				dto.setC_num(rs.getInt(2));
-				dto.setC_username(rs.getString(3));
-				dto.setC_password(rs.getString(4));
-				dto.setC_content(rs.getString(5));
-				dto.setC_date(rs.getString(6));
-				dto.setC_like(rs.getInt(7));
+				dto.setRQ_num(rs.getInt(1));
+				dto.setRQ_title(rs.getString(2));
+				dto.setRQ_username(rs.getString(3));
+				dto.setRQ_date(rs.getString(4));
+				dto.setRQ_content(rs.getString(5));
+				dto.setRQ_like(rs.getInt(6));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
+	
+	public reQnADTO getReQuestions(int ridx) {
+		
+		reQnADTO dto = new reQnADTO();
+		
+		try {
+			conn();
+			
+			String sql = "SELECT * FROM rqna WHERE rq_num = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, ridx);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				dto.setQ_num(rs.getInt(1));
+				dto.setRQ_num(rs.getInt(2));
+				dto.setRQ_username(rs.getString(3));
+				dto.setRQ_password(rs.getString(4));
+				dto.setRQ_title(rs.getString(5));
+				dto.setRQ_content(rs.getString(6));
+				dto.setRQ_date(rs.getString(7));
+				dto.setRQ_like(rs.getInt(8));
 			}
 			
 		} catch (SQLException e) {
@@ -168,7 +199,7 @@ public class CommDAO {
 		try {
 			conn();
 			
-			String sql = "SELECT c_num FROM comm where c_num = ? and c_password = ?";
+			String sql = "SELECT rq_num FROM rqna where rq_num = ? and rq_password = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, idx);
 			psmt.setString(2, password);
@@ -187,17 +218,17 @@ public class CommDAO {
 		return ch;
 	}
 	
-	public void modifyComm(String content, int idx) {
+	public void modifyReQuestions(String content, int ridx) {
 		
 		try {
 			conn();
 			
-			String sql = "UPDATE comm SET c_content = ? WHERE c_num = ?";
+			String sql = "UPDATE rqna SET rq_content = ? WHERE rq_num = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			
 			psmt.setString(1, content);
-			psmt.setInt(2, idx);
+			psmt.setInt(2, ridx);
 			
 			cnt = psmt.executeUpdate();
 			
@@ -208,12 +239,12 @@ public class CommDAO {
 		}
 	}
 	
-	public void deleteComm(int idx) {
+	public void deleteReQuestions(int idx) {
 		
 		try {
 			conn();
 			
-			String sql = "DELETE FROM comm WHERE c_num = ?";
+			String sql = "DELETE FROM rqna WHERE rq_num = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			
@@ -226,10 +257,9 @@ public class CommDAO {
 		} finally {
 			close();
 		}
-	}
+	}	
 	
 	
 	
 	
-
 }

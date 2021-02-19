@@ -9,34 +9,16 @@
 	//로그인한 유저 정보 가져오기
 	UserDTO info = (UserDTO)session.getAttribute("info");
 
-	request.setCharacterEncoding("EUC-KR");
 	BoardDAO dao = new BoardDAO();
 	int total = dao.count();
 	
 	ArrayList<BoardDTO> b_list = dao.selectWrite();
-		
-	String search = request.getParameter("search");
-	String in_search = request.getParameter("inputSearch");
-	
-	ArrayList<BoardDTO> list = null;
-	 
-	if (search.equals("title")) {
-		list = dao.searchTitle(in_search);
-		
-	} else if (search.equals("content")) {
-		list = dao.searchContent(in_search);
-		
-	} else if (search.equals("write")) {
-		list = dao.searchWrite(in_search);
-		
-	}
-	
 	//페이지 관련
 	int size = b_list.size();
 	int size2 = size;
 	final int ROWSIZE = 12;
 	final int BLOCK = 5;
-
+	
 	int pg = 1;
 		
 	if (request.getParameter("pg") != null) {
@@ -46,18 +28,18 @@
 	int end = (pg*ROWSIZE);
 		
 	int allPage = 0;
-
+	
 	int startPage = ((pg-1)/BLOCK*BLOCK)+1;
 	int endPage = ((pg-1)/BLOCK*BLOCK)+BLOCK;
-
+	
 	allPage = (int)Math.ceil(total/(double)ROWSIZE);
-
+	
 	if (endPage > allPage) {
 		endPage = allPage;
 	}
 		
 	size2 -=end;
-
+	
 	if (size2 < 0) {
 		end = size;
 	}
@@ -66,7 +48,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>건강한 약쟁이가 검색 중입니다</title>
+<title>게시판 목록</title>
 </head>
 <body>
 	<table width="1980px">
@@ -108,16 +90,17 @@
 						if(total == 0) {
 						%>
 						<tr align = "center" bgcolor = "#FFFFFF" height = "30">
-							<td colspan = "6">등록된 글이 없습니다.</td>
+							<td colspan = "7">등록된 글이 없습니다.</td>
 						</tr>
 						<% } else {
-							for (int i = 0; i < list.size(); i++) {
-								BoardDTO dto = list.get(i);
+							for (int i = ROWSIZE*(pg-1); i < end; i++) {
+								BoardDTO dto = b_list.get(i);
+								int idx = dto.getB_num();
 						%>
 						<tr height = "60" align = "center">
-							<td align = "center"><%=list.get(i).getB_num() %></td>
+							<td align = "center"><%=idx%></td>
 							<td align = "left">
-								<a href = "View3.jsp?idx=<%=list.get(i).getB_num() %>"><%=list.get(i).getB_title() %></a>
+								<a href = "View3.jsp?idx=<%=dto.getB_num()%>&pg=<%=pg%>"><%=dto.getB_title() %></a>
 								<%
 									if(dto.isDayNew()){
 								%>
@@ -125,10 +108,10 @@
 								<%
 									} %>
 							</td>
-							<td align = "center"><%=list.get(i).getB_username() %></td>
-							<td align = "center"><%=list.get(i).getB_date() %></td>
-							<td align = "center"><%=list.get(i).getB_like() %></td>
-							<td align = "center"><%=list.get(i).getB_view() %></td>
+							<td align = "center"><%=dto.getB_username()%></td>
+							<td align = "center"><%=dto.getB_date() %></td>
+							<td align = "center"><%=dto.getB_like() %></td>
+							<td align = "center"><%=dto.getB_view() %></td>
 							<%if (info != null) {
 								if (info.getId().equals("admin")) {%>
 							<td><a href = "Delete3.jsp?idx=<%=dto.getB_num()%>&pg=<%=pg%>"><img src = "img/delete.png" width = "20px" height = "20px"></a></td>

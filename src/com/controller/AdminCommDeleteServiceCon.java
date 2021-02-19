@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.model.CommDAO;
 import com.model.CommDTO;
 
-@WebServlet("/CommDeleteServiceCon")
-public class CommDeleteServiceCon extends HttpServlet {
-	
+@WebServlet("/AdminCommDeleteServiceCon")
+public class AdminCommDeleteServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
 		int cnum = Integer.parseInt(request.getParameter("Cnum"));
@@ -22,15 +21,9 @@ public class CommDeleteServiceCon extends HttpServlet {
 		
 		CommDAO dao = new CommDAO();
 		CommDTO dto = new CommDTO();
-		boolean ch = dao.checkPW(cnum, password);
 		
-		if (ch == true) {
-			dao.deleteComm(cnum);
+		dao.deleteComm(cnum);
 			
-			System.out.println("댓글이 삭제되었습니다.");
-		} else {
-			System.out.println("비밀번호가 틀렸습니다.");
-		}
 		response.sendRedirect("View3.jsp?idx=" + bnum + "&pg=<%=pg%>");
 	}
 
