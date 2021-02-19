@@ -35,7 +35,8 @@
 							<li><a href="#">Q&A</a></li>
 						</ul>
 					</li>
-					<li><a href="left-sidebar.html">영양제 검색</a></li>						<li><a href="right-sidebar.html">미정</a></li>
+					<li><a href="search.jsp">영양제 검색</a></li>						
+					<li><a href="right-sidebar.html">미정</a></li>
 					<li class="current"><a href="issue.jsp">건강 이슈</a></li>
 				</ul>
 					
