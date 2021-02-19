@@ -139,7 +139,7 @@
 												
 												<div class="col-12">
 													<ul class="actions">
-														<li><button type="button" class="button large" onclick="location.href='no-sidebar.html' ">더 많은 소식보기</button></li>
+														<li><button type="button" class="button large" onclick="location='issue.jsp' ">더 많은 소식보기</button></li>
 														<li><a href="#" class="button alt large">무슨말을쓸까요</a></li>
 													</ul>
 												</div>
