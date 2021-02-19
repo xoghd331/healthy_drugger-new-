@@ -26,19 +26,21 @@
 			</div>
 		</header><!-- 로고 탭 종료 -->
 
-<section id=main>
-	<form action="../update" method="post">
-		<fieldset>
-			<!-- legend삭제 -->
-			<p><label>아이디 : <%=info.getId() %></label></p>
-			<p><label>비밀번호 : <input type="password"  placeholder="PW를 입력하세요" name = "pw"></label></p>
-			<p><label>전화번호 : <input type="text"  placeholder="전화번호를 입력하세요" name = "tel"></label></p>
-			<p><label>의료자격증 : <input type="text"  placeholder="자격번호를 입력하세요" name = "license"></label></p>
-		</fieldset>
-		<div align="center">
-		<input type="submit" value="수정완료" class="button fit"">
-		</div>
-	</form>
-	</section>
+		<section id=main>
+			<div style="width:500px; margin:auto" align="center">
+				<form action="../update" method="post">
+					<div>
+						<div>아이디 : <%=info.getId() %></div>
+						<div>비밀번호 : <input type="password"  placeholder="PW를 입력하세요" name = "pw"></div>
+						<div>전화번호 : <input type="text"  placeholder="전화번호를 입력하세요" name = "tel"></div>
+						<div>의료자격증 : <input type="text"  placeholder="자격번호를 입력하세요" name = "license"></div>
+					</div>
+					
+					<div align="center">
+						<input type="submit" value="수정완료" class="button fit"">
+					</div>
+				</form>
+			</div>
+		</section>
 </body>
 </html>
