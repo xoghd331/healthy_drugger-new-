@@ -156,54 +156,14 @@
 							</div>
 							
 							<!-- 보조제 추천 탭...... -->
-							<div class="wrapper flex-wrapper row3">
-  								<section id="latest" class="hoc flexslider"> 
-									 <div class="center btmspace-50">
-									      <h2 class="major"><span>금주의 인기 영양제</span></h2>
-									 </div>
-									<ul class="carousel-items">
-									      <li><a href="#">
-									        <figure><img src="images/vitamin.jpg" alt="" width=200px height=300px>
-									          <figcaption>
-									            <h2 class="heading">영양제1</h2>
-									            <p>#눈건강 #성인 #성인여성 #1일3회 #식후30분</p>
-									          </figcaption>
-									        </figure>
-									        </a></li>
-									      <li><a href="#">
-									        <figure><img src="images/vitamin2.jpg" alt="" width=200px height=300px>
-									          <figcaption>
-									            <h2 class="heading">영양제2</h2>
-									            <p>#장건강 #성인 #남녀공용 #1일2회 #식후30분</p>
-									          </figcaption>
-									        </figure>
-									        </a></li>
-									      <li><a href="#">
-									        <figure><img src="images/vitamin3.jpg" alt="" width=200px height=300px>
-									          <figcaption>
-									            <h2 class="heading">영양제3</h2>
-									            <p>#성장기 #어린이 #1일3회 #식후30분</p>
-									          </figcaption>
-									        </figure>
-									        </a></li>
-									      <li><a href="#">
-									        <figure><img src="images/vitamin4.jpg" alt="" width=200px height=300px>
-									          <figcaption>
-									            <h2 class="heading">영양제4</h2>
-									            <p>#석류 #성인여성 #갱년기 #1일3회 #식후30분</p>
-									          </figcaption>
-									        </figure>
-									        </a></li>
-									      <li><a href="#">
-									        <figure><img src="images/vitamin5.png" alt="" width=200px height=300px>
-									          <figcaption>
-									            <h2 class="heading">영양제5</h2>
-									            <p>#다이어트 #성인 #체중감량 #칼로리커트 #녹차추출물</p>
-									          </figcaption>
-									        </figure>
-									        </a></li>
-								    </ul>
-								    </section>
+							<div class="col-12">
+								<!-- 건강소식 탭으로 이동 : Features -->
+									<section class="box features">
+										<h2 class="major"><span>금주의 추천 영양제</span></h2>
+										<div>
+											<iframe src="recommend.html" width =100% height=540px scrolling="no"></iframe>
+										</div>
+									</section>
 							</div>
 							
 							
