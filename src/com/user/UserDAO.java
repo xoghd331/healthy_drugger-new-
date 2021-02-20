@@ -58,7 +58,7 @@ public class UserDAO {
 		try {
 			conn();
 			
-			String sql = "insert into user_info values(?,?,?,?)";
+			String sql = "insert into user_info values(?,?,?,?,?)";
 			
 			psmt = conn.prepareStatement(sql);
 			
@@ -66,6 +66,7 @@ public class UserDAO {
 			psmt.setString(2, dto.getPw());
 			psmt.setString(3, dto.getTel());
 			psmt.setString(4, dto.getLicense());
+			psmt.setString(5, dto.getName());
 			
 			cnt = psmt.executeUpdate();
 		}
@@ -96,8 +97,9 @@ public class UserDAO {
 				String pw = rs.getString("pw");
 				String tel = rs.getString("tel");
 				String license = rs.getString("license");
+				String name = rs.getString("name");
 				
-				info = new UserDTO(id, pw, tel, license);
+				info = new UserDTO(id, pw, tel, license, name);
 			}
 		}
 		catch(Exception e){
@@ -113,14 +115,15 @@ public class UserDAO {
 		try {
 			conn();
 			
-			String sql = "update user_info set pw=?, tel=?, license=? where id=?";
+			String sql = "update user_info set pw=?, tel=?, name=?, license=? where id=?";
 			
 			psmt = conn.prepareStatement(sql);
 			
 			psmt.setString(1, dto.getPw());
 			psmt.setString(2, dto.getTel());
-			psmt.setString(3, dto.getLicense());
-			psmt.setString(4, dto.getId());
+			psmt.setString(3, dto.getName());
+			psmt.setString(4, dto.getLicense());
+			psmt.setString(5, dto.getId());
 			
 			cnt = psmt.executeUpdate();
 		}
@@ -151,8 +154,9 @@ public class UserDAO {
 				String pw = rs.getString("pw");
 				String tel = rs.getString("tel");
 				String license = rs.getString("license");
+				String name = rs.getString("name");
 				
-				info = new UserDTO(id, pw, tel, license);
+				info = new UserDTO(id, pw, tel, license, name);
 				list.add(info);
 			}
 		}

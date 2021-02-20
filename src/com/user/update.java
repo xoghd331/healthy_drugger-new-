@@ -26,14 +26,16 @@ public class update extends HttpServlet {
 		String pw = request.getParameter("pw");
 		String tel = request.getParameter("tel");
 		String license = request.getParameter("license");
+		String name = request.getParameter("name");
 		
-		System.out.println("[Update] email : "+id);
-		System.out.println("[Update] pw : "+pw);
-		System.out.println("[Update] tel : "+tel);
-		System.out.println("[Update] license : "+license);
+		System.out.println("[Update] email : "+ id);
+		System.out.println("[Update] pw : "+ pw);
+		System.out.println("[Update] tel : "+ tel);
+		System.out.println("[Update] license : "+ license);
+		System.out.println("[Update] name : "+ name);
 		
 		UserDAO dao = new UserDAO();
-		UserDTO updateInfo = new UserDTO(id, pw, tel, license);
+		UserDTO updateInfo = new UserDTO(id, pw, tel, license, name);
 		
 		int cnt = dao.update(updateInfo);
 		

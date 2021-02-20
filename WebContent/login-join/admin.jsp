@@ -42,12 +42,14 @@
 				<table >
 					<tr  align="center">
 						<td width="5">Id</td>
+						<td width="5">name</td>
 						<td width="5">Tel</td>
 						<td width="5">License</td>
 					</tr>
 				<%for(int i=0; i<list.size(); i++){ %>
 					<tr height="25" align="center">
 						<td align="center"><%=list.get(i).getId() %></td>
+						<td align="center"><%=list.get(i).getName() %></td>
 						<td align="center"><%=list.get(i).getTel() %></td>
 						<td align="center"><%=list.get(i).getLicense() %></td>
 					</tr>

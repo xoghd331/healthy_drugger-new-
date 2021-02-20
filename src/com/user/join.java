@@ -21,14 +21,16 @@ public class join extends HttpServlet {
 		String pw = request.getParameter("pw");
 		String tel = request.getParameter("tel");
 		String license = request.getParameter("license");
+		String name = request.getParameter("name");
 
 		System.out.println("[Join] email : "+id);
 		System.out.println("[Join] pw : "+pw);
 		System.out.println("[Join] tel : "+tel);
-		System.out.println("[Join] addr : "+license);
+		System.out.println("[Join] license : "+license);
+		System.out.println("[Join] name : "+name);
 		
 		UserDAO dao = new UserDAO();
-		UserDTO dto = new UserDTO(id, pw, tel, license);
+		UserDTO dto = new UserDTO(id, pw, tel, license, name);
 
 		int cnt = dao.join(dto);
 
