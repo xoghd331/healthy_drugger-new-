@@ -3,7 +3,7 @@ CREATE TABLE user_info(
 	pw VARCHAR2(80),
 	tel VARCHAR2(80),
 	license VARCHAR2(40)
-)
+) // Л≈╛Й╦╟Л└° Л⌠╟К┼■ USER_INFOК·▒ sql.sql М▄▄Л²╪Л≈░ Л·┬К┼■ USER_INFOЛ≥─ Й╟≥Л²▄
 
 INSERT INTO user_info VALUES('user3', '1234', null, null)
 
@@ -86,7 +86,7 @@ SELECT * FROM comm;
 SELECT * FROM qna;
 SELECT * FROM rqna;
 
-/*NCLOB Ё╩©К х╝юнго╢б дз╣Е*/
+/*NCLOB К┌╢Л ╘ М≥∙Л²╦М∙≤К┼■ Л╫■К⌠°*/
 SELECT DBMS_LOB.SUBSTR(rq_content, DBMS_LOB.GETLENGTH(rq_content)) FROM rqna
 
 delete from rqna where rq_num = 21;
@@ -118,30 +118,30 @@ INSERT INTO board VALUES (num_board.nextval, 'testname23', '1234', 'testtitle23'
 INSERT INTO board VALUES (num_board.nextval, 'testname24', '1234', 'testtitle24', 'testcontent24', sysdate, 0, 0)
 INSERT INTO board VALUES (num_board.nextval, 'testname25', '1234', 'testtitle25', 'testcontent25', sysdate, 0, 0)
 
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖1', '1234', 'ев╫╨ф╝а╕╦Я1', 'ев╫╨ф╝Ё╩©К1', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖2', '1234', 'ев╫╨ф╝а╕╦Я2', 'ев╫╨ф╝Ё╩©К2', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖3', '1234', 'ев╫╨ф╝а╕╦Я3', 'ев╫╨ф╝Ё╩©К3', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖4', '1234', 'ев╫╨ф╝а╕╦Я4', 'ев╫╨ф╝Ё╩©К4', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖5', '1234', 'ев╫╨ф╝а╕╦Я5', 'ев╫╨ф╝Ё╩©К5', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖6', '1234', 'ев╫╨ф╝а╕╦Я6', 'ев╫╨ф╝Ё╩©К6', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖7', '1234', 'ев╫╨ф╝а╕╦Я7', 'ев╫╨ф╝Ё╩©К7', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖8', '1234', 'ев╫╨ф╝а╕╦Я8', 'ев╫╨ф╝Ё╩©К8', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖9', '1234', 'ев╫╨ф╝а╕╦Я9', 'ев╫╨ф╝Ё╩©К9', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖10', '1234', 'ев╫╨ф╝а╕╦Я10', 'ев╫╨ф╝Ё╩©К10', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖11', '1234', 'ев╫╨ф╝а╕╦Я11', 'ев╫╨ф╝Ё╩©К11', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖12', '1234', 'ев╫╨ф╝а╕╦Я12', 'ев╫╨ф╝Ё╩©К12', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖13', '1234', 'ев╫╨ф╝а╕╦Я13', 'ев╫╨ф╝Ё╩©К13', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖14', '1234', 'ев╫╨ф╝а╕╦Я14', 'ев╫╨ф╝Ё╩©К14', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖15', '1234', 'ев╫╨ф╝а╕╦Я15', 'ев╫╨ф╝Ё╩©К15', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖16', '1234', 'ев╫╨ф╝а╕╦Я16', 'ев╫╨ф╝Ё╩©К16', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖17', '1234', 'ев╫╨ф╝а╕╦Я17', 'ев╫╨ф╝Ё╩©К17', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖18', '1234', 'ев╫╨ф╝а╕╦Я18', 'ев╫╨ф╝Ё╩©К18', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖19', '1234', 'ев╫╨ф╝а╕╦Я19', 'ев╫╨ф╝Ё╩©К19', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖20', '1234', 'ев╫╨ф╝а╕╦Я20', 'ев╫╨ф╝Ё╩©К20', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖21', '1234', 'ев╫╨ф╝а╕╦Я21', 'ев╫╨ф╝Ё╩©К21', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖22', '1234', 'ев╫╨ф╝а╕╦Я22', 'ев╫╨ф╝Ё╩©К22', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖23', '1234', 'ев╫╨ф╝а╕╦Я23', 'ев╫╨ф╝Ё╩©К23', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖24', '1234', 'ев╫╨ф╝а╕╦Я24', 'ев╫╨ф╝Ё╩©К24', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, 'ев╫╨ф╝юл╦╖25', '1234', 'ев╫╨ф╝а╕╦Я25', 'ев╫╨ф╝Ё╩©К25', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└1', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘1', 'М┘▄Л┼╓М┼╦К┌╢Л ╘1', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└2', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘2', 'М┘▄Л┼╓М┼╦К┌╢Л ╘2', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└3', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘3', 'М┘▄Л┼╓М┼╦К┌╢Л ╘3', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└4', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘4', 'М┘▄Л┼╓М┼╦К┌╢Л ╘4', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└5', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘5', 'М┘▄Л┼╓М┼╦К┌╢Л ╘5', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└6', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘6', 'М┘▄Л┼╓М┼╦К┌╢Л ╘6', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└7', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘7', 'М┘▄Л┼╓М┼╦К┌╢Л ╘7', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└8', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘8', 'М┘▄Л┼╓М┼╦К┌╢Л ╘8', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└9', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘9', 'М┘▄Л┼╓М┼╦К┌╢Л ╘9', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└10', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘10', 'М┘▄Л┼╓М┼╦К┌╢Л ╘10', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└11', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘11', 'М┘▄Л┼╓М┼╦К┌╢Л ╘11', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└12', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘12', 'М┘▄Л┼╓М┼╦К┌╢Л ╘12', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└13', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘13', 'М┘▄Л┼╓М┼╦К┌╢Л ╘13', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└14', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘14', 'М┘▄Л┼╓М┼╦К┌╢Л ╘14', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└15', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘15', 'М┘▄Л┼╓М┼╦К┌╢Л ╘15', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└16', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘16', 'М┘▄Л┼╓М┼╦К┌╢Л ╘16', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└17', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘17', 'М┘▄Л┼╓М┼╦К┌╢Л ╘17', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└18', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘18', 'М┘▄Л┼╓М┼╦К┌╢Л ╘18', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└19', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘19', 'М┘▄Л┼╓М┼╦К┌╢Л ╘19', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└20', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘20', 'М┘▄Л┼╓М┼╦К┌╢Л ╘20', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└21', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘21', 'М┘▄Л┼╓М┼╦К┌╢Л ╘21', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└22', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘22', 'М┘▄Л┼╓М┼╦К┌╢Л ╘22', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└23', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘23', 'М┘▄Л┼╓М┼╦К┌╢Л ╘23', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└24', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘24', 'М┘▄Л┼╓М┼╦К┌╢Л ╘24', sysdate, 0, 0)
+INSERT INTO qna VALUES (num_qna.nextval, 'М┘▄Л┼╓М┼╦Л²╢К╕└25', '1234', 'М┘▄Л┼╓М┼╦Л═°К╙╘25', 'М┘▄Л┼╓М┼╦К┌╢Л ╘25', sysdate, 0, 0)
 
 
