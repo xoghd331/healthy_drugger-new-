@@ -135,13 +135,13 @@
 					<form method = post action = "SearchResult2.jsp">
 					<tr> <!-- 검색 및 쓰기버튼 -->
 						<td colspan = "5">
-							<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
+							<select name = "search" style="appearance: auto; height: 41px; width: 116px;">
 								<option value = "title">제목</option>
 								<option value = "content">내용</option>
 								<option value = "write">글쓴이</option>
 							</select>
 							<input type = "text" name = "inputSearch">
-							<input type = "submit" name = "btnSearch" value = "검색">
+							<input type = "submit" name = "btnSearch" value = "검색" style="line-height: 12px">
 						</td>
 						<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='Write3.jsp'"></td>
 					</tr>
