@@ -5,6 +5,8 @@ create table user_info(
 	license varchar2(40)
 )
 
+alter table user_info add name varchar2(100)
+
 insert into user_info values('test','123','010-0000-0000','123456789')
 
 select * from user_info

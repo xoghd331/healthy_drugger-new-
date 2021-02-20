@@ -3,8 +3,7 @@ CREATE TABLE user_info(
 	pw VARCHAR2(80),
 	tel VARCHAR2(80),
 	license VARCHAR2(40)
-) // 여기서 쓰는 USER_INFO랑 sql.sql 파일에 있는 USER_INFO와 같음
-
+)
 INSERT INTO user_info VALUES('user3', '1234', null, null)
 
 CREATE TABLE board (
@@ -86,7 +85,7 @@ SELECT * FROM comm;
 SELECT * FROM qna;
 SELECT * FROM rqna;
 
-/*NCLOB 내용 확인하는 코드*/
+
 SELECT DBMS_LOB.SUBSTR(rq_content, DBMS_LOB.GETLENGTH(rq_content)) FROM rqna
 
 delete from rqna where rq_num = 21;
@@ -117,31 +116,4 @@ INSERT INTO board VALUES (num_board.nextval, 'testname22', '1234', 'testtitle22'
 INSERT INTO board VALUES (num_board.nextval, 'testname23', '1234', 'testtitle23', 'testcontent23', sysdate, 0, 0)
 INSERT INTO board VALUES (num_board.nextval, 'testname24', '1234', 'testtitle24', 'testcontent24', sysdate, 0, 0)
 INSERT INTO board VALUES (num_board.nextval, 'testname25', '1234', 'testtitle25', 'testcontent25', sysdate, 0, 0)
-
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름1', '1234', '테스트제목1', '테스트내용1', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름2', '1234', '테스트제목2', '테스트내용2', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름3', '1234', '테스트제목3', '테스트내용3', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름4', '1234', '테스트제목4', '테스트내용4', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름5', '1234', '테스트제목5', '테스트내용5', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름6', '1234', '테스트제목6', '테스트내용6', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름7', '1234', '테스트제목7', '테스트내용7', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름8', '1234', '테스트제목8', '테스트내용8', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름9', '1234', '테스트제목9', '테스트내용9', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름10', '1234', '테스트제목10', '테스트내용10', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름11', '1234', '테스트제목11', '테스트내용11', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름12', '1234', '테스트제목12', '테스트내용12', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름13', '1234', '테스트제목13', '테스트내용13', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름14', '1234', '테스트제목14', '테스트내용14', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름15', '1234', '테스트제목15', '테스트내용15', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름16', '1234', '테스트제목16', '테스트내용16', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름17', '1234', '테스트제목17', '테스트내용17', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름18', '1234', '테스트제목18', '테스트내용18', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름19', '1234', '테스트제목19', '테스트내용19', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름20', '1234', '테스트제목20', '테스트내용20', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름21', '1234', '테스트제목21', '테스트내용21', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름22', '1234', '테스트제목22', '테스트내용22', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름23', '1234', '테스트제목23', '테스트내용23', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름24', '1234', '테스트제목24', '테스트내용24', sysdate, 0, 0)
-INSERT INTO qna VALUES (num_qna.nextval, '테스트이름25', '1234', '테스트제목25', '테스트내용25', sysdate, 0, 0)
-
 
