@@ -47,6 +47,14 @@
 						<tr><td height="20px" colspan="2"></td></tr>
 						
 						<tr>
+							<td>이름</td>
+							<td><input type="text"  placeholder="이름을 입력하세요" name = "name"></td>
+						</tr>
+						
+						<!-- 행과 행사이 칸 띄우기 -->
+						<tr><td height="20px" colspan="2"></td></tr>
+						
+						<tr>
 							<td>전화번호</td>
 							<td><input type="text"  placeholder="전화번호를 입력하세요" name = "tel"></td>
 						</tr>
