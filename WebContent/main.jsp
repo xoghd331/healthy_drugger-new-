@@ -8,7 +8,7 @@
 		<title>Healthy Drugger</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />	
+	
 	</head>
 	<body class="homepage is-preload" style="padding-top:0px" id="top">
 	
@@ -18,50 +18,7 @@
 		
 		<div id="page-wrapper">
 		<!-- 카테고리 탭 생성하는 코드 : Nav -->
-			<nav id="nav">
-				<ul>
-					<li class="current"><a href="main.jsp">Home</a></li>
-					<li>
-						<a href="#">커뮤니티</a>
-						<ul>
-							<li><a href="Community/List3.jsp">자유게시판</a></li>
-							<li><a href="Community/QnAList.jsp">Q&A</a></li>
-						</ul>
-					</li><!-- 커뮤니티  탭 -->
-					<li><a href="search.jsp">영양제 검색</a></li>
-					<li><a href="right-sidebar.html">미정</a></li>
-					<li><a href="issue.jsp">건강 이슈</a></li>
-				</ul><!-- 홈탭부터 건강이슈탭까지 -->
-			
-			<!-- 로그인 회원가입 버튼 -->
-				<ul style="position:absolute ; top:0px;right:0px">
-					<%if(info != null){ %> <!-- 로그인 성공 -->
-						<%if(info.getId().equals("admin")) {%> <!-- admin -->
-							<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">회원정보 관리</button></li>
-							<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
-							<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button><li>
-						<%}else{%>
-							<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
-							<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button></li>
-						<%} %>
-					<%}else{%> <!-- 로그인 실패시  : 로그인, 회원가입 버튼 출력-->
-					<!-- <a href="#menu">로그인</a> -->
-						<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">로그인</button></li>
-						<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">회원가입</button></li>
-					<%} %>
-				</ul>
-			</nav><!-- 내비바 끝 -->
-			
-			<!-- 홈페이지 상단에 웰컴 멘트 : Header -->
-				<header id="header">
-					<div class="logo container">
-						<div>
-							<a href="main.jsp" id="logo">
-								<img src="images/logo2.png" width="100%" height="130%">
-							</a>
-						</div>
-					</div>
-				</header>
+		<jsp:include page="./header.jsp"/>
 		</div>
 
 			<!-- Main -->

@@ -24,52 +24,7 @@
 	%>
 	
 		<div id="page-wrapper">
-		<!-- 카테고리 Nav -->
-			<nav id="nav">
-				<ul>
-					<li><a href="main.jsp">Home</a></li>
-					<li>
-						<a href="#">커뮤니티</a>
-						<ul>
-							<li><a href="#">자유게시판</a></li>
-							<li><a href="#">Q&A</a></li>
-						</ul>
-					</li>
-					<li><a href="left-sidebar.html">영양제 검색</a></li>						
-					<li><a href="right-sidebar.html">미정</a></li>
-					<li class="current"><a href="issue.jsp">건강 이슈</a></li>
-				</ul>
-					
-			<!-- 로그인 회원가입 버튼 -->
-				<ul style="position:absolute ; top:0px;right:0px">
-					<%if(info != null){ %> <!-- 로그인 성공 -->
-						<%if(info.getId().equals("admin")) {%> <!-- admin -->
-							<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">회원정보 관리</button></li>
-							<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
-							<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button><li>
-						<%}else{%>
-							<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
-							<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button></li>
-						<%} %>
-					<%}else{%> <!-- 로그인 실패시  : 로그인, 회원가입 버튼 출력-->
-					<!-- <a href="#menu">로그인</a> -->
-						<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">로그인</button></li>
-						<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">회원가입</button></li>
-					<%} %>
-				</ul>
-			</nav>
-			
-			<!-- Header -->
-				<header id="header">
-					<div class="logo container">
-						<div>
-							<a href="main.jsp" id="logo">
-								<img src="images/logo2.png" width="100%" height="130%">
-							</a>
-						</div>
-						
-					</div>
-				</header>
+		<jsp:include page="./header.jsp"/>
 
 			  <div align="center">
     <br><br><br>
