@@ -1,6 +1,8 @@
 package com.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,8 +16,10 @@ import javax.servlet.http.HttpSession;
 public class join extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("euc-kr");
+		
+		PrintWriter out = response.getWriter();
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
@@ -33,6 +37,12 @@ public class join extends HttpServlet {
 		UserDTO dto = new UserDTO(id, pw, tel, license, name);
 
 		int cnt = dao.join(dto);
+		
+		if (dao.idCheck(id)) {
+			out.println(id + "는 이미 존재하는 아이디 입니다.");
+		}else {
+			out.println(id + "는 사용 가능한 아이디 입니다.");
+		}
 
 		if (cnt > 0) {
 			HttpSession session = request.getSession();

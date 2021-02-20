@@ -1,3 +1,4 @@
+<%@page import="com.user.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -11,6 +12,11 @@
 
 </head>
 <body style="padding-top:0px">
+	<%
+		String id = request.getParameter("id");
+		UserDAO dao = new UserDAO();
+		boolean result = dao.idCheck(id);
+	%>
 	<div id="page-wrapper">
 		
 		<!-- 홈페이지 상단에 웰컴 멘트 : Header -->
@@ -32,7 +38,10 @@
 					<table>
 						<tr>
 							<td>아이디</td>
-							<td><input type="text"  placeholder="ID을 입력하세요" name = "id"></td>
+							<td>
+								<input type="text"  placeholder="ID을 입력하세요" name = "id">
+								<input type="button" value="중복확인 구현 중 손대지 마시오">
+							</td>
 						</tr>
 						
 						<!-- 행과 행사이 칸 띄우기 -->
