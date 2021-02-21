@@ -112,13 +112,7 @@ public class issueDAO {
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
-				dto.setIdx(rs.getInt(1));
-				dto.setTitle(rs.getString(2));
-				dto.setUser_id(rs.getString(3));
-				dto.setUp_date(rs.getString(4));
-				dto.setContent(rs.getString(5));
-				dto.setAvailable(rs.getString(6));
-				
+				dto = new issueDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
 				return dto;
 			}
 			

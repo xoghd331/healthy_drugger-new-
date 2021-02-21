@@ -21,6 +21,12 @@
 			ArrayList<issueDTO> issueList = new ArrayList<issueDTO>();
 			issueDAO issueDao = new issueDAO();
 			issueList = issueDao.selectIssue();
+			for(issueDTO dto : issueList){	
+				String title = dto.getTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
+				dto.setTitle(title);
+				String content = dto.getContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
+				dto.setContent(content);
+			}
 	%>
 	
 		<div id="page-wrapper">
@@ -30,15 +36,16 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-12">
+								<div class="content" style="padding-top: 50px;">
+								<%if(info != null && info.getId().equals("admin")) {%> 
 								<input type="button" value="글쓰기" class="write" onclick="location.href='issue_write.jsp'"/>
-								<div class="content">
-
+								<%} %>
 									<!-- 이슈 Content -->
 										<%for(int i = 0; i < issueList.size(); i++) {%>
 										<article class="box page-content">
 											<header>
 												<h2>건강 정보</h2>
-												<p href="WriteView"><%=issueList.get(i).getTitle() %></p>
+												<p><a href="WriteView?idx=<%=issueList.get(i).getIdx() %>" style="text-decoration: none;"><%=issueList.get(i).getTitle() %></a></p>
 												<ul class="meta">
 													<li class="icon fa-clock">1 hours ago</li>
 													<li class="icon fa-comments"><a href="#">374</a></li>
@@ -46,7 +53,7 @@
 											</header>
 
 											<section>
-												<span class="image featured" href="WriteView"><img src="${pageContext.request.contextPath}/upload/<%=issueList.get(i).getIssueImg() %>" alt="" /></span>
+												<span class="image featured" onclick="location.href='WriteView?idx=<%=issueList.get(i).getIdx() %>'"><img src="${pageContext.request.contextPath}/upload/<%=issueList.get(i).getIssueImg() %>" alt="" /></span>
 												
 											</section>
 										</article>

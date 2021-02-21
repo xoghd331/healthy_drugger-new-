@@ -20,7 +20,7 @@
 			<jsp:include page="./header.jsp"/>
 		</div>
 
-	<form>
+	<form id="searchForm">
 	<br><br><br>
 	<table>
  			<tr height="50"> 
@@ -63,10 +63,79 @@
   			</tr>
   			</table>
   			<div id="search" align="right">		
-  				<input type='submit' value="검색하기" align="right">
+  				<input type='button' id="searchBtn" value="검색하기" align="right">
   			</div>	
   		
 	</form>
+	
+	<div id="resultList1" class="col-12 resultList" style="display:none;">
+		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<header>
+					<p>감기에 걸리는 이유1</p>
+				</header>
+				<section>
+					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<header>
+					<p>감기에 걸리는 이유1</p>
+				</header>
+				<section>
+					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<header>
+					<p>감기에 걸리는 이유1</p>
+				</header>
+				<section>
+					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+				</section>
+			</article>
+		</div>
+		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<header>
+					<p>감기에 걸리는 이유1</p>
+				</header>
+				<section>
+					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+				</section>
+			</article>
+		</div>
+	</div>
+	
+	<div id="resultList2" class="col-12 resultList" style="display:none;">
+		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<header>
+					<p>감기에 걸리는 이유2</p>
+				</header>
+				<section>
+					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<header>
+					<p>감기에 걸리는 이유2</p>
+				</header>
+				<section>
+					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<header>
+					<p>감기에 걸리는 이유2</p>
+				</header>
+				<section>
+					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+				</section>
+			</article>
+		</div>
+	</div>
+	
 
 </body>
 <script src="assets/js/jquery.min.js"></script>
@@ -77,4 +146,24 @@
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/top.js"></script>
+
+<script>
+$(function(){
+	$('#searchBtn').click(function(){
+		var age = $('input[name=age]:checked').val();
+		var gender = $('input[name=gender]:checked').val();
+		var condition = $('input[name=condition]').val();
+		var nutrition = $('input[name=condition]').val();
+		
+		var form = $('#searchForm').serialize();
+		
+		$('.resultList').css('display','none');
+		if(age == 'child'){
+			$('#resultList1').css('display','block');
+		}else if(age == 'teen'){
+			$('#resultList2').css('display','block');
+		}
+	});
+})
+</script>
 </html>

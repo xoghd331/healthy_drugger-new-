@@ -8,6 +8,8 @@
 <meta charset="EUC-KR">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <link rel="stylesheet" href="../assets/css/main.css" />
 
 </head>
@@ -39,8 +41,8 @@
 						<tr>
 							<td>아이디</td>
 							<td>
-								<input type="text"  placeholder="ID을 입력하세요" name = "id">
-								<input type="button" value="중복확인 구현 중 손대지 마시오">
+								<input id="userId" type="text"  placeholder="ID을 입력하세요" name = "id" style="width:calc( 100% / 1.5 ); display:inline-block;">
+								<input id="idChkBtn" type="button" value="중복확인">
 							</td>
 						</tr>
 						
@@ -78,7 +80,7 @@
 					</table>
 			
 					<div align="center">
-						<input type="submit" value="회원가입" class="button fit" >
+						<input id="joinBtn" type="submit" value="회원가입" class="button fit" >
 						<!-- <a href="../main.jsp" class="button next scrolly" >되돌아가기</a>  -->
 					</div>
 					</form>
@@ -86,4 +88,33 @@
 			</section>
 		</div>
 </body>
+
+<script>
+$(function(){
+	var submitChk = false;
+	$('#joinBtn').attr('disabled',true);
+	
+	$('#idChkBtn').click(function(){
+		var userId = $('#userId').val();
+		$.ajax({
+			url:'/Healthy_drugger_new/idCheck',
+			data:{'user_id':userId},
+			async:false,
+			success:function(data){
+				var result = data;
+				if(result){
+					submitChk = true;
+					$('#joinBtn').removeAttr('disabled');
+					alert('사용 가능한 ID입니다.');
+				}else{
+					submitChk = false;
+					$('#joinBtn').attr('disabled',true);
+					alert('사용 불가능한 ID입니다.');
+				}
+			}
+		})
+	});
+	
+})
+</script>
 </html>

@@ -55,7 +55,7 @@ public class Write extends HttpServlet {
 		String title = multi.getParameter("title");
 		String content = multi.getParameter("content");
 		
-		issueDTO issue = new issueDTO(title,content,user_id,multi.getFilesystemName(str));
+		issueDTO issue = new issueDTO(title,user_id,content,multi.getFilesystemName(str));
 		
 		// 로그인을 한 사람만 글을 쓸 수 있도록 코드를 수정한다
 		if(user_id == null){

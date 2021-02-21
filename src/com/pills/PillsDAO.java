@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.issue.issueDTO;
 import com.user.UserDTO;
 
 public class PillsDAO {
@@ -101,4 +102,6 @@ public class PillsDAO {
 		}
 		return cnt;
 	}
+	
+	
 }

@@ -29,7 +29,7 @@ select * from pills
 create table issue (
     num number(38),             /*게시글 번호*/
 	title varchar2(100),
-	user_id varchar2(30),
+	user_id varchar2(100),
     up_date date,    			 /*등록날짜, 현재시간으로 설정*/
     content varchar2(2000),
     available number(38),

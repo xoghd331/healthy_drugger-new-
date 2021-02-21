@@ -8,7 +8,6 @@
 		<title>Healthy Drugger</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	
 	</head>
 	<body class="homepage is-preload" style="padding-top:0px" id="top">
 	

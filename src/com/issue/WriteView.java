@@ -3,6 +3,7 @@ package com.issue;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,11 +13,13 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/WriteView")
 public class WriteView extends HttpServlet {
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		issueDAO dao = new issueDAO();
 		HttpSession session = request.getSession();
 		
 		// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
@@ -44,8 +47,14 @@ public class WriteView extends HttpServlet {
 		}
 		
 		// 유효한 글이라면 구체적인 정보를 'dto'라는 인스턴스에 담는다
-		issueDTO dto = new issueDAO().getIssueDTO(idx);
-		
+		issueDTO dto = dao.getIssueDTO(idx);
+		request.setAttribute("dto", dto);
+		String title = dto.getTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
+		dto.setTitle(title);
+		String content = dto.getContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
+		dto.setContent(content);
+		RequestDispatcher rd = request.getRequestDispatcher("/issue_view.jsp");
+		rd.forward(request, response);
 	
 	}
 

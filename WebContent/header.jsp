@@ -8,6 +8,7 @@
 <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <%
 			UserDTO info = (UserDTO)session.getAttribute("info");
 			ArrayList<issueDTO> issueList = new ArrayList<issueDTO>();
@@ -26,6 +27,8 @@
 		</li>
 		<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">영양제 검색</a></li>						
 		<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">건강 이슈</a></li>
+		<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">로그인</a></li>
+		<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">회원가입</a></li>
 	</ul>
 		
 <!-- 로그인 회원가입 버튼 -->
@@ -59,7 +62,16 @@
 	</div>
 </header>
 
-
+<style>
+@media screen and (max-width: 980px){
+	#navPanel .mobile_header {
+		display:block;
+	}
+	#titleBar .toggle:before {
+		font-family: "FontAwesome";
+	}
+}
+</style>
 <script>
 $(function(){
 	var urlPath = window.location.pathname;
@@ -73,12 +85,12 @@ $(function(){
 	}else if(nowPage == 'issue.jsp' || nowPage == 'issue_write.jsp'){
 		$('#issue_li').addClass('current');
 	}else if(nowPage == 'Community'){
-		$('#cummunity_li').addClass('current');
+		$('#community_li').addClass('current');
 	}else if(nowPage == 'search.jsp'){
 		$('#search_li').addClass('current');
 	}
 	
-	$('#cummunity_li').hover(function(){
+	$('#community_li').hover(function(){
 		$(this).addClass('active');
 	});
 })

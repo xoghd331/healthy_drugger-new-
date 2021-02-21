@@ -62,5 +62,12 @@ public class UserDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [id=" + id + ", pw=" + pw + ", tel=" + tel + ", license=" + license + ", name=" + name + "]";
+	}
+	
+	
 }
 
