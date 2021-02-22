@@ -24,7 +24,7 @@
 		%>
 	
 		<!-- 홈페이지 상단에 웰컴 멘트 : Header -->
-		<header id="header">
+		<header id="header" style="padding-top:24px; padding-bottom:24px;">
 			<div class="logo container">
 				<div>
 					<a href="../main.jsp" id="logo">
