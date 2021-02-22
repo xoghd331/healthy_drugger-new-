@@ -146,11 +146,22 @@
 																	dolor sit non aliquet sed, tempor et dolor. Praesent a dapibus velit. Curabitur
 																	accumsan.
 																</p>
-																<button type="button" class="button" onclick="location='Community/Write3.jsp'">글쓰러 가기</button>
-																<!-- <input type = button value = "글쓰기" onclick = "location='Write.jsp'">
+																
+																<div class="col-12" align="left">
+																<ul class="actions" style="text-align:left">
+																	<li><button type="button" class="button" onclick="location='Community/Write3.jsp'">글쓰러 가기</button></li>
+																	<li><button type="button" class="button alt" onclick="location='Community/List3.jsp' ">게시판으로 이동</button></li>
+																</ul>
+																</div>
+																
+																
+																
+																<!--<button type="button" class="button" onclick="location='Community/Write3.jsp'">글쓰러 가기</button>
+																 <input type = button value = "글쓰기" onclick = "location='Write.jsp'">
 																  <a href="#" class="button">글쓰러 가기</a>
-																-->
 																<button type="button" class="button" onclick="location='Community/List3.jsp' ">게시판으로 이동</button>
+																-->
+																
 															</article>
 
 													</div>
