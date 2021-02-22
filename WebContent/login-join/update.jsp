@@ -7,7 +7,7 @@
 <title>회원정보수정</title>
 	<meta charset="EUC-KR">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/log.css" />
 </head>
 <body class="is-preload" style="padding-top:0px">
 
@@ -18,7 +18,7 @@
 	<div id="page-wrapper">
 	
 		<!-- 홈페이지 상단에 웰컴 멘트 : Header -->
-		<header id="header">
+		<header id="header" style="padding-top:24px; padding-bottom:24px;">
 			<div class="logo container">
 				<div>
 					<a href="../main.jsp" id="logo">
@@ -71,6 +71,8 @@
 							<td><input type="text"  placeholder="자격번호를 입력하세요" name = "license"></td>
 						</tr>
 						</table>
+					
+					<br><br>
 					
 					<div align="center">
 						<input type="submit" value="수정완료" class="button fit"">
