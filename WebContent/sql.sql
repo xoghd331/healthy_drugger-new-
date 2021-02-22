@@ -7,6 +7,8 @@ create table user_info(
 
 alter table user_info add name varchar2(100)
 
+select * from USER_INFO
+
 insert into user_info values('test','123','010-0000-0000','123456789')
 
 select * from user_info

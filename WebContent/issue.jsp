@@ -44,10 +44,9 @@
 										<%for(int i = 0; i < issueList.size(); i++) {%>
 										<article class="box page-content">
 											<header>
-												<h2>건강 정보</h2>
 												<p><a href="WriteView?idx=<%=issueList.get(i).getIdx() %>" style="text-decoration: none;"><%=issueList.get(i).getTitle() %></a></p>
 												<ul class="meta">
-													<li class="icon fa-clock">1 hours ago</li>
+													<li class="icon fa-clock"><%=issueList.get(i).getUp_date() %></li>
 													<li class="icon fa-comments"><a href="#">374</a></li>
 												</ul>
 											</header>
@@ -60,7 +59,6 @@
 										<%} %>
 										<article class="box page-content">
 											<header>
-												<h2>건강 정보</h2>
 												<p>겨울철 감기예방법</p>
 												<ul class="meta">
 													<li class="icon fa-clock">8 hours ago</li>
@@ -75,7 +73,6 @@
 										
 										<article class="box page-content">
 											<header>
-												<h2>건강 정보</h2>
 												<p>감기에 걸리는 이유</p>
 												<ul class="meta">
 													<li class="icon fa-clock">1 days ago</li>
@@ -90,7 +87,6 @@
 										
 										<article class="box page-content">
 											<header>
-												<h2>건강 정보</h2>
 												<p>겨울철 필수영양제</p>
 												<ul class="meta">
 													<li class="icon fa-clock">1 days ago</li>
