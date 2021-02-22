@@ -51,7 +51,7 @@
 					
 					<div align="center">
 						<input type="submit" value="LogIn" class="button">
-						<a href="join.jsp" class="button next scrolly">회원가입</a>
+						<a href="join.jsp" class="button alt">회원가입</a>
 					</div>
 				</form>
 			</div>
