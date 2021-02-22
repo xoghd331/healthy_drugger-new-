@@ -2570,7 +2570,7 @@ input, select, textarea {
 
 	#banner {
 		position: relative;
-		background-image: url("images/overlay.png"), url("images/overlay.png"), url("../../images/banner.jpg");
+		background-image: url("images/overlay.png"), url("images/highlight.png"),url("../../images/bnn.png");
 		background-position: top left, top left, center center;
 		background-repeat: repeat, repeat, no-repeat;
 		background-size: auto, auto, cover;
@@ -2580,8 +2580,8 @@ input, select, textarea {
 
 		#banner .content {
 			position: relative;
-			background-color: rgba(21, 28, 23, 0.85);
-			background-image: url("images/overlay.png"), url("images/highlight.png");
+			background-color: rgba(21, 28, 23, 0.85);/*검색배너색*/
+	 /*도트*/background-image: url("images/overlay.png"), url("images/highlight.png");
 			background-position: top left, center center;
 			background-size: auto, 100% 250%;
 			background-repeat: repeat, no-repeat;
@@ -2591,7 +2591,7 @@ input, select, textarea {
 		}
 
 			#banner .content h2 {
-				color: #fff;
+				color: #000000;
 				font-size: 2.75em;
 				margin: 0 0 0.5em 0;
 			}
@@ -2601,7 +2601,7 @@ input, select, textarea {
 				font-family: 'GyeonggiTitleL', sans-serif;
 				font-weight: 700;
 				text-transform: uppercase;
-				color: #575d59;
+				color: #242323;
 				font-size: 1.35em;
 				margin: 0 0 1.25em 0;
 			}
@@ -2611,10 +2611,10 @@ input, select, textarea {
 				-webkit-transition: border-color .2s ease-in-out, color .2s ease-in-out;
 				-ms-transition: border-color .2s ease-in-out, color .2s ease-in-out;
 				transition: border-color .2s ease-in-out, color .2s ease-in-out;
-				color: #b4b7b5;
+				color: #b4b7b5; /*GO*/
 				background: transparent !important;
 				border: solid 4px #575d59;
-				border-color: rgba(87, 93, 89, 0.35);
+				border-color: rgba(87, 93, 89, 0.35);/*가만히 있을때 테두리*/
 				font-size: 1.5em;
 			}
 
