@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="stylesheet" href="../assets/css/log.css" />
 
 </head>
 <body style="padding-top:0px">
@@ -22,7 +22,7 @@
 	<div id="page-wrapper">
 		
 		<!-- 홈페이지 상단에 웰컴 멘트 : Header -->
-		<header id="header">
+		<header id="header" style="padding-top:24px; padding-bottom:24px;">
 			<div class="logo container">
 				<div>
 					<a href="../main.jsp" id="logo">
@@ -41,7 +41,7 @@
 						<tr>
 							<td>아이디</td>
 							<td>
-								<input id="userId" type="text"  placeholder="ID을 입력하세요" name = "id" style="width:calc( 100% / 1.5 ); display:inline-block;">
+								<input id="userId" type="text"  placeholder="ID을 입력하세요" name = "id" style="width:calc( 100% / 3 ); display:inline-block;">
 								<input id="idChkBtn" type="button" value="중복확인">
 							</td>
 						</tr>
@@ -78,6 +78,8 @@
 							<td><input type="text"  placeholder="자격번호를 입력하세요" name = "license"></td>
 						</tr>
 					</table>
+			
+			<br><br><br>
 			
 					<div align="center">
 						<input id="joinBtn" type="submit" value="회원가입" class="button fit" >
