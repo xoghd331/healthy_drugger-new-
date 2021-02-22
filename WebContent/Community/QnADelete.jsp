@@ -76,6 +76,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	if (info.getId().equals("admin")) {%>
 					<table>
 						<form name = Deleteform method = post action = "../AdminQnADeleteServiceCon">
+							<tr align = "center" height = "50"><td colspan = "2"><b>질문을 삭제하시겠습니까?</b></td></tr>
 <!-- -----------------------------------------------제  목----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "40%" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">제 목</td>
@@ -104,6 +105,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 <!-- -----------------------------------------------로그인 유저일 때 삭제----------------------------------------------- -->
 					<table>
 						<form name = Deleteform method = post action = "../QnADeleteServiceCon">
+							<tr align = "center" height = "50"><td colspan = "2"><b>질문을 삭제하시겠습니까?</b></td></tr>
 <!-- -----------------------------------------------제  목----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "40%" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">제 목</td>
@@ -133,6 +135,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 <!-- -----------------------------------------------비로그인 유저일 때 삭제----------------------------------------------- -->
 					<table>
 						<form name = Deleteform method = post action = "../QnADeleteServiceCon">
+							<tr align = "center" height = "50"><td colspan = "2"><b>질문을 삭제하시겠습니까?</b></td></tr>
 <!-- -----------------------------------------------제  목----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "40%" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">제 목</td>

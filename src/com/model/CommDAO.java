@@ -131,6 +131,35 @@ public class CommDAO {
 		return list;
 	}
 	
+	public CommDTO viewComm(int num) {
+		
+		CommDTO dto = new CommDTO();
+		
+		try {
+			conn();
+			
+			String sql = "SELECT c_num, c_username, c_content, c_date, c_like FROM comm WHERE b_num = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, num);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				dto.setC_num(rs.getInt(1));
+				dto.setC_username(rs.getString(2));
+				dto.setC_content(rs.getString(3));
+				dto.setC_date(rs.getString(4));
+				dto.setC_like(rs.getInt(5));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
+	
 	public CommDTO getComm(int idx, int cidx) {
 		
 		CommDTO dto = new CommDTO();
@@ -226,79 +255,5 @@ public class CommDAO {
 		} finally {
 			close();
 		}
-	}
-	
-	public int update_Like(int bno) {
-		// updateCon에 있는 DB관련코드를 분리하시오.
-		try {
-			conn();
-
-			String sql = "UPDATE comm SET c_like = c_like+1 WHERE c_num = ?";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, bno);
-
-			cnt = psmt.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-
-			close();
-
-		}
-		return cnt;
-
-	}
-
-	public int update_disLike(int bno) {
-		// updateCon에 있는 DB관련코드를 분리하시오.
-		try {
-			conn();
-
-			String sql = "UPDATE comm SET c_like = c_like-1 WHERE c_num = ?";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, bno);
-
-			cnt = psmt.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-
-			close();
-
-		}
-		return cnt;
-
-	}
-
-	public int select_Like(int bno) {
-
-		int like = 0;
-
-		try {
-			conn();
-
-			String sql = "SELECT c_like FROM comm WHERE c_num = ?";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, bno);
-
-			ResultSet rs = psmt.executeQuery();
-
-			if (rs.next()) {
-				like = rs.getInt("c_like");
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-
-		return like;
-
 	}
 }

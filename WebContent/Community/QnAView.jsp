@@ -15,6 +15,8 @@
 	QnADAO qdao = new QnADAO();
 	int total = qdao.count();
 	
+	reQnADAO rqdao = new reQnADAO();
+
 	//QnA 목록(리스트)
 	ArrayList<QnADTO> q_list = qdao.selectQuestions();
 	
@@ -28,7 +30,6 @@
 	qdao.updateViewCount(num);
 	
 	//QnA 답변 갯수 출력
-	reQnADAO rqdao = new reQnADAO();
 	int reQnATotal = rqdao.reQnACount(num);
 	
 	//QnA 답변 목록(리스트)
@@ -147,11 +148,11 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						<tr height = "200px">
 							<td  width="1184" colspan="6" style="white-space: pre-line; padding-left : 15px"><%=qdto.getQ_content()%></td>
 						</tr>
-<!-- 좋아요 기능 추가 -->
+<!-- 좋아요 기능 추가
 						<tr height = "50px">
 							<td align="center" width="1184" colspan="6"><a href = "#">좋아요</a></td>
 						</tr>
-<!-- 좋아요 기능 추가 -->
+좋아요 기능 추가 -->
 					</form>
 				</table>
 <!-- -----------------------------------------------Q&A 뷰 끝----------------------------------------------- -->
@@ -217,11 +218,11 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						<tr height = "200px">
 							<td  width="1184" colspan="6" style="white-space: pre-line; padding-left : 15px"><%=rq_list.get(i).getRQ_content()%></td>
 						</tr>
-<!-- 좋아요 기능 추가 -->
+<!-- 좋아요 기능 추가
 						<tr height = "50px">
 							<td align="center" width="1184" colspan="6"><a href = "#">좋아요</a></td>
 						</tr>
-<!-- 좋아요 기능 추가 -->
+좋아요 기능 추가 -->
 		<%}
 		
 	}%>
@@ -333,11 +334,15 @@ if (info != null) {%>
 							for (int i = ROWSIZE*(pg-1); i < end; i++) {
 								QnADTO dto = q_list.get(i);
 								int idx = dto.getQ_num();
+								int rqNum = rqdao.reQnACount(idx);
 						%>
 						<tr height = "60" align = "center">
 							<td align = "center"><%=idx%></td>
 							<td align = "left">
 								<a href = "QnAView.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=dto.getQ_title() %></a>
+								<%if(rqNum != 0) { %>
+								[<%=rqNum %>]
+								<%} %>
 								<%
 									if(dto.isDayNew()){
 								%>
