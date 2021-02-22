@@ -1,3 +1,4 @@
+<%@page import="com.model.CommDAO"%>
 <%@page import="com.user.UserDTO"%>
 <%@page import="com.model.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -12,6 +13,9 @@
 	request.setCharacterEncoding("EUC-KR");
 	BoardDAO dao = new BoardDAO();
 	int total = dao.count();
+	
+	CommDAO cdao = new CommDAO();
+
 	
 	ArrayList<BoardDTO> b_list = dao.selectWrite();
 		
@@ -65,27 +69,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>건강한 약쟁이가 검색 중입니다</title>
+<title>Healthy Drugger</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
+<!-- 
+CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
+.td input:focus, .td textarea:focus{
+	outline: none;
+}
+ -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="/Healthy_drugger_new/assets/css/main.css" />	
 </head>
-<body>
-	<table width="1980px">
+<body class="is-preload" style="padding-top:0px" id="top">
+	<div id="page-wrapper">
+	<!-- 카테고리 탭 생성하는 코드 : Nav -->
+		<jsp:include page="../header.jsp"/>
+	</div>
+	<table style="margin-top:5%;">
 		<tr>
-			<td width="20%"></td>
+			<td width="5%"></td>
 			<td>
-<!-- -----------------------------------------------상단----------------------------------------------- -->
-				<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
-					<form>
-						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-						<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
-							<td bgcolor = "#B1DDAB"></td>
-							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
-							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "글쓰기" OnClick = "window.location = 'Write3.jsp'"></td>
-						</tr>
-						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-					</form>
-				</table>
-<!-- -----------------------------------------------상단 끝----------------------------------------------- -->
 <!-- -----------------------------------------------게시판 리스트 시작----------------------------------------------- -->
 				<table width = "1184px" border="0" cellspacing = "0">
 					<form>
@@ -108,22 +116,23 @@
 						if(total == 0) {
 						%>
 						<tr align = "center" bgcolor = "#FFFFFF" height = "30">
-							<td colspan = "6">등록된 글이 없습니다.</td>
+							<td colspan = "7">등록된 글이 없습니다.</td>
 						</tr>
 						<% } else {
 							for (int i = 0; i < list.size(); i++) {
 								BoardDTO dto = list.get(i);
-						%>
+								int idx = list.get(i).getB_num();
+								int commNum = cdao.commCount(idx);%>
 						<tr height = "60" align = "center">
 							<td align = "center"><%=list.get(i).getB_num() %></td>
 							<td align = "left">
 								<a href = "View3.jsp?idx=<%=list.get(i).getB_num() %>"><%=list.get(i).getB_title() %></a>
-								<%
-									if(dto.isDayNew()){
-								%>
+								<%if(commNum != 0) { %>
+									[<%=commNum %>]
+								<%} %>
+								<%if(dto.isDayNew()){%>
 										<img src = '../img/new.jpg'>
-								<%
-									} %>
+								<%}%>
 							</td>
 							<td align = "center"><%=list.get(i).getB_username() %></td>
 							<td align = "center"><%=list.get(i).getB_date() %></td>
@@ -144,18 +153,19 @@
 <!-- -----------------------------------------------검색 시작----------------------------------------------- -->
 				<table width = "100%" border="0">
 					<form method = post action = "SearchResult2.jsp">
-					<tr> <!-- 검색 및 쓰기버튼 -->
-						<td colspan = "5">
-							<select name = "search">
-								<option value = "title">제목</option>
-								<option value = "content">내용</option>
-								<option value = "write">글쓴이</option>
-							</select>
-							<input type = "text" name = "inputSearch">
-							<input type = "submit" name = "btnSearch" value = "검색">
-						</td>
-						<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='Write3.jsp'"></td>
-					</tr>
+						<tr> <!-- 검색 및 쓰기버튼 -->
+							<td>
+								<span>
+									<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
+										<option value = "title">제목</option>
+										<option value = "content">내용</option>
+										<option value = "write">글쓴이</option>
+									</select>
+									<input type = "text" name = "inputSearch" value size = "15" style="border:none">
+									<input type = "submit" name = "btnSearch" value = "검색">
+								</span>
+							<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='Write3.jsp'"></td>
+						</tr>
 					</form>
 				</table>
 <!-- -----------------------------------------------검색 끝----------------------------------------------- -->
@@ -200,8 +210,39 @@
 				</table>
 <!-- -----------------------------------------------번호 끝----------------------------------------------- -->
 			</td>
-			<td width="20%"></td>
+			<td width="5%"></td>
 		</tr>
 	</table>
+<!-- Footer -->
+	<footer id="footer">
+	<div class="container">
+	<div class="row gtr-200">
+	<div class="col-12">
+	<!-- About -->
+	<section>
+	<h2 class="major"><span></span></h2>
+	</section>
+	</div>
+	<!-- top버튼 -->
+	<a id="toTop" href="#top">
+	<img src="images/topPill.png" width="60px" height="100px" alt="" >
+	</a>
+	</div>
+	<!-- Copyright -->
+	<div id="copyright">
+	<ul class="menu">
+	<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
+	</ul>
+	</div>
+	</div>
+	</footer>
 </body>
+<script src="/Healthy_drugger_new/assets/js/jquery.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/jquery.dropotron.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/jquery.scrolly.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/browser.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/breakpoints.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/util.js"></script>
+<script src="/Healthy_drugger_new/assets/js/main.js"></script>
+<script src="/Healthy_drugger_new/assets/js/top.js"></script>
 </html>

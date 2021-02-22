@@ -42,6 +42,17 @@
 <head>
 <meta charset="EUC-KR">
 <title>댓글을 수정 중입니다.</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
+<!-- 
+CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
+.td input:focus, .td textarea:focus{
+	outline: none;
+}
+ -->
 </head>
 <body>
 	<table width="1980px">

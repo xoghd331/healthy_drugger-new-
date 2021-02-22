@@ -33,12 +33,16 @@
 <head>
 <meta charset="EUC-KR">
 <title><%=dto.getB_title()%>를 삭제하시겠습니까?</title>
+<style>
+	body{
+		margin:0;
+	}
+</style>
 </head>
 <body>
-	<table width="1980px">
+	<table width="100%">
 		<form>
 			<tr>
-				<td width="20%"></td>
 				<td>
 <!-- -----------------------------------------------상단----------------------------------------------- -->
 					<table width = "100%" cellpadding = "0" cellspacing = "0">
@@ -86,7 +90,7 @@
 	<%} else if (info.getId().equals(dto.getB_username())) {%>
 <!-- -----------------------------------------------로그인 유저일 때 삭제----------------------------------------------- -->
 					<table>
-						<form name = Deleteform method = post action = "DeleteServiceCon">
+						<form name = Deleteform method = post action = "../DeleteServiceCon">
 <!-- -----------------------------------------------제  목----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "26px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">제 목</td>
@@ -115,7 +119,7 @@
 } else {%>
 <!-- -----------------------------------------------비로그인 유저일 때 삭제----------------------------------------------- -->
 					<table>
-						<form name = Deleteform method = post action = "DeleteServiceCon">
+						<form name = Deleteform method = post action = "../DeleteServiceCon">
 <!-- -----------------------------------------------제  목----------------------------------------------- -->
 							<tr height = "55px">
 								<td width = "50px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">제 목</td>
@@ -158,7 +162,6 @@
 						</form>
 					</table>
 				</td>
-				<td width="20%"></td>
 			</tr>
 		</form>
 	</table>

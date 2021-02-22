@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +16,14 @@ import com.model.BoardDTO;
 public class DeleteServiceCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+
+		PrintWriter script = response.getWriter();
+		
 		String username = request.getParameter("b_username");
 		int num = Integer.parseInt(request.getParameter("num"));
-		String title = request.getParameter("b_title");
 		String password = request.getParameter("b_password");
 
 		BoardDAO dao = new BoardDAO();
@@ -27,11 +33,17 @@ public class DeleteServiceCon extends HttpServlet {
 		if (ch == true) {
 			dao.deleteWrite(num);
 			
-			System.out.println("글이 삭제되었습니다.");
+			script.println("<script>");
+			script.println("alert('게시물이 삭제되었습니다')");
+			script.println("location.href='Community/List3.jsp'");
+			script.println("</script>");
 		} else {
-			System.out.println("비밀번호가 틀렸습니다.");
+			script.println("<script>");
+			script.println("alert('비밀번호를 다시 입력해주십시오')");
+			script.println("history.back()");
+			script.println("</script>");
 		}
-		response.sendRedirect("Community/List3.jsp");
+//		response.sendRedirect("Community/List3.jsp");
 	}
 	
 

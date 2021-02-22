@@ -65,23 +65,39 @@
 		end = size;
 	}
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title><%=qdto.getQ_title()%></title>
+<title>Healthy Drugger</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
+<!-- 
+CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
+.td input:focus, .td textarea:focus{
+	outline: none;
+}
+ -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="/Healthy_drugger_new/assets/css/main.css" />	
 </head>
-<body>
-	<table width="1980px">
+<body class="is-preload" style="padding-top:0px" id="top">
+	<div id="page-wrapper">
+		<!-- 카테고리 탭 생성하는 코드 : Nav -->
+		<jsp:include page="../header.jsp"/>
+	</div>
+	<table style="margin-top:5%;">
 		<tr>
-			<td width="20%"></td>
+			<td width="5%"></td>
 			<td>
-<!-- -----------------------------------------------상단----------------------------------------------- -->
+<!-- -----------------------------------------------상단-----------------------------------------------
 				<table width = "100%" cellpadding = "0" cellspacing = "0">
 					<form>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-						<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
+						<tr> 로고 및 커뮤니티 이름 표시, 쓰기 버튼
 							<td bgcolor = "#B1DDAB"></td>
 							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
 							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "글쓰기" OnClick = "window.location = 'QnAWrite.jsp'"></td>
@@ -89,81 +105,67 @@
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 					</form>
 				</table>
-<!-- -----------------------------------------------상단 끝----------------------------------------------- -->
+-----------------------------------------------상단 끝----------------------------------------------- -->
 
 <!-- -----------------------------------------------Q&A 뷰----------------------------------------------- -->
 				<table width = "1184px" align = "center" align = "center" cellpadding = "0" cellspacing = "0">
 					<form>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td width="1184" colspan="6"></td>
 						</tr>
 						<tr height = "60px">
 							<td colspan="6" style = "padding-left : 15px" bgcolor = "#eeeeee"><b><span id="q_title"><%=qdto.getQ_title()%></span></b></td>
 						</tr>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td colspan="6"></td>
 						</tr>
 						<tr height = "35px">
 							<td colspan="4" width = "80%" style = "padding-left : 15px" bgcolor = "#eeeeee">
-								글번호 : <span id="q_num"><%=qdto.getQ_num()%></span> | 작성자 : <%=qdto.getQ_username()%> | 조회수 : <%=qdto.getQ_view()%> | 작성일 : <%=qdto.getQ_date()%>
-							</td>
-	<% if (info != null) {%>
-	<!-- -----------------------------------------------관리자면 삭제 버튼 무조건 활성화----------------------------------------------- -->
-		<% if (info.getId().equals("admin")) {%>
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
-							</td>
-<!-- -----------------------------------------------관리자면 삭제 버튼 무조건 활성화 끔----------------------------------------------- -->
-<!-- -----------------------------------------------로그인와 작성자가 일치하면 수정 삭제 버튼 활성화----------------------------------------------- -->
-			<%} else if (info.getId().equals(qdto.getQ_username())) {%>
+								글번호 : <span id="q_num"><%=qdto.getQ_num()%></span> | 작성자 : <%=qdto.getQ_username()%> | 조회수 : <%=qdto.getQ_view()%> | 작성일 : <%=qdto.getQ_date()%></td>
+						<%if (info != null){%>
+							<%if (info.getId().equals(qdto.getQ_username())) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 								<a href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 							</td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
-<!-- -----------------------------------------------로그인와 작성자가 일치하면 수정 삭제 버튼 활성화 끔----------------------------------------------- -->
-<!-- -----------------------------------------------로그인와 작성자가 불일치하면 수정 삭제 버튼 비활성화----------------------------------------------- -->
-			<% } else { %>
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
-<!-- -----------------------------------------------로그인와 작성자가 불일치하면 수정 삭제 버튼 비활성화 끔----------------------------------------------- -->
-			<% } 
-	 } else { %>
-<!-- -----------------------------------------------비로그인 회원이면 삭제 버튼 무조건 활성화----------------------------------------------- -->
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
-							</td>
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
-							</td>
-<!-- -----------------------------------------------비로그인 회원이면 삭제 버튼 무조건 활성화 끔----------------------------------------------- -->
-	<%}%>
+							<%} else if (info.getId().equals("admin")) { %>
+								<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
+								<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
+									<a href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+								</td>
+							<%} else { %>
+									<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
+									<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
+						<%	} 
+						}%>
 						</tr>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td colspan="6"></td>
 						</tr>
 						<tr height = "200px">
 							<td  width="1184" colspan="6" style="white-space: pre-line; padding-left : 15px"><%=qdto.getQ_content()%></td>
 						</tr>
-						<tr height="1" bgcolor="#000000">
-							<td width="1184" colspan="6"></td>
+<!-- 좋아요 기능 추가 -->
+						<tr height = "50px">
+							<td align="center" width="1184" colspan="6"><a href = "#">좋아요</a></td>
 						</tr>
+<!-- 좋아요 기능 추가 -->
 					</form>
 				</table>
 <!-- -----------------------------------------------Q&A 뷰 끝----------------------------------------------- -->
 
 <!-- -----------------------------------------------답 글 리 스 트----------------------------------------------- -->
 <!-- -----------------------------------------------답글 없음 안내----------------------------------------------- -->
-				<table align = "center" cellpadding = "0" cellspacing = "0">
+				<table width = "1184px" align = "center" align = "center" cellpadding = "0" cellspacing = "0">
 					<form>
-						<tr height="1" bgcolor="#000000">
-							<td colspan="6"></td>
+						<tr height="1" bgcolor="#F2F5F3">
+							<td width="1184" colspan="6"></td>
 						</tr>			
 	<%if (reQnATotal == 0) { %>
-						<tr height = "80px">
-							<td colspan="6" align="center">등록된 답글이 없습니다.</td>
+						<tr height = "80px" align="center">
+							<td colspan="6">등록된 답글이 없습니다.</td>
 						</tr>
 <!-- -----------------------------------------------답글 없음 안내 끔----------------------------------------------- -->
 
@@ -171,32 +173,32 @@
 	<%} else {
 		for (int i = 0; i < rq_list.size(); i++) {
 			int rqnum = rq_list.get(i).getRQ_num();%>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td width="1184" colspan="6"></td>
 						</tr>
 						<tr height = "60px">
-							<td colspan="6" style = "padding-left : 15px" bgcolor = "#eeeeee"><b><span id="q_title"><%=rq_list.get(i).getRQ_title() %></span></b></td>
+							<td colspan="6" style = "padding-left : 15px" bgcolor = "#eeeeee"><b><%=rq_list.get(i).getRQ_title() %></b></td>
 						</tr>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td colspan="6"></td>
 						</tr>
 						<tr height = "35px">
 							<td colspan="4" width = "80%" style = "padding-left : 15px" bgcolor = "#eeeeee">
-								글번호 : <span id="q_num"><%=rq_list.get(i).getRQ_num()%></span> | 작성자 : <%=rq_list.get(i).getRQ_username()%> | 작성일 : <%=rq_list.get(i).getRQ_date()%>
+								글번호 : <%=i+1%> | 작성자 : <%=rq_list.get(i).getRQ_username()%> | 작성일 : <%=rq_list.get(i).getRQ_date()%>
 							</td>
 			<% if (info != null) {%>
 <!-- -----------------------------------------------관리자면 삭제 버튼 무조건 활성화----------------------------------------------- -->
-				<% if (info.getId().equals("admin")) {%>
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
+				<% if (info.getId().equals(rq_list.get(i).getRQ_username())) {%>
+							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
+								<a href = "ReQnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+							</td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 								<a href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
 <!-- -----------------------------------------------관리자면 삭제 버튼 무조건 활성화 끔----------------------------------------------- -->
 <!-- -----------------------------------------------로그인와 작성자가 일치하면 수정 삭제 버튼 활성화----------------------------------------------- -->
-				<%} else if (info.getId().equals(rq_list.get(i).getRQ_username())) {%>
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-								<a href = "ReQnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
-							</td>
+				<%} else if (info.getId().equals("admin")) {%>
+							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 								<a href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
@@ -208,16 +210,18 @@
 <!-- -----------------------------------------------로그인와 작성자가 불일치하면 수정 삭제 버튼 비활성화 끔----------------------------------------------- -->
 				<% } 
 			 }%>
-			 			</tr>
-						<tr height="1" bgcolor="#000000">
+						</tr>
+						<tr height="1" bgcolor="#F2F5F3">
 							<td colspan="6"></td>
 						</tr>
 						<tr height = "200px">
 							<td  width="1184" colspan="6" style="white-space: pre-line; padding-left : 15px"><%=rq_list.get(i).getRQ_content()%></td>
 						</tr>
-						<tr height="1" bgcolor="#000000">
-							<td width="1184" colspan="6"></td>
+<!-- 좋아요 기능 추가 -->
+						<tr height = "50px">
+							<td align="center" width="1184" colspan="6"><a href = "#">좋아요</a></td>
 						</tr>
+<!-- 좋아요 기능 추가 -->
 		<%}
 		
 	}%>
@@ -227,7 +231,7 @@
 <!-- -----------------------------------------------답글 목록 끝----------------------------------------------- -->
 <!-- -----------------------------------------------답 글 리 스 트 끝----------------------------------------------- -->
 <!-- -----------------------------------------------답글 작성----------------------------------------------- -->
-				<table cellpadding = "0" cellspacing = "0">
+				<table cellpadding = "0" cellspacing = "0" border="1">
 					<form>
 <!-- -----------------------------------------------로그인 회원만 답글 작성 가능----------------------------------------------- -->
 <%
@@ -235,7 +239,7 @@ if (info != null) {%>
 <!-- -----------------------------------------------로그인 유저 정보 출력----------------------------------------------- -->
 					<tr>
 						<td width="178" height="30" bgcolor="#eeeeee" align="center">작성자</td>
-						<td width="414" height="30" style="padding-left: 10px;" colspan = "2">
+						<td width="414" height="30"  bgcolor = "#ffffff" style="padding-left: 10px;" colspan = "2">
 							<b><%=info.getId()%></b>
 							<input type = "hidden" id="rq_username" value = "<%=info.getId()%>">
 							<input type = "hidden" id="rq_password" value = "<%=info.getPw()%>">
@@ -243,9 +247,12 @@ if (info != null) {%>
 					</tr>
 <!-- -----------------------------------------------로그인 유저 정보 출력 끝----------------------------------------------- -->
 <!-- -----------------------------------------------내용 입력 칸----------------------------------------------- -->
+					<tr height="2" bgcolor="#F2F5F3">
+						<td colspan="6"></td>
+					</tr>
 					<tr>
 						<td width="178" height="30" bgcolor="#eeeeee" align="center">내용</td>
-						<td width=1006" colspan="3">
+						<td width=1006" bgcolor = "#ffffff" colspan="3">
 							<textarea id="rq_content" cols = 140 rows = 7 style="resize: none; border:none; margin-left: 10px;"></textarea>
 						</td>
 					</tr>
@@ -282,7 +289,7 @@ if (info != null) {%>
 				"rq_password" : rq_password.value,
 				"rq_content" : rq_content.value
 			},
-			url : "ReQnAServiceCon", // 데이터를 전송할 서버 파일 이름
+			url : "../ReQnAServiceCon", // 데이터를 전송할 서버 파일 이름
 			dataType : "text", // 서버에서 오는 응답 방식을 지정
 			success : function(data) {
 				rq_content.value = "";
@@ -292,7 +299,6 @@ if (info != null) {%>
 			},
 
 			error : function() {
-
 				alert("답글 작성에 실패했습니다");
 			}
 		});
@@ -359,16 +365,17 @@ if (info != null) {%>
 				<table width = "100%" border="0">
 					<form method = post action = "QnASearchResult.jsp">
 					<tr> <!-- 검색 및 쓰기버튼 -->
-						<td colspan = "5">
-							<select name = "search">
-								<option value = "title">제목</option>
-								<option value = "content">내용</option>
-								<option value = "write">글쓴이</option>
-							</select>
-							<input type = "text" name = "inputSearch">
-							<input type = "submit" name = "btnSearch" value = "검색">
-						</td>
-						<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='QnAWrite.jsp'"></td>
+						<td>
+							<span>
+								<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
+									<option value = "title">제목</option>
+									<option value = "content">내용</option>
+									<option value = "write">글쓴이</option>
+								</select>
+								<input type = "text" name = "inputSearch" value size = "15" style="border:none">
+								<input type = "submit" name = "btnSearch" value = "검색">
+							</span>
+						<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='Write3.jsp'"></td>
 					</tr>
 					</form>
 				</table>
@@ -414,8 +421,17 @@ if (info != null) {%>
 				</table>
 <!-- -----------------------------------------------번호 끝----------------------------------------------- -->
 			</td>
-			<td width="20%"></td>
+			<td width="5%"></td>
 		</tr>
 	</table>
 </body>
+
+<script src="/Healthy_drugger_new/assets/js/jquery.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/jquery.dropotron.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/jquery.scrolly.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/browser.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/breakpoints.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/util.js"></script>
+<script src="/Healthy_drugger_new/assets/js/main.js"></script>
+<script src="/Healthy_drugger_new/assets/js/top.js"></script>
 </html>

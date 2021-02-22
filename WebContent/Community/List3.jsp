@@ -1,3 +1,4 @@
+<%@page import="com.model.CommDAO"%>
 <%@page import="com.user.UserDTO"%>
 <%@page import="com.model.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -11,6 +12,8 @@
 
 	BoardDAO dao = new BoardDAO();
 	int total = dao.count();
+	
+	CommDAO cdao = new CommDAO();
 	
 	ArrayList<BoardDTO> b_list = dao.selectWrite();
 	//페이지 관련
@@ -47,38 +50,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Healthy Drugger</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="/Healthy_drugger_new/assets/css/main.css" />	
+<title>Healthy Drugger</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
+<!-- 
+CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
+.td input:focus, .td textarea:focus{
+	outline: none;
+}
+ -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="/Healthy_drugger_new/assets/css/main.css" />	
 </head>
 <body class="is-preload" style="padding-top:0px" id="top">
 	<div id="page-wrapper">
-		<!-- 카테고리 탭 생성하는 코드 : Nav -->
+	<!-- 카테고리 탭 생성하는 코드 : Nav -->
 		<jsp:include page="../header.jsp"/>
 	</div>
 	<table style="margin-top:5%;">
 		<tr>
 			<td width="5%"></td>
 			<td>
-<!-- -----------------------------------------------상단----------------------------------------------- -->
-				<!-- <table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
-					<form>
-						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-						<tr> 로고 및 커뮤니티 이름 표시, 쓰기 버튼
-							<td bgcolor = "#B1DDAB"></td>
-							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
-							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "글쓰기" OnClick = "window.location = 'Write3.jsp'"></td>
-						</tr>
-						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-					</form>
-				</table> -->
-<!-- -----------------------------------------------상단 끝----------------------------------------------- -->
 <!-- -----------------------------------------------게시판 리스트 시작----------------------------------------------- -->
 				<table width = "1184px" border="0" cellspacing = "0">
 					<form>
 						<tr height = "2" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>
-						<tr> <!-- 글목록 상단 -->
+						<tr height = "50"> <!-- 글목록 상단 -->
 							<th bgcolor = "#eeeeee" width = "5%">번호</th>
 							<th bgcolor = "#eeeeee" width = "55%">제목</th>
 							<th bgcolor = "#eeeeee" width = "10%">글쓴이</th>
@@ -88,102 +89,90 @@
 							<%if (info != null) {
 								if (info.getId().equals("admin")) {%>
 							<th bgcolor = "#eeeeee" width = "5%">비고</th>
-							<%		} 
-								}%>
+								<%} 
+							}%>
 						</tr>
 						<tr bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>
-						<%
-						if(total == 0) {
-						%>
-						<tr align = "center" bgcolor = "#FFFFFF" height = "30">
+						<%if(total == 0) {%>
+						<tr align = "center" bgcolor = "#FFFFFF" height = "150">
 							<td colspan = "7">등록된 글이 없습니다.</td>
 						</tr>
 						<% } else {
 							for (int i = ROWSIZE*(pg-1); i < end; i++) {
 								BoardDTO dto = b_list.get(i);
 								int idx = dto.getB_num();
-						%>
-						<tr align = "center">
+								int commNum = cdao.commCount(idx);%>
+						<tr height = "60" align = "center">
 							<td align = "center"><%=idx%></td>
 							<td align = "left">
 								<a href = "View3.jsp?idx=<%=dto.getB_num()%>&pg=<%=pg%>"><%=dto.getB_title() %></a>
-								<%
-									if(dto.isDayNew()){
-								%>
-										<img src = '../img/new.jpg'>
-								<%
-									} %>
+									<%if(commNum != 0) { %>
+									[<%=commNum %>]
+									<%} %>
+									<%if(dto.isDayNew()){%>
+									<img src = '../img/new.jpg'>
+									<%} %>
 							</td>
 							<td align = "center"><%=dto.getB_username()%></td>
 							<td align = "center"><%=dto.getB_date() %></td>
 							<td align = "center"><%=dto.getB_like() %></td>
 							<td align = "center"><%=dto.getB_view() %></td>
-							<%if (info != null) {
-								if (info.getId().equals("admin")) {%>
-							<td><a href = "Delete3.jsp?idx=<%=dto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px" style="vertical-align: sub;"></a></td>
-							<%		} 
-								}%>
+								<%if (info != null) {
+									if (info.getId().equals("admin")) {%>
+							<td>
+								<a href = "Delete3.jsp?idx=<%=dto.getB_num()%>&pg=<%=pg%>">
+									<img src = "../img/delete.png" width = "20px" height = "20px" style="vertical-align: sub;">
+								</a>
+							</td>
+									<%} 
+									}%>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>
-						<% 
-							}
-						} %>
+							<%}
+							}%>
 					</form>
 				</table>
 <!-- -----------------------------------------------게시판 리스트 끝----------------------------------------------- -->
+
 <!-- -----------------------------------------------검색 시작----------------------------------------------- -->
 				<table width = "100%" border="0">
 					<form method = post action = "SearchResult2.jsp">
-					<tr> <!-- 검색 및 쓰기버튼 -->
-						<td colspan = "5">
-							<select name = "search" style="appearance: auto; height: 41px; width: 116px;">
-								<option value = "title">제목</option>
-								<option value = "content">내용</option>
-								<option value = "write">글쓴이</option>
-							</select>
-							<input type = "text" name = "inputSearch">
-							<input type = "submit" name = "btnSearch" value = "검색" style="line-height: 12px">
-						</td>
-						<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='Write3.jsp'"></td>
-					</tr>
+						<tr> <!-- 검색 및 쓰기버튼 -->
+							<td>
+								<span>
+									<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
+										<option value = "title">제목</option>
+										<option value = "content">내용</option>
+										<option value = "write">글쓴이</option>
+									</select>
+									<input type = "text" name = "inputSearch" value size = "15" style="border:none">
+									<input type = "submit" name = "btnSearch" value = "검색">
+								</span>
+							<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='Write3.jsp'"></td>
+						</tr>
 					</form>
 				</table>
 <!-- -----------------------------------------------검색 끝----------------------------------------------- -->
+
 <!-- -----------------------------------------------번호 시작----------------------------------------------- -->
 				<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
 					<tr><td colspan = "4" height = "5"></td></tr>
 					<tr>
 						<td align = "center">
-							<%
-							if (pg > BLOCK) {
-							%>
-								[<a href = "List3.jsp?pg=1">◀◀</a>]
-								[<a href = "List3.jsp?pg=<%=startPage-1%>">◀</a>]
-							<%
-							}
-							%>
-					
-							<%
-							for (int i = startPage; i <= endPage; i++) {
-								if (i == pg) {
-							%> 
-								<u><b>[<%=i %>]</b></u>
-							<%
-								} else {
-							%>
-									[<a href = "List3.jsp?pg=<%=i %>"><%=i %></a>]
-							<%
-								}
-							}
-							%>
-					
-							<%
-							if(endPage < allPage){
-							%>
-								[<a href = "List3.jsp?pg=<%=endPage+1%>">▶</a>]
-								[<a href = "List3.jsp?pg=<%=allPage%>">▶▶</a>]
-							<%
-							}
-							%>
+						<%if (pg > BLOCK) {%>
+							[<a href = "List3.jsp?pg=1">◀◀</a>]
+							[<a href = "List3.jsp?pg=<%=startPage-1%>">◀</a>]
+						<%}%>
+						<%for (int i = startPage; i <= endPage; i++) {
+							if (i == pg) {%> 
+							<u><b>[<%=i %>]</b></u>
+							<%} else {%>
+							[<a href = "List3.jsp?pg=<%=i %>"><%=i %></a>]
+							<%}
+							}%>
+						<%if(endPage < allPage){%>
+							[<a href = "List3.jsp?pg=<%=endPage+1%>">▶</a>]
+							[<a href = "List3.jsp?pg=<%=allPage%>">▶▶</a>]
+						<%}%>
 						</td>
 					</tr>
 				</table>
@@ -192,8 +181,30 @@
 			<td width="5%"></td>
 		</tr>
 	</table>
+<!-- Footer -->
+	<footer id="footer">
+	<div class="container">
+	<div class="row gtr-200">
+	<div class="col-12">
+	<!-- About -->
+	<section>
+	<h2 class="major"><span></span></h2>
+	</section>
+	</div>
+	<!-- top버튼 -->
+	<a id="toTop" href="#top">
+	<img src="images/topPill.png" width="60px" height="100px" alt="" >
+	</a>
+	</div>
+	<!-- Copyright -->
+	<div id="copyright">
+	<ul class="menu">
+	<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
+	</ul>
+	</div>
+	</div>
+	</footer>
 </body>
-
 <script src="/Healthy_drugger_new/assets/js/jquery.min.js"></script>
 <script src="/Healthy_drugger_new/assets/js/jquery.dropotron.min.js"></script>
 <script src="/Healthy_drugger_new/assets/js/jquery.scrolly.min.js"></script>

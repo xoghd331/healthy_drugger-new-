@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +17,10 @@ public class WriteServiceCon3 extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
 
 		String username = request.getParameter("b_username");
 		String password = request.getParameter("b_password");
@@ -28,12 +33,18 @@ public class WriteServiceCon3 extends HttpServlet {
 		int cnt = dao.insertWrite(dto);
 		
 		if (cnt > 0) {
-			System.out.println("글 작성 성공");
+			script.println("<script>");
+			script.println("alert('글쓰기 성공')");
+			script.println("location.href='Community/List3.jsp'");
+			script.println("</script>");
 		} else {
-			System.out.println("글 작성 실패");
+			script.println("<script>");
+			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("history.back()");
+			script.println("</script>");
 		}
 		
-		response.sendRedirect("Community/List3.jsp");
+//		response.sendRedirect("Community/List3.jsp");
 	}
 
 }

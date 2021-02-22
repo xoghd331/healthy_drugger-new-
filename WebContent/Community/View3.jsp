@@ -20,7 +20,6 @@
 	BoardDTO vdto = dao.viewWrite(num);
 	dao.updateViewCount(num);
 	
-	
 	CommDAO cdao = new CommDAO();
 	int commTotal = cdao.commCount(num);
 	
@@ -60,19 +59,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title><%=vdto.getB_title()%></title>
+<title>Healthy Drugger</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
+<!-- 
+CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
+.td input:focus, .td textarea:focus{
+	outline: none;
+}
+ -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="/Healthy_drugger_new/assets/css/main.css" />	
 </head>
-<body>
-	<table width="1980px">
-		<tr>
-			<td width="20%"></td>
-			<td>
-<!-- -----------------------------------------------상단----------------------------------------------- -->
+<body class="is-preload" style="padding-top:0px" id="top">
+	<div id="page-wrapper">
+		<!-- 카테고리 탭 생성하는 코드 : Nav -->
+		<jsp:include page="../header.jsp"/>
+	</div>
+	<table style="margin-top:5%;">
+			<tr>
+				<td width="5%"></td>
+				<td>
+<!-- 
+상단
 				<table width = "100%" cellpadding = "0" cellspacing = "0">
 					<form>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-						<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
+						<tr> 로고 및 커뮤니티 이름 표시, 쓰기 버튼
 							<td bgcolor = "#B1DDAB"></td>
 							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
 							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "글쓰기" OnClick = "window.location = 'Write3.jsp'"></td>
@@ -80,82 +97,131 @@
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 					</form>
 				</table>
-<!-- -----------------------------------------------상단 끝----------------------------------------------- -->
+-->
 <!-- -----------------------------------------------뷰----------------------------------------------- -->
 				<table width = "1184px" align = "center" align = "center" cellpadding = "0" cellspacing = "0">
 					<form>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td width="1184" colspan="6"></td>
 						</tr>
 						<tr height = "60px">
 							<td colspan="6" style = "padding-left : 15px" bgcolor = "#eeeeee"><b><span id="b_title"><%=vdto.getB_title()%></span></b></td>
 						</tr>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td colspan="6"></td>
 						</tr>
 						<tr height = "35px">
 							<td colspan="4" width = "80%" style = "padding-left : 15px" bgcolor = "#eeeeee">
-								글번호 : <span id="b_num"><%=vdto.getB_num()%></span> | 작성자 : <%=vdto.getB_username()%> | 조회수 : <%=vdto.getB_view()%> | 작성일 : <%=vdto.getB_date()%></td>
+								글번호 : <span id="b_num"><%=vdto.getB_num()%></span> | 작성자 : <%=vdto.getB_username()%> | 조회수 : <%=vdto.getB_view()%> | 작성일 : <%=vdto.getB_date()%>
+							</td>
 						<%if (info != null){%>
-						<!-- -----------------------------------------------관리자면 무조건 띄우기----------------------------------------------- -->
-							<%if (info.getId().equals("admin")) {%>
-							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
+							<%if (info.getId().equals(vdto.getB_username())) {%>
+							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
+								<a href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+							</td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 								<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
-						<!-- -----------------------------------------------관리자면 무조건 띄우기 끝----------------------------------------------- -->
-							<%} else if (info.getId().equals(vdto.getB_username())) { %>
-						<!-- -----------------------------------------------로그인 한 유저 = getB_username() 띄우기----------------------------------------------- -->
-								<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
-									<a href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
-								</td>
+							<%} else if (info.getId().equals("admin")) { %>
+								<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
 								<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 									<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 								</td>
-						<!-- -----------------------------------------------로그인 한 유저 = getB_username() 띄우기 끝------------------------------------------------->
 							<%} else { %>
-						<!-- -----------------------------------------------로그인 한 유저 != getB_username() 안 띄우기----------------------------------------------- -->
 									<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
 									<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
-						<!-- -----------------------------------------------로그인 한 유저 != getB_username() 안 띄우기 끝----------------------------------------------- -->
-						
 
 						<%	} 
 						} else {%>
-						<!-- -----------------------------------------------로그인 한 유저가 아니면 무조건 띄위기----------------------------------------------- -->
 									<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 										<a href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 									</td>
 									<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 										<a href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 									</td>
-						<!-- -----------------------------------------------로그인 한 유저가 아니면 무조건 띄위기 끝----------------------------------------------- -->
 						<%} %>
 						</tr>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td colspan="6"></td>
 						</tr>
 						<tr height = "200px">
 							<td  width="1184" colspan="6" style="white-space: pre-line; padding-left : 15px"><%=vdto.getB_content()%></td>
 						</tr>
-						<tr height="1" bgcolor="#000000">
-							<td width="1184" colspan="6"></td>
+<!-- 좋아요 기능 추가 -->
+						<tr height = "50px">
+							<td align="center" width="1184" colspan="6"><input id="b_like_btn" type="button" value="좋아요" onclick="boardLike()"><span id="b_like_result"><%=vdto.getB_like() %></span></td>
 						</tr>
+<!-- 좋아요 기능 추가 -->
 					</form>
 				</table>
 <!-- -----------------------------------------------뷰 끝----------------------------------------------- -->
+<!-- -----------------------------------------------좋아요 기능----------------------------------------------- -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		function boardLike() {
+			var board_num = document.getElementById("b_num");
+			var btn_like = document.getElementById("b_like_btn");
+			if (btn_like.value == "좋아요") {
+				//ajaxCall메소드구현(함수)
+				$.ajax({
+					type : "post", //전송방식
+					data : {
+						"b_num" : b_num.innerHTML
+					}, //서버로 보내는 값
+					url : "../BoardLikeService", //서버파일이름
+					dataType : "text",//서버에서 오는 응답방식
+					success : function(data) {
+						//alert("'좋아요'가 반영되었습니다!"); // data중 put한 것의 이름 like
+						var result = document.getElementById("b_like_result");
+						result.innerHTML = data;
+						var btn_like = document.getElementById("b_like_btn");
+						btn_like.value = "좋아요 취소";
+					},
+					error : function(request,status,error) {
+						//실패했을때
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+						alert("ajax실패");
+					}
+				});
+			} else {
+				//ajaxCall메소드구현(함수)
+				$.ajax({
+					type : "post", //전송방식
+					data : {
+						"b_num" : b_num.innerHTML
+					}, //서버로 보내는 값
+					url : "../BoardDisLikeService", //서버파일이름
+					dataType : "text",//서버에서 오는 응답방식
+					success : function(data) {
+						//alert("'좋아요'가 반영되었습니다!"); // data중 put한 것의 이름 like
+						var result = document.getElementById("b_like_result");
+						result.innerHTML = data;
+						var btn_like = document.getElementById("b_like_btn");
+						btn_like.value = "좋아요";
+					},
+					error : function(request,status,error) {
+						//실패했을때
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+						alert("ajax실패");
+					}
+				});
+
+			}
+		}
+	</script>
+<!-- -----------------------------------------------좋아요 기능 끝----------------------------------------------- -->
 <!-- -----------------------------------------------댓글리스트----------------------------------------------- -->
 <!-- -----------------------------------------------댓글 없으면 안뜨게하기----------------------------------------------- -->
 				<table align = "center" cellpadding = "0" cellspacing = "0">
 					<form>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td colspan="6"></td>
 						</tr>
 						<%
 						if (commTotal == 0) {
 						%>
-						<tr height = "80px">
-							<td colspan="6" align="center">등록된 댓글이 없습니다.</td>
+						<tr height = "80px" align="center">
+							<td colspan="6">등록된 댓글이 없습니다.</td>
 						</tr>
 <!-- -----------------------------------------------댓글 없으면 안뜨게하기 끝----------------------------------------------- -->
 <!-- -----------------------------------------------댓글목록 출력----------------------------------------------- -->
@@ -184,6 +250,7 @@
 								if (info.getId().equals("admin")) {%>
 						<!-- -----------------------------------------------관리자면 무조건 띄우기----------------------------------------------- -->
 									<td width = "74px" align = "center" bgcolor = "#eeeeee"></td>
+										<input id="c_like_btn" type="button" value="좋아요" onclick="commLike()"><span id="c_like_result"><%=c_list.get(i).getC_like() %></span>
 									<td width = "74px" align = "center" bgcolor = "#eeeeee">
 										<a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 									</td>
@@ -191,22 +258,32 @@
 								<%} else if (info.getId().equals(c_list.get(i).getC_username())) {%>
 						<!-- -----------------------------------------------로그인 한 유저 = getC_username() 띄우기----------------------------------------------- -->
 									<td width = "74px" align = "center" bgcolor = "#eeeeee">
-										<a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+										<input id="c_like_btn" type="button" value="좋아요" onclick="commLike()"><span id="c_like_result"><%=c_list.get(i).getC_like() %></span>
 									</td>
 									<td width = "74px" align = "center" bgcolor = "#eeeeee">
+										<a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
 										<a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 									</td>
 						<!-- -----------------------------------------------로그인 한 유저 = getC_username() 띄우기 끝------------------------------------------------->
 									<%} else { %>
 						<!-- -----------------------------------------------로그인 한 유저 != getC_username() 안 띄우기----------------------------------------------- -->
-									<td width = "74px" align = "center" bgcolor = "#eeeeee"></td>
-									<td width = "74px" align = "center" bgcolor = "#eeeeee"></td>
-						<!-- -----------------------------------------------로그인 한 유저 != getC_username() 안 띄우기 끝----------------------------------------------- -->
+									<td width = "74px" align = "center" bgcolor = "#eeeeee">
+										<input id="c_like_btn" type="button" value="좋아요" onclick="commLike()"><span id="c_like_result"><%=c_list.get(i).getC_like() %></span>
+									</td>
+									<td width = "74px" align = "center" bgcolor = "#eeeeee">
+										<a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+										<a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+									</td>						<!-- -----------------------------------------------로그인 한 유저 != getC_username() 안 띄우기 끝----------------------------------------------- -->
 									<% }
 							} else { %>
 						<!-- -----------------------------------------------로그인 한 유저가 아니면 무조건 띄위기----------------------------------------------- -->
-							<td width = "74px" align = "center" bgcolor = "#eeeeee"><a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a></td>
-							<td width = "74px" align = "center" bgcolor = "#eeeeee"><a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a></td>
+									<td width = "74px" align = "center" bgcolor = "#eeeeee">
+										<input id="c_like_btn" type="button" value="좋아요" onclick="commLike()"><span id="c_like_result"><%=c_list.get(i).getC_like() %></span>
+									</td>
+									<td width = "74px" align = "center" bgcolor = "#eeeeee">
+										<a href = "ModifyComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+										<a href = "DeleteComm2.jsp?idx=<%=vdto.getB_num()%>&cidx=<%=cnum %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+									</td>
 						<!-- -----------------------------------------------로그인 한 유저가 아니면 무조건 띄위기 끝----------------------------------------------- -->
 							<%}
 						%>
@@ -218,20 +295,76 @@
 						}
 						}
 						%>
-						<tr height="1" bgcolor="#000000">
+						<tr height="1" bgcolor="#F2F5F3">
 							<td width="1184" colspan="6"></td>
 						</tr>
 					</form>
 				</table>
 <!-- -----------------------------------------------댓글목록 출력 끝----------------------------------------------- -->
+
+<!-- -----------------------------------------------좋아요 기능----------------------------------------------- -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		function commLike() {
+			var Comm_num = document.getElementById("cnum");
+			var btn_like = document.getElementById("c_like_btn");
+			if (btn_like.value == "좋아요") {
+				//ajaxCall메소드구현(함수)
+				$.ajax({
+					type : "post", //전송방식
+					data : {
+						"cnum" : cnum.innerHTML
+					}, //서버로 보내는 값
+					url : "../CommLikeService", //서버파일이름
+					dataType : "text",//서버에서 오는 응답방식
+					success : function(data) {
+						//alert("'좋아요'가 반영되었습니다!"); // data중 put한 것의 이름 like
+						var result = document.getElementById("c_like_result");
+						result.innerHTML = data;
+						var btn_like = document.getElementById("c_like_btn");
+						btn_like.value = "좋아요 취소";
+					},
+					error : function(request,status,error) {
+						//실패했을때
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+						alert("ajax실패");
+					}
+				});
+			} else {
+				//ajaxCall메소드구현(함수)
+				$.ajax({
+					type : "post", //전송방식
+					data : {
+						"cnum" : cnum.innerHTML
+					}, //서버로 보내는 값
+					url : "../CommDisLikeService", //서버파일이름
+					dataType : "text",//서버에서 오는 응답방식
+					success : function(data) {
+						//alert("'좋아요'가 반영되었습니다!"); // data중 put한 것의 이름 like
+						var result = document.getElementById("c_like_result");
+						result.innerHTML = data;
+						var btn_like = document.getElementById("c_like_btn");
+						btn_like.value = "좋아요";
+					},
+					error : function(request,status,error) {
+						//실패했을때
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+						alert("ajax실패");
+					}
+				});
+
+			}
+		}
+	</script>
+<!-- -----------------------------------------------좋아요 기능 끝----------------------------------------------- -->
 <!-- -----------------------------------------------댓글 작성----------------------------------------------- -->
-				<table cellpadding = "0" cellspacing = "0">
+				<table cellpadding = "0" cellspacing = "1" border = "1">
 					<form>
 					<%if (info != null) {%>
 					<!-- -----------------------------------------------로그인 한 유저 작성자 : 로그인 유저 출력----------------------------------------------- -->
 					<tr>
 						<td width="178" height="30" bgcolor="#eeeeee" align="center">작성자</td>
-						<td width="414" height="30" style="padding-left: 10px;" colspan = "2">
+						<td width="414" height="30"  bgcolor = "#ffffff" style="padding-left: 10px;" colspan = "2">
 							<b><%=info.getId()%></b>
 							<input type = "hidden" name = "c_username" id="c_username" value = "<%=info.getId()%>">
 							<input type = "hidden" name = "c_password" id="c_password" value = "<%=info.getPw()%>">
@@ -243,22 +376,29 @@
 					<!-- -----------------------------------------------로그인 한 유저가 아니면 작성하기 무조건 띄위기----------------------------------------------- -->
 					<tr>
 						<td width="178" height="30" bgcolor="#eeeeee" align="center">작성자</td>
-						<td width="414" height="30" style="padding-left: 10px;">
-							<input type="text" id="c_username" size="35" maxlength="20" style="border:none">
+						<td width="414" height="30" bgcolor = "#ffffff" style="padding-left: 10px;">
+							<input type="text" id="c_username" size="35" maxlength="20" style="width:100%; border:none">
 						</td>
 						<td width="178" height="30" bgcolor="#eeeeee" align="center">비밀번호</td>
-						<td width="414" height="30" style="padding-left: 10px;">
-							<input type="password" id="c_password" size="35" maxlength="50" style="border:none">
+						<td width="414" height="30" bgcolor = "#ffffff" style="padding-left: 10px;">
+							<input type="password" id="c_password" size="35" maxlength="50" style="width:100%; border:none">
 						</td>
 					</tr>
 					<!-- -----------------------------------------------로그인 한 유저가 아니면 작성하기 무조건 띄위기----------------------------------------------- -->
 					<%}%>
+					<tr height="2" bgcolor="#F2F5F3">
+						<td colspan="6"></td>
+					</tr>
 					<tr>
-						<td width="178" height="30" bgcolor="#eeeeee" align="center">내용</td>
-						<td width=1006" colspan="3">
-							<textarea id="comment" cols = 140 rows = 7 style="resize: none; border:none; margin-left: 10px;"></textarea>
+						<td width="178" bgcolor="#eeeeee" align = "middle">내용</td>
+						<td width=1006" bgcolor = "#ffffff" colspan="3" style="padding-left: 10px;">
+							<textarea id="comment" cols = 140 rows = 7 style="width:100%; resize: none; border:none;"></textarea>
 						</td>
 					</tr>
+					</form>
+				</table>
+				<table>
+					<form>
 					<tr>
 						<td width="1184" height="30" colspan="4" align="right" style="padding-right: 15px;">
 							<input type="button" value="등록하기" onclick="commWriteCall()">
@@ -286,10 +426,10 @@
 				"c_password" : c_password.value,
 				"comment" : comment.value
 			},
-			url : "CommentServiceCon", // 데이터를 전송할 서버 파일 이름
+			url : "../CommentServiceCon", // 데이터를 전송할 서버 파일 이름
 			dataType : "text", // 서버에서 오는 응답 방식을 지정
 			success : function(data) {
-				c_username.value = "";
+                c_username.value = "";
 				c_password.value = "";
 				comment.value = "";
 
@@ -334,11 +474,15 @@
 							for (int i = ROWSIZE*(pg-1); i < end; i++) {
 								BoardDTO dto = b_list.get(i);
 								int idx = dto.getB_num();
+								int commNum = cdao.commCount(idx);
 						%>
 						<tr height = "60" align = "center">
 							<td align = "center"><%=idx%></td>
 							<td align = "left">
 								<a href = "View3.jsp?idx=<%=dto.getB_num()%>&pg=<%=pg%>"><%=dto.getB_title() %></a>
+								<%if(commNum != 0) { %>
+								[<%=commNum %>]
+								<%} %>
 								<%
 									if(dto.isDayNew()){
 								%>
@@ -364,20 +508,21 @@
 <!-- -----------------------------------------------게시판 리스트 끝----------------------------------------------- -->
 	
 <!-- -----------------------------------------------검색 시작----------------------------------------------- -->
-				<table width = "1184px" border="0">
+				<table width = "100%" border="0">
 					<form method = post action = "SearchResult2.jsp">
-						<tr> <!-- 검색 및 쓰기버튼 -->
-							<td colspan = "5">
-								<select name = "search">
+					<tr> <!-- 검색 및 쓰기버튼 -->
+						<td>
+							<span>
+								<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
 									<option value = "title">제목</option>
 									<option value = "content">내용</option>
 									<option value = "write">글쓴이</option>
 								</select>
-								<input type = "text" name = "inputSearch">
+								<input type = "text" name = "inputSearch" value size = "15" style="border:none">
 								<input type = "submit" name = "btnSearch" value = "검색">
-							</td>
-							<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='Write3.jsp'"></td>
-						</tr>
+							</span>
+						<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='Write3.jsp'"></td>
+					</tr>
 					</form>
 				</table>
 <!-- -----------------------------------------------검색 끝----------------------------------------------- -->
@@ -423,8 +568,17 @@
 				</table>
 <!-- -----------------------------------------------번호 끝----------------------------------------------- -->
 			</td>
-			<td width="20%"></td>
+			<td width="5%"></td>
 		</tr>
 	</table>
 </body>
+
+<script src="/Healthy_drugger_new/assets/js/jquery.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/jquery.dropotron.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/jquery.scrolly.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/browser.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/breakpoints.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/util.js"></script>
+<script src="/Healthy_drugger_new/assets/js/main.js"></script>
+<script src="/Healthy_drugger_new/assets/js/top.js"></script>
 </html>

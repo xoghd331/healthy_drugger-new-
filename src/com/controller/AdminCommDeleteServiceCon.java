@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,18 +15,28 @@ import com.model.CommDTO;
 @WebServlet("/AdminCommDeleteServiceCon")
 public class AdminCommDeleteServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
+		
 		int cnum = Integer.parseInt(request.getParameter("Cnum"));
 		int bnum = Integer.parseInt(request.getParameter("Bnum"));
-		String password = request.getParameter("password");
+		String password = request.getParameter("c_password");
 		int idx;
 		
 		CommDAO dao = new CommDAO();
 		CommDTO dto = new CommDTO();
 		
 		dao.deleteComm(cnum);
-			
-		response.sendRedirect("Community/View3.jsp?idx=" + bnum + "&pg=<%=pg%>");
+		
+		script.println("<script>");
+		script.println("alert('댓글 삭제 성공')");
+		script.println("location.href='Community/View3.jsp?idx=" + bnum + "&pg=<%=pg%>'");
+		script.println("</script>");
+		
+//		response.sendRedirect("Community/View3.jsp?idx=" + bnum + "&pg=<%=pg%>");
 	}
 
 }

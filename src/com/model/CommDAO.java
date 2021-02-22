@@ -228,8 +228,77 @@ public class CommDAO {
 		}
 	}
 	
-	
-	
-	
+	public int update_Like(int bno) {
+		// updateCon에 있는 DB관련코드를 분리하시오.
+		try {
+			conn();
 
+			String sql = "UPDATE comm SET c_like = c_like+1 WHERE c_num = ?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bno);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			close();
+
+		}
+		return cnt;
+
+	}
+
+	public int update_disLike(int bno) {
+		// updateCon에 있는 DB관련코드를 분리하시오.
+		try {
+			conn();
+
+			String sql = "UPDATE comm SET c_like = c_like-1 WHERE c_num = ?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bno);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			close();
+
+		}
+		return cnt;
+
+	}
+
+	public int select_Like(int bno) {
+
+		int like = 0;
+
+		try {
+			conn();
+
+			String sql = "SELECT c_like FROM comm WHERE c_num = ?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bno);
+
+			ResultSet rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				like = rs.getInt("c_like");
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return like;
+
+	}
 }

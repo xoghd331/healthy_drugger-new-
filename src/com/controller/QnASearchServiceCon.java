@@ -19,6 +19,9 @@ public class QnASearchServiceCon extends HttpServlet {
 		String search = request.getParameter("search");
 		String in_search = request.getParameter("inputSearch");
 		
+		System.out.println(search);
+		System.out.println(in_search);
+		
 		QnADAO dao = new QnADAO();
 		
 		if (search.equals("title")) {

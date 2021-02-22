@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,8 +16,10 @@ import com.model.QnADTO;
 public class QnAWriteServiceCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
 
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 		String username = request.getParameter("q_username");
 		String password = request.getParameter("q_password");
 		String title = request.getParameter("q_title");
@@ -27,12 +31,20 @@ public class QnAWriteServiceCon extends HttpServlet {
 		int cnt = dao.insertQuestions(dto);
 		
 		if (cnt > 0) {
-			System.out.println("글 작성 성공");
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('글쓰기 성공')");
+			script.println("location.href='Community/QnAList.jsp'");
+			script.println("</script>");
 		} else {
-			System.out.println("글 작성 실패");
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("history.back()");
+			script.println("</script>");
 		}
 		
-		response.sendRedirect("Community/QnAList.jsp");
+//		response.sendRedirect("QnAList.jsp");
 	}
 
 }

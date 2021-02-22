@@ -38,113 +38,86 @@
 		form.submit();
 		} 
 </script>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title><%=dto.getQ_title()%>를 수정 중입니다.</title>
+<title>Healthy Free Board</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
+<!-- 
+CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
+.td input:focus, .td textarea:focus{
+	outline: none;
+}
+ -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="../assets/css/issueWrite.css" />
 </head>
-<body>
-	<table width="1980px">
-		<form>
+<body class="is-preload" style="padding-top:0px">
+	
+	<div id="page-wrapper">
+	<jsp:include page="../header.jsp"/>
+	
+		<div align="center">
+			<br><br><br>
+			<b><font size="18" color="gray">수정하기</font></b>
+			<br>
+		 </div>
+		<table>
 			<tr>
-				<td width="20%"></td>
+				<td width="5%"></td>
 				<td>
-<!-- -----------------------------------------------상단----------------------------------------------- -->
-					<table width = "100%" cellpadding = "0" cellspacing = "0">
-						<form>
-							<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-							<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
-								<td bgcolor = "#B1DDAB"></td>
-								<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
-								<td bgcolor = "#B1DDAB" align = "right"></td>
-							</tr>
-							<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-						</form>
-					</table>
-<!-- -----------------------------------------------상단 끝----------------------------------------------- -->
-<!-- -----------------------------------------------작성 공간----------------------------------------------- -->
-					<table width = "1184px" align = "center" align = "center" cellpadding = "0" cellspacing = "0">
-						<form name=Modifyform method=post action="../QnAModifyServiceCon">
-							<tr height="1" bgcolor="#000000">
-								<td width="1184" colspan="6"></td>
-							</tr>
-<!-- -----------------------------------------------제  목----------------------------------------------- -->
-							<tr height = "55px">
-								<td width = "400px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">제 목</td>
-								<td colspan="4" style = "padding-left : 5px">
-									<input type = "text" name = "q_title" value = <%=dto.getQ_title() %> size = "50" maxlength = "100" style="padding-left: 20px; border:none; width:800px; height:60px; font-size : 18px; font-style : "GyeonggiTitleM.ttf";">
-								</td>
-							</tr>
-							<tr height="1" bgcolor="#000000">
-								<td colspan="6"></td>
-							</tr>					
-	<!-- -------------------------------------------작성자 및 비밀번호------------------------------------------- -->
-	<%
-	if (info != null) {
-	%>
-							<tr height = "55px">
-								<td width = "400px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">작성자</td>
-								<td colspan="4" style = "padding-left : 26px">
-									<b><%=info.getId() %></b>
+					<form name = Modifyform method="post" action="../QnAModifyServiceCon">
+						<table width="700" border="3" bordercolor="lightgray" align="center">
+							<tr>
+								<td id="title">작성자</td>
+								<td>
+									<%=info.getId() %>
 									<input type = "hidden" name = "q_username" value = "<%=info.getId() %>">
 									<input type = "hidden" name = "q_password" value = "<%=info.getPw() %>">
-								</td>
-							</tr>
-							<tr height="1" bgcolor="#000000">
-								<td colspan="6"></td>
-							</tr>
-	<%
-	} else {
-	%>
-							<tr height = "55px">
-								<td width = "400px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">작성자</td>
-								<td colspan="4" style = "padding-left : 26px">
-								<%= dto.getQ_username() %>
-									<input type = "hidden" name = "q_username" size = "50">
-								</td>
-							</tr>
-							<tr height="1" bgcolor="#000000">
-								<td colspan="6"></td>
-							</tr>						
-							<tr height = "55px">
-								<td width = "400px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">비밀번호</td>
-								<td colspan="4" style = "padding-left : 5px">
-									<input type = "password" name = "q_password" size = "50" maxlength = "100" style="border:none; width:800px; height:60px; font-size : 18px; padding-left: 20px;">
-								</td>
-							</tr>
-							<tr height="1" bgcolor="#000000">
-								<td colspan="6"></td>
-							</tr>
-	<%
-	}
-	%>
-<!-- -----------------------------------------------내  용----------------------------------------------- -->
-							<tr height="1" bgcolor="#000000">
-								<td colspan="6"></td>
-							</tr>
-							<tr height = "600px">
-								<td width = "400px" colspan="2" style = "font-size : 18px; font-style : "GyeonggiTitleM.ttf"" bgcolor = "#eeeeee" align  ="center">내 용</td>
-								<td colspan="4" style="padding-left : 15px">
-									<textarea name = "q_content" cols = 90 rows = 27 style="resize: none; border:none; font-size : 18px; padding-top: 20px; padding-left: 20px;"><%=dto.getQ_content() %></textarea>
-									<input type = "hidden" name = "num" value = "<%=dto.getQ_num() %>">
-								</td>
+								<td>
 							</tr>
 							<tr>
-								<td Width = "1184" colspan="6" align = "center">
-									<input type = "button" value = "수정" OnClick = "javascript:modifyCheck();">
+								<td id="title">제 목</td>
+								<td>
+									<input type = "text" name="q_title" value = "<%=dto.getQ_title() %>">
+								</td>        
+							</tr>
+							<tr>
+								<td id="title">내 용</td>
+								<td>
+									<textarea name="q_content" cols="72" rows="20"><%=dto.getQ_content() %></textarea>            
+								</td>        
+							</tr>
+							<tr height = "20"><td></td></tr>
+							<tr align="center" valign="middle">
+								<td colspan="5">
+									<input type = "hidden" name = "num" value = "<%=dto.getQ_num() %>">
+									<input type = "button" value="목록" OnClick = "location.href='QnAList.jsp'">            
+									<input type = "button" value = "등록" OnClick = "javascript:modifyCheck();">
 									<input type = "button" value = "취소" OnClick = "javascript:history.back(-1)">
 								</td>
-							<tr height="2" bgcolor="#000000">
-								<td width="1184" colspan="6"></td>
 							</tr>
-						</form>
-					</table>
-<!-- -----------------------------------------------수정 폼 끝----------------------------------------------- -->
-							</td>
-				<td width="20%"></td>
+						</table>    
+					</form>
+				</td>
+				<td width="5%"></td>
 			</tr>
-		</form>
-	</table>
+		</table>
+	</div>
 </body>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/top.js"></script>
 </html>

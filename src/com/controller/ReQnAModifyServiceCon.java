@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,12 @@ import com.model.reQnADTO;
 @WebServlet("/ReQnAModifyServiceCon")
 public class ReQnAModifyServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
+
 		int qnum = Integer.parseInt(request.getParameter("qnum"));
 		int rqnum = Integer.parseInt(request.getParameter("rqnum"));
 		String username = request.getParameter("rq_username");
@@ -34,11 +41,17 @@ public class ReQnAModifyServiceCon extends HttpServlet {
 		if (ch == true) {
 			dao.modifyReQuestions(content, rqnum);
 			
-			System.out.println("글이 수정되었습니다.");
-		} else {
-			System.out.println("비밀번호가 틀렸습니다.");
+			script.println("<script>");
+			script.println("alert('답글 수정 성공')");
+			script.println("location.href='Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
+			script.println("</script>");		}
+		else {
+			script.println("<script>");
+			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("history.back()");
+			script.println("</script>");
 		}
-		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
+//		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
 	}
 
 }

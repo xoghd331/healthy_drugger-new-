@@ -1,3 +1,4 @@
+<%@page import="com.model.reQnADAO"%>
 <%@page import="com.user.UserDTO"%>
 <%@page import="com.model.QnADTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -10,6 +11,8 @@
 
 	QnADAO dao = new QnADAO();
 	int total = dao.count();
+	
+	reQnADAO rqdao = new reQnADAO();
 	
 	ArrayList<QnADTO> q_list = dao.selectQuestions();
 	//페이지 관련
@@ -46,19 +49,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Q&A 목록</title>
+<title>Healthy Drugger</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
+<!-- 
+CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
+.td input:focus, .td textarea:focus{
+	outline: none;
+}
+ -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="/Healthy_drugger_new/assets/css/main.css" />	
 </head>
-<body>
-<table width = "1920px">
-	<tr>
-		<td width = "20%"></td>
+<body class="is-preload" style="padding-top:0px" id="top">
+	<div id="page-wrapper">
+		<!-- 카테고리 탭 생성하는 코드 : Nav -->
+		<jsp:include page="../header.jsp"/>
+	</div>
+	<table style="margin-top:5%;">
+		<tr>
+			<td width="5%"></td>
 			<td>
-<!-- -----------------------------------------------상단----------------------------------------------- -->
+<!-- -----------------------------------------------상단-----------------------------------------------
 				<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
 					<form>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-						<tr> <!-- 로고 및 커뮤니티 이름 표시, 쓰기 버튼 -->
+						<tr> 로고 및 커뮤니티 이름 표시, 쓰기 버튼
 							<td bgcolor = "#B1DDAB"></td>
 							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
 							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "글쓰기" OnClick = "window.location = 'QnAWrite.jsp'"></td>
@@ -66,7 +86,7 @@
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 					</form>
 				</table>
-<!-- -----------------------------------------------상단 끝----------------------------------------------- -->
+-----------------------------------------------상단 끝----------------------------------------------- -->
 <!-- -----------------------------------------------게시판 리스트 시작----------------------------------------------- -->
 				<table width = "1184px" border="0" cellspacing = "0">
 					<form>
@@ -88,18 +108,22 @@
 						<%
 						if(total == 0) {
 						%>
-						<tr align = "center" bgcolor = "#FFFFFF" height = "30">
+						<tr align = "center" bgcolor = "#FFFFFF" height = "100">
 							<td colspan = "7">등록된 글이 없습니다.</td>
 						</tr>
 						<% } else {
 							for (int i = ROWSIZE*(pg-1); i < end; i++) {
 								QnADTO dto = q_list.get(i);
 								int idx = dto.getQ_num();
+								int rqNum = rqdao.reQnACount(idx);
 						%>
 						<tr height = "60" align = "center">
 							<td align = "center"><%=idx%></td>
 							<td align = "left">
 								<a href = "QnAView.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=dto.getQ_title() %></a>
+								<%if(rqNum != 0) { %>
+								[<%=rqNum %>]
+								<%} %>
 								<%
 									if(dto.isDayNew()){
 								%>
@@ -125,17 +149,18 @@
 <!-- -----------------------------------------------게시판 리스트 끝----------------------------------------------- -->
 <!-- -----------------------------------------------검색 시작----------------------------------------------- -->
 				<table width = "100%" border="0">
-					<form method = post action = "../QnASearchResult.jsp">
+					<form method = post action = "QnASearchResult.jsp">
 					<tr> <!-- 검색 및 쓰기버튼 -->
-						<td colspan = "5">
-							<select name = "search">
-								<option value = "title">제목</option>
-								<option value = "content">내용</option>
-								<option value = "write">글쓴이</option>
-							</select>
-							<input type = "text" name = "inputSearch">
-							<input type = "submit" name = "btnSearch" value = "검색">
-						</td>
+						<td>
+							<span>
+								<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
+									<option value = "title">제목</option>
+									<option value = "content">내용</option>
+									<option value = "write">글쓴이</option>
+								</select>
+								<input type = "text" name = "inputSearch" value size = "15" style="border:none">
+								<input type = "submit" name = "btnSearch" value = "검색">
+							</span>
 						<td align = "right"><input type = button value = "글쓰기" OnClick = "window.location='QnAWrite.jsp'"></td>
 					</tr>
 					</form>
@@ -182,8 +207,17 @@
 				</table>
 <!-- -----------------------------------------------번호 끝----------------------------------------------- -->
 			</td>
-			<td width="20%"></td>
+			<td width="5%"></td>
 		</tr>
 	</table>
 </body>
+
+<script src="/Healthy_drugger_new/assets/js/jquery.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/jquery.dropotron.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/jquery.scrolly.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/browser.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/breakpoints.min.js"></script>
+<script src="/Healthy_drugger_new/assets/js/util.js"></script>
+<script src="/Healthy_drugger_new/assets/js/main.js"></script>
+<script src="/Healthy_drugger_new/assets/js/top.js"></script>
 </html>
