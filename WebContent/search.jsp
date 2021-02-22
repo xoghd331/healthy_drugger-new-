@@ -37,12 +37,19 @@
   			</tr>
   			
   			<tr height="50">
- 			 	<td align="center">상태</td>
+ 			 	<td align="center" rowspan="2">몸 상태</td>
  				<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='sleep' />수면부족</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='eyes' />눈피로</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='immunity' />면역력저하</td>
  			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='bone' />뼈건강</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='skin' />피부건조</td>
+  			</tr>
+  			<tr height="50">
+  				<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='girls' />갱년기</td>
+  				<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='ddong' />변비</td>
+  			 	<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='liver' />간기능 개선</td>
+  			 	<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='diet' />체지방 감소</td>
+  			 	<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='collsss' />혈중 콜레스테롤</td>
   			</tr>
   			
   			<tr height="50">
@@ -61,6 +68,15 @@
   			 	<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='fe' />철분</td>
   			 	<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='propolis' />프로폴리스</td>
   			</tr>
+  			
+  			<tr height="50">
+ 				<td align="center" >알레르기</td>
+ 			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='milk' />우유</td>
+  			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='peach' />복숭아</td>
+  			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='daedo' />대두</td>
+  			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='crab' />갑각류</td>
+  			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='pig' />돼지고기</td>
+  			 </tr>
   			</table>
   			<div id="search" align="right">		
   				<input type='button' id="searchBtn" value="검색하기" align="right">
@@ -72,36 +88,36 @@
 		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
 				<header>
-					<p>감기에 걸리는 이유1</p>
+					<p>더팜 튼튼키즈 아이조아 멀티 비타민미네랄</p>
 				</header>
 				<section>
-					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+					<span class="image featured"><img src="images/child.jpg" alt="" /></span>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
 				<header>
-					<p>감기에 걸리는 이유1</p>
+					<p>조아제약 잘크톤 비타콜로</p>
 				</header>
 				<section>
-					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+					<span class="image featured"><img src="images/child2.jpg" alt="" /></span>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
 				<header>
-					<p>감기에 걸리는 이유1</p>
+					<p>키즈 튼튼 멀티비타민</p>
 				</header>
 				<section>
-					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+					<span class="image featured"><img src="images/child3.jpg" alt="" /></span>
 				</section>
 			</article>
 		</div>
 		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
 				<header>
-					<p>감기에 걸리는 이유1</p>
+					<p>아이클키즈 성정기 어린이 멀티 종합 비타민</p>
 				</header>
 				<section>
-					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+					<span class="image featured"><img src="images/child4.jpg" alt="" /></span>
 				</section>
 			</article>
 		</div>
@@ -111,26 +127,26 @@
 		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
 				<header>
-					<p>감기에 걸리는 이유2</p>
+					<p>석류밸런스큐</p>
 				</header>
 				<section>
-					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+					<span class="image featured"><img src="images/adult.jpg" alt="" /></span>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
 				<header>
-					<p>감기에 걸리는 이유2</p>
+					<p>황후의 고백</p>
 				</header>
 				<section>
-					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+					<span class="image featured"><img src="images/adult2.jpg" alt="" /></span>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
 				<header>
-					<p>감기에 걸리는 이유2</p>
+					<p>중외석류 이소프라센뷰티</p>
 				</header>
 				<section>
-					<span class="image featured"><img src="images/issue3.png" alt="" /></span>
+					<span class="image featured"><img src="images/adult3.jpg" alt="" /></span>
 				</section>
 			</article>
 		</div>
