@@ -16,15 +16,59 @@
 	</head>
 	<body class="is-preload" style="padding-top:0px">
 	
-	<%
+  <%
 			UserDTO info = (UserDTO)session.getAttribute("info");
 			ArrayList<issueDTO> issueList = new ArrayList<issueDTO>();
 			issueDAO issueDao = new issueDAO();
 			issueList = issueDao.selectIssue();
 	%>
-	
-		<div id="page-wrapper">
-		<jsp:include page="./header.jsp"/>
+<nav id="nav">
+	<ul id="menu_list">
+		<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
+		<li id="community_li">
+			<a href="#">커뮤니티</a>
+			<ul>
+				<li><a href="/Healthy_drugger_new/Community/List3.jsp">자유게시판</a></li>
+				<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
+			</ul>
+		</li>
+		<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">영양제 검색</a></li>						
+		<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">건강 이슈</a></li>
+		<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">로그인</a></li>
+		<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">회원가입</a></li>
+	</ul>
+		
+<!-- 로그인 회원가입 버튼 -->
+	<ul style="position:absolute ; top:0px;right:0px">
+		<%if(info != null){ %> <!-- 로그인 성공 -->
+			<%if(info.getId().equals("admin")) {%> <!-- admin -->
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">회원정보 관리</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button><li>
+			<%}else{%>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button></li>
+			<%} %>
+		<%}else{%> <!-- 로그인 실패시  : 로그인, 회원가입 버튼 출력-->
+		<!-- <a href="#menu">로그인</a> -->
+			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">로그인</button></li>
+			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">회원가입</button></li>
+		<%} %>
+	</ul>
+</nav>
+
+<!-- Header -->
+<header id="header">
+	<div class="logo container">
+		<div>
+			<a href="main.jsp" id="logo">
+				<img src="images/logo2.png" width="100%" height="130%">
+			</a>
+		</div>
+		
+	</div>
+</header>
+
 
 			  <div align="center">
     <br><br><br>
@@ -65,6 +109,7 @@
  
         <tr align="center" valign="middle">
             <td colspan="5">
+                <br><br>
                 <input type="reset" value="작성취소" >
                 <input type="submit" value="등록" >
                 <input type="button" value="목록" >            

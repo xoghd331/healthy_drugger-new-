@@ -2168,7 +2168,7 @@ input, select, textarea {
 	form textarea {
 		-webkit-appearance: none;
 		display: block;
-		width: 100%;
+		width: 80%;
 		border-radius: 8px;
 		border: solid 2px #E7EAE8;
 	}
@@ -3186,9 +3186,9 @@ input, select, textarea {
 }    
 #title{
 	text-align: center;
-	font-size: 18px;
+	font-size: 20px;
 	text-transform: uppercase;
-	padding: 3em 0 0 0;
+	padding: 1.5em 0 0 5em;
 	margin: 0 auto;
 }
 
