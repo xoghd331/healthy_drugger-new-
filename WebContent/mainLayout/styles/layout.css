@@ -107,7 +107,7 @@ article:hover .icon.round .fa{transform:rotate(360deg);}
 #latest{padding:100px 0;}
 
 #latest .carousel-items li{width:306px; margin-right:20px; padding-bottom:5px; text-align:center;}
-#latest .carousel-items li figure{border:1px solid;}
+#latest .carousel-items li figure{border:none;}
 #latest .carousel-items li figure figcaption{padding:25px 20px;}
 #latest .carousel-items li figure figcaption *{margin:0; padding:0;}
 #latest .carousel-items li figure figcaption time{font-size:.8rem;}
@@ -162,7 +162,7 @@ article:hover .icon.round .fa{transform:rotate(360deg);}
 nav ul, nav ol{margin:0; padding:0; list-style:none;}
 
 #mainav, #breadcrumb, .sidebar nav{line-height:normal;}
-#mainav .drop::after, #mainav li li .drop::after, #breadcrumb li a::after, .sidebar nav a::after{position:absolute; font-family:"FontAwesome"; font-size:10px; line-height:10px;}
+#mainav .drop::after, #mainav li li .drop::after, #breadcrumb li a::after, .sidebar nav a::after{position:absolute; font-family: 'GyeonggiTitleL', sans-serif; font-size:10px; line-height:10px;}
 
 /* Top Navigation */
 #mainav{}
