@@ -23,20 +23,31 @@
 			issueList = issueDao.selectIssue();
 	%>
 <nav id="nav">
-	<ul id="menu_list">
-		<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
-		<li id="community_li">
-			<a href="#">커뮤니티</a>
-			<ul>
-				<li><a href="/Healthy_drugger_new/Community/List3.jsp">자유게시판</a></li>
-				<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
-			</ul>
-		</li>
-		<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">영양제 검색</a></li>						
-		<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">건강 이슈</a></li>
-		<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">로그인</a></li>
-		<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">회원가입</a></li>
-	</ul>
+		<ul id="menu_list">
+			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
+			<li id="community_li">
+				<a href="#">커뮤니티</a>
+				<ul>
+					<li><a href="/Healthy_drugger_new/Community/List3.jsp">자유게시판</a></li>
+					<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
+				</ul>
+			</li>
+			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">영양제 검색</a></li>						
+			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">건강 이슈</a></li>
+	<%if(info == null) {%>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">로그인</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">회원가입</a></li>
+	<%}else { %>
+		<%if(info.getId().equals("admin")) {%>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">회원정보 관리</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">로그아웃</a></li>
+		<%}else { %>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">로그아웃</a></li>
+		<%} %>
+	<%} %>
+		</ul>
 		
 <!-- 로그인 회원가입 버튼 -->
 	<ul style="position:absolute ; top:0px;right:0px">
@@ -68,6 +79,17 @@
 		
 	</div>
 </header>
+
+<style>
+@media screen and (max-width: 980px){
+	#navPanel .mobile_header {
+		display:block;
+	}
+	#titleBar .toggle:before {
+		font-family: "FontAwesome";
+	}
+}
+</style>
 
 
 			  <div align="center">

@@ -2613,6 +2613,7 @@ input, select, textarea {
 
 	#footer {
 		text-align: center;
+		padding: 2em 0 2em 0;
 	}
 
 		#footer a {
