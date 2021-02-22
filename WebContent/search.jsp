@@ -160,7 +160,7 @@ $(function(){
 		$('.resultList').css('display','none');
 		if(age == 'child'){
 			$('#resultList1').css('display','block');
-		}else if(age == 'teen'){
+		}else if(age == 'adult'){
 			$('#resultList2').css('display','block');
 		}
 	});
