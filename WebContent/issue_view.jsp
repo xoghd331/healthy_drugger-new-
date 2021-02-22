@@ -1,3 +1,5 @@
+<%@page import="com.issue.issueDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.issue.issueDTO"%>
 <%@page import="com.user.UserDTO"%>
 <%@page import="com.user.UserDAO"%>
@@ -55,12 +57,12 @@
 					</tr>
 				</tbody>
 			</table>
-			<a href="bbs.jsp" class="btn btn-primary">목록</a>
+ 				<input type="button" value="목록" class="write" onclick="location.href='issue.jsp'"/>
 			
 			<!-- 해당 글의 작성자가 관리자라면 수정과 삭제가 가능하도록 코드 추가 -->
-	 			<%if(info.getId().equals("admin")) {%>
-						<a href="updateissue.jsp" class="btn btn-primary">수정</a>
-						<a href="deleteissue.jsp" class="btn btn-primary">삭제</a>
+	 			<%if(info != null && info.getId().equals("admin")) {%> 
+	 				<input type="button" value="수정" class="write" onclick="location.href='#'"/>
+	 				<input type="button" value="삭제" class="write" onclick="location.href='#'"/>
 				<%}	%>
 			
 		</div>
