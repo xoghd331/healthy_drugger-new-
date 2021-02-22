@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
-<meta name="viewport" content="width-device-width", initial-scale="1">
+<meta name="viewport" content="width-device-width" initial-scale="1">
 <link rel="stylesheet" href="assets/css/issueView.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>JSP 게시판 웹 사이트</title>
@@ -91,92 +91,72 @@
 }
 </style>
 
+<style>
+@media screen and (max-width: 980px){
+	#navPanel .mobile_header {
+		display:block;
+	}
+	#titleBar .toggle:before {
+		font-family: "FontAwesome";
+	}
+}
+</style>
 
-	<!-- 게시판 글 보기 양식 영역 시작 -->
-	<div class="container">
-		<div class="row">
+<section id="main">
+	<div class="container"  style="text-align:center">
+		<div class="row2" align="center" style=" width:100%; margin:auto;">
 			<form method="post" action="write" enctype="multipart/form-data">
-    		<table width="700" border="3" bordercolor="lightgray" align="center">
+    		<table style="margin-left: auto; margin-right: auto;" width="700" border="3" bordercolor="lightgray" align="center">
 				<thead>
-					<tr>
-						<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글 보기</th>
+					<tr height=70>
+						<th colspan="3" width=860 height=70 style="background-color: #eeeeee; text-align: center;"><h2>게시판 글 보기</h2></th>
 					</tr>
 				</thead>
 				<tbody >
-					<tr>
-						 <tr>
-            				<td id="title">제 목</td>
-            				<td>
-                				<textarea name="content" cols="72" rows="1">${dto.title}</textarea>
-            				</td>        
-						</tr>
-					<tr>
-						<td id="title">작성자</td>
+					<tr height=70>
+            			<td id="title" width=50  style="word-break:break-all" >제 목</td>
+            			<td>
+              				<input type=text name="content"  value="${dto.title}"> <!-- style="width:680px;" -->
+                		<!--  <textarea name="content" cols="70" rows="1">${dto.title}</textarea>   -->
+            			</td>        
+					</tr>
+					<tr height=70>
+						<td id="title" width=50 style="word-break:break-all" >작성자</td>
 						<td colspan="2">
 							${dto.user_id}
 						</td>
 					</tr>
-					<tr>
-						<td id="title">작성일자</td>
+					<tr height=70>
+						<td id="title" width=65 style="word-break:break-all" >작성일자</td>
 						<td colspan="2">
 							${dto.up_date}
 						</td>
 					</tr>
-					<tr>
-						<td id="title">내 용</td>
+					<tr height=70>
+						<td id="title" width=50 style="word-break:break-all" >내 용</td>
             			<td>
                				 <textarea name="content" cols="72" rows="20">${dto.content}</textarea>
 						</td>
 					</tr>
-			<tr align="center" valign="middle">
-            	<td colspan="5">
-                <br><br>
- 				<input type="button" value="목록" class="write" onclick="location.href='issue.jsp'"/>
+					</tbody>
+			</table>
+			
+			<div align="center" >
+            	<input type="button" value="목록" class="button" onclick="location.href='issue.jsp'"/>
 			
 			<!-- 해당 글의 작성자가 관리자라면 수정과 삭제가 가능하도록 코드 추가 -->
 	 			<%if(info != null && info.getId().equals("admin")) {%> 
-	 				<input type="submit" value="수정" class="write" onclick="location.href='#'"/>
-	 				<input type="reset" value="삭제" class="write" onclick="location.href='#'"/>
+	 				<input type="submit" value="수정" class="button" onclick="location.href='#'"/>
+	 				<input type="reset" value="삭제" class="button" onclick="location.href='#'"/>
 				<%}	%>
-				</td>
-       		 </tr>
-				</tbody>
-			</table>
+				
+       		 </div>
+				
 			</form>
 			
 		</div>
 	</div>
-	<!-- 게시판 글 보기 양식 영역 끝 -->
-	<!-- Footer -->
-				<footer id="footer">
-					<div class="container">
-						<div class="row gtr-200">
-							<div class="col-12">
-
-								<!-- About -->
-									<section>
-										<h2 class="major"><span></span></h2>
-									</section>
-
-							</div>
-											<!-- top버튼 -->
-											<a id="toTop" href="#top">
-												<img src="images/topPill.png" width="60px" height="100px" alt="" >
-											</a>
-
-						</div>
-
-						<!-- Copyright -->
-							<div id="copyright">
-								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
-								</ul>
-							</div>
-
-					</div>
-				</footer>
-	
-	<!-- 부트스트랩 참조 영역 -->
+</section>
 			<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 			<script src="js/bootstrap.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
@@ -188,4 +168,5 @@
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/top.js"></script>
 </body>
+
 </html>
