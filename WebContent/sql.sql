@@ -45,6 +45,8 @@ create table issue (
 alter table issue add issueimg varchar2(2000)
 alter table issue rename column num to IDX
 
+insert into issue values('123','§æ§∑','admin',sysdate,'æ»≥Á«œººø‰','111',null);
+
 CREATE SEQUENCE issue_seq
     START WITH 1
     INCREMENT BY 1;

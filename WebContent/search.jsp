@@ -20,9 +20,9 @@
 			<jsp:include page="./header.jsp"/>
 		</div>
 
-<section id="main" style="padding-bottom : 80px; margin-bottom : 70px">
+<section id="main" style="padding-bottom : 45px; margin-bottom : 70px">
 	<form id="searchForm">
-	<br><br><br>
+	<br>
 	<table>
  			<tr height="50"> 
  				<td class="tb" align="center">연령</td> 
@@ -79,6 +79,7 @@
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='pig' />돼지고기</td>
   			 </tr>
   			</table>
+  			
   			<div id="search" align="right">		
   				<input type='button' id="searchBtn" value="검색하기" align="right">
   			</div>	
@@ -89,37 +90,67 @@
 	<div id="resultList1" class="col-12 resultList" style="display:none;">
 		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
-				<header>
-					<p>더팜 튼튼키즈 아이조아 멀티 비타민미네랄</p>
-				</header>
 				<section>
-					<span class="image featured"><img src="images/child.jpg" alt="" /></span>
+					<span class="image featured"><img src="images/child.png" alt="" /></span>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
-				<header>
-					<p>조아제약 잘크톤 비타콜로</p>
-				</header>
 				<section>
-					<span class="image featured"><img src="images/child2.jpg" alt="" /></span>
+					<span class="image featured"><img src="images/child2.png" alt="" /></span>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
-				<header>
-					<p>키즈 튼튼 멀티비타민</p>
-				</header>
 				<section>
-					<span class="image featured"><img src="images/child3.jpg" alt="" /></span>
+					<span class="image featured"><img src="images/child3.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/child4.png" alt="" /></span>
 				</section>
 			</article>
 		</div>
 		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
-				<header>
-					<p>아이클키즈 성정기 어린이 멀티 종합 비타민</p>
-				</header>
 				<section>
-					<span class="image featured"><img src="images/child4.jpg" alt="" /></span>
+					<span class="image featured"><img src="images/child6.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/child7.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/child8.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/child9.png" alt="" /></span>
+				</section>
+			</article>
+		</div>
+		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/child10.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/child5.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/pillBack.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/pillBack.png" alt="" /></span>
 				</section>
 			</article>
 		</div>
@@ -128,27 +159,45 @@
 	<div id="resultList2" class="col-12 resultList" style="display:none;">
 		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
-				<header>
-					<p>석류밸런스큐</p>
-				</header>
 				<section>
-					<span class="image featured"><img src="images/adult.jpg" alt="" /></span>
+					<span class="image featured"><img src="images/adult.png" alt="" /></span>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
-				<header>
-					<p>황후의 고백</p>
-				</header>
 				<section>
-					<span class="image featured"><img src="images/adult2.jpg" alt="" /></span>
+					<span class="image featured"><img src="images/adult2.png" alt="" /></span>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
-				<header>
-					<p>중외석류 이소프라센뷰티</p>
-				</header>
 				<section>
-					<span class="image featured"><img src="images/adult3.jpg" alt="" /></span>
+					<span class="image featured"><img src="images/adult3.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/adult4.png" alt="" /></span>
+				</section>
+			</article>
+		</div>
+		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/adult5.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/pillBack.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/pillBack.png" alt="" /></span>
+				</section>
+			</article>
+			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
+				<section>
+					<span class="image featured"><img src="images/pillBack.png" alt="" /></span>
 				</section>
 			</article>
 		</div>

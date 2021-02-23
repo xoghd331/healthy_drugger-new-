@@ -163,7 +163,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						<tr height = "2" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>
 						<tr height = "50"> <!-- 글목록 상단 -->
 							<th bgcolor = "#eeeeee" width = "5%">번호</th>
-							<th bgcolor = "#eeeeee" width = "60%">제목</th>
+							<th bgcolor = "#eeeeee" width = "55%">제목</th>
 							<th bgcolor = "#eeeeee" width = "10%">글쓴이</th>
 							<th bgcolor = "#eeeeee" width = "15%">등록일자</th>
 							<th bgcolor = "#eeeeee" width = "5%">좋아요</th>
