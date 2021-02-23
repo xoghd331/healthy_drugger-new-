@@ -1,3 +1,6 @@
+<%@page import="com.issue.issueDAO"%>
+<%@page import="com.issue.issueDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
       <%@page import="com.user.UserDTO"%>
@@ -12,7 +15,16 @@
 	<body class="homepage is-preload" style="padding-top:0px" id="top">
 	
 	<%
-			UserDTO info = (UserDTO)session.getAttribute("info");
+		UserDTO info = (UserDTO)session.getAttribute("info");
+		ArrayList<issueDTO> issueList = new ArrayList<issueDTO>();
+   		issueDAO issueDao = new issueDAO();
+   		issueList = issueDao.selectIssue();
+   		for(issueDTO dto : issueList){   
+            String title = dto.getTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
+            dto.setTitle(title);
+            String content = dto.getContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
+            dto.setContent(content);
+         }
 	%>
 		
 		<div id="page-wrapper">
@@ -37,73 +49,56 @@
 							<div class="col-12">
 
 								<!-- 건강소식 탭으로 이동 : Features -->
-									<section class="box features">
-										<h2 class="major" style="margin-top : 30px;"><span>오늘의 건강 소식</span></h2>
-										<div>
-											<div class="row">
-												<div class="col-3 col-6-medium col-12-small">
+<!-- 									<section class="box features"> -->
+<!-- 										<h2 class="major" style="margin-top : 30px;"><span>오늘의 건강 소식</span></h2> -->
+<!-- 										<div> -->
+<!-- 											<div class="row"> -->
+<!-- 												<div class="col-3 col-6-medium col-12-small"> -->
 
-													<!-- 건강소식 하단의 1번째 박스 : Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-															<h3><a href="#">이슈1</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
+<!-- 													건강소식 하단의 1번째 박스 : Feature -->
+<!-- 														<section class="box feature"> -->
+<!-- 															<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a> -->
+<!-- 															<h3><a href="#">이슈1</a></h3> -->
+<!-- 														</section> -->
 
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
+<!-- 												</div> -->
+<!-- 												<div class="col-3 col-6-medium col-12-small"> -->
 
-													<!-- 건강소식 하단의 2번째 박스 : Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-															<h3><a href="#">Another Subheading</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
+<!-- 													건강소식 하단의 2번째 박스 : Feature -->
+<!-- 														<section class="box feature"> -->
+<!-- 															<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a> -->
+<!-- 															<h3><a href="#">Another Subheading</a></h3> -->
+<!-- 														</section> -->
 
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
+<!-- 												</div> -->
+<!-- 												<div class="col-3 col-6-medium col-12-small"> -->
 
-													<!-- 건강소식 하단의 3번째 박스 :Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-															<h3><a href="#">And Another</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
+<!-- 													건강소식 하단의 3번째 박스 :Feature -->
+<!-- 														<section class="box feature"> -->
+<!-- 															<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a> -->
+<!-- 															<h3><a href="#">And Another</a></h3> -->
+<!-- 														</section> -->
 
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
+<!-- 												</div> -->
+<!-- 												<div class="col-3 col-6-medium col-12-small"> -->
 
-													<!-- 건강소식 하단의 4번째 박스 :Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-															<h3><a href="#">And One More</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
+<!-- 													건강소식 하단의 4번째 박스 :Feature -->
+<!-- 														<section class="box feature"> -->
+<!-- 															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a> -->
+<!-- 															<h3><a href="#">And One More</a></h3> -->
+<!-- 														</section> -->
 
-												</div>
+<!-- 												</div> -->
 												
-												<div class="col-12">
-													<ul class="actions">
-														<li><button type="button" class="button large" onclick="location='issue.jsp' ">더 많은 소식보기</button></li>
-														<li><a href="#" class="button alt large">무슨말을쓸까요</a></li>
-													</ul>
-												</div>
+<!-- 												<div class="col-12"> -->
+<!-- 													<ul class="actions"> -->
+<!-- 														<li><button type="button" class="button large" onclick="location='issue.jsp'" style="background: #ffffff; color: #000000a1;">더 많은 소식보기</button></li> -->
+<!-- 													</ul> -->
+<!-- 												</div> -->
 												
-											</div>
-										</div>
-									</section>
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</section> -->
 
 							</div>
 							
@@ -132,26 +127,21 @@
 														<!-- 자유게시판에서 몇가지 내용 보여주기 : Featured Post -->
 															<article class="box post">
 																<header>
-																	<h3><a href="#">Here's a really big heading</a></h3>
-																	<p>With a smaller subtitle that attempts to elaborate</p>
+																<%for(int i = issueList.size()-1; i < issueList.size(); i++) {%>
+																	<h3><a href="WriteView?idx=<%=issueList.get(i).getIdx() %>" style="text-decoration: none;"><%=issueList.get(i).getTitle() %></a></h3>
 																	<ul class="meta">
-																		<li class="icon fa-clock">15 minutes ago</li>
+																		<li class="icon fa-clock"><%=issueList.get(i).getUp_date() %></li>
 																		<li class="icon fa-comments"><a href="#">8</a></li>
 																	</ul>
 																</header>
-																<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+																<span class="image featured" onclick="location.href='WriteView?idx=<%=issueList.get(i).getIdx() %>'"><img src="${pageContext.request.contextPath}/upload/<%=issueList.get(i).getIssueImg() %>" alt="" /></span>
 																<p>
-																	Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in lectus. Praesent
-																	semper mod quis eget mi. Etiam sed ante risus aliquam erat et volutpat. Praesent a
-																	dapibus velit. Curabitur sed nisi nunc, accumsan vestibulum lectus. Lorem ipsum
-																	dolor sit non aliquet sed, tempor et dolor. Praesent a dapibus velit. Curabitur
-																	accumsan.
+																	내용 들어갈 거에요 피카츄 라이츄 파이리 꼬북이 버터플 야도란 피죤투 또가스 서로생긴 모습은 달라도 우리는 모두 친구 마쟈용~
 																</p>
-																
+																<%} %>
 																<div class="col-12" align="left">
 																<ul class="actions" style="text-align:left">
-																	<li><button type="button" class="button" onclick="location='Community/Write3.jsp'">글쓰러 가기</button></li>
-																	<li><button type="button" class="button alt" onclick="location='Community/List3.jsp' ">게시판으로 이동</button></li>
+																	<li><button type="button" class="button alt" onclick="location='issue.jsp' ">더 많은 건강 이슈 보기</button></li>
 																</ul>
 																</div>
 																
