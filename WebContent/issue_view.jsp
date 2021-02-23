@@ -15,6 +15,11 @@
 <link rel="stylesheet" href="assets/css/issueView.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>JSP 게시판 웹 사이트</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
 </head>
 <body>
 <%
@@ -102,7 +107,8 @@
 }
 </style>
 
-<section id="main">
+<!-- 글쓰기 시작 -->
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px; padding-top:44px; border-top:0px;">
 	<div class="container"  style="text-align:center">
 		<div class="row2" align="center" style=" width:100%; margin:auto;">
 			<form method="post" action="write" enctype="multipart/form-data">
@@ -157,6 +163,38 @@
 		</div>
 	</div>
 </section>
+
+
+<!-- top버튼 -->
+	<a id="toTop" href="#top">
+		<img src="images/topPill.png" width="60px" height="100px" alt="" >
+	</a>
+
+<!-- Footer -->
+				<footer id="footer" style="padding-top : 80px; padding-bottom : 80px;">
+					<div class="container">
+						<div class="row gtr-200" style="margin-left:-40; margin-top:-40;">
+							<div class="col-12" style="padding-top : 50px;">
+
+								<!-- About -->
+									<section>
+										<h2 class="major" ><span></span></h2>
+									</section>
+
+							</div>
+											
+
+						</div>
+
+						<!-- Copyright -->
+							<div id="copyright" style="margin-top : 0px;">
+								<ul class="menu">
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
+								</ul>
+							</div>
+
+					</div>
+				</footer>
 			<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 			<script src="js/bootstrap.js"></script>
 			<script src="assets/js/jquery.min.js"></script>

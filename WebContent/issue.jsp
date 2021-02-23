@@ -32,7 +32,7 @@
       <div id="page-wrapper">
          <jsp:include page="./header.jsp"/>
          <!-- 건강이슈 Main -->
-            <section id="main">
+            <section id="main" style="padding-bottom : 80px; margin-bottom : 70px">
                <div class="container">
                   <div class="row">
                      <div class="col-12">
@@ -116,56 +116,36 @@
                </div>
             </section>
 
+			<!-- top버튼 -->
+			<a id="toTop" href="#top">
+				<img src="images/topPill.png" width="60px" height="100px" alt="" >
+			</a>
+
          <!-- Footer -->
-            <footer id="footer">
-               <div class="container">
-                  <div class="row gtr-200">
-                     <div class="col-12">
+				<footer id="footer" style="padding-top : 80px; padding-bottom : 80px;">
+					<div class="container">
+						<div class="row gtr-200">
+							<div class="col-12" style="padding-top : 50px;">
 
-                        <!-- About -->
-                           <section>
-                              <h2 class="major"><span>What's this about?</span></h2>
-                              <p>
-                                 This is <strong>TXT</strong>, yet another free responsive site template designed by
-                                 <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>. It's released under the
-                                 <a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for
-                                 whatever you're working on (personal or commercial), just be sure to give us credit for the design.
-                                 That's basically it :)
-                              </p>
-                           </section>
+								<!-- About -->
+									<section>
+										<h2 class="major" ><span></span></h2>
+									</section>
 
-                     </div>
-                     <div class="col-12">
+							</div>
+											
 
-                        <!-- Contact -->
-                           <section>
-                              <h2 class="major"><span>Get in touch</span></h2>
-                              <ul class="contact">
-                                 <li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
-                                 <li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
-                                 <li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
-                                 <li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
-                                 <li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
-                              </ul>
-                           </section>
-                           
-                           <!-- top버튼 -->
-                           <a id="toTop" href="#top">
-                              <img src="images/topPill.png" width="60px" height="100px" alt="" >
-                           </a>
+						</div>
 
-                     </div>
-                  </div>
+						<!-- Copyright -->
+							<div id="copyright" style="margin-top : 0px;">
+								<ul class="menu">
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
+								</ul>
+							</div>
 
-                  <!-- Copyright -->
-                     <div id="copyright">
-                        <ul class="menu">
-                           <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                        </ul>
-                     </div>
-
-               </div>
-            </footer>
+					</div>
+				</footer>
 
       </div>
 

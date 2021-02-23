@@ -21,7 +21,7 @@
 		</div>
 
 			<!-- Main -->
-				<section id="main">
+				<section id="main" style="padding-bottom : 80px; margin-bottom : 70px">
 					<!-- 영양제 추천(검색)탭으로 이동하는 Banner -->
 					<div id="banner">
 					
@@ -38,7 +38,7 @@
 
 								<!-- 건강소식 탭으로 이동 : Features -->
 									<section class="box features">
-										<h2 class="major" style="margin-top : 0px;"><span>오늘의 건강 소식</span></h2>
+										<h2 class="major" style="margin-top : 30px;"><span>오늘의 건강 소식</span></h2>
 										<div>
 											<div class="row">
 												<div class="col-3 col-6-medium col-12-small">
@@ -108,7 +108,7 @@
 							</div>
 							
 							<!-- 보조제 추천 탭...... -->
-							<div class="col-12">
+							<div class="col-12" style="padding-top : 85px;">
 								<!-- 건강소식 탭으로 이동 : Features -->
 									<section class="box features">
 										<h2 class="major"><span>금주의 추천 영양제</span></h2>
@@ -120,7 +120,7 @@
 							
 							
 							
-							<div class="col-12">
+							<div class="col-12" style="padding-top : 50px;">
 								<!-- 커뮤니티 탭(자유게시판, Q&A)으로 이동 : Blog -->
 									<section class="box blog">
 										<h2 class="major"><span>약쟁이들의 건강한 수다</span></h2>
@@ -238,7 +238,7 @@
 				</section> <!-- main section 끝 -->
 
 			<!-- Footer -->
-				<footer id="footer">
+				<footer id="footer" style="padding-top : 80px; padding-bottom : 80px;">
 					<div class="container">
 						<div class="row gtr-200">
 							<div class="col-12" style="padding-top : 50px;">
