@@ -20,6 +20,7 @@
 			<jsp:include page="./header.jsp"/>
 		</div>
 
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px">
 	<form id="searchForm">
 	<br><br><br>
 	<table>
@@ -83,7 +84,8 @@
   			</div>	
   		
 	</form>
-	
+</section>
+
 	<div id="resultList1" class="col-12 resultList" style="display:none;">
 		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
@@ -151,6 +153,7 @@
 			</article>
 		</div>
 	</div>
+
 	
 <!-- top¹öÆ° -->
 <a id="toTop" href="#top">
