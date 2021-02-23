@@ -61,7 +61,9 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	
 	<div id="page-wrapper">
 	<jsp:include page="../header.jsp"/>
-	
+</div>
+
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px">	
 		<div align="center">
 			<br><br><br>
 			<b><font size="18" color="gray">글쓰기</font></b>
@@ -122,7 +124,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<td width="5%"></td>
 			</tr>
 		</table>
-	</div>
+	</section>
 </body>
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
