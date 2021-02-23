@@ -55,6 +55,7 @@
 	input:focus, textarea:focus{
 		outline: none;
 	}
+	
 </style>
 <!-- 
 CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
@@ -71,6 +72,8 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	<!-- 카테고리 탭 생성하는 코드 : Nav -->
 		<jsp:include page="../header.jsp"/>
 	</div>
+	
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px">	
 	<table style="margin-top:5%;">
 		<tr>
 			<td width="5%"></td>
@@ -181,6 +184,13 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 			<td width="5%"></td>
 		</tr>
 	</table>
+</section>
+
+<!-- top버튼 -->
+<a id="toTop" href="#top">
+	<img src="images/topPill.png" width="60px" height="100px" alt="" >
+</a>
+
 <!-- Footer -->
 	<footer id="footer">
 	<div class="container">
