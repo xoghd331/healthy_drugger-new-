@@ -12,9 +12,9 @@
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
 <meta name="viewport" content="width-device-width" initial-scale="1">
-<link rel="stylesheet" href="assets/css/issueView.css" />
+<link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>JSP 게시판 웹 사이트</title>
+<title>건강이슈 글쓰기</title>
 <style>
 	input:focus, textarea:focus{
 		outline: none;
@@ -74,7 +74,7 @@
 </nav>
 
 <!-- Header -->
-<header id="header">
+<header id="header" style="padding-top:0px;">
 	<div class="logo container">
 		<div>
 			<a href="main.jsp" id="logo">
