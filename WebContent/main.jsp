@@ -25,7 +25,7 @@
 					<!-- 영양제 추천(검색)탭으로 이동하는 Banner -->
 					<div id="banner">
 					
-						<div class="content">
+						<div class="content" style="margin-bottom: 150px;">
 							<h2>나에게 꼭 맞는 영양제는 무엇일까?</h2>
 							<p>아래 버튼을 클릭해서 영양제 추천을 받아보세요</p>
 							<a href="search.jsp" class="button scrolly">GO</a>

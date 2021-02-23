@@ -2575,19 +2575,19 @@ input, select, textarea {
 		background-repeat: repeat, repeat, no-repeat;
 		background-size: auto, auto, cover;
 		z-index: 1;
-		padding: 11em 0;
+		padding: 1em 0;
 	}
 
 		#banner .content {
 			position: relative;
-			background-color: rgba(21, 28, 23, 0.85);/*검색배너색*/
-	 /*도트*/background-image: url("images/overlay.png"), url("images/highlight.png");
+			/*background-color: rgba(21, 28, 23, 0.85);검색배너색*/
+	 /*도트 background-image: url("images/overlay.png"), url("images/highlight.png");*/
 			background-position: top left, center center;
 			background-size: auto, 100% 250%;
 			background-repeat: repeat, no-repeat;
 			text-align: center;
 			margin: 0;
-			padding: 4em 0 3.5em 0;
+			padding: 2em 0 6em 0;
 		}
 
 			#banner .content h2 {
@@ -2760,11 +2760,11 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				padding: 6em 0;
+				padding: 1em 0;
 			}
 
 				#banner .content {
-					padding: 4em 0 3em 0;
+					padding: 3em 0 7em 0;
 				}
 
 					#banner .content h2 {
