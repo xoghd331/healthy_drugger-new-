@@ -60,6 +60,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 </head>
 <body class="is-preload" style="padding-top:0px">
 	
+
 <nav id="nav">
 		<ul id="menu_list">
 			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
@@ -129,6 +130,8 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 }
 </style>
 	
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px">	
+
 		<div align="center">
 			<br><br><br>
 			<b><font size="18" color="gray">글쓰기</font></b>
@@ -193,7 +196,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<td width="5%"></td>
 			</tr>
 		</table>
-	</div>
+	</section>
 </body>
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>

@@ -92,13 +92,14 @@
 }
 </style>
 
-
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px">
 			  <div align="center">
     <br><br><br>
     <b><font size="18" color="gray">글쓰기</font></b>
     <br>
     </div>
-    
+
+   
     <form method="post" action="write" enctype="multipart/form-data">
     <table width="700" border="3" bordercolor="lightgray" align="center">
         <tr>
@@ -140,7 +141,12 @@
         </tr>
     </table>    
     </form>
+</section> 
 
+<!-- top버튼 -->
+<a id="toTop" href="#top">
+	<img src="images/topPill.png" width="60px" height="100px" alt="" >
+</a>
 			<!-- Footer -->
 				<footer id="footer">
 					<div class="container">

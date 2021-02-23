@@ -9,6 +9,10 @@ alter table user_info add name varchar2(100)
 
 select * from USER_INFO
 
+delete from user_info where id='test';
+delete from USER_INFO where id='test1';
+delete from user_info where id='admin';
+
 insert into user_info values('test','123','010-0000-0000','123456789')
 
 select * from user_info
