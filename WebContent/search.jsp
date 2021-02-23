@@ -42,7 +42,7 @@
  				<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='sleep' />수면부족</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='eyes' />눈피로</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='immunity' />면역력저하</td>
- 			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='bone' />뼈건강</td>
+ 			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='bone' />성장 발육</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='skin' />피부건조</td>
   			</tr>
   			<tr height="50">

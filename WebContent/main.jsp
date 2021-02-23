@@ -24,7 +24,7 @@
             dto.setTitle(title);
             String content = dto.getContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>");
             dto.setContent(content);
-         }
+        }
 	%>
 		
 		<div id="page-wrapper">
@@ -136,7 +136,7 @@
 																</header>
 																<span class="image featured" onclick="location.href='WriteView?idx=<%=issueList.get(i).getIdx() %>'"><img src="${pageContext.request.contextPath}/upload/<%=issueList.get(i).getIssueImg() %>" alt="" /></span>
 																<p>
-																	내용 들어갈 거에요 피카츄 라이츄 파이리 꼬북이 버터플 야도란 피죤투 또가스 서로생긴 모습은 달라도 우리는 모두 친구 마쟈용~
+																	<%=issueList.get(i).getContent() %>
 																</p>
 																<%} %>
 																<div class="col-12" align="left">
