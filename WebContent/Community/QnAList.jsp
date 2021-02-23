@@ -190,7 +190,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						<tr height = "60" align = "center">
 							<td align = "center"><%=idx%></td>
 							<td align = "left">
-								<a href = "QnAView.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=dto.getQ_title() %></a>
+								<a href = "NewQnAView.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=dto.getQ_title() %></a>
 								<%if(rqNum != 0) { %>
 								[<%=rqNum %>]
 								<%} %>

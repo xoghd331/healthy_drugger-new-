@@ -42,6 +42,7 @@ create table issue (
     primary key(num)        /*기본키를 게시글 번호로 설정*/
 )
 
+insert into issue values('123','ㅎㅇ','admin',sysdate,'안녕하세요','111',null);
 alter table issue add issueimg varchar2(2000)
 alter table issue rename column num to IDX
 
