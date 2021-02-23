@@ -38,7 +38,7 @@
 
 								<!-- 건강소식 탭으로 이동 : Features -->
 									<section class="box features">
-										<h2 class="major"><span>오늘의 건강 소식</span></h2>
+										<h2 class="major" style="margin-top : 0px;"><span>오늘의 건강 소식</span></h2>
 										<div>
 											<div class="row">
 												<div class="col-3 col-6-medium col-12-small">
@@ -237,46 +237,26 @@
 					</div>
 				</section> <!-- main section 끝 -->
 
-			<!-- 하단의 탭 : Footer -->
+			<!-- Footer -->
 				<footer id="footer">
 					<div class="container">
 						<div class="row gtr-200">
-							<div class="col-12">
+							<div class="col-12" style="padding-top : 50px;">
 
 								<!-- About -->
 									<section>
-										<h2 class="major"><span>건강한 약쟁이란?</span></h2>
-										<p>
-											This is <strong>TXT</strong>, yet another free responsive site template designed by
-											<a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>. It's released under the
-											<a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for
-											whatever you're working on (personal or commercial), just be sure to give us credit for the design.
-											That's basically it :)
-										</p>
+										<h2 class="major" ><span></span></h2>
 									</section>
 
 							</div>
-							<div class="col-12">
+											
 
-								<!-- Contact -->
-									<section>
-										<h2 class="major"><span>Get in touch</span></h2>
-										<ul class="contact">
-											<li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
-											<li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
-											<li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
-											<li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
-											<li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
-										</ul>
-									</section>
-
-							</div>
 						</div>
 
 						<!-- Copyright -->
-							<div id="copyright">
+							<div id="copyright" style="margin-top : 0px;">
 								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
 								</ul>
 							</div>
 
