@@ -15,30 +15,37 @@
 		var rq_username = document.getElementById("rq_username");
 		var rq_password = document.getElementById("rq_password");
 		var rq_content = document.getElementById("rq_content");
+		
+		if (!rq_content.value) {
+			alert("내용을 적어주세요");
+			form.c_content.focus();
+			return;
+		} else {
+			$.ajax({
+				type : "post", //데이터 전송방식
+				data : {
+					"q_num" : q_num.value,
+					"q_title" : q_title.innerHTML,
+					"rq_username" : rq_username.value,
+					"rq_password" : rq_password.value,
+					"rq_content" : rq_content.value
+				},
+				url : "../ReQnAServiceCon", // 데이터를 전송할 서버 파일 이름
+				dataType : "text", // 서버에서 오는 응답 방식을 지정
+				success : function(data) {
+					rq_content.value = "";
 
-		$.ajax({
-			type : "post", //데이터 전송방식
-			data : {
-				"q_num" : q_num.value,
-				"q_title" : q_title.innerHTML,
-				"rq_username" : rq_username.value,
-				"rq_password" : rq_password.value,
-				"rq_content" : rq_content.value
-			},
-			url : "../ReQnAServiceCon", // 데이터를 전송할 서버 파일 이름
-			dataType : "text", // 서버에서 오는 응답 방식을 지정
-			success : function(data) {
-				rq_content.value = "";
+					location.reload(true);
+					alert("답글이 성공적으로 작성되었습니다.");
+				},
 
-				location.reload(true);
-				alert("답글이 성공적으로 작성되었습니다.");
-			},
-
-			error : function(request,status,error) {
-				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-				alert("답글 작성에 실패했습니다");
-			}
-		});
+				error : function(request,status,error) {
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					alert("답글 작성에 실패했습니다");
+				}
+			});
+		}
+		
 	}
 </script>
 <!-- -----------------------------------------------답글 내용 전송 끝----------------------------------------------- -->

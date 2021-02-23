@@ -75,32 +75,50 @@
 		var b_num = document.getElementById("b_num");
 		var c_username = document.getElementById("c_username");
 		var c_password = document.getElementById("c_password");
-		var commet = document.getElementById("comment");
-
-		$.ajax({
-			type : "post", //데이터 전송방식
-			data : {
-				"b_num" : b_num.value,
-				"c_username" : c_username.value,
-				"c_password" : c_password.value,
-				"comment" : comment.value
-			},
-			url : "../CommentServiceCon", // 데이터를 전송할 서버 파일 이름
-			dataType : "text", // 서버에서 오는 응답 방식을 지정
-			success : function(data) {
-                c_username.value = "";
-				c_password.value = "";
-				comment.value = "";
-
-				location.reload(true);
-				alert("댓글이 성공적으로 작성되었습니다.");
-			},
-
-			error : function(request,status,error) {
-				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-				alert("댓글 작성에 실패했습니다");
+		var comment = document.getElementById("comment");
+		
+		if (!c_username.value || !c_password.value || !comment.value) {
+			if (!c_username.value) {
+				alert("이름을 적어주세요");
+				form.c_username.focus();
+				return;
 			}
-		});
+			if (!c_password.value) {
+				alert("비밀번호를 적어주세요");
+				form.c_password.focus();
+				return;
+			}
+			if (!comment.value) {
+				alert("내용을 적어주세요");
+				form.c_content.focus();
+				return;
+			}
+		} else {
+			$.ajax({
+				type : "post", //데이터 전송방식
+				data : {
+					"b_num" : b_num.value,
+					"c_username" : c_username.value,
+					"c_password" : c_password.value,
+					"comment" : comment.value
+				},
+				url : "../CommentServiceCon", // 데이터를 전송할 서버 파일 이름
+				dataType : "text", // 서버에서 오는 응답 방식을 지정
+				success : function(data) {
+	                c_username.value = "";
+					c_password.value = "";
+					comment.value = "";
+
+					location.reload(true);
+					alert("댓글이 성공적으로 작성되었습니다.");
+				},
+
+				error : function(request,status,error) {
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					alert("댓글 작성에 실패했습니다");
+				}
+			});	
+		}
 	}
 </script>
 <!-- -----------------------------------------------작성한 댓글 불러오기 및 작성한 댓글 삭제 끝----------------------------------------------- -->
