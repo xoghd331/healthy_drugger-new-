@@ -100,7 +100,7 @@
 <!-- 										</div> -->
 <!-- 									</section> -->
 
-							</div>
+<!-- 							</div>  -->
 							
 							<!-- 보조제 추천 탭...... -->
 							<div class="col-12" style="padding-top : 85px;">
