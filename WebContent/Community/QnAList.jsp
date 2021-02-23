@@ -70,6 +70,9 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 		<!-- 카테고리 탭 생성하는 코드 : Nav -->
 		<jsp:include page="../header.jsp"/>
 	</div>
+	
+	
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px">
 	<table style="margin-top:5%;">
 		<tr>
 			<td width="5%"></td>
@@ -210,6 +213,39 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 			<td width="5%"></td>
 		</tr>
 	</table>
+</section>	
+	
+<!-- top버튼 -->
+<a id="toTop" href="#top">
+	<img src="images/topPill.png" width="60px" height="100px" alt="" >
+</a>
+	
+	<!-- Footer -->
+				<footer id="footer" style="padding-top : 80px; padding-bottom : 80px;">
+					<div class="container">
+						<div class="row gtr-200">
+							<div class="col-12" style="padding-top : 50px;">
+
+								<!-- About -->
+									<section>
+										<h2 class="major" ><span></span></h2>
+									</section>
+
+							</div>
+											
+
+						</div>
+
+						<!-- Copyright -->
+							<div id="copyright" style="margin-top : 0px;">
+								<ul class="menu">
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
+								</ul>
+							</div>
+
+					</div>
+				</footer>
+
 </body>
 
 <script src="/Healthy_drugger_new/assets/js/jquery.min.js"></script>
