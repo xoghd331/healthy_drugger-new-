@@ -392,7 +392,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						<li>
 							<div align="right">
 								<button class="commbtn" onclick="commWriteCall()">등록</button>
-								<button class="commbtn" type="reset">취소</button>
+								<button class="commbtn" type="button"  OnClick="javascript:history.back(-1)">취소</button>
 							</div>	
 						</li>
 					</ul>
