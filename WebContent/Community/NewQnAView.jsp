@@ -196,10 +196,13 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	}
 }
 </style>
-<div>
-	<div>
+
+
+<!-- section 시작 -->
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px; padding-top:44px; border-top:0px;">
+	<div class="container">
 		<!-- 글 제목 -->
-		<div class="viewform">
+		
 			<div class="title">
 				<h1 id="q_title"><%=qdto.getQ_title()%></h1>
 			</div>
@@ -312,45 +315,23 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 							<span>내용</span>
 							<textarea id="rq_content" rows=5 style="width:93%; resize:none;"></textarea>
 						</li>
+						<li>
+							<div class="Cbtn" align="right">
+								<button class="commbtn" onclick="REQnAWriteCall()">등록</button>
+								<button class="commbtn" type="reset">취소</button>
+							</div>			
+						</li>
 					</ul>
 				</div>
+				
 				<!--<textarea id="comment" rows=5 style="width:90%; resize:none;"></textarea>-->
-				<div class="Cbtn">
-					<button class="commbtn" type="reset">취소</button>
-					<button class="commbtn" onclick="REQnAWriteCall()">등록</button>
-				</div>
 				<%}%>
-				<footer id="footer">
-					<div class="container">
-						<div class="row gtr-200">
-							<div class="col-12">
-
-								<!-- About -->
-									<section>
-										<h2 class="major"><span></span></h2>
-									</section>
-
-							</div>
-											<!-- top버튼 -->
-											<a id="toTop" href="#top">
-												<img src="../images/topPill.png" width="60px" height="100px" alt="" >
-											</a>
-
-						</div>
-
-						<!-- Copyright -->
-							<div id="copyright">
-								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
-								</ul>
-							</div>
-
-					</div>
-				</footer>
+				
 			</section>
-		</div>
+		</div><!-- 답글 -->
+
 	</div>
-</div>
+</section>
 	
 </body>
 <!-- Scripts -->
