@@ -181,7 +181,7 @@
 															<%if (total == 0) {%>
 																<li>
 																	<article class="box post-summary">
-																		<h3><a href="#">등록된 질문이 없습니다.</a></h3>
+																		<h3><a>등록된 질문이 없습니다.</a></h3>
 																</li>
 															<%} else { 
 																for (int i = 0; i < 5; i++) {
