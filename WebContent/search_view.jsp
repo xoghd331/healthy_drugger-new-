@@ -124,14 +124,14 @@
 				</thead>
 				<tbody >
 					<tr height=70>
-            			<td id="title" width=50  style="word-break:break-all" >제 목</td>
+            			<td id="title" width=50   >제 목</td>
             			<td>
-              				<input type=text name="content"  value="더팜 튼튼 키즈 멀티비타민  & 미네랄"> <!-- style="width:680px;" -->
+              				<span>"더팜 튼튼 키즈 멀티비타민  & 미네랄"</span> <!-- style="width:680px;" -->
                 		<!--  <textarea name="content" cols="70" rows="1">${dto.title}</textarea>   -->
             			</td>        
 					</tr>
 					<tr height=70>
-						<td id="title" width=70 style="word-break:break-all" >작성자</td>
+						<td id="title" width=65 style="word-break:break-all" >작성자</td>
 						<td colspan="2">
 							관리자
 						</td>
@@ -139,21 +139,30 @@
 					<tr height=70>
 						<td id="title" width=50 style="word-break:break-all" >내 용</td>
             			<td>
-               				<textarea name="content" cols="32" rows="20" style="padding-bottom: 13px; height: 351px;">
+               				<span>
 1. 성장 발달 도움
-
+<br>
 2. 아미노산 13종 함유
-
+<br>
 3. 비타민 미네랄 6종 함유
-
+<br>
 4. 상큼 달콤 엘더베리맛
-
+<br>
 ※ 유의 사항
 토마토 함유 (토마토 알러지 유발)
-							</textarea>
+							</span>
+						</td>
+						
+					<!-- 행과 행사이 칸 띄우기 -->
+						<tr><td height="20px" colspan="2"></td></tr>
+					
+					<tr >
+						<td colspan="3" style="text-align : center;" >
 							<img src="img/tuntuninfo.png"/>
 							<img src="img/tuntun.jpg"/>
 						</td>
+					</tr>
+						
 					</tbody>
 			</table>
 			
