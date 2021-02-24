@@ -225,17 +225,17 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	<ul style="position:absolute ; top:0px;right:0px">
 		<%if(info != null){ %> <!-- 로그인 성공 -->
 			<%if(info.getId().equals("admin")) {%> <!-- admin -->
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">회원정보 관리</button></li>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button><li>
+				<li><button type="button" class="buttonjoin" onclick="../location='login-join/admin.jsp'">회원정보 관리</button></li>
+				<li><button type="button" class="buttonjoin" onclick="../location='login-join/update.jsp'">개인정보 수정</button></li>
+				<li><button type="button" class="buttonlog" onclick="../location='logout'">로그아웃</button><li>
 			<%}else{%>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">개인정보 수정</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">로그아웃</button></li>
+				<li><button type="button" class="buttonjoin" onclick="../location='login-join/update.jsp'">개인정보 수정</button></li>
+				<li><button type="button" class="buttonlog" onclick="../location='logout'">로그아웃</button></li>
 			<%} %>
 		<%}else{%> <!-- 로그인 실패시  : 로그인, 회원가입 버튼 출력-->
 		<!-- <a href="#menu">로그인</a> -->
-			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">로그인</button></li>
-			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">회원가입</button></li>
+			<li><button type="button" class="buttonlog" onclick="../location='login-join/login.jsp'">로그인</button></li>
+			<li><button type="button" class="buttonjoin" onclick="../location='login-join/join.jsp'">회원가입</button></li>
 		<%} %>
 	</ul>
 </nav>
@@ -244,7 +244,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 <header id="header">
 	<div class="logo container">
 		<div>
-			<a href="/Healthy_drugger_new/main.jsp" id="logo">
+			<a href="../main.jsp" id="logo">
 				<img src="images/logo2.png" width="100%" height="(100%/1.5)">
 			</a>
 		</div>
