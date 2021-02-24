@@ -235,7 +235,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 
 <!-- top버튼 -->
 <a id="toTop" href="#top">
-	<img src="images/topPill.png" width="60px" height="100px" alt="" >
+	<img src="../images/topPill.png" width="60px" height="100px" alt="" >
 </a>
 	
 	<!-- Footer -->
