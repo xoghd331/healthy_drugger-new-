@@ -1,9 +1,22 @@
+<%@page import="com.model.reQnADAO"%>
+<%@page import="com.model.QnADAO"%>
+<%@page import="com.model.QnADTO"%>
 <%@page import="com.issue.issueDAO"%>
 <%@page import="com.issue.issueDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
       <%@page import="com.user.UserDTO"%>
+      
+<%
+	QnADAO dao = new QnADAO();
+	int total = dao.count();
+
+	reQnADAO rqdao = new reQnADAO();
+	
+	ArrayList<QnADTO> q_list = dao.selectQuestions();
+%>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -162,54 +175,41 @@
 
 														<!-- 커뮤니티 밑의 전문가와 Q&A 탭 : Archives -->
 															<ul class="divided">
+															
+															
+															
+															<%if (total == 0) {%>
 																<li>
 																	<article class="box post-summary">
-																		<h3><a href="#">Q.눈이 너무 건조할땐 어떤 약을 먹어야 하나요?</a></h3>
+																		<h3><a href="#">등록된 질문이 없습니다.</a></h3>
+																</li>
+															<%} else { 
+																for (int i = 0; i < 5; i++) {
+																	QnADTO dto = q_list.get(i);
+																	int idx = dto.getQ_num();
+																	int rqNum = rqdao.reQnACount(idx); %>
+																	
+																<li>
+																	<article class="box post-summary">
+																		<%if (rqNum != 0) {%>
+																		<h3 style="display:inline-block;">Q.<a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_title() %></a></h3><p style="margin-left:3px;font-size:3px; display:inline-block;">[<%=rqNum %>]</p>
+																		<p></p>
+																		<%} else { %>
+																		<h3>Q.<a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_title() %></a></h3>
+																		<%} %>
 																		<ul class="meta">
-																			<li class="icon fa-clock">6 hours ago</li>
-																			<li class="icon fa-comments"><a href="#">34</a></li>
+																			<li class="icon fa-clock"><%=dto.getQ_date() %></li>
+																			<li class="icon fa-comments"><a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_view() %></a></li>
 																		</ul>
 																	</article>
 																</li>
-																<li>
-																	<article class="box post-summary">
-																		<h3><a href="#">Q.변비에 좋은 영양제는 무엇인가요?</a></h3>
-																		<ul class="meta">
-																			<li class="icon fa-clock">9 hours ago</li>
-																			<li class="icon fa-comments"><a href="#">27</a></li>
-																		</ul>
-																	</article>
-																</li>
-																<li>
-																	<article class="box post-summary">
-																		<h3><a href="#">Q.홍삼을 먹을때 바나나도 먹어도 되나요?</a></h3>
-																		<ul class="meta">
-																			<li class="icon fa-clock">Yesterday</li>
-																			<li class="icon fa-comments"><a href="#">184</a></li>
-																		</ul>
-																	</article>
-																</li>
-																<li>
-																	<article class="box post-summary">
-																		<h3><a href="#">Q.뼈가 시릴때 추천하는 영양제 조합이 있나요?</a></h3>
-																		<ul class="meta">
-																			<li class="icon fa-clock">2 days ago</li>
-																			<li class="icon fa-comments"><a href="#">286</a></li>
-																		</ul>
-																	</article>
-																</li>
-																<li>
-																	<article class="box post-summary">
-																		<h3><a href="#">Q.몸에 열이 많은데 홍삼을 먹어도 되나요?</a></h3>
-																		<ul class="meta">
-																			<li class="icon fa-clock">3 days ago</li>
-																			<li class="icon fa-comments"><a href="#">8,086</a></li>
-																		</ul>
-																	</article>
-																</li>
+																	
+																<% }
+															} %>
+
 															</ul>
 															
-															<a href="#" class="button alt">질문하러가기</a>
+															<a href="Community/QnAWrite.jsp" class="button alt">질문하러가기</a>
 
 													</div>
 												</div>
