@@ -23,7 +23,7 @@
 <section id="main" style="padding-bottom : 45px; margin-bottom : 70px">
 	<form id="searchForm">
 	<br>
-	<table>
+	<table style="margin-bottom:15px;">
  			<tr height="50"> 
  				<td class="tb" align="center">연령</td> 
  			 	<td><input class="rad" style="width:23px;height:23px" type='radio' name='age' value='child' /><span>어린이</span></td>
@@ -32,13 +32,13 @@
  			 </tr>
  			 
  			 <tr height="50">
- 			 	<td align="center">성별</td>
+ 			 	<td class="tb" align="center">성별</td>
  			 	<td><span><input class="rad" style="width:23px;height:23px" type='radio' name='gender' value='male' />남자</span></td>
   				<td><input class="rad" style="width:23px;height:23px" type='radio' name='gender' value='female' /><span>여자</span></td>
   			</tr>
   			
   			<tr height="50">
- 			 	<td align="center" rowspan="2">몸 상태</td>
+ 			 	<td class="tb" align="center" rowspan="2">몸 상태</td>
  				<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='sleep' />수면부족</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='eyes' />눈피로</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='condition' value='immunity' />면역력저하</td>
@@ -54,7 +54,7 @@
   			</tr>
   			
   			<tr height="50">
- 				<td align="center" rowspan="2">필요한 영양</td>
+ 				<td class="tb" align="center" rowspan="2">필요한 영양</td>
  			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='multi' />멀티비타민</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='vitaC' />비타민C</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='vitaD' />비타민D</td>
@@ -62,7 +62,7 @@
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='lactic' />유산균</td>
   			 </tr>
   			 
-  			 <tr height="50">
+  			 <tr  height="50">
   				<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='mg' />마그네슘</td>
   				<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='lutein' />루테인</td>
   			 	<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='zn' />아연</td>
@@ -70,8 +70,8 @@
   			 	<td> <input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='propolis' />프로폴리스</td>
   			</tr>
   			
-  			<tr height="50">
- 				<td align="center" >알레르기</td>
+  			<tr  height="50">
+ 				<td class="tb" align="center" >알레르기</td>
  			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='milk' />우유</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='peach' />복숭아</td>
   			 	<td><input class="che" style="width:25px;height:25px;" type='checkbox' name='nutrition' value='daedo' />대두</td>
