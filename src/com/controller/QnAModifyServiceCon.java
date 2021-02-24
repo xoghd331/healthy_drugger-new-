@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,12 @@ import com.model.QnADTO;
 @WebServlet("/QnAModifyServiceCon")
 public class QnAModifyServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
+
 		int num = Integer.parseInt(request.getParameter("num"));
 		String username = request.getParameter("q_username");
 		String password = request.getParameter("q_password");
@@ -28,11 +35,16 @@ public class QnAModifyServiceCon extends HttpServlet {
 		if (ch == true) {
 			dao.modifyQuestions(title, content, num);
 			
-			System.out.println("글이 수정되었습니다.");
+			script.println("<script>");
+			script.println("alert('질문 수정 성공')");
+			script.println("location.href='Community/NewQnAView.jsp?idx=" + num + "&pg=<%=pg%>'");
+			script.println("</script>");
 		} else {
-			System.out.println("비밀번호가 틀렸습니다.");
+			script.println("<script>");
+			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("history.back()");
+			script.println("</script>");
 		}
-		response.sendRedirect("Community/QnAView.jsp?idx=" + num + "&pg=<%=pg%>");
 	}
 
 }

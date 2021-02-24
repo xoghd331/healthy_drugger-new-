@@ -43,7 +43,7 @@ public class ReQnAModifyServiceCon extends HttpServlet {
 			
 			script.println("<script>");
 			script.println("alert('답글 수정 성공')");
-			script.println("location.href='Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
+			script.println("location.href='Community/NewQnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
 			script.println("</script>");		}
 		else {
 			script.println("<script>");
@@ -51,7 +51,6 @@ public class ReQnAModifyServiceCon extends HttpServlet {
 			script.println("history.back()");
 			script.println("</script>");
 		}
-//		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
 	}
 
 }

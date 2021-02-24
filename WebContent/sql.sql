@@ -28,6 +28,8 @@ create table pills(
 	note varchar2(200)			/* 주의 사항 */
 )
 
+insert into issue values('123','ㅎㅇ','admin',sysdate,'안녕하세요','111',null);
+
 insert into pills values('키즈튼튼 멀티비타민','키즈튼튼','공용','유아/청소년','비타민A, 비타민D, 비타민E, 비타민B1, 비타민B2, 비타민B6, 비타민B12, 비타민C, 철, 망간','성장발육','12,900','')
 
 select * from pills

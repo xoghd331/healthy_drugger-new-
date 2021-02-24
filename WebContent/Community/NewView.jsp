@@ -353,7 +353,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<%} %>
 				</div>
 				<div class="contentbox">
-					<p class="content"><%=c_list.get(i).getC_content() %></p>
+					<p class="content" style="margin:5 0 5; padding:5 0 5;"><%=c_list.get(i).getC_content() %></p>
 				</div>
 			</div>
 			<%}} %>

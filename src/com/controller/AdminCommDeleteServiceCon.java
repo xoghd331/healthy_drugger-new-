@@ -36,7 +36,6 @@ public class AdminCommDeleteServiceCon extends HttpServlet {
 		script.println("location.href='Community/View3.jsp?idx=" + bnum + "&pg=<%=pg%>'");
 		script.println("</script>");
 		
-//		response.sendRedirect("Community/View3.jsp?idx=" + bnum + "&pg=<%=pg%>");
 	}
 
 }
