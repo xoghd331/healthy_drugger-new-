@@ -2895,6 +2895,20 @@ input, select, textarea {
 					z-index: 1000;
 					text-align: center;
 				}
+				
+				
+				#titleBar .title2 {
+					display: block;
+					position: relative;
+					font-family: 'GyeonggiTitleL', sans-serif;
+					font-weight: 700;
+					text-transform: uppercase;
+					font-size: 1.25em;
+					line-height: 44px;
+					color: #fff;
+					z-index: 1000;
+					text-align: center;
+				}
 
 				#titleBar .toggle {
 					text-decoration: none;
@@ -3259,6 +3273,16 @@ input, select, textarea {
 	border-top-right-radius:8px;
 	border-bottom:2px solid #F2F5F3;
 }
+
+.title2{
+	font-size:22px;
+	padding:20px;
+	background-color:#f3ffdf;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+	border-bottom:2px solid #F2F5F3;
+}
+
 
 .boardinfolist{
 	list-style:none;

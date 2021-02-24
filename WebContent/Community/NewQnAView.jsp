@@ -203,11 +203,11 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	<div class="container">
 		<!-- 글 제목 -->
 		
-			<div class="title">
+			<div class="title" style="background-color : #f3ffdf ">
 				<h1 id="q_title"><%=qdto.getQ_title()%></h1>
 			</div>
 			<div class="boardinfoform">
-				<ul class="boardinfolist">
+				<ul class="boardinfolist" style="background-color : #f3ffdf ">
 					<input id="q_num" type="hidden" value=<%=qdto.getQ_num() %>>
 					<li class="boardinfo">작성자 : <%=qdto.getQ_username()%></li>
 					<li class="boardinfo">조회수 : <%=qdto.getQ_view()%></li>
