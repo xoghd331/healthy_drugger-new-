@@ -33,8 +33,8 @@ public class AdminReQnADeleteServiceCon extends HttpServlet {
 		dao.deleteReQuestions(rqnum);
 			
 		script.println("<script>");
-		script.println("alert('삭제 성공')");
-		script.println("location.href='QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
+		script.println("alert('답글이 삭제되었습니다')");
+		script.println("location.href='Community/NewQnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
 		script.println("</script>");
 		
 //		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");

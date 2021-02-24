@@ -32,7 +32,7 @@ public class AdminDeleteServiceCon extends HttpServlet {
 		dao.deleteWrite(num);
 		
 		script.println("<script>");
-		script.println("alert('삭제 성공')");
+		script.println("alert('게시물이 삭제되었습니다')");
 		script.println("location.href='Community/List3.jsp'");
 		script.println("</script>");
 		

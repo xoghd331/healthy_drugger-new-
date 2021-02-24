@@ -33,13 +33,13 @@ public class QnAWriteServiceCon extends HttpServlet {
 		if (cnt > 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('글쓰기 성공')");
+			script.println("alert('질문 성공')");
 			script.println("location.href='Community/QnAList.jsp'");
 			script.println("</script>");
 		} else {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("alert('게시물 작성에 실패했습니다')");
 			script.println("history.back()");
 			script.println("</script>");
 		}

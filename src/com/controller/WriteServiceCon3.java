@@ -36,12 +36,12 @@ public class WriteServiceCon3 extends HttpServlet {
 		
 		if (cnt > 0) {
 			script.println("<script>");
-			script.println("alert('글쓰기 성공')");
+			script.println("alert('게시물이 등록되었습니다')");
 			script.println("location.href='Community/List3.jsp'");
 			script.println("</script>");
 		} else {
 			script.println("<script>");
-			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("alert('게시물 등록에 실패했습니다')");
 			script.println("history.back()");
 			script.println("</script>");
 		}

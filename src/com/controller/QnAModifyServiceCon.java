@@ -36,12 +36,12 @@ public class QnAModifyServiceCon extends HttpServlet {
 			dao.modifyQuestions(title, content, num);
 			
 			script.println("<script>");
-			script.println("alert('질문 수정 성공')");
+			script.println("alert('질문이 수정되었습니다')");
 			script.println("location.href='Community/NewQnAView.jsp?idx=" + num + "&pg=<%=pg%>'");
 			script.println("</script>");
 		} else {
 			script.println("<script>");
-			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("alert('질문 수정에 실패했습니다')");
 			script.println("history.back()");
 			script.println("</script>");
 		}

@@ -34,16 +34,16 @@ public class ReQnADeleteServiceCon extends HttpServlet {
 		if (ch == true) {
 			dao.deleteReQuestions(rqnum);
 			script.println("<script>");
-			script.println("alert('답글 삭제 성공')");
-			script.println("location.href='Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
+			script.println("alert('답글이 삭제되었습니다')");
+			script.println("location.href='Community/NewQnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
 			script.println("</script>");
 		} else {
 			script.println("<script>");
-			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("alert('답글 삭제에 실패했습니다')");
 			script.println("history.back()");
 			script.println("</script>");
 		}
-		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
+//		response.sendRedirect("Community/NewQnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
 	}
 
 }
