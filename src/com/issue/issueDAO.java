@@ -181,15 +181,15 @@ public ArrayList<issueDTO> selectIssue(){
 	}
 	
 	//±€ ªË¡¶
-	public int delete(issueDTO dto) {
+	public int delete(int idx) {
 		try {
 			conn();
 			
-			String sql = "delete";
+			String sql = "delete from issue where idx = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			
-
+			psmt.setInt(1, idx);
 			
 			cnt = psmt.executeUpdate();
 			
