@@ -33,10 +33,6 @@ public class BoardDisLikeService extends HttpServlet {
 			int like=dao.select_Like(bno);
 			
 			System.out.println(like);
-	
-			script.println("<script>");
-			script.println("alert('좋아요 취소')");
-			script.println("</script>");
 			
 			script.print(like);
 		}

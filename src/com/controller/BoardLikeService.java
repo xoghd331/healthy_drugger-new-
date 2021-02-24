@@ -31,11 +31,6 @@ public class BoardLikeService extends HttpServlet {
 			int like=dao.select_Like(bno);
 			
 			System.out.println(like);
-			
-			script.println("<script>");
-			script.println("alert('¡¡æ∆ø‰')");
-			script.println("</script>");
-	
 			script.print(like);
 		}
 	}
