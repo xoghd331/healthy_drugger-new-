@@ -36,7 +36,7 @@ public class AdminQnADeleteServiceCon extends HttpServlet {
 		dao.deleteQuestions(num);
 		
 		script.println("<script>");
-		script.println("alert('삭제 성공')");
+		script.println("alert('질문이 삭제되었습니다')");
 		script.println("location.href='Community/QnAList.jsp'");
 		script.println("</script>");
 		

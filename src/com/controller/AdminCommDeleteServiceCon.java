@@ -32,8 +32,8 @@ public class AdminCommDeleteServiceCon extends HttpServlet {
 		dao.deleteComm(cnum);
 		
 		script.println("<script>");
-		script.println("alert('댓글 삭제 성공')");
-		script.println("location.href='Community/View3.jsp?idx=" + bnum + "&pg=<%=pg%>'");
+		script.println("alert('댓글이 삭제되었습니다')");
+		script.println("location.href='Community/NewView.jsp?idx=" + bnum + "&pg=<%=pg%>'");
 		script.println("</script>");
 		
 	}

@@ -33,7 +33,7 @@ public class BoardLikeService extends HttpServlet {
 			System.out.println(like);
 			
 			script.println("<script>");
-			script.println("alert('좋아요 취소')");
+			script.println("alert('좋아요')");
 			script.println("</script>");
 	
 			script.print(like);

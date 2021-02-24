@@ -42,12 +42,12 @@ public class ReQnAModifyServiceCon extends HttpServlet {
 			dao.modifyReQuestions(content, rqnum);
 			
 			script.println("<script>");
-			script.println("alert('답글 수정 성공')");
+			script.println("alert('답글을 수정했습니다')");
 			script.println("location.href='Community/NewQnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
 			script.println("</script>");		
 			} else {
 			script.println("<script>");
-			script.println("alert('글쓰기에 실패했습니다')");
+			script.println("alert('답글 수정에 실패했습니다')");
 			script.println("history.back()");
 			script.println("</script>");
 		}

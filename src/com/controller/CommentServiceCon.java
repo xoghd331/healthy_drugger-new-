@@ -33,10 +33,10 @@ public class CommentServiceCon extends HttpServlet {
 		int cnt = dao.insertComm(dto);
 		
 		if (cnt > 0) {
-			System.out.println("댓글작성 성공");
+			System.out.println("댓글 작성이 완료되었습니다");
 			script.print("댓글 작성 완료");
 		} else {
-			System.out.println("댓글작성 실패");
+			System.out.println("댓글 작성을 실패했습니다");
 			script.print("댓글 작성 실패");
 		}
 		

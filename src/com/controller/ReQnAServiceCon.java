@@ -34,10 +34,10 @@ public class ReQnAServiceCon extends HttpServlet {
 		int cnt = dao.insertReQuestions(dto);
 		
 		if (cnt > 0) {
-			script.print("답글 작성 완료");
+			script.print("답글이 작성되었습니다");
 
 		} else {
-			script.print("답글 작성 실패");
+			script.print("답글 작성에 실패했습니다");
 
 		}
 		

@@ -37,12 +37,12 @@ public class ModifyServiceCon extends HttpServlet {
 			dao.modifyWrite(title, content, num);
 			
 			script.println("<script>");
-			script.println("alert('수정완료 성공')");
+			script.println("alert('게시물이 수정되었습니다')");
 			script.println("location.href='Community/NewView.jsp?idx=" + num + "&pg=<%=pg%>'");
 			script.println("</script>");
 		} else {
 			script.println("<script>");
-			script.println("alert('비밀번호가 틀렸습니다 성공')");
+			script.println("alert('비밀번호를 다시 입력해주십시오')");
 			script.println("location.href='Community/NewView.jsp?idx=" + num + "&pg=<%=pg%>'");
 			script.println("</script>");
 		}

@@ -174,7 +174,8 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 							<tr>
 								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">작성자</td>
 								<td>
-									<input type = "text" name = "c_username">
+									<%=dto.getC_username()%>
+									<input type = "hidden" name = "c_username" value="<%=dto.getC_username()%>">
 								<td>
 							</tr>
 							<tr>
