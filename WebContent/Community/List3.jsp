@@ -68,6 +68,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 <link rel="stylesheet" href="/Healthy_drugger_new/assets/css/main.css" />	
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body class="is-preload" style="padding-top:0px" id="top">
 	<div id="page-wrapper">
 		<nav id="nav">
@@ -253,10 +254,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	</table>
 </section>
 
-<!-- top버튼 -->
-<a id="toTop" href="#top">
-	<img src="images/topPill.png" width="60px" height="100px" alt="" >
-</a>
+
 
 <!-- top버튼 -->
 <a id="toTop" href="#top">
