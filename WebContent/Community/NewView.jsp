@@ -371,9 +371,9 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 		<div style="border: 1px soild #ffc200">	
 				<div style="padding-top : 5px;">
 					<ul class="commlist">
-						
+						<li class="boardinfo">작성자</li>
 						<li class="boardinfo">
-							작성자<%=info.getId() %>
+							<%=info.getId() %>
 							<input type="hidden" id="c_username" value="<%=info.getId() %>">
 							<input type="hidden" id="c_password" value="<%=info.getPw() %>">
 						</li>
