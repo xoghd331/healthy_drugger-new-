@@ -310,7 +310,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 					<input type="hidden" id="c_password" value="<%=info.getPw() %>">-->
 				</div>
 
-				<div >
+				<div>
 					<ul class="commlist">
 						<li>
 							<span>내용</span>
@@ -319,14 +319,24 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						<li>
 							<div align="right">
 								<button class="commbtn" onclick="REQnAWriteCall()">등록</button>
-								<button class="commbtn" type="button" OnClick="javascript:history.back(-1)">취소</button>
+								<button class="commbtn" type="button"  OnClick="window.location='QnAList.jsp'">뒤로가기</button>
 							</div>			
 						</li>
 					</ul>
 				</div>
 				
 				<!--<textarea id="comment" rows=5 style="width:90%; resize:none;"></textarea>-->
-				<%}%>
+				<%} else {%>
+				<div> 
+					<ul class="commlist">
+						<li>
+							<div align="right">
+								<button class="commbtn" type="button"  OnClick="window.location='QnAList.jsp'">뒤로가기</button>
+							</div>			
+						</li>
+					</ul>
+				</div>
+				<%} %>
 				
 		</div><!-- 답글 -->
 

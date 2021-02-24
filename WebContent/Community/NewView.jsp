@@ -30,11 +30,11 @@
 						result.innerHTML = data;
 						var b_state = document.getElementById("b_state");
 						b_state.value="좋아요 취소";
+						alert("추천하셨습니다")
 					},
 					error : function(request,status,error) {
 						//실패했을때
-						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-						alert("ajax실패");
+						alert("추천 실패");
 					}
 				});
 				
@@ -55,11 +55,11 @@
 						result.innerHTML = data;
 						var b_state = document.getElementById("b_state");
 						b_state.value="좋아요";
+						alert("추천을 취소했습니다.")
 					},
 					error : function(request,status,error) {
 						//실패했을때
-						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-						alert("ajax실패");
+						alert("추천 취소 실패");
 					}
 				});
 			}
@@ -392,7 +392,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						<li>
 							<div align="right">
 								<button class="commbtn" onclick="commWriteCall()">등록</button>
-								<button class="commbtn" type="button"  OnClick="javascript:history.back(-1)">취소</button>
+								<button class="commbtn" type="button"  OnClick="window.location='List3.jsp'">뒤로가기</button>
 							</div>	
 						</li>
 					</ul>
@@ -427,7 +427,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						<li>
 							<div align="right">
 								<button class="commbtn" onclick="commWriteCall()">등록</button>
-								<button class="commbtn" type="reset">취소</button>
+								<button class="commbtn" type="button"  OnClick="window.location='List3.jsp'">뒤로가기</button>
 							</div>		
 						</li>
 					</ul>
