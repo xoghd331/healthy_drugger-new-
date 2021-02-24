@@ -175,19 +175,39 @@
 
 														<!-- 커뮤니티 밑의 전문가와 Q&A 탭 : Archives -->
 															<ul class="divided">
-															
-															
-															
 															<%if (total == 0) {%>
 																<li>
 																	<article class="box post-summary">
 																		<h3><a>등록된 질문이 없습니다.</a></h3>
 																</li>
-															<%} else { 
-																for (int i = 0; i < 5; i++) {
-																	QnADTO dto = q_list.get(i);
-																	int idx = dto.getQ_num();
-																	int rqNum = rqdao.reQnACount(idx); %>
+															<%} else{ 
+																if (total <= 5) {
+																	for (int i = 0; i < total; i++) {
+																		QnADTO dto = q_list.get(i);
+																		int idx = dto.getQ_num();
+																		int rqNum = rqdao.reQnACount(idx);%>
+																		
+																<li>
+																	<article class="box post-summary">
+																		<%if (rqNum != 0) {%>
+																		<h3 style="display:inline-block;">Q.<a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_title() %></a></h3><p style="margin-left:3px;font-size:3px; display:inline-block;">[<%=rqNum %>]</p>
+																		<p></p>
+																		<%} else { %>
+																		<h3>Q.<a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_title() %></a></h3>
+																		<%} %>
+																		<ul class="meta">
+																			<li class="icon fa-clock"><%=dto.getQ_date() %></li>
+																			<li class="icon fa-comments"><a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_view() %></a></li>
+																		</ul>
+																	</article>
+																</li>	
+																	
+																	<%}
+																} else {
+																	for (int i = 0; i < 5; i++) {
+																		QnADTO dto = q_list.get(i);
+																		int idx = dto.getQ_num();
+																		int rqNum = rqdao.reQnACount(idx);%>
 																	
 																<li>
 																	<article class="box post-summary">
@@ -204,9 +224,7 @@
 																	</article>
 																</li>
 																	
-																<% }
-															} %>
-
+																<% } } }%>
 															</ul>
 															
 															<a href="Community/QnAWrite.jsp" class="button alt">질문하러가기</a>

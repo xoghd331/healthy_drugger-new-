@@ -28,6 +28,7 @@ CREATE TABLE comm(
 		CONSTRAINT comm_FK_b_num FOREIGN KEY(b_num)
 		REFERENCES board(b_num) ON DELETE CASCADE
 )
+INSERT INTO qna VALUES (num_qna.nextval, '테스트 이름', '1234', '테스트 제목입니다', '테스트 내용입니다. 안녕하세요 반갑습니다 잘가요 멀리 안나갈께요', sysdate, 0, 0)
 
 CREATE TABLE qna(
 	q_num NUMBER PRIMARY KEY,
@@ -90,8 +91,9 @@ SELECT DBMS_LOB.SUBSTR(b_content, DBMS_LOB.GETLENGTH(b_content)) FROM board
 
 delete from rqna where rq_num = 21;
 delete from board where b_username = 'testname';
+delete from qna
 
-INSERT INTO board VALUES (num_board.nextval, 'testname1', '1234', '테스트 제목입니다', '테스트 내용입니다. 안녕하세요 반갑습니다 잘가요 멀리 안나갈께요', sysdate, 0, 0)
+
 INSERT INTO board VALUES (num_board.nextval, 'testname2', '1234', 'testtitle2', 'testcontent2', sysdate, 0, 0)
 INSERT INTO board VALUES (num_board.nextval, 'testname3', '1234', 'testtitle3', 'testcontent3', sysdate, 0, 0)
 INSERT INTO board VALUES (num_board.nextval, 'testname4', '1234', 'testtitle4', 'testcontent4', sysdate, 0, 0)
