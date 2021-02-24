@@ -196,27 +196,27 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 <body class="is-preload" style="padding-top:0px">
 <nav id="nav">
 		<ul id="menu_list">
-			<li id="main_li"><a href="../Healthy_drugger_new/main.jsp">Home</a></li>
+			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
 			<li id="community_li">
 				<a href="#">커뮤니티</a>
 				<ul>
-					<li><a href="../Healthy_drugger_new/Community/List3.jsp">자유게시판</a></li>
-					<li><a href="../Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
+					<li><a href="/Healthy_drugger_new/Community/List3.jsp">자유게시판</a></li>
+					<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
 				</ul>
 			</li>
-			<li id="search_li"><a href="../Healthy_drugger_new/search.jsp">영양제 검색</a></li>						
-			<li id="issue_li"><a href="../Healthy_drugger_new/issue.jsp">건강 이슈</a></li>
+			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">영양제 검색</a></li>						
+			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">건강 이슈</a></li>
 	<%if(info == null) {%>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/login.jsp">로그인</a></li>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/join.jsp">회원가입</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">로그인</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">회원가입</a></li>
 	<%}else { %>
 		<%if(info.getId().equals("admin")) {%>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/admin.jsp">회원정보 관리</a></li>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/logout">로그아웃</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">회원정보 관리</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">로그아웃</a></li>
 		<%}else { %>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/logout">로그아웃</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">로그아웃</a></li>
 		<%} %>
 	<%} %>
 		</ul>
@@ -244,7 +244,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 <header id="header">
 	<div class="logo container">
 		<div>
-			<a href="main.jsp" id="logo">
+			<a href="/Healthy_drugger_new/main.jsp" id="logo">
 				<img src="images/logo2.png" width="100%" height="(100%/1.5)">
 			</a>
 		</div>
@@ -285,18 +285,18 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<%if (info != null) {%>
 					<%if (info.getId().equals(vdto.getB_username())) {%>
 				<div class="iconbox">
-					<a class="icon" href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%> %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
-					<a class="icon" href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%> %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 				</div>
 					<%} else if (info.getId().equals("admin")) { %>
 				<div class="iconbox">
-					<a class="icon" href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%> %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 				</div>
 					<%} %>
 				<%} else { %>
 				<div class="iconbox">
-					<a class="icon" href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%> %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
-					<a class="icon" href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%> %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "Modify3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "Delete3.jsp?idx=<%=vdto.getB_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 				</div>
 				<%} %>
 			</div>
@@ -379,17 +379,17 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<div class="CComment">
 					<ul class="commlist">
 						<li>
-							<textarea id="comment" rows=5 style="width:90%; resize:none;"></textarea>
+							<p class="boardinfo">내용</p>
+							<textarea id="comment" rows=5 style="width:93%; resize:none;"></textarea>
 						</li>
 					</ul>
 				</div>
-				<!--<textarea id="comment" rows=5 style="width:90%; resize:none;"></textarea>-->
 				<%} else {%>
 				<div class="CWriter">
 					<ul class="commlist">
 						<li>
 							<p class="boardinfo">작성자</p>
-							<input type="text" id="c_username">
+							<input type="text" id="c_username" style="width:90%;">
 						</li>
 					</ul>
 				</div>
@@ -399,16 +399,18 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 					<ul class="commlist">
 						<li>
 							<p class="boardinfo">비밀번호</p>
-							<input type="password" id="c_password">
+							<input type="password" id="c_password" style="width:90%;">
 						</li>
 					</ul>
-				<!--<p class="user">비밀번호</p>
-					<input type="password" id="c_password">-->
 				</div>
 				<div class="CComment">
-					<textarea id="comment"></textarea>
+					<ul class="commlist">
+						<li>
+							<p class="boardinfo">내용</p>
+							<textarea id="comment" rows=5 style="width:90%; resize:none;"></textarea>
+						</li>
+					</ul>
 				</div>
-					<!--<textarea id="comment" rows=5 style="resize:none;"></textarea>-->
 				<%}%>
 				<div class="Cbtn">
 					<button class="commbtn" type="reset">취소</button>
@@ -427,7 +429,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 							</div>
 											<!-- top버튼 -->
 											<a id="toTop" href="#top">
-												<img src="images/topPill.png" width="60px" height="100px" alt="" >
+												<img src="../images/topPill.png" width="60px" height="100px" alt="" >
 											</a>
 
 						</div>

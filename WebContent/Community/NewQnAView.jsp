@@ -220,18 +220,18 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<%if (info != null) {%>
 					<%if (info.getId().equals(qdto.getQ_username())) {%>
 				<div class="iconbox">
-					<a class="icon" href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%> %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
-					<a class="icon" href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%> %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 				</div>
 					<%} else if (info.getId().equals("admin")) { %>
 				<div class="iconbox">
-					<a class="icon" href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%> %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 				</div>
 					<%} %>
 				<%} else { %>
 				<div class="iconbox">
-					<a class="icon" href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%> %>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
-					<a class="icon" href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%> %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "QnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
+					<a class="icon" href = "QnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 				</div>
 				<%} %>
 			</div>
@@ -270,7 +270,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 							</li>
 								<%} else if (info.getId().equals("admin")) { %>
 							<li class="boardinfo">
-								<a class="icon" href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%> %>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
+								<a class="icon" href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</li>
 								<%} %>
 							<%}%>
@@ -309,7 +309,8 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<div class="CComment">
 					<ul class="commlist">
 						<li>
-							<textarea id="rq_content" rows=5 style="width:90%; resize:none;"></textarea>
+							<span>내용</span>
+							<textarea id="rq_content" rows=5 style="width:93%; resize:none;"></textarea>
 						</li>
 					</ul>
 				</div>
@@ -332,7 +333,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 							</div>
 											<!-- top버튼 -->
 											<a id="toTop" href="#top">
-												<img src="images/topPill.png" width="60px" height="100px" alt="" >
+												<img src="../images/topPill.png" width="60px" height="100px" alt="" >
 											</a>
 
 						</div>
