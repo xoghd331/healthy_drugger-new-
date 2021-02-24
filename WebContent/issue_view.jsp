@@ -123,29 +123,33 @@
 					
 				</thead>
 				<tbody >
-					<tr height=70>
+					<tr height=55>
             			<td id="title" width=50  style="word-break:break-all" >제 목</td>
             			<td>
-              				<input type=text name="content"  value="${dto.title}"> <!-- style="width:680px;" -->
-                		<!--  <textarea name="content" cols="70" rows="1">${dto.title}</textarea>   -->
+              				<h1>${dto.title}</h1>
             			</td>        
 					</tr>
-					<tr height=70>
-						<td id="title" width=50 style="word-break:break-all" >작성자</td>
-						<td colspan="2">
-							${dto.user_id}
-						</td>
-					</tr>
-					<tr height=70>
-						<td id="title" width=65 style="word-break:break-all" >작성일자</td>
+					<tr height=60>
+						<td id="title" width=75 style="word-break:break-all" >작성일자</td>
 						<td colspan="2">
 							${dto.up_date}
 						</td>
 					</tr>
-					<tr height=70>
-						<td id="title" width=50 style="word-break:break-all" >내 용</td>
+					<tr height=60>
+						<td>조회수</td>
+						<td colspan="2">
+							${dto.available}
+						</td>
+					</tr>
+					<tr height=60>
+						<td colspan="2">
+							<img src="${pageContext.request.contextPath}/upload/${dto.issueImg}">
+						</td>
+					</tr>
+					<tr height=60>
+						<td id="title" width=50 style="word-break:break-all" ></td>
             			<td>
-               				 <textarea name="content" cols="72" rows="20">${dto.content}</textarea>
+               				 ${dto.content}
 						</td>
 					</tr>
 					</tbody>
@@ -157,7 +161,7 @@
 			<!-- 해당 글의 작성자가 관리자라면 수정과 삭제가 가능하도록 코드 추가 -->
 	 			<%if(info != null && info.getId().equals("admin")) {%> 
 	 				<input type="submit" value="수정" class="button" onclick="location.href='#'"/>
-	 				<input type="reset" value="삭제" class="button" onclick="location.href='#'"/>
+	 				<input type="reset" value="삭제" class="button" onclick="location.href='delete?idx=${dto.idx}'"/>
 				<%}	%>
 				
        		 </div>
