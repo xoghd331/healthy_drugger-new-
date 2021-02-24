@@ -33,6 +33,7 @@ public class CommDeleteServiceCon extends HttpServlet {
 		
 		if (ch == true) {
 			dao.deleteComm(cnum);
+			
 			script.println("<script>");
 			script.println("alert('댓글이 삭제되었습니다')");
 			script.println("location.href='Community/View3.jsp?idx=" + bnum + "&pg=<%=pg%>'");

@@ -16,6 +16,11 @@ import com.model.reQnADTO;
 public class ReQnAServiceCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
 
 		int q_num = Integer.parseInt(request.getParameter("q_num"));
 		String q_title = request.getParameter("q_title");
@@ -23,21 +28,19 @@ public class ReQnAServiceCon extends HttpServlet {
 		String rq_password = request.getParameter("rq_password");
 		String rq_content = request.getParameter("rq_content");
 		
-		response.setContentType("text/html; charset=euc-kr");
-		PrintWriter out = response.getWriter();
-		
 		reQnADAO dao =  new reQnADAO();
 		reQnADTO dto = new reQnADTO(q_num, q_title + "에 대한 " + rq_username + "님의 답변", rq_username, rq_content, rq_password);
 		
 		int cnt = dao.insertReQuestions(dto);
 		
 		if (cnt > 0) {
-			System.out.println("답글작성 성공");
+			script.print("답글 작성 완료");
+
 		} else {
-			System.out.println("답글작성 실패");
+			script.print("답글 작성 실패");
+
 		}
 		
-		out.print("답글 작성 완료");
 	}
 
 }

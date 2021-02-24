@@ -3,8 +3,8 @@
 <%@page import="com.model.reQnADTO"%>
 <%@page import="com.model.QnADAO"%>
 <%@page import="com.model.QnADTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
 	UserDTO info = (UserDTO)session.getAttribute("info");
 	reQnADTO dto =  new reQnADTO();
@@ -21,19 +21,19 @@
 		var form = document.Modifyform;
 		
 		if (!form.rq_password.value) {
-			alert( "ºñ¹Ð¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä" );
+			alert( "ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”" );
 			form.rq_password.focus();
 			return;
 			}
 		
 		if (!form.rq_title.value) {
-			alert( "Á¦¸ñÀ» Àû¾îÁÖ¼¼¿ä" );
+			alert( "ì œëª©ì„ ì ì–´ì£¼ì„¸ìš”" );
 			form.rq_title.focus();
 			return;
 			}
 		
 		if (!form.rq_content.value) {
-			alert( "³»¿ëÀ» Àû¾îÁÖ¼¼¿ä" );
+			alert( "ë‚´ìš©ì„ ì ì–´ì£¼ì„¸ìš”" );
 			form.rq_content.focus();
 			return;
 			}
@@ -52,7 +52,7 @@
 	}
 </style>
 <!-- 
-CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
+CSSì—ì„œ input, textarea í´ë¦­ ì‹œ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ì—†ì• ëŠ” ê±°
 .td input:focus, .td textarea:focus{
 	outline: none;
 }
@@ -67,44 +67,44 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 		<ul id="menu_list">
 			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
 			<li id="community_li">
-				<a href="#">Ä¿¹Â´ÏÆ¼</a>
+				<a href="#">ì»¤ë®¤ë‹ˆí‹°</a>
 				<ul>
-					<li><a href="/Healthy_drugger_new/Community/List3.jsp">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
+					<li><a href="/Healthy_drugger_new/Community/List3.jsp">ìžìœ ê²Œì‹œíŒ</a></li>
 					<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
 				</ul>
 			</li>
-			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">¿µ¾çÁ¦ °Ë»ö</a></li>						
-			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">°Ç°­ ÀÌ½´</a></li>
+			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">ì˜ì–‘ì œ ê²€ìƒ‰</a></li>						
+			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">ê±´ê°• ì´ìŠˆ</a></li>
 	<%if(info == null) {%>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">·Î±×ÀÎ</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">È¸¿ø°¡ÀÔ</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">ë¡œê·¸ì¸</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">íšŒì›ê°€ìž…</a></li>
 	<%}else { %>
 		<%if(info.getId().equals("admin")) {%>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">È¸¿øÁ¤º¸ °ü¸®</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">íšŒì›ì •ë³´ ê´€ë¦¬</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 		<%}else { %>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 		<%} %>
 	<%} %>
 		</ul>
 		
-<!-- ·Î±×ÀÎ È¸¿ø°¡ÀÔ ¹öÆ° -->
+<!-- ë¡œê·¸ì¸ íšŒì›ê°€ìž… ë²„íŠ¼ -->
 	<ul style="position:absolute ; top:0px;right:0px">
-		<%if(info != null){ %> <!-- ·Î±×ÀÎ ¼º°ø -->
+		<%if(info != null){ %> <!-- ë¡œê·¸ì¸ ì„±ê³µ -->
 			<%if(info.getId().equals("admin")) {%> <!-- admin -->
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">È¸¿øÁ¤º¸ °ü¸®</button></li>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button><li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">íšŒì›ì •ë³´ ê´€ë¦¬</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button><li>
 			<%}else{%>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button></li>
 			<%} %>
-		<%}else{%> <!-- ·Î±×ÀÎ ½ÇÆÐ½Ã  : ·Î±×ÀÎ, È¸¿ø°¡ÀÔ ¹öÆ° Ãâ·Â-->
-		<!-- <a href="#menu">·Î±×ÀÎ</a> -->
-			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">·Î±×ÀÎ</button></li>
-			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">È¸¿ø°¡ÀÔ</button></li>
+		<%}else{%> <!-- ë¡œê·¸ì¸ ì‹¤íŒ¨ì‹œ  : ë¡œê·¸ì¸, íšŒì›ê°€ìž… ë²„íŠ¼ ì¶œë ¥-->
+		<!-- <a href="#menu">ë¡œê·¸ì¸</a> -->
+			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">ë¡œê·¸ì¸</button></li>
+			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">íšŒì›ê°€ìž…</button></li>
 		<%} %>
 	</ul>
 </nav>
@@ -130,11 +130,11 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 	}
 }
 </style>
-<!-- ±Û¾²±â -->	
+<!-- ê¸€ì“°ê¸° -->	
 <section id="main" style="padding-bottom : 80px; margin-bottom : 70px; padding-top:44px; border-top:0px;">
 	<div align="center">
 	<br><br>
-		<b><font size="18" color="gray">Áú¹® ¼öÁ¤ÇÏ±â</font></b>
+		<b><font size="18" color="gray">ì§ˆë¬¸ ìˆ˜ì •í•˜ê¸°</font></b>
 		
 	</div>
 		<br><br>
@@ -147,33 +147,33 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 				<td>
 					<table width="700" border="3" bordercolor="lightgray" align="center" >
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ÀÛ¼ºÀÚ</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ìž‘ì„±ìž</td>
 								<td><%=info.getId()%> 
 									<input type="hidden" name="rq_username" value="<%=info.getId()%>"> 
 									<input type="hidden" name="rq_password" value="<%=info.getPw()%>">
 								<td>
 							</tr>
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">Á¦ ¸ñ</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ì œ ëª©</td>
 								<td>
 									<%=dto.getRQ_title() %>
 									<input name="rq_title" type="hidden" value = "<%=dto.getRQ_title() %>">
 								</td>
 							</tr>
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">³» ¿ë</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ë‚´ ìš©</td>
 								<td><textarea name="rq_content" cols="65" rows="20" style="resize:none;"><%=dto.getRQ_content() %></textarea></td>
 							</tr>
 						</table>
 					</td>
-					</tr> <!-- Çà -->
+					</tr> <!-- í–‰ -->
 		</table>		
 						
 						<div align="center">
 							<input type = "hidden" name = "qnum" value = "<%=dto.getQ_num() %>">
 							<input type = "hidden" name = "rqnum" value = "<%=dto.getRQ_num() %>">
-							<input type="button" value="µî·Ï" class = "button" OnClick="javascript:modifyCheck();">
-							<input type="button" value="Ãë¼Ò" class = "button" OnClick="javascript:history.back(-1)">
+							<input type="button" value="ë“±ë¡" class = "button" OnClick="javascript:modifyCheck();">
+							<input type="button" value="ì·¨ì†Œ" class = "button" OnClick="javascript:history.back(-1)">
 						</div>
 						
 					
@@ -182,9 +182,9 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 		</form>
 		</div>
    </div>
-	</section><!-- ¸ÞÀÎ ³¡ -->
+	</section><!-- ë©”ì¸ ë -->
 
-<!-- top¹öÆ° -->
+<!-- topë²„íŠ¼ -->
 	<a id="toTop" href="#top">
 		<img src="images/topPill.png" width="60px" height="100px" alt="" >
 	</a>
@@ -202,7 +202,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 									</section>
 
 							</div>
-											<!-- top¹öÆ° -->
+											<!-- topë²„íŠ¼ -->
 											<a id="toTop" href="#top">
 												<img src="images/topPill.png" width="60px" height="100px" alt="" >
 											</a>
@@ -212,7 +212,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						<!-- Copyright -->
 							<div id="copyright">
 								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>°Ç°­ÇÑ ¾àÀïÀÌ</a></li>
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>ê±´ê°•í•œ ì•½ìŸì´</a></li>
 								</ul>
 							</div>
 

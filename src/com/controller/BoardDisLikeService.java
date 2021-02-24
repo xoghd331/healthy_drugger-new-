@@ -14,9 +14,13 @@ import com.model.BoardDAO;
 
 @WebServlet("/BoardDisLikeService")
 public class BoardDisLikeService extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
 		
 		int bno = Integer.parseInt(request.getParameter("b_num"));
 		
@@ -30,10 +34,11 @@ public class BoardDisLikeService extends HttpServlet {
 			
 			System.out.println(like);
 	
-			response.setContentType("text/html; charset=euc-kr");
+			script.println("<script>");
+			script.println("alert('좋아요 취소')");
+			script.println("</script>");
 			
-			PrintWriter out = response.getWriter();
-			out.print(like);
+			script.print(like);
 		}
 	}
 

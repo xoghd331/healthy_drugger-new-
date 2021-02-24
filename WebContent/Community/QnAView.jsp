@@ -4,38 +4,38 @@
 <%@page import="com.model.QnADTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.QnADAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%
-	//·Î±×ÀÎÇÑ À¯Àú Á¤º¸ °¡Á®¿À±â
+	//ë¡œê·¸ì¸í•œ ìœ ì € ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 	UserDTO info = (UserDTO)session.getAttribute("info");
 	
-	//QnA ÃÑ °¹¼ö
+	//QnA ì´ ê°¯ìˆ˜
 	QnADAO qdao = new QnADAO();
 	int total = qdao.count();
 	
 	reQnADAO rqdao = new reQnADAO();
 
-	//QnA ¸ñ·Ï(¸®½ºÆ®)
+	//QnA ëª©ë¡(ë¦¬ìŠ¤íŠ¸)
 	ArrayList<QnADTO> q_list = qdao.selectQuestions();
 	
-	//QnA¿¡¼­ °¡Á®¿Â idx¸¦ num¿¡ ÀúÀå
+	//QnAì—ì„œ ê°€ì ¸ì˜¨ idxë¥¼ numì— ì €ìž¥
 	int num = Integer.parseInt(request.getParameter("idx"));
 	
-	//1°³ÀÇ QnA °Ô½Ã¹° ¼±ÅÃ
+	//1ê°œì˜ QnA ê²Œì‹œë¬¼ ì„ íƒ
 	QnADTO qdto = qdao.viewQuestions(num);
 	
-	//Á¶È¸¼ö Áõ°¡
+	//ì¡°íšŒìˆ˜ ì¦ê°€
 	qdao.updateViewCount(num);
 	
-	//QnA ´äº¯ °¹¼ö Ãâ·Â
+	//QnA ë‹µë³€ ê°¯ìˆ˜ ì¶œë ¥
 	int reQnATotal = rqdao.reQnACount(num);
 	
-	//QnA ´äº¯ ¸ñ·Ï(¸®½ºÆ®)
+	//QnA ë‹µë³€ ëª©ë¡(ë¦¬ìŠ¤íŠ¸)
 	ArrayList<reQnADTO> rq_list = rqdao.selectReQuestions(num);
 	
-	//ÆäÀÌÁö °ü·Ã
+	//íŽ˜ì´ì§€ ê´€ë ¨
 	int size = q_list.size();
 	int size2 = size;
 	final int ROWSIZE = 12;
@@ -76,7 +76,7 @@
 	}
 </style>
 <!-- 
-CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
+CSSì—ì„œ input, textarea í´ë¦­ ì‹œ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ì—†ì• ëŠ” ê±°
 .td input:focus, .td textarea:focus{
 	outline: none;
 }
@@ -87,28 +87,28 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 </head>
 <body class="is-preload" style="padding-top:0px" id="top">
 	<div id="page-wrapper">
-		<!-- Ä«Å×°í¸® ÅÇ »ý¼ºÇÏ´Â ÄÚµå : Nav -->
+		<!-- ì¹´í…Œê³ ë¦¬ íƒ­ ìƒì„±í•˜ëŠ” ì½”ë“œ : Nav -->
 		<jsp:include page="../header.jsp"/>
 	</div>
 	<table style="margin-top:5%;">
 		<tr>
 			<td width="5%"></td>
 			<td>
-<!-- -----------------------------------------------»ó´Ü-----------------------------------------------
+<!-- -----------------------------------------------ìƒë‹¨-----------------------------------------------
 				<table width = "100%" cellpadding = "0" cellspacing = "0">
 					<form>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-						<tr> ·Î°í ¹× Ä¿¹Â´ÏÆ¼ ÀÌ¸§ Ç¥½Ã, ¾²±â ¹öÆ°
+						<tr> ë¡œê³  ë° ì»¤ë®¤ë‹ˆí‹° ì´ë¦„ í‘œì‹œ, ì“°ê¸° ë²„íŠ¼
 							<td bgcolor = "#B1DDAB"></td>
 							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
-							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "±Û¾²±â" OnClick = "window.location = 'QnAWrite.jsp'"></td>
+							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "ê¸€ì“°ê¸°" OnClick = "window.location = 'QnAWrite.jsp'"></td>
 						</tr>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 					</form>
 				</table>
------------------------------------------------»ó´Ü ³¡----------------------------------------------- -->
+-----------------------------------------------ìƒë‹¨ ë----------------------------------------------- -->
 
-<!-- -----------------------------------------------Q&A ºä----------------------------------------------- -->
+<!-- -----------------------------------------------Q&A ë·°----------------------------------------------- -->
 				<table width = "1184px" align = "center" align = "center" cellpadding = "0" cellspacing = "0">
 					<form>
 						<tr height="1" bgcolor="#F2F5F3">
@@ -122,7 +122,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						</tr>
 						<tr height = "35px">
 							<td colspan="4" width = "80%" style = "padding-left : 15px" bgcolor = "#eeeeee">
-								±Û¹øÈ£ : <span id="q_num"><%=qdto.getQ_num()%></span> | ÀÛ¼ºÀÚ : <%=qdto.getQ_username()%> | Á¶È¸¼ö : <%=qdto.getQ_view()%> | ÀÛ¼ºÀÏ : <%=qdto.getQ_date()%></td>
+								ê¸€ë²ˆí˜¸ : <span id="q_num"><%=qdto.getQ_num()%></span> | ìž‘ì„±ìž : <%=qdto.getQ_username()%> | ì¡°íšŒìˆ˜ : <%=qdto.getQ_view()%> | ìž‘ì„±ì¼ : <%=qdto.getQ_date()%></td>
 						<%if (info != null){%>
 							<%if (info.getId().equals(qdto.getQ_username())) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
@@ -148,17 +148,17 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						<tr height = "200px">
 							<td  width="1184" colspan="6" style="white-space: pre-line; padding-left : 15px"><%=qdto.getQ_content()%></td>
 						</tr>
-<!-- ÁÁ¾Æ¿ä ±â´É Ãß°¡
+<!-- ì¢‹ì•„ìš” ê¸°ëŠ¥ ì¶”ê°€
 						<tr height = "50px">
-							<td align="center" width="1184" colspan="6"><a href = "#">ÁÁ¾Æ¿ä</a></td>
+							<td align="center" width="1184" colspan="6"><a href = "#">ì¢‹ì•„ìš”</a></td>
 						</tr>
-ÁÁ¾Æ¿ä ±â´É Ãß°¡ -->
+ì¢‹ì•„ìš” ê¸°ëŠ¥ ì¶”ê°€ -->
 					</form>
 				</table>
-<!-- -----------------------------------------------Q&A ºä ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------Q&A ë·° ë----------------------------------------------- -->
 
-<!-- -----------------------------------------------´ä ±Û ¸® ½º Æ®----------------------------------------------- -->
-<!-- -----------------------------------------------´ä±Û ¾øÀ½ ¾È³»----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µ ê¸€ ë¦¬ ìŠ¤ íŠ¸----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ì—†ìŒ ì•ˆë‚´----------------------------------------------- -->
 				<table width = "1184px" align = "center" align = "center" cellpadding = "0" cellspacing = "0">
 					<form>
 						<tr height="1" bgcolor="#F2F5F3">
@@ -166,11 +166,11 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						</tr>			
 	<%if (reQnATotal == 0) { %>
 						<tr height = "80px" align="center">
-							<td colspan="6">µî·ÏµÈ ´ä±ÛÀÌ ¾ø½À´Ï´Ù.</td>
+							<td colspan="6">ë“±ë¡ëœ ë‹µê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 						</tr>
-<!-- -----------------------------------------------´ä±Û ¾øÀ½ ¾È³» ²û----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ì—†ìŒ ì•ˆë‚´ ë”----------------------------------------------- -->
 
-<!-- -----------------------------------------------´ä±Û ¸ñ·Ï Ãâ·Â----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ëª©ë¡ ì¶œë ¥----------------------------------------------- -->
 	<%} else {
 		for (int i = 0; i < rq_list.size(); i++) {
 			int rqnum = rq_list.get(i).getRQ_num();%>
@@ -185,10 +185,10 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						</tr>
 						<tr height = "35px">
 							<td colspan="4" width = "80%" style = "padding-left : 15px" bgcolor = "#eeeeee">
-								±Û¹øÈ£ : <%=i+1%> | ÀÛ¼ºÀÚ : <%=rq_list.get(i).getRQ_username()%> | ÀÛ¼ºÀÏ : <%=rq_list.get(i).getRQ_date()%>
+								ê¸€ë²ˆí˜¸ : <%=i+1%> | ìž‘ì„±ìž : <%=rq_list.get(i).getRQ_username()%> | ìž‘ì„±ì¼ : <%=rq_list.get(i).getRQ_date()%>
 							</td>
 			<% if (info != null) {%>
-<!-- -----------------------------------------------°ü¸®ÀÚ¸é »èÁ¦ ¹öÆ° ¹«Á¶°Ç È°¼ºÈ­----------------------------------------------- -->
+<!-- -----------------------------------------------ê´€ë¦¬ìžë©´ ì‚­ì œ ë²„íŠ¼ ë¬´ì¡°ê±´ í™œì„±í™”----------------------------------------------- -->
 				<% if (info.getId().equals(rq_list.get(i).getRQ_username())) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 								<a href = "ReQnAModify.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/modify.png" width = "20px" height = "20px"></a>
@@ -196,19 +196,19 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 								<a href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
-<!-- -----------------------------------------------°ü¸®ÀÚ¸é »èÁ¦ ¹öÆ° ¹«Á¶°Ç È°¼ºÈ­ ²û----------------------------------------------- -->
-<!-- -----------------------------------------------·Î±×ÀÎ¿Í ÀÛ¼ºÀÚ°¡ ÀÏÄ¡ÇÏ¸é ¼öÁ¤ »èÁ¦ ¹öÆ° È°¼ºÈ­----------------------------------------------- -->
+<!-- -----------------------------------------------ê´€ë¦¬ìžë©´ ì‚­ì œ ë²„íŠ¼ ë¬´ì¡°ê±´ í™œì„±í™” ë”----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ì™€ ìž‘ì„±ìžê°€ ì¼ì¹˜í•˜ë©´ ìˆ˜ì • ì‚­ì œ ë²„íŠ¼ í™œì„±í™”----------------------------------------------- -->
 				<%} else if (info.getId().equals("admin")) {%>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee">
 								<a href = "ReQnADelete.jsp?idx=<%=qdto.getQ_num()%>&pg=<%=pg%>&rqnum=<%=rqnum%>"><img src = "../img/delete.png" width = "20px" height = "20px"></a>
 							</td>
-<!-- -----------------------------------------------·Î±×ÀÎ¿Í ÀÛ¼ºÀÚ°¡ ÀÏÄ¡ÇÏ¸é ¼öÁ¤ »èÁ¦ ¹öÆ° È°¼ºÈ­ ²û----------------------------------------------- -->
-<!-- -----------------------------------------------·Î±×ÀÎ¿Í ÀÛ¼ºÀÚ°¡ ºÒÀÏÄ¡ÇÏ¸é ¼öÁ¤ »èÁ¦ ¹öÆ° ºñÈ°¼ºÈ­----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ì™€ ìž‘ì„±ìžê°€ ì¼ì¹˜í•˜ë©´ ìˆ˜ì • ì‚­ì œ ë²„íŠ¼ í™œì„±í™” ë”----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ì™€ ìž‘ì„±ìžê°€ ë¶ˆì¼ì¹˜í•˜ë©´ ìˆ˜ì • ì‚­ì œ ë²„íŠ¼ ë¹„í™œì„±í™”----------------------------------------------- -->
 				<% } else { %>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
 							<td align  = "right" style = "padding-right : 15px" bgcolor = "#eeeeee"></td>
-<!-- -----------------------------------------------·Î±×ÀÎ¿Í ÀÛ¼ºÀÚ°¡ ºÒÀÏÄ¡ÇÏ¸é ¼öÁ¤ »èÁ¦ ¹öÆ° ºñÈ°¼ºÈ­ ²û----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ì™€ ìž‘ì„±ìžê°€ ë¶ˆì¼ì¹˜í•˜ë©´ ìˆ˜ì • ì‚­ì œ ë²„íŠ¼ ë¹„í™œì„±í™” ë”----------------------------------------------- -->
 				<% } 
 			 }%>
 						</tr>
@@ -218,60 +218,60 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						<tr height = "200px">
 							<td  width="1184" colspan="6" style="white-space: pre-line; padding-left : 15px"><%=rq_list.get(i).getRQ_content()%></td>
 						</tr>
-<!-- ÁÁ¾Æ¿ä ±â´É Ãß°¡
+<!-- ì¢‹ì•„ìš” ê¸°ëŠ¥ ì¶”ê°€
 						<tr height = "50px">
-							<td align="center" width="1184" colspan="6"><a href = "#">ÁÁ¾Æ¿ä</a></td>
+							<td align="center" width="1184" colspan="6"><a href = "#">ì¢‹ì•„ìš”</a></td>
 						</tr>
-ÁÁ¾Æ¿ä ±â´É Ãß°¡ -->
+ì¢‹ì•„ìš” ê¸°ëŠ¥ ì¶”ê°€ -->
 		<%}
 		
 	}%>
 
 					</form>
 				</table>
-<!-- -----------------------------------------------´ä±Û ¸ñ·Ï ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------´ä ±Û ¸® ½º Æ® ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------´ä±Û ÀÛ¼º----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ëª©ë¡ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µ ê¸€ ë¦¬ ìŠ¤ íŠ¸ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ìž‘ì„±----------------------------------------------- -->
 				<table cellpadding = "0" cellspacing = "0" border="1">
 					<form>
-<!-- -----------------------------------------------·Î±×ÀÎ È¸¿ø¸¸ ´ä±Û ÀÛ¼º °¡´É----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ íšŒì›ë§Œ ë‹µê¸€ ìž‘ì„± ê°€ëŠ¥----------------------------------------------- -->
 <%
 if (info != null) {%>
-<!-- -----------------------------------------------·Î±×ÀÎ À¯Àú Á¤º¸ Ãâ·Â----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ ìœ ì € ì •ë³´ ì¶œë ¥----------------------------------------------- -->
 					<tr>
-						<td width="178" height="30" bgcolor="#eeeeee" align="center">ÀÛ¼ºÀÚ</td>
+						<td width="178" height="30" bgcolor="#eeeeee" align="center">ìž‘ì„±ìž</td>
 						<td width="414" height="30"  bgcolor = "#ffffff" style="padding-left: 10px;" colspan = "2">
 							<b><%=info.getId()%></b>
 							<input type = "hidden" id="rq_username" value = "<%=info.getId()%>">
 							<input type = "hidden" id="rq_password" value = "<%=info.getPw()%>">
 						</td>
 					</tr>
-<!-- -----------------------------------------------·Î±×ÀÎ À¯Àú Á¤º¸ Ãâ·Â ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------³»¿ë ÀÔ·Â Ä­----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ ìœ ì € ì •ë³´ ì¶œë ¥ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ë‚´ìš© ìž…ë ¥ ì¹¸----------------------------------------------- -->
 					<tr height="2" bgcolor="#F2F5F3">
 						<td colspan="6"></td>
 					</tr>
 					<tr>
-						<td width="178" height="30" bgcolor="#eeeeee" align="center">³»¿ë</td>
+						<td width="178" height="30" bgcolor="#eeeeee" align="center">ë‚´ìš©</td>
 						<td width=1006" bgcolor = "#ffffff" colspan="3">
 							<textarea id="rq_content" cols = 140 rows = 7 style="resize: none; border:none; margin-left: 10px;"></textarea>
 						</td>
 					</tr>
-<!-- -----------------------------------------------³»¿ë ÀÔ·Â Ä­ ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------¹öÆ°ºÎ----------------------------------------------- -->
+<!-- -----------------------------------------------ë‚´ìš© ìž…ë ¥ ì¹¸ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ë²„íŠ¼ë¶€----------------------------------------------- -->
 					<tr>
 						<td width="1184" height="30" colspan="4" align="right" style="padding-right: 15px;">
-							<input type="button" value="µî·ÏÇÏ±â" onclick="REQnAWriteCall()">
-							<input type="reset" value="Ãë¼ÒÇÏ±â">
+							<input type="button" value="ë“±ë¡í•˜ê¸°" onclick="REQnAWriteCall()">
+							<input type="reset" value="ì·¨ì†Œí•˜ê¸°">
 						</td>
 					</tr>
-<!-- -----------------------------------------------¹öÆ°ºÎ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ë²„íŠ¼ë¶€ ë----------------------------------------------- -->
 <%}
 %>
 					</form>
 				</table>
-<!-- -----------------------------------------------´ä±Û ÀÛ¼º ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------´ä±Û ³»¿ë Àü¼Û----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ìž‘ì„± ë----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ë‚´ìš© ì „ì†¡----------------------------------------------- -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function REQnAWriteCall() {
@@ -282,7 +282,7 @@ if (info != null) {%>
 		var rq_content = document.getElementById("rq_content");
 
 		$.ajax({
-			type : "post", //µ¥ÀÌÅÍ Àü¼Û¹æ½Ä
+			type : "post", //ë°ì´í„° ì „ì†¡ë°©ì‹
 			data : {
 				"q_num" : q_num.innerHTML,
 				"q_title" : q_title.innerHTML,
@@ -290,36 +290,36 @@ if (info != null) {%>
 				"rq_password" : rq_password.value,
 				"rq_content" : rq_content.value
 			},
-			url : "../ReQnAServiceCon", // µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÒ ¼­¹ö ÆÄÀÏ ÀÌ¸§
-			dataType : "text", // ¼­¹ö¿¡¼­ ¿À´Â ÀÀ´ä ¹æ½ÄÀ» ÁöÁ¤
+			url : "../ReQnAServiceCon", // ë°ì´í„°ë¥¼ ì „ì†¡í•  ì„œë²„ íŒŒì¼ ì´ë¦„
+			dataType : "text", // ì„œë²„ì—ì„œ ì˜¤ëŠ” ì‘ë‹µ ë°©ì‹ì„ ì§€ì •
 			success : function(data) {
 				rq_content.value = "";
 
 				location.reload(true);
-				alert("´ä±ÛÀÌ ¼º°øÀûÀ¸·Î ÀÛ¼ºµÇ¾ú½À´Ï´Ù.");
+				alert("ë‹µê¸€ì´ ì„±ê³µì ìœ¼ë¡œ ìž‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			},
 
 			error : function() {
-				alert("´ä±Û ÀÛ¼º¿¡ ½ÇÆÐÇß½À´Ï´Ù");
+				alert("ë‹µê¸€ ìž‘ì„±ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
 			}
 		});
 	}
 </script>
-<!-- -----------------------------------------------´ä±Û ³»¿ë Àü¼Û ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------°Ô½ÃÆÇ ¸®½ºÆ® ½ÃÀÛ----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ë‚´ìš© ì „ì†¡ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ì‹œìž‘----------------------------------------------- -->
 				<table width = "1184px" border="0" cellspacing = "0">
 					<form>
 						<tr height = "2" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>
-						<tr height = "50"> <!-- ±Û¸ñ·Ï »ó´Ü -->
-							<th bgcolor = "#eeeeee" width = "5%">¹øÈ£</th>
-							<th bgcolor = "#eeeeee" width = "60%">Á¦¸ñ</th>
-							<th bgcolor = "#eeeeee" width = "10%">±Û¾´ÀÌ</th>
-							<th bgcolor = "#eeeeee" width = "15%">µî·ÏÀÏÀÚ</th>
-							<th bgcolor = "#eeeeee" width = "5%">ÁÁ¾Æ¿ä</th>
-							<th bgcolor = "#eeeeee" width = "5%">Á¶È¸¼ö</th>
+						<tr height = "50"> <!-- ê¸€ëª©ë¡ ìƒë‹¨ -->
+							<th bgcolor = "#eeeeee" width = "5%">ë²ˆí˜¸</th>
+							<th bgcolor = "#eeeeee" width = "60%">ì œëª©</th>
+							<th bgcolor = "#eeeeee" width = "10%">ê¸€ì“´ì´</th>
+							<th bgcolor = "#eeeeee" width = "15%">ë“±ë¡ì¼ìž</th>
+							<th bgcolor = "#eeeeee" width = "5%">ì¢‹ì•„ìš”</th>
+							<th bgcolor = "#eeeeee" width = "5%">ì¡°íšŒìˆ˜</th>
 							<%if (info != null) {
 								if (info.getId().equals("admin")) {%>
-							<th bgcolor = "#eeeeee" width = "5%">ºñ°í</th>
+							<th bgcolor = "#eeeeee" width = "5%">ë¹„ê³ </th>
 							<%		} 
 								}%>
 						</tr>
@@ -328,7 +328,7 @@ if (info != null) {%>
 						if(total == 0) {
 						%>
 						<tr align = "center" bgcolor = "#FFFFFF" height = "30">
-							<td colspan = "7">µî·ÏµÈ ±ÛÀÌ ¾ø½À´Ï´Ù.</td>
+							<td colspan = "7">ë“±ë¡ëœ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 						</tr>
 						<% } else {
 							for (int i = ROWSIZE*(pg-1); i < end; i++) {
@@ -365,27 +365,27 @@ if (info != null) {%>
 						} %>
 					</form>
 				</table>
-<!-- -----------------------------------------------°Ô½ÃÆÇ ¸®½ºÆ® ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------°Ë»ö ½ÃÀÛ----------------------------------------------- -->
+<!-- -----------------------------------------------ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ê²€ìƒ‰ ì‹œìž‘----------------------------------------------- -->
 				<table width = "100%" border="0">
 					<form method = post action = "QnASearchResult.jsp">
-					<tr> <!-- °Ë»ö ¹× ¾²±â¹öÆ° -->
+					<tr> <!-- ê²€ìƒ‰ ë° ì“°ê¸°ë²„íŠ¼ -->
 						<td>
 							<span>
 								<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
-									<option value = "title">Á¦¸ñ</option>
-									<option value = "content">³»¿ë</option>
-									<option value = "write">±Û¾´ÀÌ</option>
+									<option value = "title">ì œëª©</option>
+									<option value = "content">ë‚´ìš©</option>
+									<option value = "write">ê¸€ì“´ì´</option>
 								</select>
 								<input type = "text" name = "inputSearch" value size = "15" style="border:none">
-								<input type = "submit" name = "btnSearch" value = "°Ë»ö">
+								<input type = "submit" name = "btnSearch" value = "ê²€ìƒ‰">
 							</span>
-						<td align = "right"><input type = button value = "±Û¾²±â" OnClick = "window.location='Write3.jsp'"></td>
+						<td align = "right"><input type = button value = "ê¸€ì“°ê¸°" OnClick = "window.location='Write3.jsp'"></td>
 					</tr>
 					</form>
 				</table>
-<!-- -----------------------------------------------°Ë»ö ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------¹øÈ£ ½ÃÀÛ----------------------------------------------- -->
+<!-- -----------------------------------------------ê²€ìƒ‰ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ë²ˆí˜¸ ì‹œìž‘----------------------------------------------- -->
 				<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
 					<tr><td colspan = "4" height = "5"></td></tr>
 					<tr>
@@ -393,8 +393,8 @@ if (info != null) {%>
 							<%
 							if (pg > BLOCK) {
 							%>
-								[<a href = "QnAList.jsp?pg=1">¢¸¢¸</a>]
-								[<a href = "QnAList.jsp?pg=<%=startPage-1%>">¢¸</a>]
+								[<a href = "QnAList.jsp?pg=1">â—€â—€</a>]
+								[<a href = "QnAList.jsp?pg=<%=startPage-1%>">â—€</a>]
 							<%
 							}
 							%>
@@ -416,15 +416,15 @@ if (info != null) {%>
 							<%
 							if(endPage < allPage){
 							%>
-								[<a href = "QnAList.jsp?pg=<%=endPage+1%>">¢º</a>]
-								[<a href = "QnAList.jsp?pg=<%=allPage%>">¢º¢º</a>]
+								[<a href = "QnAList.jsp?pg=<%=endPage+1%>">â–¶</a>]
+								[<a href = "QnAList.jsp?pg=<%=allPage%>">â–¶â–¶</a>]
 							<%
 							}
 							%>
 						</td>
 					</tr>
 				</table>
-<!-- -----------------------------------------------¹øÈ£ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ë²ˆí˜¸ ë----------------------------------------------- -->
 			</td>
 			<td width="5%"></td>
 		</tr>

@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,12 @@ import com.model.reQnADTO;
 @WebServlet("/AdminReQnADeleteServiceCon")
 public class AdminReQnADeleteServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
+
 		String username = request.getParameter("rq_username");
 		int qnum = Integer.parseInt(request.getParameter("qnum"));
 		int rqnum = Integer.parseInt(request.getParameter("rqnum"));
@@ -25,6 +32,11 @@ public class AdminReQnADeleteServiceCon extends HttpServlet {
 		
 		dao.deleteReQuestions(rqnum);
 			
-		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
+		script.println("<script>");
+		script.println("alert('삭제 성공')");
+		script.println("location.href='QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
+		script.println("</script>");
+		
+//		response.sendRedirect("Community/QnAView.jsp?idx=" + qnum + "&pg=<%=pg%>");
 	}
 }

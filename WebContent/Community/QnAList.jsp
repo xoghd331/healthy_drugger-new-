@@ -3,10 +3,10 @@
 <%@page import="com.model.QnADTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.QnADAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
-	//·Î±×ÀÎÇÑ À¯Àú Á¤º¸ °¡Á®¿À±â
+	//ë¡œê·¸ì¸í•œ ìœ ì € ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 	UserDTO info = (UserDTO)session.getAttribute("info");
 
 	QnADAO dao = new QnADAO();
@@ -15,7 +15,7 @@
 	reQnADAO rqdao = new reQnADAO();
 	
 	ArrayList<QnADTO> q_list = dao.selectQuestions();
-	//ÆäÀÌÁö °ü·Ã
+	//íŽ˜ì´ì§€ ê´€ë ¨
 	int size = q_list.size();
 	int size2 = size;
 	final int ROWSIZE = 12;
@@ -56,7 +56,7 @@
 	}
 </style>
 <!-- 
-CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
+CSSì—ì„œ input, textarea í´ë¦­ ì‹œ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ì—†ì• ëŠ” ê±°
 .td input:focus, .td textarea:focus{
 	outline: none;
 }
@@ -72,44 +72,44 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 			<ul id="menu_list">
 					<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
 					<li id="community_li">
-						<a href="#">Ä¿¹Â´ÏÆ¼</a>
+						<a href="#">ì»¤ë®¤ë‹ˆí‹°</a>
 						<ul>
-							<li><a href="/Healthy_drugger_new/Community/List3.jsp">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
+							<li><a href="/Healthy_drugger_new/Community/List3.jsp">ìžìœ ê²Œì‹œíŒ</a></li>
 							<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
 						</ul>
 					</li>
-					<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">¿µ¾çÁ¦ °Ë»ö</a></li>						
-					<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">°Ç°­ ÀÌ½´</a></li>
+					<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">ì˜ì–‘ì œ ê²€ìƒ‰</a></li>						
+					<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">ê±´ê°• ì´ìŠˆ</a></li>
 					<%if(info == null) {%>
-						<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">·Î±×ÀÎ</a></li>
-						<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">È¸¿ø°¡ÀÔ</a></li>
+						<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">ë¡œê·¸ì¸</a></li>
+						<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">íšŒì›ê°€ìž…</a></li>
 					<%}else { %>
 						<%if(info.getId().equals("admin")) {%>
-							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">È¸¿øÁ¤º¸ °ü¸®</a></li>
-							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">íšŒì›ì •ë³´ ê´€ë¦¬</a></li>
+							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 						<%}else { %>
-							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+							<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 						<%} %>
 					<%} %>
 				</ul>
 				
-		<!-- ·Î±×ÀÎ È¸¿ø°¡ÀÔ ¹öÆ° -->
+		<!-- ë¡œê·¸ì¸ íšŒì›ê°€ìž… ë²„íŠ¼ -->
 			<ul style="position:absolute ; top:0px;right:0px">
-				<%if(info != null){ %> <!-- ·Î±×ÀÎ ¼º°ø -->
+				<%if(info != null){ %> <!-- ë¡œê·¸ì¸ ì„±ê³µ -->
 					<%if(info.getId().equals("admin")) {%> <!-- admin -->
-						<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">È¸¿øÁ¤º¸ °ü¸®</button></li>
-						<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-						<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button><li>
+						<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">íšŒì›ì •ë³´ ê´€ë¦¬</button></li>
+						<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+						<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button><li>
 					<%}else{%>
-						<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-						<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button></li>
+						<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+						<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button></li>
 					<%} %>
-				<%}else{%> <!-- ·Î±×ÀÎ ½ÇÆÐ½Ã  : ·Î±×ÀÎ, È¸¿ø°¡ÀÔ ¹öÆ° Ãâ·Â-->
-				<!-- <a href="#menu">·Î±×ÀÎ</a> -->
-					<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">·Î±×ÀÎ</button></li>
-					<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">È¸¿ø°¡ÀÔ</button></li>
+				<%}else{%> <!-- ë¡œê·¸ì¸ ì‹¤íŒ¨ì‹œ  : ë¡œê·¸ì¸, íšŒì›ê°€ìž… ë²„íŠ¼ ì¶œë ¥-->
+				<!-- <a href="#menu">ë¡œê·¸ì¸</a> -->
+					<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">ë¡œê·¸ì¸</button></li>
+					<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">íšŒì›ê°€ìž…</button></li>
 				<%} %>
 			</ul>
 		</nav>
@@ -144,33 +144,33 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 		<tr>
 			<td width="5%"></td>
 			<td>
-<!-- -----------------------------------------------»ó´Ü-----------------------------------------------
+<!-- -----------------------------------------------ìƒë‹¨-----------------------------------------------
 				<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
 					<form>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
-						<tr> ·Î°í ¹× Ä¿¹Â´ÏÆ¼ ÀÌ¸§ Ç¥½Ã, ¾²±â ¹öÆ°
+						<tr> ë¡œê³  ë° ì»¤ë®¤ë‹ˆí‹° ì´ë¦„ í‘œì‹œ, ì“°ê¸° ë²„íŠ¼
 							<td bgcolor = "#B1DDAB"></td>
 							<td bgcolor = "#B1DDAB" colspan = "4" align = "center"><a href = "../main.jsp"><img src = '../images/logo2.png' height = 150></a></td>
-							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "±Û¾²±â" OnClick = "window.location = 'QnAWrite.jsp'"></td>
+							<td bgcolor = "#B1DDAB" align = "right"><input type = "button" value = "ê¸€ì“°ê¸°" OnClick = "window.location = 'QnAWrite.jsp'"></td>
 						</tr>
 						<tr height = "1" bgcolor = "#D2D2D2"><td colspan = "6"></td></tr>
 					</form>
 				</table>
------------------------------------------------»ó´Ü ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------°Ô½ÃÆÇ ¸®½ºÆ® ½ÃÀÛ----------------------------------------------- -->
+-----------------------------------------------ìƒë‹¨ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ì‹œìž‘----------------------------------------------- -->
 				<table width = "1184px" border="0" cellspacing = "0">
 					<form>
 						<tr height = "2" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>
-						<tr height = "50"> <!-- ±Û¸ñ·Ï »ó´Ü -->
-							<th bgcolor = "#eeeeee" width = "5%">¹øÈ£</th>
-							<th bgcolor = "#eeeeee" width = "55%">Á¦¸ñ</th>
-							<th bgcolor = "#eeeeee" width = "10%">±Û¾´ÀÌ</th>
-							<th bgcolor = "#eeeeee" width = "15%">µî·ÏÀÏÀÚ</th>
-							<th bgcolor = "#eeeeee" width = "5%">ÁÁ¾Æ¿ä</th>
-							<th bgcolor = "#eeeeee" width = "5%">Á¶È¸¼ö</th>
+						<tr height = "50"> <!-- ê¸€ëª©ë¡ ìƒë‹¨ -->
+							<th bgcolor = "#eeeeee" width = "5%">ë²ˆí˜¸</th>
+							<th bgcolor = "#eeeeee" width = "55%">ì œëª©</th>
+							<th bgcolor = "#eeeeee" width = "10%">ê¸€ì“´ì´</th>
+							<th bgcolor = "#eeeeee" width = "15%">ë“±ë¡ì¼ìž</th>
+							<th bgcolor = "#eeeeee" width = "5%">ì¢‹ì•„ìš”</th>
+							<th bgcolor = "#eeeeee" width = "5%">ì¡°íšŒìˆ˜</th>
 							<%if (info != null) {
 								if (info.getId().equals("admin")) {%>
-							<th bgcolor = "#eeeeee" width = "5%">ºñ°í</th>
+							<th bgcolor = "#eeeeee" width = "5%">ë¹„ê³ </th>
 							<%		} 
 								}%>
 						</tr>
@@ -179,7 +179,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						if(total == 0) {
 						%>
 						<tr align = "center" bgcolor = "#FFFFFF" height = "100">
-							<td colspan = "7">µî·ÏµÈ ±ÛÀÌ ¾ø½À´Ï´Ù.</td>
+							<td colspan = "7">ë“±ë¡ëœ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 						</tr>
 						<% } else {
 							for (int i = ROWSIZE*(pg-1); i < end; i++) {
@@ -216,27 +216,27 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						} %>
 					</form>
 				</table>
-<!-- -----------------------------------------------°Ô½ÃÆÇ ¸®½ºÆ® ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------°Ë»ö ½ÃÀÛ----------------------------------------------- -->
+<!-- -----------------------------------------------ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ê²€ìƒ‰ ì‹œìž‘----------------------------------------------- -->
 				<table width = "100%" border="0">
 					<form method = post action = "QnASearchResult.jsp">
-					<tr> <!-- °Ë»ö ¹× ¾²±â¹öÆ° -->
+					<tr> <!-- ê²€ìƒ‰ ë° ì“°ê¸°ë²„íŠ¼ -->
 						<td>
 							<span>
 								<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
-									<option value = "title">Á¦¸ñ</option>
-									<option value = "content">³»¿ë</option>
-									<option value = "write">±Û¾´ÀÌ</option>
+									<option value = "title">ì œëª©</option>
+									<option value = "content">ë‚´ìš©</option>
+									<option value = "write">ê¸€ì“´ì´</option>
 								</select>
 								<input type = "text" name = "inputSearch" value size = "15" style="border:none">
-								<input type = "submit" name = "btnSearch" value = "°Ë»ö">
+								<input type = "submit" name = "btnSearch" value = "ê²€ìƒ‰">
 							</span>
-						<td align = "right"><input type = button value = "±Û¾²±â" OnClick = "window.location='QnAWrite.jsp'"></td>
+						<td align = "right"><input type = button value = "ê¸€ì“°ê¸°" OnClick = "window.location='QnAWrite.jsp'"></td>
 					</tr>
 					</form>
 				</table>
-<!-- -----------------------------------------------°Ë»ö ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------¹øÈ£ ½ÃÀÛ----------------------------------------------- -->
+<!-- -----------------------------------------------ê²€ìƒ‰ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ë²ˆí˜¸ ì‹œìž‘----------------------------------------------- -->
 				<table width = "100%" cellpadding = "0" cellspacing = "0" border = "0">
 					<tr><td colspan = "4" height = "5"></td></tr>
 					<tr>
@@ -244,8 +244,8 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 							<%
 							if (pg > BLOCK) {
 							%>
-								[<a href = "QnAList.jsp?pg=1">¢¸¢¸</a>]
-								[<a href = "QnAList.jsp?pg=<%=startPage-1%>">¢¸</a>]
+								[<a href = "QnAList.jsp?pg=1">â—€â—€</a>]
+								[<a href = "QnAList.jsp?pg=<%=startPage-1%>">â—€</a>]
 							<%
 							}
 							%>
@@ -267,22 +267,22 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 							<%
 							if(endPage < allPage){
 							%>
-								[<a href = "QnAList.jsp?pg=<%=endPage+1%>">¢º</a>]
-								[<a href = "QnAList.jsp?pg=<%=allPage%>">¢º¢º</a>]
+								[<a href = "QnAList.jsp?pg=<%=endPage+1%>">â–¶</a>]
+								[<a href = "QnAList.jsp?pg=<%=allPage%>">â–¶â–¶</a>]
 							<%
 							}
 							%>
 						</td>
 					</tr>
 				</table>
-<!-- -----------------------------------------------¹øÈ£ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ë²ˆí˜¸ ë----------------------------------------------- -->
 			</td>
 			<td width="5%"></td>
 		</tr>
 	</table>
 </section>	
 	
-<!-- top¹öÆ° -->
+<!-- topë²„íŠ¼ -->
 <a id="toTop" href="#top">
 	<img src="images/topPill.png" width="60px" height="100px" alt="" >
 </a>
@@ -306,7 +306,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						<!-- Copyright -->
 							<div id="copyright" style="margin-top : 0px;">
 								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>°Ç°­ÇÑ ¾àÀïÀÌ</a></li>
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>ê±´ê°•í•œ ì•½ìŸì´</a></li>
 								</ul>
 							</div>
 

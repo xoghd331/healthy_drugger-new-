@@ -27,6 +27,8 @@ public class WriteServiceCon3 extends HttpServlet {
 		String title = request.getParameter("b_title");
 		String content = request.getParameter("b_content");
 		
+		System.out.println(content);
+		
 		BoardDAO dao = new BoardDAO();
 		BoardDTO dto = new BoardDTO(username, password, title, content);
 		

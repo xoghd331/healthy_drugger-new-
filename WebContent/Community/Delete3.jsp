@@ -1,8 +1,8 @@
 <%@page import="com.user.UserDTO"%>
 <%@page import="com.model.BoardDAO"%>
 <%@page import="com.model.BoardDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%
 	UserDTO info = (UserDTO)session.getAttribute("info");
@@ -19,7 +19,7 @@
 		var form = document.Deleteform;
 		
 		if (!form.b_password.value) {
-			alert( "ºñ¹Ð¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä" );
+			alert( "ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”" );
 			form.b_password.focus();
 			return;
 			}
@@ -38,7 +38,7 @@
 	}
 </style>
 <!-- 
-CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
+CSSì—ì„œ input, textarea í´ë¦­ ì‹œ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ì—†ì• ëŠ” ê±°
 .td input:focus, .td textarea:focus{
 	outline: none;
 }
@@ -55,44 +55,44 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 		<ul id="menu_list">
 			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
 			<li id="community_li">
-				<a href="#">Ä¿¹Â´ÏÆ¼</a>
+				<a href="#">ì»¤ë®¤ë‹ˆí‹°</a>
 				<ul>
-					<li><a href="/Healthy_drugger_new/Community/List3.jsp">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
+					<li><a href="/Healthy_drugger_new/Community/List3.jsp">ìžìœ ê²Œì‹œíŒ</a></li>
 					<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
 				</ul>
 			</li>
-			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">¿µ¾çÁ¦ °Ë»ö</a></li>						
-			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">°Ç°­ ÀÌ½´</a></li>
+			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">ì˜ì–‘ì œ ê²€ìƒ‰</a></li>						
+			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">ê±´ê°• ì´ìŠˆ</a></li>
 	<%if(info == null) {%>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">·Î±×ÀÎ</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">È¸¿ø°¡ÀÔ</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">ë¡œê·¸ì¸</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">íšŒì›ê°€ìž…</a></li>
 	<%}else { %>
 		<%if(info.getId().equals("admin")) {%>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">È¸¿øÁ¤º¸ °ü¸®</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">íšŒì›ì •ë³´ ê´€ë¦¬</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 		<%}else { %>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 		<%} %>
 	<%} %>
 		</ul>
 		
-<!-- ·Î±×ÀÎ È¸¿ø°¡ÀÔ ¹öÆ° -->
+<!-- ë¡œê·¸ì¸ íšŒì›ê°€ìž… ë²„íŠ¼ -->
 	<ul style="position:absolute ; top:0px;right:0px">
-		<%if(info != null){ %> <!-- ·Î±×ÀÎ ¼º°ø -->
+		<%if(info != null){ %> <!-- ë¡œê·¸ì¸ ì„±ê³µ -->
 			<%if(info.getId().equals("admin")) {%> <!-- admin -->
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">È¸¿øÁ¤º¸ °ü¸®</button></li>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button><li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">íšŒì›ì •ë³´ ê´€ë¦¬</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button><li>
 			<%}else{%>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button></li>
 			<%} %>
-		<%}else{%> <!-- ·Î±×ÀÎ ½ÇÆÐ½Ã  : ·Î±×ÀÎ, È¸¿ø°¡ÀÔ ¹öÆ° Ãâ·Â-->
-		<!-- <a href="#menu">·Î±×ÀÎ</a> -->
-			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">·Î±×ÀÎ</button></li>
-			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">È¸¿ø°¡ÀÔ</button></li>
+		<%}else{%> <!-- ë¡œê·¸ì¸ ì‹¤íŒ¨ì‹œ  : ë¡œê·¸ì¸, íšŒì›ê°€ìž… ë²„íŠ¼ ì¶œë ¥-->
+		<!-- <a href="#menu">ë¡œê·¸ì¸</a> -->
+			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">ë¡œê·¸ì¸</button></li>
+			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">íšŒì›ê°€ìž…</button></li>
 		<%} %>
 	</ul>
 </nav>
@@ -123,14 +123,14 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 <section id="main" style="padding-bottom : 80px; margin-bottom : 70px; padding-top:44px; border-top:0px;">
 	<div align="center">
 	<br><br>
-		<b><font size="18" color="gray">»èÁ¦</font></b>
+		<b><font size="18" color="gray">ì‚­ì œ</font></b>
 		
 	</div>
 		<br><br>
 	
 <div class="container"  style="text-align:center">
   <div class="row2" align="center" style=" width:22%; margin:auto;">
-<!-- -----------------------------------------------Admin °èÁ¤ÀÏ ¶§ »èÁ¦----------------------------------------------- -->
+<!-- -----------------------------------------------Admin ê³„ì •ì¼ ë•Œ ì‚­ì œ----------------------------------------------- -->
 <%if (info != null) {
 	if (info.getId().equals("admin")) {%>
 	<form name=Deleteform method="post" action="../AdminDeleteServiceCon">
@@ -138,88 +138,88 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 			<tr>
 				<td>
 					<table width="700" border="3" bordercolor="lightgray" align="center" >
-<!-- -----------------------------------------------Á¦  ¸ñ----------------------------------------------- -->
+<!-- -----------------------------------------------ì œ  ëª©----------------------------------------------- -->
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">Á¦ ¸ñ</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ì œ ëª©</td>
 								<td>
 									<%=dto.getB_title()%>
 									<input name="b_title" type="hidden" value="<%=dto.getB_title()%>">
 								</td>
 							</tr>
-<!-- -------------------------------------------ÀÛ¼ºÀÚ ¹× ºñ¹Ð¹øÈ£------------------------------------------- -->
+<!-- -------------------------------------------ìž‘ì„±ìž ë° ë¹„ë°€ë²ˆí˜¸------------------------------------------- -->
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ÀÛ¼ºÀÚ</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ìž‘ì„±ìž</td>
 								<td><%=dto.getB_username()%>
 									<input type="hidden" name="b_username" value="<%=dto.getB_username()%>"> 
 									<input type="hidden" name="b_password" value="<%=dto.getB_password()%>">
 								<td>
 							</tr>
-<!-- -----------------------------------------------Admin °èÁ¤ÀÏ ¶§ »èÁ¦ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------Admin ê³„ì •ì¼ ë•Œ ì‚­ì œ ë----------------------------------------------- -->
 	<%} else if (info.getId().equals(dto.getB_username())) {%>
-<!-- -----------------------------------------------·Î±×ÀÎ À¯ÀúÀÏ ¶§ »èÁ¦----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ ìœ ì €ì¼ ë•Œ ì‚­ì œ----------------------------------------------- -->
 	<form name=Deleteform method="post" action="../DeleteServiceCon">
 		<table width="700" border="3" bordercolor="lightgray" align="center">
 			<tr>
 				<td>
 					<table width="700" border="3" bordercolor="lightgray" align="center" >
-<!-- -----------------------------------------------Á¦  ¸ñ----------------------------------------------- -->
+<!-- -----------------------------------------------ì œ  ëª©----------------------------------------------- -->
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">Á¦ ¸ñ</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ì œ ëª©</td>
 								<td>
 									<%=dto.getB_title()%>
 									<input name="b_title" type="hidden" value="<%=dto.getB_title()%>">
 								</td>
 							</tr>
-<!-- -------------------------------------------ÀÛ¼ºÀÚ ¹× ºñ¹Ð¹øÈ£------------------------------------------- -->
+<!-- -------------------------------------------ìž‘ì„±ìž ë° ë¹„ë°€ë²ˆí˜¸------------------------------------------- -->
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ÀÛ¼ºÀÚ</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ìž‘ì„±ìž</td>
 								<td><%=info.getId()%> 
 									<input type="hidden" name="b_username" value="<%=info.getId()%>"> 
 									<input type="hidden" name="b_password" value="<%=info.getPw()%>">
 								<td>
 							</tr>
-<!-- -----------------------------------------------·Î±×ÀÎ À¯ÀúÀÏ ¶§ »èÁ¦ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ë¡œê·¸ì¸ ìœ ì €ì¼ ë•Œ ì‚­ì œ ë----------------------------------------------- -->
 	<%}
 } else {%>
-<!-- -----------------------------------------------ºñ·Î±×ÀÎ À¯ÀúÀÏ ¶§ »èÁ¦----------------------------------------------- -->
+<!-- -----------------------------------------------ë¹„ë¡œê·¸ì¸ ìœ ì €ì¼ ë•Œ ì‚­ì œ----------------------------------------------- -->
 	<form name=Deleteform method="post" action="../DeleteServiceCon">
 		<table width="700" border="3" bordercolor="lightgray" align="center">
 			<tr>
 				<td>
 					<table width="700" border="3" bordercolor="lightgray" align="center" >
-<!-- -----------------------------------------------Á¦  ¸ñ----------------------------------------------- -->
+<!-- -----------------------------------------------ì œ  ëª©----------------------------------------------- -->
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">Á¦ ¸ñ</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ì œ ëª©</td>
 								<td>
 									<%=dto.getB_title()%>
 									<input name="b_title" type="hidden" value="<%=dto.getB_title()%>">
 								</td>
 							</tr>
-<!-- -------------------------------------------ÀÛ¼ºÀÚ ¹× ºñ¹Ð¹øÈ£------------------------------------------- -->
+<!-- -------------------------------------------ìž‘ì„±ìž ë° ë¹„ë°€ë²ˆí˜¸------------------------------------------- -->
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ÀÛ¼ºÀÚ</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=65 style="word-break:break-all">ìž‘ì„±ìž</td>
 								<td>
 									<%=dto.getB_username()%> 
 									<input type="hidden" name="b_username" value="<%=dto.getB_username()%> "> 
 								<td>
 							</tr>
 							<tr>
-								<td id="title" style="padding-left:0px; padding-top:0px" width=70 style="word-break:break-all">ºñ¹Ð¹øÈ£</td>
+								<td id="title" style="padding-left:0px; padding-top:0px" width=70 style="word-break:break-all">ë¹„ë°€ë²ˆí˜¸</td>
 								<td>
 									<input type="password" name="b_password">
 								<td>
 							</tr>
-<!-- -----------------------------------------------ºñ·Î±×ÀÎ À¯ÀúÀÏ ¶§ »èÁ¦ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ë¹„ë¡œê·¸ì¸ ìœ ì €ì¼ ë•Œ ì‚­ì œ ë----------------------------------------------- -->
 <%}%>
 						</table>
 					</td>
-				</tr> <!-- Çà -->
+				</tr> <!-- í–‰ -->
 		</table>		
 						
 						<div align="center">
 							<input type = "hidden" name = "num" value = "<%=dto.getB_num() %>">
-							<input type="button" value="»èÁ¦" class = "button" OnClick="javascript:deleteCheck();">
-							<input type="button" value="Ãë¼Ò" class = "button" OnClick="javascript:history.back(-1)">
+							<input type="button" value="ì‚­ì œ" class = "button" OnClick="javascript:deleteCheck();">
+							<input type="button" value="ì·¨ì†Œ" class = "button" OnClick="javascript:history.back(-1)">
 						</div>
 						
 					
@@ -228,8 +228,8 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 		</form>
 		</div>
    </div>
-	</section><!-- ¸ÞÀÎ ³¡ -->
-<!-- top¹öÆ° -->
+	</section><!-- ë©”ì¸ ë -->
+<!-- topë²„íŠ¼ -->
 	<a id="toTop" href="#top">
 		<img src="images/topPill.png" width="60px" height="100px" alt="" >
 	</a>
@@ -247,7 +247,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 									</section>
 
 							</div>
-											<!-- top¹öÆ° -->
+											<!-- topë²„íŠ¼ -->
 											<a id="toTop" href="#top">
 												<img src="images/topPill.png" width="60px" height="100px" alt="" >
 											</a>
@@ -257,7 +257,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						<!-- Copyright -->
 							<div id="copyright">
 								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>°Ç°­ÇÑ ¾àÀïÀÌ</a></li>
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>ê±´ê°•í•œ ì•½ìŸì´</a></li>
 								</ul>
 							</div>
 

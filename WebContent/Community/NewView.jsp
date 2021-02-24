@@ -4,71 +4,71 @@
 <%@page import="com.model.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.BoardDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!-- -----------------------------------------------ÁÁ¾Æ¿ä ±â´É----------------------------------------------- -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- -----------------------------------------------ì¢‹ì•„ìš” ê¸°ëŠ¥----------------------------------------------- -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		function boardLike() {
 			var board_num = document.getElementById("b_num");
 			var b_state=document.getElementById("b_state");
 			
-			if (b_state.value == "ÁÁ¾Æ¿ä") {
+			if (b_state.value == "ì¢‹ì•„ìš”") {
 				
-				//ajaxCall¸Ş¼Òµå±¸Çö(ÇÔ¼ö)
+				//ajaxCallë©”ì†Œë“œêµ¬í˜„(í•¨ìˆ˜)
 				$.ajax({
-					type : "post", //Àü¼Û¹æ½Ä
+					type : "post", //ì „ì†¡ë°©ì‹
 					data : {
 						"b_num" : b_num.value
-					}, //¼­¹ö·Î º¸³»´Â °ª
-					url : "../BoardLikeService", //¼­¹öÆÄÀÏÀÌ¸§
-					dataType : "text",//¼­¹ö¿¡¼­ ¿À´Â ÀÀ´ä¹æ½Ä
+					}, //ì„œë²„ë¡œ ë³´ë‚´ëŠ” ê°’
+					url : "../BoardLikeService", //ì„œë²„íŒŒì¼ì´ë¦„
+					dataType : "text",//ì„œë²„ì—ì„œ ì˜¤ëŠ” ì‘ë‹µë°©ì‹
 					success : function(data) {
-						//alert("'ÁÁ¾Æ¿ä'°¡ ¹İ¿µµÇ¾ú½À´Ï´Ù!"); // dataÁß putÇÑ °ÍÀÇ ÀÌ¸§ like
+						//alert("'ì¢‹ì•„ìš”'ê°€ ë°˜ì˜ë˜ì—ˆìŠµë‹ˆë‹¤!"); // dataì¤‘ putí•œ ê²ƒì˜ ì´ë¦„ like
 						document.getElementById("b_like_icon").src="../img/red_heart.png";
 						var result = document.getElementById("b_like_result");
 						result.innerHTML = data;
 						var b_state = document.getElementById("b_state");
-						b_state.value="ÁÁ¾Æ¿ä Ãë¼Ò";
+						b_state.value="ì¢‹ì•„ìš” ì·¨ì†Œ";
 					},
 					error : function(request,status,error) {
-						//½ÇÆĞÇßÀ»¶§
+						//ì‹¤íŒ¨í–ˆì„ë•Œ
 						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-						alert("ajax½ÇÆĞ");
+						alert("ajaxì‹¤íŒ¨");
 					}
 				});
 				
 			} else {
 				;
-				//ajaxCall¸Ş¼Òµå±¸Çö(ÇÔ¼ö)
+				//ajaxCallë©”ì†Œë“œêµ¬í˜„(í•¨ìˆ˜)
 				$.ajax({
-					type : "post", //Àü¼Û¹æ½Ä
+					type : "post", //ì „ì†¡ë°©ì‹
 					data : {
 						"b_num" : b_num.value
-					}, //¼­¹ö·Î º¸³»´Â °ª
-					url : "../BoardDisLikeService", //¼­¹öÆÄÀÏÀÌ¸§
-					dataType : "text",//¼­¹ö¿¡¼­ ¿À´Â ÀÀ´ä¹æ½Ä
+					}, //ì„œë²„ë¡œ ë³´ë‚´ëŠ” ê°’
+					url : "../BoardDisLikeService", //ì„œë²„íŒŒì¼ì´ë¦„
+					dataType : "text",//ì„œë²„ì—ì„œ ì˜¤ëŠ” ì‘ë‹µë°©ì‹
 					success : function(data) {
-						//alert("'ÁÁ¾Æ¿ä'°¡ ¹İ¿µµÇ¾ú½À´Ï´Ù!"); // dataÁß putÇÑ °ÍÀÇ ÀÌ¸§ like
+						//alert("'ì¢‹ì•„ìš”'ê°€ ë°˜ì˜ë˜ì—ˆìŠµë‹ˆë‹¤!"); // dataì¤‘ putí•œ ê²ƒì˜ ì´ë¦„ like
 						document.getElementById("b_like_icon").src="../img/heart.png";
 						var result = document.getElementById("b_like_result");
 						result.innerHTML = data;
 						var b_state = document.getElementById("b_state");
-						b_state.value="ÁÁ¾Æ¿ä";
+						b_state.value="ì¢‹ì•„ìš”";
 					},
 					error : function(request,status,error) {
-						//½ÇÆĞÇßÀ»¶§
+						//ì‹¤íŒ¨í–ˆì„ë•Œ
 						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-						alert("ajax½ÇÆĞ");
+						alert("ajaxì‹¤íŒ¨");
 					}
 				});
 			}
 		}
 	</script>
-<!-- -----------------------------------------------ÁÁ¾Æ¿ä ±â´É ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ì¢‹ì•„ìš” ê¸°ëŠ¥ ë----------------------------------------------- -->
 
-<!-- -----------------------------------------------ÀÛ¼ºÇÑ ´ñ±Û ºÒ·¯¿À±â ¹× ÀÛ¼ºÇÑ ´ñ±Û »èÁ¦----------------------------------------------- -->
-<!-- jquery ¿ÜºÎ ¶óÀÌºê·¯¸® ÆÄÀÏÀ» ÂüÁ¶ÇÒ ¼ö ÀÖ´Â ½ºÆ®¸³Æ® ¸µÅ©(¾øÀ¸¸é ajax »ç¿ëºÒ°¡) -->
+<!-- -----------------------------------------------ì‘ì„±í•œ ëŒ“ê¸€ ë¶ˆëŸ¬ì˜¤ê¸° ë° ì‘ì„±í•œ ëŒ“ê¸€ ì‚­ì œ----------------------------------------------- -->
+<!-- jquery ì™¸ë¶€ ë¼ì´ë¸ŒëŸ¬ë¦¬ íŒŒì¼ì„ ì°¸ì¡°í•  ìˆ˜ ìˆëŠ” ìŠ¤íŠ¸ë¦½íŠ¸ ë§í¬(ì—†ìœ¼ë©´ ajax ì‚¬ìš©ë¶ˆê°€) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function commWriteCall() {
@@ -79,52 +79,52 @@
 		
 		if (!c_username.value || !c_password.value || !comment.value) {
 			if (!c_username.value) {
-				alert("ÀÌ¸§À» Àû¾îÁÖ¼¼¿ä");
+				alert("ì´ë¦„ì„ ì ì–´ì£¼ì„¸ìš”");
 				form.c_username.focus();
 				return;
 			}
 			if (!c_password.value) {
-				alert("ºñ¹Ğ¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä");
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”");
 				form.c_password.focus();
 				return;
 			}
 			if (!comment.value) {
-				alert("³»¿ëÀ» Àû¾îÁÖ¼¼¿ä");
+				alert("ë‚´ìš©ì„ ì ì–´ì£¼ì„¸ìš”");
 				form.c_content.focus();
 				return;
 			}
 		} else {
 			$.ajax({
-				type : "post", //µ¥ÀÌÅÍ Àü¼Û¹æ½Ä
+				type : "post", //ë°ì´í„° ì „ì†¡ë°©ì‹
 				data : {
 					"b_num" : b_num.value,
 					"c_username" : c_username.value,
 					"c_password" : c_password.value,
 					"comment" : comment.value
 				},
-				url : "../CommentServiceCon", // µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÒ ¼­¹ö ÆÄÀÏ ÀÌ¸§
-				dataType : "text", // ¼­¹ö¿¡¼­ ¿À´Â ÀÀ´ä ¹æ½ÄÀ» ÁöÁ¤
+				url : "../CommentServiceCon", // ë°ì´í„°ë¥¼ ì „ì†¡í•  ì„œë²„ íŒŒì¼ ì´ë¦„
+				dataType : "text", // ì„œë²„ì—ì„œ ì˜¤ëŠ” ì‘ë‹µ ë°©ì‹ì„ ì§€ì •
 				success : function(data) {
 	                c_username.value = "";
 					c_password.value = "";
 					comment.value = "";
 
 					location.reload(true);
-					alert("´ñ±ÛÀÌ ¼º°øÀûÀ¸·Î ÀÛ¼ºµÇ¾ú½À´Ï´Ù.");
+					alert("ëŒ“ê¸€ì´ ì„±ê³µì ìœ¼ë¡œ ì‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				},
 
 				error : function(request,status,error) {
 					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-					alert("´ñ±Û ÀÛ¼º¿¡ ½ÇÆĞÇß½À´Ï´Ù");
+					alert("ëŒ“ê¸€ ì‘ì„±ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
 				}
 			});	
 		}
 	}
 </script>
-<!-- -----------------------------------------------ÀÛ¼ºÇÑ ´ñ±Û ºÒ·¯¿À±â ¹× ÀÛ¼ºÇÑ ´ñ±Û »èÁ¦ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ì‘ì„±í•œ ëŒ“ê¸€ ë¶ˆëŸ¬ì˜¤ê¸° ë° ì‘ì„±í•œ ëŒ“ê¸€ ì‚­ì œ ë----------------------------------------------- -->
 
 <%
-	//·Î±×ÀÎÇÑ À¯Àú Á¤º¸ °¡Á®¿À±â
+	//ë¡œê·¸ì¸í•œ ìœ ì € ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 	UserDTO info = (UserDTO)session.getAttribute("info");
 	
 	BoardDAO dao = new BoardDAO();
@@ -141,7 +141,7 @@
 	
 	ArrayList<CommDTO> c_list = cdao.selectComm(num);
 	
-	//ÆäÀÌÁö °ü·Ã
+	//í˜ì´ì§€ ê´€ë ¨
 	int size = b_list.size();
 	int size2 = size;
 	final int ROWSIZE = 12;
@@ -183,7 +183,7 @@
 	}
 </style>
 <!-- 
-CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
+CSSì—ì„œ input, textarea í´ë¦­ ì‹œ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ì—†ì• ëŠ” ê±°
 .td input:focus, .td textarea:focus{
 	outline: none;
 }
@@ -198,44 +198,44 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 		<ul id="menu_list">
 			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
 			<li id="community_li">
-				<a href="#">Ä¿¹Â´ÏÆ¼</a>
+				<a href="#">ì»¤ë®¤ë‹ˆí‹°</a>
 				<ul>
-					<li><a href="/Healthy_drugger_new/Community/List3.jsp">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
+					<li><a href="/Healthy_drugger_new/Community/List3.jsp">ììœ ê²Œì‹œíŒ</a></li>
 					<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
 				</ul>
 			</li>
-			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">¿µ¾çÁ¦ °Ë»ö</a></li>						
-			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">°Ç°­ ÀÌ½´</a></li>
+			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">ì˜ì–‘ì œ ê²€ìƒ‰</a></li>						
+			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">ê±´ê°• ì´ìŠˆ</a></li>
 	<%if(info == null) {%>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">·Î±×ÀÎ</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">È¸¿ø°¡ÀÔ</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">ë¡œê·¸ì¸</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/join.jsp">íšŒì›ê°€ì…</a></li>
 	<%}else { %>
 		<%if(info.getId().equals("admin")) {%>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">È¸¿øÁ¤º¸ °ü¸®</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">íšŒì›ì •ë³´ ê´€ë¦¬</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 		<%}else { %>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 		<%} %>
 	<%} %>
 		</ul>
 		
-<!-- ·Î±×ÀÎ È¸¿ø°¡ÀÔ ¹öÆ° -->
+<!-- ë¡œê·¸ì¸ íšŒì›ê°€ì… ë²„íŠ¼ -->
 	<ul style="position:absolute ; top:0px;right:0px">
-		<%if(info != null){ %> <!-- ·Î±×ÀÎ ¼º°ø -->
+		<%if(info != null){ %> <!-- ë¡œê·¸ì¸ ì„±ê³µ -->
 			<%if(info.getId().equals("admin")) {%> <!-- admin -->
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">È¸¿øÁ¤º¸ °ü¸®</button></li>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button><li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">íšŒì›ì •ë³´ ê´€ë¦¬</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button><li>
 			<%}else{%>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button></li>
 			<%} %>
-		<%}else{%> <!-- ·Î±×ÀÎ ½ÇÆĞ½Ã  : ·Î±×ÀÎ, È¸¿ø°¡ÀÔ ¹öÆ° Ãâ·Â-->
-		<!-- <a href="#menu">·Î±×ÀÎ</a> -->
-			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">·Î±×ÀÎ</button></li>
-			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">È¸¿ø°¡ÀÔ</button></li>
+		<%}else{%> <!-- ë¡œê·¸ì¸ ì‹¤íŒ¨ì‹œ  : ë¡œê·¸ì¸, íšŒì›ê°€ì… ë²„íŠ¼ ì¶œë ¥-->
+		<!-- <a href="#menu">ë¡œê·¸ì¸</a> -->
+			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">ë¡œê·¸ì¸</button></li>
+			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">íšŒì›ê°€ì…</button></li>
 		<%} %>
 	</ul>
 </nav>
@@ -261,10 +261,10 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 	}
 }
 </style>
-<!-- section ½ÃÀÛ -->
+<!-- section ì‹œì‘ -->
 <section id="main" style="padding-bottom : 80px; margin-bottom : 70px; padding-top:44px; border-top:0px;">
 	<div class="container">
-		<!-- ±Û Á¦¸ñ -->
+		<!-- ê¸€ ì œëª© -->
 		
 			<div class="title">
 				<h1><%=vdto.getB_title()%></h1>
@@ -272,14 +272,14 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 			<div class="boardinfoform">
 				<ul class="boardinfolist">
 					<input id="b_num" type="hidden" value=<%=vdto.getB_num() %>>
-					<li class="boardinfo">ÀÛ¼ºÀÚ : <%=vdto.getB_username()%></li>
-					<li class="boardinfo">Á¶È¸¼ö : <%=vdto.getB_view()%></li>
-					<li class="boardinfo">ÀÛ¼ºÀÏ : <%=vdto.getB_date()%></li>
+					<li class="boardinfo">ì‘ì„±ì : <%=vdto.getB_username()%></li>
+					<li class="boardinfo">ì¡°íšŒìˆ˜ : <%=vdto.getB_view()%></li>
+					<li class="boardinfo">ì‘ì„±ì¼ : <%=vdto.getB_date()%></li>
 				</ul>
 			</div>
 		
 		
-			<!-- ±Û ³»¿ë -->
+			<!-- ê¸€ ë‚´ìš© -->
 			<div>
 				<p class="content"><%=vdto.getB_content() %></p>
 			</div>
@@ -305,26 +305,26 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 			<div>
 				<div class="likebox" style="padding-top:22px;">
 					<a href = "#" OnClick="boardLike(); return false;"><img id="b_like_icon" src ="../img/heart.png" width="30" hegiht="30"></a>
-					<input id="b_state" type="hidden" value="ÁÁ¾Æ¿ä">
+					<input id="b_state" type="hidden" value="ì¢‹ì•„ìš”">
 					<span id="b_like_result"><%=vdto.getB_like() %></span>
 				</div>
 			</div>
 			
-			<!-- ´ñ±Û °¹¼ö Ãâ·Â -->
+			<!-- ëŒ“ê¸€ ê°¯ìˆ˜ ì¶œë ¥ -->
 			<div style="margin-left:20px; margin-bottom:10px;">
-				<b>´ñ±Û<%=commTotal %></b>
+				<b>ëŒ“ê¸€<%=commTotal %></b>
 			</div>
 			<%if (commTotal == 0) {%>
 			
-			<!-- ´ñ±ÛÀÌ ¾øÀ» ¶§ -->
+			<!-- ëŒ“ê¸€ì´ ì—†ì„ ë•Œ -->
 	 		<div class="boardinfoform">
-				<p style="text-align:center; font-size:18px; margin:0;">µî·ÏµÈ ´ñ±ÛÀÌ ¾ø½À´Ï´Ù.</p>
+				<p style="text-align:center; font-size:18px; margin:0;">ë“±ë¡ëœ ëŒ“ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</p>
 			</div>
 			<%} else {
 				for (int i = 0; i < c_list.size(); i++) {
 					int cnum = c_list.get(i).getC_num();%>
 					
-			<!-- ´ñ±Û ¸®½ºÆ®(´ñ±Û ÀÖÀ» ¶§) -->
+			<!-- ëŒ“ê¸€ ë¦¬ìŠ¤íŠ¸(ëŒ“ê¸€ ìˆì„ ë•Œ) -->
 			<div class="comm">
 				<div class="boardinfoform">
 					<%if (i+1==1) { %>			
@@ -364,20 +364,20 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 			
 		
 		
-		<!-- ´ñ±Û ÀÛ¼º -->
-		<!-- border¼Ó¼ºÀÌ ¾È¸Ô¾î¿ä -->
+		<!-- ëŒ“ê¸€ ì‘ì„± -->
+		<!-- borderì†ì„±ì´ ì•ˆë¨¹ì–´ìš” -->
 		<div style="border: 1px soild #ffc200">	
 				<%if(info != null){%>
 				<div style="padding-top : 5px;">
 					<ul class="commlist">
-						<li class="boardinfo">ÀÛ¼ºÀÚ</li>
+						<li class="boardinfo">ì‘ì„±ì</li>
 						<li class="boardinfo">
 							<%=info.getId() %>
 							<input type="hidden" id="c_username" value="<%=info.getId() %>">
 							<input type="hidden" id="c_password" value="<%=info.getPw() %>">
 						</li>
 					</ul>
-				<!--<p class="user">ÀÛ¼ºÀÚ</p>
+				<!--<p class="user">ì‘ì„±ì</p>
 					<p class="user"><%=info.getId() %></p>
 					<input type="hidden" id="c_username" value="<%=info.getId() %>">
 					<input type="hidden" id="c_password" value="<%=info.getPw() %>">-->
@@ -385,7 +385,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 				<div >
 					<ul class="commlist">
 						<li>
-							<p class="boardinfo" >³»¿ë</p>
+							<p class="boardinfo" >ë‚´ìš©</p>
 							<textarea id="comment" rows=5 style="width:93%; resize:none;"></textarea>
 						</li>
 					</ul>
@@ -394,17 +394,17 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 				<div >
 					<ul class="commlist">
 						<li>
-							<p class="boardinfo">ÀÛ¼ºÀÚ</p>
+							<p class="boardinfo">ì‘ì„±ì</p>
 							<input type="text" id="c_username" style="width:90%;">
 						</li>
 					</ul>
 				</div>
-				<!--<p class="user">ÀÛ¼ºÀÚ</p>
+				<!--<p class="user">ì‘ì„±ì</p>
 					<input type="text" id="c_username"><br>-->
 				<div >
 					<ul class="commlist">
 						<li>
-							<p class="boardinfo">ºñ¹Ğ¹øÈ£</p>
+							<p class="boardinfo">ë¹„ë°€ë²ˆí˜¸</p>
 							<input type="password" id="c_password" style="width:90%;">
 						</li>
 					</ul>
@@ -412,13 +412,13 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 				<div >
 					<ul class="commlist">
 						<li>
-							<p class="boardinfo">³»¿ë</p>
+							<p class="boardinfo">ë‚´ìš©</p>
 							<textarea id="comment" rows=3 style="width:90%; resize:none;"></textarea>
 						</li>
 						<li>
 							<div align="right">
-								<button class="commbtn" onclick="commWriteCall()">µî·Ï</button>
-								<button class="commbtn" type="reset">Ãë¼Ò</button>
+								<button class="commbtn" onclick="commWriteCall()">ë“±ë¡</button>
+								<button class="commbtn" type="reset">ì·¨ì†Œ</button>
 							</div>		
 						</li>
 					</ul>
@@ -426,13 +426,13 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 				<%}%>
 				
 			</div>	
-			<!-- ´ñ±ÛÀÛ¼º section ³¡ -->
+			<!-- ëŒ“ê¸€ì‘ì„± section ë -->
 		
 	</div>
 </section>
 
 
-<!-- top¹öÆ° -->
+<!-- topë²„íŠ¼ -->
 <a id="toTop" href="#top">
 	<img src="../images/topPill.png" width="60px" height="100px" alt="" >
 </a>
@@ -456,7 +456,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						<!-- Copyright -->
 							<div id="copyright" style="margin-top : 0px;">
 								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>°Ç°­ÇÑ ¾àÀïÀÌ</a></li>
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>ê±´ê°•í•œ ì•½ìŸì´</a></li>
 								</ul>
 							</div>
 

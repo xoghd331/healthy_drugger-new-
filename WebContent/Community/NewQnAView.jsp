@@ -4,9 +4,9 @@
 <%@page import="com.model.QnADTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.QnADAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!-- -----------------------------------------------´ä±Û ³»¿ë Àü¼Û----------------------------------------------- -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- -----------------------------------------------ë‹µê¸€ ë‚´ìš© ì „ì†¡----------------------------------------------- -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function REQnAWriteCall() {
@@ -17,12 +17,12 @@
 		var rq_content = document.getElementById("rq_content");
 		
 		if (!rq_content.value) {
-			alert("³»¿ëÀ» Àû¾îÁÖ¼¼¿ä");
+			alert("ë‚´ìš©ì„ ì ì–´ì£¼ì„¸ìš”");
 			form.c_content.focus();
 			return;
 		} else {
 			$.ajax({
-				type : "post", //µ¥ÀÌÅÍ Àü¼Û¹æ½Ä
+				type : "post", //ë°ì´í„° ì „ì†¡ë°©ì‹
 				data : {
 					"q_num" : q_num.value,
 					"q_title" : q_title.innerHTML,
@@ -30,54 +30,54 @@
 					"rq_password" : rq_password.value,
 					"rq_content" : rq_content.value
 				},
-				url : "../ReQnAServiceCon", // µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÒ ¼­¹ö ÆÄÀÏ ÀÌ¸§
-				dataType : "text", // ¼­¹ö¿¡¼­ ¿À´Â ÀÀ´ä ¹æ½ÄÀ» ÁöÁ¤
+				url : "../ReQnAServiceCon", // ë°ì´í„°ë¥¼ ì „ì†¡í•  ì„œë²„ íŒŒì¼ ì´ë¦„
+				dataType : "text", // ì„œë²„ì—ì„œ ì˜¤ëŠ” ì‘ë‹µ ë°©ì‹ì„ ì§€ì •
 				success : function(data) {
 					rq_content.value = "";
 
 					location.reload(true);
-					alert("´ä±ÛÀÌ ¼º°øÀûÀ¸·Î ÀÛ¼ºµÇ¾ú½À´Ï´Ù.");
+					alert("ë‹µê¸€ì´ ì„±ê³µì ìœ¼ë¡œ ì‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				},
 
 				error : function(request,status,error) {
 					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-					alert("´ä±Û ÀÛ¼º¿¡ ½ÇÆĞÇß½À´Ï´Ù");
+					alert("ë‹µê¸€ ì‘ì„±ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
 				}
 			});
 		}
 		
 	}
 </script>
-<!-- -----------------------------------------------´ä±Û ³»¿ë Àü¼Û ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ë‹µê¸€ ë‚´ìš© ì „ì†¡ ë----------------------------------------------- -->
 <%
-	//·Î±×ÀÎÇÑ À¯Àú Á¤º¸ °¡Á®¿À±â
+	//ë¡œê·¸ì¸í•œ ìœ ì € ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 	UserDTO info = (UserDTO)session.getAttribute("info");
 	
-	//QnA ÃÑ °¹¼ö
+	//QnA ì´ ê°¯ìˆ˜
 	QnADAO qdao = new QnADAO();
 	int total = qdao.count();
 	
 	reQnADAO rqdao = new reQnADAO();
 
-	//QnA ¸ñ·Ï(¸®½ºÆ®)
+	//QnA ëª©ë¡(ë¦¬ìŠ¤íŠ¸)
 	ArrayList<QnADTO> q_list = qdao.selectQuestions();
 	
-	//QnA¿¡¼­ °¡Á®¿Â idx¸¦ num¿¡ ÀúÀå
+	//QnAì—ì„œ ê°€ì ¸ì˜¨ idxë¥¼ numì— ì €ì¥
 	int num = Integer.parseInt(request.getParameter("idx"));
 	
-	//1°³ÀÇ QnA °Ô½Ã¹° ¼±ÅÃ
+	//1ê°œì˜ QnA ê²Œì‹œë¬¼ ì„ íƒ
 	QnADTO qdto = qdao.viewQuestions(num);
 	
-	//Á¶È¸¼ö Áõ°¡
+	//ì¡°íšŒìˆ˜ ì¦ê°€
 	qdao.updateViewCount(num);
 	
-	//QnA ´äº¯ °¹¼ö Ãâ·Â
+	//QnA ë‹µë³€ ê°¯ìˆ˜ ì¶œë ¥
 	int reQnATotal = rqdao.reQnACount(num);
 	
-	//QnA ´äº¯ ¸ñ·Ï(¸®½ºÆ®)
+	//QnA ë‹µë³€ ëª©ë¡(ë¦¬ìŠ¤íŠ¸)
 	ArrayList<reQnADTO> rq_list = rqdao.selectReQuestions(num);
 	
-	//ÆäÀÌÁö °ü·Ã
+	//í˜ì´ì§€ ê´€ë ¨
 	int size = q_list.size();
 	int size2 = size;
 	final int ROWSIZE = 12;
@@ -118,7 +118,7 @@
 	}
 </style>
 <!-- 
-CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
+CSSì—ì„œ input, textarea í´ë¦­ ì‹œ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ì—†ì• ëŠ” ê±°
 .td input:focus, .td textarea:focus{
 	outline: none;
 }
@@ -133,44 +133,44 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 		<ul id="menu_list">
 			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
 			<li id="community_li">
-				<a href="#">Ä¿¹Â´ÏÆ¼</a>
+				<a href="#">ì»¤ë®¤ë‹ˆí‹°</a>
 				<ul>
-					<li><a href="/Healthy_drugger_new/Community/List3.jsp">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
+					<li><a href="/Healthy_drugger_new/Community/List3.jsp">ììœ ê²Œì‹œíŒ</a></li>
 					<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
 				</ul>
 			</li>
-			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">¿µ¾çÁ¦ °Ë»ö</a></li>						
-			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">°Ç°­ ÀÌ½´</a></li>
+			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">ì˜ì–‘ì œ ê²€ìƒ‰</a></li>						
+			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">ê±´ê°• ì´ìŠˆ</a></li>
 	<%if(info == null) {%>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">·Î±×ÀÎ</a></li>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/join.jsp">È¸¿ø°¡ÀÔ</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">ë¡œê·¸ì¸</a></li>
+			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/join.jsp">íšŒì›ê°€ì…</a></li>
 	<%}else { %>
 		<%if(info.getId().equals("admin")) {%>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">È¸¿øÁ¤º¸ °ü¸®</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">íšŒì›ì •ë³´ ê´€ë¦¬</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 		<%}else { %>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">°³ÀÎ Á¤º¸ ¼öÁ¤</a></li>
-			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">·Î±×¾Æ¿ô</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">ê°œì¸ ì •ë³´ ìˆ˜ì •</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
 		<%} %>
 	<%} %>
 		</ul>
 		
-<!-- ·Î±×ÀÎ È¸¿ø°¡ÀÔ ¹öÆ° -->
+<!-- ë¡œê·¸ì¸ íšŒì›ê°€ì… ë²„íŠ¼ -->
 	<ul style="position:absolute ; top:0px;right:0px">
-		<%if(info != null){ %> <!-- ·Î±×ÀÎ ¼º°ø -->
+		<%if(info != null){ %> <!-- ë¡œê·¸ì¸ ì„±ê³µ -->
 			<%if(info.getId().equals("admin")) {%> <!-- admin -->
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">È¸¿øÁ¤º¸ °ü¸®</button></li>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button><li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/admin.jsp'">íšŒì›ì •ë³´ ê´€ë¦¬</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button><li>
 			<%}else{%>
-				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">°³ÀÎÁ¤º¸ ¼öÁ¤</button></li>
-				<li><button type="button" class="buttonlog" onclick="location='logout'">·Î±×¾Æ¿ô</button></li>
+				<li><button type="button" class="buttonjoin" onclick="location='login-join/update.jsp'">ê°œì¸ì •ë³´ ìˆ˜ì •</button></li>
+				<li><button type="button" class="buttonlog" onclick="location='logout'">ë¡œê·¸ì•„ì›ƒ</button></li>
 			<%} %>
-		<%}else{%> <!-- ·Î±×ÀÎ ½ÇÆĞ½Ã  : ·Î±×ÀÎ, È¸¿ø°¡ÀÔ ¹öÆ° Ãâ·Â-->
-		<!-- <a href="#menu">·Î±×ÀÎ</a> -->
-			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">·Î±×ÀÎ</button></li>
-			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">È¸¿ø°¡ÀÔ</button></li>
+		<%}else{%> <!-- ë¡œê·¸ì¸ ì‹¤íŒ¨ì‹œ  : ë¡œê·¸ì¸, íšŒì›ê°€ì… ë²„íŠ¼ ì¶œë ¥-->
+		<!-- <a href="#menu">ë¡œê·¸ì¸</a> -->
+			<li><button type="button" class="buttonlog" onclick="location='login-join/login.jsp'">ë¡œê·¸ì¸</button></li>
+			<li><button type="button" class="buttonjoin" onclick="location='login-join/join.jsp'">íšŒì›ê°€ì…</button></li>
 		<%} %>
 	</ul>
 </nav>
@@ -198,7 +198,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 </style>
 <div>
 	<div>
-		<!-- ±Û Á¦¸ñ -->
+		<!-- ê¸€ ì œëª© -->
 		<div class="viewform">
 			<div class="title">
 				<h1 id="q_title"><%=qdto.getQ_title()%></h1>
@@ -206,13 +206,13 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 			<div class="boardinfoform">
 				<ul class="boardinfolist">
 					<input id="q_num" type="hidden" value=<%=qdto.getQ_num() %>>
-					<li class="boardinfo">ÀÛ¼ºÀÚ : <%=qdto.getQ_username()%></li>
-					<li class="boardinfo">Á¶È¸¼ö : <%=qdto.getQ_view()%></li>
-					<li class="boardinfo">ÀÛ¼ºÀÏ : <%=qdto.getQ_date()%></li>
+					<li class="boardinfo">ì‘ì„±ì : <%=qdto.getQ_username()%></li>
+					<li class="boardinfo">ì¡°íšŒìˆ˜ : <%=qdto.getQ_view()%></li>
+					<li class="boardinfo">ì‘ì„±ì¼ : <%=qdto.getQ_date()%></li>
 				</ul>
 			</div>
 			
-			<!-- ±Û ³»¿ë -->
+			<!-- ê¸€ ë‚´ìš© -->
 			<div>
 				<p class="content"><%=qdto.getQ_content() %></p>
 			</div>
@@ -236,21 +236,21 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 				<%} %>
 			</div>
 
-			<!-- ´ä±Û °¹¼ö Ãâ·Â -->
+			<!-- ë‹µê¸€ ê°¯ìˆ˜ ì¶œë ¥ -->
 			<div style="margin-left:20px; margin-bottom:10px;">
-				<b>´ä±Û<%=reQnATotal %></b>
+				<b>ë‹µê¸€<%=reQnATotal %></b>
 			</div>
 			<%if (reQnATotal == 0) {%>
 			
-			<!-- ´ä±ÛÀÌ ¾øÀ» ¶§ -->
+			<!-- ë‹µê¸€ì´ ì—†ì„ ë•Œ -->
 	 		<div class="boardinfoform">
-				<p style="text-align:center; font-size:18px; margin:0;">µî·ÏµÈ ´ä±ÛÀÌ ¾ø½À´Ï´Ù.</p>
+				<p style="text-align:center; font-size:18px; margin:0;">ë“±ë¡ëœ ë‹µê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</p>
 			</div>
 			<%} else {
 				for (int i = 0; i < rq_list.size(); i++) {
 					int rqnum = rq_list.get(i).getRQ_num();%>
 					
-			<!-- ´ä±Û ¸®½ºÆ®(´ä±Û ÀÖÀ» ¶§) -->
+			<!-- ë‹µê¸€ ë¦¬ìŠ¤íŠ¸(ë‹µê¸€ ìˆì„ ë•Œ) -->
 			<div class="comm">
 				<div>
 					<div class="title">
@@ -258,8 +258,8 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 					</div>
 					<div class="boardinfoform">
 						<ul class="boardinfolist">
-							<li class="boardinfo">ÀÛ¼ºÀÚ : <%=rq_list.get(i).getRQ_username()%></li>
-							<li class="boardinfo">ÀÛ¼ºÀÏ : <%=rq_list.get(i).getRQ_date()%></li>
+							<li class="boardinfo">ì‘ì„±ì : <%=rq_list.get(i).getRQ_username()%></li>
+							<li class="boardinfo">ì‘ì„±ì¼ : <%=rq_list.get(i).getRQ_date()%></li>
 							<%if (info != null) {%>
 								<%if (info.getId().equals(rq_list.get(i).getRQ_username())) {%>
 							<li class="boardinfo">
@@ -277,7 +277,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						</ul>
 					</div>
 				
-					<!-- ´ä±Û ³»¿ë -->
+					<!-- ë‹µê¸€ ë‚´ìš© -->
 					<div style="background-color:#F2F5F3;">
 						<p class="content"><%=rq_list.get(i).getRQ_content() %></p>
 					</div>
@@ -288,19 +288,19 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 			<%}} %>
 		
 		
-			<!-- ´ä±Û ÀÛ¼º -->
+			<!-- ë‹µê¸€ ì‘ì„± -->
 			<section>
 				<%if(info != null){%>
 				<div class="CWriter">
 					<ul class="commlist">
-						<li class="boardinfo">ÀÛ¼ºÀÚ</li>
+						<li class="boardinfo">ì‘ì„±ì</li>
 						<li class="boardinfo">
 							<%=info.getId() %>
 							<input type="hidden" id="rq_username" value="<%=info.getId() %>">
 							<input type="hidden" id="rq_password" value="<%=info.getPw() %>">
 						</li>
 					</ul>
-				<!--<p class="user">ÀÛ¼ºÀÚ</p>
+				<!--<p class="user">ì‘ì„±ì</p>
 					<p class="user"><%=info.getId() %></p>
 					<input type="hidden" id="c_username" value="<%=info.getId() %>">
 					<input type="hidden" id="c_password" value="<%=info.getPw() %>">-->
@@ -309,15 +309,15 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 				<div class="CComment">
 					<ul class="commlist">
 						<li>
-							<span>³»¿ë</span>
+							<span>ë‚´ìš©</span>
 							<textarea id="rq_content" rows=5 style="width:93%; resize:none;"></textarea>
 						</li>
 					</ul>
 				</div>
 				<!--<textarea id="comment" rows=5 style="width:90%; resize:none;"></textarea>-->
 				<div class="Cbtn">
-					<button class="commbtn" type="reset">Ãë¼Ò</button>
-					<button class="commbtn" onclick="REQnAWriteCall()">µî·Ï</button>
+					<button class="commbtn" type="reset">ì·¨ì†Œ</button>
+					<button class="commbtn" onclick="REQnAWriteCall()">ë“±ë¡</button>
 				</div>
 				<%}%>
 				<footer id="footer">
@@ -331,7 +331,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 									</section>
 
 							</div>
-											<!-- top¹öÆ° -->
+											<!-- topë²„íŠ¼ -->
 											<a id="toTop" href="#top">
 												<img src="../images/topPill.png" width="60px" height="100px" alt="" >
 											</a>
@@ -341,7 +341,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						<!-- Copyright -->
 							<div id="copyright">
 								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>°Ç°­ÇÑ ¾àÀïÀÌ</a></li>
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>ê±´ê°•í•œ ì•½ìŸì´</a></li>
 								</ul>
 							</div>
 

@@ -4,11 +4,11 @@
 <%@page import="com.model.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.BoardDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%
-	//·Î±×ÀÎÇÑ À¯Àú Á¤º¸ °¡Á®¿À±â
+	//ë¡œê·¸ì¸í•œ ìœ ì € ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 	UserDTO info = (UserDTO)session.getAttribute("info");
 	
 	BoardDAO dao = new BoardDAO();
@@ -25,7 +25,7 @@
 	
 	ArrayList<CommDTO> c_list = cdao.selectComm(num);
 	
-	//ÆäÀÌÁö °ü·Ã
+	//í˜ì´ì§€ ê´€ë ¨
 	int size = b_list.size();
 	int size2 = size;
 	final int ROWSIZE = 12;
@@ -66,7 +66,7 @@
 	}
 </style>
 <!-- 
-CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
+CSSì—ì„œ input, textarea í´ë¦­ ì‹œ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ì—†ì• ëŠ” ê±°
 .td input:focus, .td textarea:focus{
 	outline: none;
 }
@@ -77,14 +77,14 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 </head>
 <body class="is-preload" style="padding-top:0px" id="top">
 	<div id="page-wrapper">
-		<!-- Ä«Å×°í¸® ÅÇ »ı¼ºÇÏ´Â ÄÚµå : Nav -->
+		<!-- ì¹´í…Œê³ ë¦¬ íƒ­ ìƒì„±í•˜ëŠ” ì½”ë“œ : Nav -->
 		<jsp:include page="../header.jsp"/>
 	</div>
 	<table style="margin-top:5%;">
 			<tr>
 				<td width="5%"></td>
 				<td>
-<!-- -----------------------------------------------ºä----------------------------------------------- -->
+<!-- -----------------------------------------------ë·°----------------------------------------------- -->
 				<table width = "1184px" align = "center" align = "center" cellpadding = "0" cellspacing = "0">
 					<form>
 						<tr height="1" bgcolor="#F2F5F3">
@@ -98,7 +98,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						</tr>
 						<tr height = "35px">
 							<td colspan="4" width = "80%" style = "padding-left : 15px" bgcolor = "#eeeeee">
-								±Û¹øÈ£ : <span id="b_num"><%=vdto.getB_num()%></span> | ÀÛ¼ºÀÚ : <%=vdto.getB_username()%> | Á¶È¸¼ö : <%=vdto.getB_view()%> | ÀÛ¼ºÀÏ : <%=vdto.getB_date()%>
+								ê¸€ë²ˆí˜¸ : <span id="b_num"><%=vdto.getB_num()%></span> | ì‘ì„±ì : <%=vdto.getB_username()%> | ì¡°íšŒìˆ˜ : <%=vdto.getB_view()%> | ì‘ì„±ì¼ : <%=vdto.getB_date()%>
 							</td>
 						<%if (info != null){%>
 							<%if (info.getId().equals(vdto.getB_username())) {%>
@@ -133,81 +133,81 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						<tr height = "200px">
 							<td  width="1184" colspan="6" style="white-space: pre-line; padding-left : 15px"><%=vdto.getB_content()%></td>
 						</tr>
-<!-- ÁÁ¾Æ¿ä ±â´É Ãß°¡ -->
+<!-- ì¢‹ì•„ìš” ê¸°ëŠ¥ ì¶”ê°€ -->
 						<tr height = "50px">
 							<td align="center" width="1184" colspan="6">
-							<a href = "#" OnClick="boardLike(); return false;"><img id = "b_like_icon" src ="../img/heart.png" width="30" hegiht="30"><input id="b_state" type="hidden" value="ÁÁ¾Æ¿ä"></a>
+							<a href = "#" OnClick="boardLike(); return false;"><img id = "b_like_icon" src ="../img/heart.png" width="30" hegiht="30"><input id="b_state" type="hidden" value="ì¢‹ì•„ìš”"></a>
 							<span id="b_like_result"><%=vdto.getB_like() %></span>
-						<!--<input id="b_like_btn" type="button" value="ÁÁ¾Æ¿ä" onclick="boardLike()">
+						<!--<input id="b_like_btn" type="button" value="ì¢‹ì•„ìš”" onclick="boardLike()">
 							<span id="b_like_result"><%=vdto.getB_like() %></span>-->
 							</td>
 						</tr>
-<!-- ÁÁ¾Æ¿ä ±â´É Ãß°¡ -->
+<!-- ì¢‹ì•„ìš” ê¸°ëŠ¥ ì¶”ê°€ -->
 					</form>
 				</table>
-<!-- -----------------------------------------------ºä ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------ÁÁ¾Æ¿ä ±â´É----------------------------------------------- -->
+<!-- -----------------------------------------------ë·° ë----------------------------------------------- -->
+<!-- -----------------------------------------------ì¢‹ì•„ìš” ê¸°ëŠ¥----------------------------------------------- -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		function boardLike() {
 			var board_num = document.getElementById("b_num");
 			var b_state=document.getElementById("b_state");
 			
-			if (b_state.value == "ÁÁ¾Æ¿ä") {
+			if (b_state.value == "ì¢‹ì•„ìš”") {
 				
-				//ajaxCall¸Ş¼Òµå±¸Çö(ÇÔ¼ö)
+				//ajaxCallë©”ì†Œë“œêµ¬í˜„(í•¨ìˆ˜)
 				$.ajax({
-					type : "post", //Àü¼Û¹æ½Ä
+					type : "post", //ì „ì†¡ë°©ì‹
 					data : {
 						"b_num" : b_num.innerHTML
-					}, //¼­¹ö·Î º¸³»´Â °ª
-					url : "../BoardLikeService", //¼­¹öÆÄÀÏÀÌ¸§
-					dataType : "text",//¼­¹ö¿¡¼­ ¿À´Â ÀÀ´ä¹æ½Ä
+					}, //ì„œë²„ë¡œ ë³´ë‚´ëŠ” ê°’
+					url : "../BoardLikeService", //ì„œë²„íŒŒì¼ì´ë¦„
+					dataType : "text",//ì„œë²„ì—ì„œ ì˜¤ëŠ” ì‘ë‹µë°©ì‹
 					success : function(data) {
-						//alert("'ÁÁ¾Æ¿ä'°¡ ¹İ¿µµÇ¾ú½À´Ï´Ù!"); // dataÁß putÇÑ °ÍÀÇ ÀÌ¸§ like
+						//alert("'ì¢‹ì•„ìš”'ê°€ ë°˜ì˜ë˜ì—ˆìŠµë‹ˆë‹¤!"); // dataì¤‘ putí•œ ê²ƒì˜ ì´ë¦„ like
 						document.getElementById("b_like_icon").src="../img/red_heart.png";
 						var result = document.getElementById("b_like_result");
 						result.innerHTML = data;
 						var b_state = document.getElementById("b_state");
-						b_state.value="ÁÁ¾Æ¿ä Ãë¼Ò";
+						b_state.value="ì¢‹ì•„ìš” ì·¨ì†Œ";
 					},
 					error : function(request,status,error) {
-						//½ÇÆĞÇßÀ»¶§
+						//ì‹¤íŒ¨í–ˆì„ë•Œ
 						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-						alert("ajax½ÇÆĞ");
+						alert("ajaxì‹¤íŒ¨");
 					}
 				});
 				
 			} else {
 				;
-				//ajaxCall¸Ş¼Òµå±¸Çö(ÇÔ¼ö)
+				//ajaxCallë©”ì†Œë“œêµ¬í˜„(í•¨ìˆ˜)
 				$.ajax({
-					type : "post", //Àü¼Û¹æ½Ä
+					type : "post", //ì „ì†¡ë°©ì‹
 					data : {
 						"b_num" : b_num.innerHTML
-					}, //¼­¹ö·Î º¸³»´Â °ª
-					url : "../BoardDisLikeService", //¼­¹öÆÄÀÏÀÌ¸§
-					dataType : "text",//¼­¹ö¿¡¼­ ¿À´Â ÀÀ´ä¹æ½Ä
+					}, //ì„œë²„ë¡œ ë³´ë‚´ëŠ” ê°’
+					url : "../BoardDisLikeService", //ì„œë²„íŒŒì¼ì´ë¦„
+					dataType : "text",//ì„œë²„ì—ì„œ ì˜¤ëŠ” ì‘ë‹µë°©ì‹
 					success : function(data) {
-						//alert("'ÁÁ¾Æ¿ä'°¡ ¹İ¿µµÇ¾ú½À´Ï´Ù!"); // dataÁß putÇÑ °ÍÀÇ ÀÌ¸§ like
+						//alert("'ì¢‹ì•„ìš”'ê°€ ë°˜ì˜ë˜ì—ˆìŠµë‹ˆë‹¤!"); // dataì¤‘ putí•œ ê²ƒì˜ ì´ë¦„ like
 						document.getElementById("b_like_icon").src="../img/heart.png";
 						var result = document.getElementById("b_like_result");
 						result.innerHTML = data;
 						var b_state = document.getElementById("b_state");
-						b_state.value="ÁÁ¾Æ¿ä";
+						b_state.value="ì¢‹ì•„ìš”";
 					},
 					error : function(request,status,error) {
-						//½ÇÆĞÇßÀ»¶§
+						//ì‹¤íŒ¨í–ˆì„ë•Œ
 						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-						alert("ajax½ÇÆĞ");
+						alert("ajaxì‹¤íŒ¨");
 					}
 				});
 			}
 		}
 	</script>
-<!-- -----------------------------------------------ÁÁ¾Æ¿ä ±â´É ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------´ñ±Û¸®½ºÆ®----------------------------------------------- -->
-<!-- -----------------------------------------------´ñ±Û ¾øÀ¸¸é ¾È¶ß°ÔÇÏ±â----------------------------------------------- -->
+<!-- -----------------------------------------------ì¢‹ì•„ìš” ê¸°ëŠ¥ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ëŒ“ê¸€ë¦¬ìŠ¤íŠ¸----------------------------------------------- -->
+<!-- -----------------------------------------------ëŒ“ê¸€ ì—†ìœ¼ë©´ ì•ˆëœ¨ê²Œí•˜ê¸°----------------------------------------------- -->
 				<table align = "center" cellpadding = "0" cellspacing = "0">
 					<form>
 						<tr height="1" bgcolor="#F2F5F3">
@@ -217,10 +217,10 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						if (commTotal == 0) {
 						%>
 						<tr height = "80px" align="center">
-							<td colspan="6">µî·ÏµÈ ´ñ±ÛÀÌ ¾ø½À´Ï´Ù.</td>
+							<td colspan="6">ë“±ë¡ëœ ëŒ“ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 						</tr>
-<!-- -----------------------------------------------´ñ±Û ¾øÀ¸¸é ¾È¶ß°ÔÇÏ±â ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------´ñ±Û¸ñ·Ï Ãâ·Â----------------------------------------------- -->
+<!-- -----------------------------------------------ëŒ“ê¸€ ì—†ìœ¼ë©´ ì•ˆëœ¨ê²Œí•˜ê¸° ë----------------------------------------------- -->
+<!-- -----------------------------------------------ëŒ“ê¸€ëª©ë¡ ì¶œë ¥----------------------------------------------- -->
 						<%
 						} else {
 						for (int i = 0; i < c_list.size(); i++) {
@@ -277,41 +277,41 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						</tr>
 					</form>
 				</table>
-<!-- -----------------------------------------------´ñ±Û¸ñ·Ï Ãâ·Â ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------´ñ±Û ÀÛ¼º----------------------------------------------- -->
+<!-- -----------------------------------------------ëŒ“ê¸€ëª©ë¡ ì¶œë ¥ ë----------------------------------------------- -->
+<!-- -----------------------------------------------ëŒ“ê¸€ ì‘ì„±----------------------------------------------- -->
 				<table cellpadding = "0" cellspacing = "1" border = "1">
 					<form>
 					<%if (info != null) {%>
-					<!-- -----------------------------------------------·Î±×ÀÎ ÇÑ À¯Àú ÀÛ¼ºÀÚ : ·Î±×ÀÎ À¯Àú Ãâ·Â----------------------------------------------- -->
+					<!-- -----------------------------------------------ë¡œê·¸ì¸ í•œ ìœ ì € ì‘ì„±ì : ë¡œê·¸ì¸ ìœ ì € ì¶œë ¥----------------------------------------------- -->
 					<tr>
-						<td width="178" height="30" bgcolor="#eeeeee" align="center">ÀÛ¼ºÀÚ</td>
+						<td width="178" height="30" bgcolor="#eeeeee" align="center">ì‘ì„±ì</td>
 						<td width="414" height="30"  bgcolor = "#ffffff" style="padding-left: 10px;" colspan = "2">
 							<b><%=info.getId()%></b>
 							<input type = "hidden" name = "c_username" id="c_username" value = "<%=info.getId()%>">
 							<input type = "hidden" name = "c_password" id="c_password" value = "<%=info.getPw()%>">
 						</td>
 					</tr>
-					<!-- -----------------------------------------------·Î±×ÀÎ ÇÑ À¯Àú ÀÛ¼ºÀÚ : ·Î±×ÀÎ À¯Àú Ãâ·Â ³¡----------------------------------------------- -->
+					<!-- -----------------------------------------------ë¡œê·¸ì¸ í•œ ìœ ì € ì‘ì„±ì : ë¡œê·¸ì¸ ìœ ì € ì¶œë ¥ ë----------------------------------------------- -->
 					<% 
 					} else {%>
-					<!-- -----------------------------------------------·Î±×ÀÎ ÇÑ À¯Àú°¡ ¾Æ´Ï¸é ÀÛ¼ºÇÏ±â ¹«Á¶°Ç ¶çÀ§±â----------------------------------------------- -->
+					<!-- -----------------------------------------------ë¡œê·¸ì¸ í•œ ìœ ì €ê°€ ì•„ë‹ˆë©´ ì‘ì„±í•˜ê¸° ë¬´ì¡°ê±´ ë„ìœ„ê¸°----------------------------------------------- -->
 					<tr>
-						<td width="178" height="30" bgcolor="#eeeeee" align="center">ÀÛ¼ºÀÚ</td>
+						<td width="178" height="30" bgcolor="#eeeeee" align="center">ì‘ì„±ì</td>
 						<td width="414" height="30" bgcolor = "#ffffff" style="padding-left: 10px;">
 							<input type="text" id="c_username" size="35" maxlength="20" style="width:100%; border:none">
 						</td>
-						<td width="178" height="30" bgcolor="#eeeeee" align="center">ºñ¹Ğ¹øÈ£</td>
+						<td width="178" height="30" bgcolor="#eeeeee" align="center">ë¹„ë°€ë²ˆí˜¸</td>
 						<td width="414" height="30" bgcolor = "#ffffff" style="padding-left: 10px;">
 							<input type="password" id="c_password" size="35" maxlength="50" style="width:100%; border:none">
 						</td>
 					</tr>
-					<!-- -----------------------------------------------·Î±×ÀÎ ÇÑ À¯Àú°¡ ¾Æ´Ï¸é ÀÛ¼ºÇÏ±â ¹«Á¶°Ç ¶çÀ§±â----------------------------------------------- -->
+					<!-- -----------------------------------------------ë¡œê·¸ì¸ í•œ ìœ ì €ê°€ ì•„ë‹ˆë©´ ì‘ì„±í•˜ê¸° ë¬´ì¡°ê±´ ë„ìœ„ê¸°----------------------------------------------- -->
 					<%}%>
 					<tr height="2" bgcolor="#F2F5F3">
 						<td colspan="6"></td>
 					</tr>
 					<tr>
-						<td width="178" bgcolor="#eeeeee" align = "middle">³»¿ë</td>
+						<td width="178" bgcolor="#eeeeee" align = "middle">ë‚´ìš©</td>
 						<td width=1006" bgcolor = "#ffffff" colspan="3" style="padding-left: 10px;">
 							<textarea id="comment" cols = 140 rows = 7 style="width:100%; resize: none; border:none;"></textarea>
 						</td>
@@ -322,15 +322,15 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 					<form>
 					<tr>
 						<td width="1184" height="30" colspan="4" align="right" style="padding-right: 15px;">
-							<input type="button" value="µî·ÏÇÏ±â" onclick="commWriteCall()">
-							<input type="reset" value="Ãë¼ÒÇÏ±â">
+							<input type="button" value="ë“±ë¡í•˜ê¸°" onclick="commWriteCall()">
+							<input type="reset" value="ì·¨ì†Œí•˜ê¸°">
 						</td>
 					</tr>
 					</form>
 				</table>
-<!-- -----------------------------------------------´ñ±Û ÀÛ¼º ³¡----------------------------------------------- -->
-<!-- -----------------------------------------------ÀÛ¼ºÇÑ ´ñ±Û ºÒ·¯¿À±â ¹× ÀÛ¼ºÇÑ ´ñ±Û »èÁ¦----------------------------------------------- -->
-<!-- jquery ¿ÜºÎ ¶óÀÌºê·¯¸® ÆÄÀÏÀ» ÂüÁ¶ÇÒ ¼ö ÀÖ´Â ½ºÆ®¸³Æ® ¸µÅ©(¾øÀ¸¸é ajax »ç¿ëºÒ°¡) -->
+<!-- -----------------------------------------------ëŒ“ê¸€ ì‘ì„± ë----------------------------------------------- -->
+<!-- -----------------------------------------------ì‘ì„±í•œ ëŒ“ê¸€ ë¶ˆëŸ¬ì˜¤ê¸° ë° ì‘ì„±í•œ ëŒ“ê¸€ ì‚­ì œ----------------------------------------------- -->
+<!-- jquery ì™¸ë¶€ ë¼ì´ë¸ŒëŸ¬ë¦¬ íŒŒì¼ì„ ì°¸ì¡°í•  ìˆ˜ ìˆëŠ” ìŠ¤íŠ¸ë¦½íŠ¸ ë§í¬(ì—†ìœ¼ë©´ ajax ì‚¬ìš©ë¶ˆê°€) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function commWriteCall() {
@@ -340,47 +340,47 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 		var commet = document.getElementById("comment");
 
 		$.ajax({
-			type : "post", //µ¥ÀÌÅÍ Àü¼Û¹æ½Ä
+			type : "post", //ë°ì´í„° ì „ì†¡ë°©ì‹
 			data : {
 				"b_num" : b_num.innerHTML,
 				"c_username" : c_username.value,
 				"c_password" : c_password.value,
 				"comment" : comment.value
 			},
-			url : "../CommentServiceCon", // µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÒ ¼­¹ö ÆÄÀÏ ÀÌ¸§
-			dataType : "text", // ¼­¹ö¿¡¼­ ¿À´Â ÀÀ´ä ¹æ½ÄÀ» ÁöÁ¤
+			url : "../CommentServiceCon", // ë°ì´í„°ë¥¼ ì „ì†¡í•  ì„œë²„ íŒŒì¼ ì´ë¦„
+			dataType : "text", // ì„œë²„ì—ì„œ ì˜¤ëŠ” ì‘ë‹µ ë°©ì‹ì„ ì§€ì •
 			success : function(data) {
                 c_username.value = "";
 				c_password.value = "";
 				comment.value = "";
 
 				location.reload(true);
-				alert("´ñ±ÛÀÌ ¼º°øÀûÀ¸·Î ÀÛ¼ºµÇ¾ú½À´Ï´Ù.");
+				alert("ëŒ“ê¸€ì´ ì„±ê³µì ìœ¼ë¡œ ì‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			},
 
 			error : function() {
 
-				alert("´ñ±Û ÀÛ¼º¿¡ ½ÇÆĞÇß½À´Ï´Ù");
+				alert("ëŒ“ê¸€ ì‘ì„±ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
 			}
 		});
 	}
 </script>
-<!-- -----------------------------------------------ÀÛ¼ºÇÑ ´ñ±Û ºÒ·¯¿À±â ¹× ÀÛ¼ºÇÑ ´ñ±Û »èÁ¦ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ì‘ì„±í•œ ëŒ“ê¸€ ë¶ˆëŸ¬ì˜¤ê¸° ë° ì‘ì„±í•œ ëŒ“ê¸€ ì‚­ì œ ë----------------------------------------------- -->
 
-<!-- -----------------------------------------------°Ô½ÃÆÇ ¸®½ºÆ® ½ÃÀÛ----------------------------------------------- -->
+<!-- -----------------------------------------------ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ì‹œì‘----------------------------------------------- -->
 				<table width = "1184px" border="0" cellspacing = "0">
 					<form>
 						<tr height = "2" bgcolor = "#D2D2D2"><td colspan = "7"></td></tr>
-						<tr height = "50"> <!-- ±Û¸ñ·Ï »ó´Ü -->
-							<th bgcolor = "#eeeeee" width = "5%">¹øÈ£</th>
-							<th bgcolor = "#eeeeee" width = "60%">Á¦¸ñ</th>
-							<th bgcolor = "#eeeeee" width = "10%">±Û¾´ÀÌ</th>
-							<th bgcolor = "#eeeeee" width = "15%">µî·ÏÀÏÀÚ</th>
-							<th bgcolor = "#eeeeee" width = "5%">ÁÁ¾Æ¿ä</th>
-							<th bgcolor = "#eeeeee" width = "5%">Á¶È¸¼ö</th>
+						<tr height = "50"> <!-- ê¸€ëª©ë¡ ìƒë‹¨ -->
+							<th bgcolor = "#eeeeee" width = "5%">ë²ˆí˜¸</th>
+							<th bgcolor = "#eeeeee" width = "60%">ì œëª©</th>
+							<th bgcolor = "#eeeeee" width = "10%">ê¸€ì“´ì´</th>
+							<th bgcolor = "#eeeeee" width = "15%">ë“±ë¡ì¼ì</th>
+							<th bgcolor = "#eeeeee" width = "5%">ì¢‹ì•„ìš”</th>
+							<th bgcolor = "#eeeeee" width = "5%">ì¡°íšŒìˆ˜</th>
 							<%if (info != null) {
 								if (info.getId().equals("admin")) {%>
-							<th bgcolor = "#eeeeee" width = "5%">ºñ°í</th>
+							<th bgcolor = "#eeeeee" width = "5%">ë¹„ê³ </th>
 							<%		} 
 								}%>
 						</tr>
@@ -389,7 +389,7 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						if(total == 0) {
 						%>
 						<tr align = "center" bgcolor = "#FFFFFF" height = "30">
-							<td colspan = "7">µî·ÏµÈ ±ÛÀÌ ¾ø½À´Ï´Ù.</td>
+							<td colspan = "7">ë“±ë¡ëœ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 						</tr>
 						<% } else {
 							for (int i = ROWSIZE*(pg-1); i < end; i++) {
@@ -426,29 +426,29 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 						} %>
 					</form>
 				</table>
-<!-- -----------------------------------------------°Ô½ÃÆÇ ¸®½ºÆ® ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ë----------------------------------------------- -->
 	
-<!-- -----------------------------------------------°Ë»ö ½ÃÀÛ----------------------------------------------- -->
+<!-- -----------------------------------------------ê²€ìƒ‰ ì‹œì‘----------------------------------------------- -->
 				<table width = "100%" border="0">
 					<form method = post action = "SearchResult2.jsp">
-					<tr> <!-- °Ë»ö ¹× ¾²±â¹öÆ° -->
+					<tr> <!-- ê²€ìƒ‰ ë° ì“°ê¸°ë²„íŠ¼ -->
 						<td>
 							<span>
 								<select name = "search" style="appearance: auto; height: 2vw; width: 7vw;">
-									<option value = "title">Á¦¸ñ</option>
-									<option value = "content">³»¿ë</option>
-									<option value = "write">±Û¾´ÀÌ</option>
+									<option value = "title">ì œëª©</option>
+									<option value = "content">ë‚´ìš©</option>
+									<option value = "write">ê¸€ì“´ì´</option>
 								</select>
 								<input type = "text" name = "inputSearch" value size = "15" style="border:none">
-								<input type = "submit" name = "btnSearch" value = "°Ë»ö">
+								<input type = "submit" name = "btnSearch" value = "ê²€ìƒ‰">
 							</span>
-						<td align = "right"><input type = button value = "±Û¾²±â" OnClick = "window.location='Write3.jsp'"></td>
+						<td align = "right"><input type = button value = "ê¸€ì“°ê¸°" OnClick = "window.location='Write3.jsp'"></td>
 					</tr>
 					</form>
 				</table>
-<!-- -----------------------------------------------°Ë»ö ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ê²€ìƒ‰ ë----------------------------------------------- -->
 
-<!-- -----------------------------------------------¹øÈ£ ½ÃÀÛ----------------------------------------------- -->
+<!-- -----------------------------------------------ë²ˆí˜¸ ì‹œì‘----------------------------------------------- -->
 				<table width = "1184px" cellpadding = "0" cellspacing = "0" border = "0">
 					<tr><td colspan = "4" height = "5"></td></tr>
 					<tr>
@@ -456,8 +456,8 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 							<%
 							if (pg > BLOCK) {
 							%>
-								[<a href = "List3.jsp?pg=1">¢¸¢¸</a>]
-								[<a href = "List3.jsp?pg=<%=startPage-1%>">¢¸</a>]
+								[<a href = "List3.jsp?pg=1">â—€â—€</a>]
+								[<a href = "List3.jsp?pg=<%=startPage-1%>">â—€</a>]
 							<%
 							}
 							%>
@@ -479,15 +479,15 @@ CSS¿¡¼­ input, textarea Å¬¸¯ ½Ã ³ª¿À´Â Å×µÎ¸® ¾ø¾Ö´Â °Å
 							<%
 							if(endPage < allPage){
 							%>
-								[<a href = "List3.jsp?pg=<%=endPage+1%>">¢º</a>]
-								[<a href = "List3.jsp?pg=<%=allPage%>">¢º¢º</a>]
+								[<a href = "List3.jsp?pg=<%=endPage+1%>">â–¶</a>]
+								[<a href = "List3.jsp?pg=<%=allPage%>">â–¶â–¶</a>]
 							<%
 							}
 							%>
 						</td>
 					</tr>
 				</table>
-<!-- -----------------------------------------------¹øÈ£ ³¡----------------------------------------------- -->
+<!-- -----------------------------------------------ë²ˆí˜¸ ë----------------------------------------------- -->
 			</td>
 			<td width="5%"></td>
 		</tr>

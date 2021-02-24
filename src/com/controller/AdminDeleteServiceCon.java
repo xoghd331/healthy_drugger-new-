@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,12 @@ import com.model.BoardDTO;
 @WebServlet("/AdminDeleteServiceCon")
 public class AdminDeleteServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
+
 		String username = request.getParameter("username");
 		int num = Integer.parseInt(request.getParameter("num"));
 		String title = request.getParameter("title");
@@ -24,7 +31,12 @@ public class AdminDeleteServiceCon extends HttpServlet {
 		
 		dao.deleteWrite(num);
 		
-		response.sendRedirect("Community/List3.jsp");
+		script.println("<script>");
+		script.println("alert('삭제 성공')");
+		script.println("location.href='Community/List3.jsp'");
+		script.println("</script>");
+		
+//		response.sendRedirect("Community/List3.jsp");
 	}
 
 }

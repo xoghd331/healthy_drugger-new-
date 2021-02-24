@@ -44,8 +44,8 @@ public class ReQnAModifyServiceCon extends HttpServlet {
 			script.println("<script>");
 			script.println("alert('답글 수정 성공')");
 			script.println("location.href='Community/NewQnAView.jsp?idx=" + qnum + "&pg=<%=pg%>'");
-			script.println("</script>");		}
-		else {
+			script.println("</script>");		
+			} else {
 			script.println("<script>");
 			script.println("alert('글쓰기에 실패했습니다')");
 			script.println("history.back()");

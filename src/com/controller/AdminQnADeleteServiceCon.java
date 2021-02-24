@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +19,12 @@ import com.model.QnADTO;
 @WebServlet("/AdminQnADeleteServiceCon")
 public class AdminQnADeleteServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter script = response.getWriter();
+
 		String username = request.getParameter("q_username");
 		int num = Integer.parseInt(request.getParameter("num"));
 		String title = request.getParameter("q_title");
@@ -28,7 +35,12 @@ public class AdminQnADeleteServiceCon extends HttpServlet {
 		
 		dao.deleteQuestions(num);
 		
-		response.sendRedirect("Community/QnAList.jsp");
+		script.println("<script>");
+		script.println("alert('삭제 성공')");
+		script.println("location.href='Community/QnAList.jsp'");
+		script.println("</script>");
+		
+//		response.sendRedirect("Community/QnAList.jsp");
 	}
 
 }
