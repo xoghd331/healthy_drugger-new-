@@ -217,7 +217,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 			
 			<!-- 글 내용 -->
 			<div>
-				<p class="content"><%=qdto.getQ_content() %></p>
+				<p class="content" style="margin-top:0px; margin-left:0px;"><%=qdto.getQ_content() %></p>
 			</div>
 			<div>
 				<%if (info != null) {%>
@@ -281,8 +281,8 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 					</div>
 				
 					<!-- 답글 내용 -->
-					<div style="background-color:#F2F5F3;">
-						<p class="content"><%=rq_list.get(i).getRQ_content() %></p>
+					<div style="background-color:#fff;">
+						<p class="content" style="margin-top:0px; margin-left:0px;"><%=rq_list.get(i).getRQ_content() %></p>
 					</div>
 				<div>
 
