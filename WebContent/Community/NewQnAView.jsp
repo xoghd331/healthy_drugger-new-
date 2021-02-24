@@ -257,7 +257,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 			<div class="comm">
 				<div>
 					<div class="title">
-						<h1 id="q_title"><%=rq_list.get(i).getRQ_title()%></h1>
+						<h1 id="q_title"> >> <%=rq_list.get(i).getRQ_title()%></h1>
 					</div>
 					<div class="boardinfoform">
 						<ul class="boardinfolist">
@@ -292,9 +292,10 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 		
 		
 			<!-- 답글 작성 -->
-			<section>
-				<%if(info != null){%>
-				<div class="CWriter">
+			
+				<%if(info != null){%> <!-- 로그인 했을때 -->
+			<div style="border: 1px soild #ffc200">		
+				<div >
 					<ul class="commlist">
 						<li class="boardinfo">작성자</li>
 						<li class="boardinfo">
@@ -309,14 +310,14 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 					<input type="hidden" id="c_password" value="<%=info.getPw() %>">-->
 				</div>
 
-				<div class="CComment">
+				<div >
 					<ul class="commlist">
 						<li>
 							<span>내용</span>
-							<textarea id="rq_content" rows=5 style="width:93%; resize:none;"></textarea>
+							<textarea id="rq_content" rows=3 style="width:93%; resize:none;"></textarea>
 						</li>
 						<li>
-							<div class="Cbtn" align="right">
+							<div align="right">
 								<button class="commbtn" onclick="REQnAWriteCall()">등록</button>
 								<button class="commbtn" type="reset">취소</button>
 							</div>			
@@ -327,7 +328,6 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<!--<textarea id="comment" rows=5 style="width:90%; resize:none;"></textarea>-->
 				<%}%>
 				
-			</section>
 		</div><!-- 답글 -->
 
 	</div>
