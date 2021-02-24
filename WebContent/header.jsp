@@ -8,7 +8,8 @@
 <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <%
 			UserDTO info = (UserDTO)session.getAttribute("info");
 			ArrayList<issueDTO> issueList = new ArrayList<issueDTO>();

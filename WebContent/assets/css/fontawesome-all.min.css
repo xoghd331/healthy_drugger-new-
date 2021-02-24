@@ -121,8 +121,8 @@
 	animation: fa-spin 1s infinite steps(8)
 }
 
-@
-keyframes fa-spin { 0%{
+
+keyframes fa-spin {
 	transform: rotate(0deg)
 }
 
@@ -130,7 +130,7 @@ to {
 	transform: rotate(1turn)
 }
 
-}
+
 .fa-rotate-90 {
 	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
 	transform: rotate(90deg)
@@ -1214,9 +1214,9 @@ to {
 	content: "\f46d"
 }
 
-.fa-clock:before {
+/*.fa-clock:before {
 	content: "\f017"
-}
+}*/
 
 .fa-clone:before {
 	content: "\f24d"
@@ -1342,10 +1342,10 @@ to {
 	content: "\f4b3"
 }
 
-.fa-comments:before {
+/* .fa-comments:before {
 	content: "\f086"
 }
-
+ */
 .fa-comments-dollar:before {
 	content: "\f653"
 }
