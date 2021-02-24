@@ -143,7 +143,9 @@
 																<%for(int i = issueList.size()-1; i < issueList.size(); i++) {%>
 																	<h3><a href="WriteView?idx=<%=issueList.get(i).getIdx() %>" style="text-decoration: none;"><%=issueList.get(i).getTitle() %></a></h3>
 																	<ul class="meta">
+																		<li><img src="images/timeLine.png" width=14 height=14></li>
 																		<li class="icon fa-clock"><%=issueList.get(i).getUp_date() %></li>
+																		<li><img src="images/look.png" width=14 height=14></li>
 																		<li class="icon fa-comments"><a href="#">8</a></li>
 																	</ul>
 																</header>
@@ -196,7 +198,9 @@
 																		<h3>Q.<a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_title() %></a></h3>
 																		<%} %>
 																		<ul class="meta">
+																			<li><img src="images/timeLine.png" width=14 height=14></li>
 																			<li class="icon fa-clock"><%=dto.getQ_date() %></li>
+																			<li><img src="images/look.png" width=14 height=14></li>
 																			<li class="icon fa-comments"><a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_view() %></a></li>
 																		</ul>
 																	</article>
