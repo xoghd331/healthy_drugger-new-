@@ -222,7 +222,9 @@
 																		<h3>Q.<a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_title() %></a></h3>
 																		<%} %>
 																		<ul class="meta">
+																			<li><img src="images/timeLine.png" width=14 height=14></li>
 																			<li class="icon fa-clock"><%=dto.getQ_date() %></li>
+																			<li><img src="images/look.png" width=14 height=14></li>
 																			<li class="icon fa-comments"><a href="Community/NewQnAView.jsp?idx=<%=idx%>"><%=dto.getQ_view() %></a></li>
 																		</ul>
 																	</article>
