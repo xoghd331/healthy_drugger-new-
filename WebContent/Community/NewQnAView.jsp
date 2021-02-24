@@ -131,27 +131,27 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 <body class="is-preload" style="padding-top:0px">
 <nav id="nav">
 		<ul id="menu_list">
-			<li id="main_li"><a href="../Healthy_drugger_new/main.jsp">Home</a></li>
+			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
 			<li id="community_li">
 				<a href="#">커뮤니티</a>
 				<ul>
-					<li><a href="../Healthy_drugger_new/Community/List3.jsp">자유게시판</a></li>
-					<li><a href="../Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
+					<li><a href="/Healthy_drugger_new/Community/List3.jsp">자유게시판</a></li>
+					<li><a href="/Healthy_drugger_new/Community/QnAList.jsp">Q&A</a></li>
 				</ul>
 			</li>
-			<li id="search_li"><a href="../Healthy_drugger_new/search.jsp">영양제 검색</a></li>						
-			<li id="issue_li"><a href="../Healthy_drugger_new/issue.jsp">건강 이슈</a></li>
+			<li id="search_li"><a href="/Healthy_drugger_new/search.jsp">영양제 검색</a></li>						
+			<li id="issue_li"><a href="/Healthy_drugger_new/issue.jsp">건강 이슈</a></li>
 	<%if(info == null) {%>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/login.jsp">로그인</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/login.jsp">로그인</a></li>
 			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/join.jsp">회원가입</a></li>
 	<%}else { %>
 		<%if(info.getId().equals("admin")) {%>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/admin.jsp">회원정보 관리</a></li>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/logout">로그아웃</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/admin.jsp">회원정보 관리</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">로그아웃</a></li>
 		<%}else { %>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
-			<li class="mobile_header" style="display:none;"><a href="../Healthy_drugger_new/logout">로그아웃</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/login-join/update.jsp">개인 정보 수정</a></li>
+			<li class="mobile_header" style="display:none;"><a href="/Healthy_drugger_new/logout">로그아웃</a></li>
 		<%} %>
 	<%} %>
 		</ul>
