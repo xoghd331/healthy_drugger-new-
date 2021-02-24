@@ -12,9 +12,14 @@
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
 <meta name="viewport" content="width-device-width" initial-scale="1">
-<link rel="stylesheet" href="assets/css/issueView.css" />
+<link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>JSP 게시판 웹 사이트</title>
+<title>건강이슈 글쓰기</title>
+<style>
+	input:focus, textarea:focus{
+		outline: none;
+	}
+</style>
 </head>
 <body>
 <%
@@ -69,7 +74,7 @@
 </nav>
 
 <!-- Header -->
-<header id="header">
+<header id="header" style="padding-top:0px;">
 	<div class="logo container">
 		<div>
 			<a href="main.jsp" id="logo">
@@ -102,53 +107,64 @@
 }
 </style>
 
-<section id="main">
+<!-- 글쓰기 시작 -->
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px; padding-top:44px; border-top:0px;">
 	<div class="container"  style="text-align:center">
 		<div class="row2" align="center" style=" width:100%; margin:auto;">
 			<form method="post" action="write" enctype="multipart/form-data">
     		<table style="margin-left: auto; margin-right: auto;" width="700" border="3" bordercolor="lightgray" align="center">
 				<thead>
 					<tr height=70>
-						<th colspan="3" width=860 height=70 style="background-color: #eeeeee; text-align: center;"><h2>게시판 글 보기</h2></th>
+						<th colspan="3" width=860 height=100 style="background-color: #eeeeee; text-align: center;"><h2><br>게시판 글 보기</h2></th>
 					</tr>
+					
+					<!-- 행과 행사이 칸 띄우기 -->
+						<tr><td height="20px" colspan="2"></td></tr>
+					
 				</thead>
 				<tbody >
 					<tr height=70>
             			<td id="title" width=50  style="word-break:break-all" >제 목</td>
             			<td>
-              				<input type=text name="content"  value="${dto.title}"> <!-- style="width:680px;" -->
+              				<input type=text name="content"  value="더팜 튼튼 키즈 멀티비타민  & 미네랄"> <!-- style="width:680px;" -->
                 		<!--  <textarea name="content" cols="70" rows="1">${dto.title}</textarea>   -->
-            			</td>
+            			</td>        
 					</tr>
 					<tr height=70>
-						<td id="title" width=50 style="word-break:break-all" >작성자</td>
+						<td id="title" width=70 style="word-break:break-all" >작성자</td>
 						<td colspan="2">
-							${dto.user_id}
-						</td>
-					</tr>
-					<tr height=70>
-						<td id="title" width=65 style="word-break:break-all" >작성일자</td>
-						<td colspan="2">
-							${dto.up_date}
+							관리자
 						</td>
 					</tr>
 					<tr height=70>
 						<td id="title" width=50 style="word-break:break-all" >내 용</td>
             			<td>
-               				 <textarea name="content" cols="72" rows="20">${dto.content}</textarea>
+               				<textarea name="content" cols="32" rows="20" style="padding-bottom: 13px; height: 351px;">
+1. 성장 발달 도움
+
+2. 아미노산 13종 함유
+
+3. 비타민 미네랄 6종 함유
+
+4. 상큼 달콤 엘더베리맛
+
+※ 유의 사항
+토마토 함유 (토마토 알러지 유발)
+							</textarea>
+							<img src="img/tuntuninfo.png"/>
+							<img src="img/tuntun.jpg"/>
 						</td>
-					</tr>
 					</tbody>
 			</table>
 			
 			<div align="center" >
-            	<input type="button" value="목록" class="button" onclick="location.href='search.jsp'"/>
+            	<input type="button" value="목록" class="button" onclick="location.href='issue.jsp'"/>
 			
 			<!-- 해당 글의 작성자가 관리자라면 수정과 삭제가 가능하도록 코드 추가 -->
-<%-- 	 			<%if(info != null && info.getId().equals("admin")) {%>  --%>
-<!-- 	 				<input type="submit" value="수정" class="button" onclick="location.href='#'"/> -->
-<!-- 	 				<input type="reset" value="삭제" class="button" onclick="location.href='#'"/> -->
-<%-- 				<%}	%> --%>
+	 			<%if(info != null && info.getId().equals("admin")) {%> 
+	 				<input type="submit" value="수정" class="button" onclick="location.href='#'"/>
+	 				<input type="reset" value="삭제" class="button" onclick="location.href='#'"/>
+				<%}	%>
 				
        		 </div>
 				
@@ -157,6 +173,38 @@
 		</div>
 	</div>
 </section>
+
+
+<!-- top버튼 -->
+	<a id="toTop" href="#top">
+		<img src="images/topPill.png" width="60px" height="100px" alt="" >
+	</a>
+
+<!-- Footer -->
+				<footer id="footer" style="padding-top : 80px; padding-bottom : 80px;">
+					<div class="container">
+						<div class="row gtr-200" style="margin-left:-40; margin-top:-40;">
+							<div class="col-12" style="padding-top : 50px;">
+
+								<!-- About -->
+									<section>
+										<h2 class="major" ><span></span></h2>
+									</section>
+
+							</div>
+											
+
+						</div>
+
+						<!-- Copyright -->
+							<div id="copyright" style="margin-top : 0px;">
+								<ul class="menu">
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
+								</ul>
+							</div>
+
+					</div>
+				</footer>
 			<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 			<script src="js/bootstrap.js"></script>
 			<script src="assets/js/jquery.min.js"></script>

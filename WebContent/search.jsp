@@ -91,7 +91,7 @@
 		<div class="content" style="padding-top: 50px; display: flex; margin-left:5%;margin-right:5%;">
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
 				<section>
-					<span class="image featured"><img src="images/child.png" alt="" /></span>
+					<a href="search_view.jsp"><span class="image featured"><img src="images/child.png" alt="" /></span></a>
 				</section>
 			</article>
 			<article class="box page-content" style="width: calc( 100% / 3 ); margin:10px;">
