@@ -261,10 +261,11 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	}
 }
 </style>
-<div>
-	<div>
+<!-- section 시작 -->
+<section id="main" style="padding-bottom : 80px; margin-bottom : 70px; padding-top:44px; border-top:0px;">
+	<div class="container">
 		<!-- 글 제목 -->
-		<div class="viewform">
+		
 			<div class="title">
 				<h1><%=vdto.getB_title()%></h1>
 			</div>
@@ -276,7 +277,8 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 					<li class="boardinfo">작성일 : <%=vdto.getB_date()%></li>
 				</ul>
 			</div>
-			
+		
+		
 			<!-- 글 내용 -->
 			<div>
 				<p class="content"><%=vdto.getB_content() %></p>
@@ -301,7 +303,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				<%} %>
 			</div>
 			<div>
-				<div class="likebox">
+				<div class="likebox" style="padding-top:22px;">
 					<a href = "#" OnClick="boardLike(); return false;"><img id="b_like_icon" src ="../img/heart.png" width="30" hegiht="30"></a>
 					<input id="b_state" type="hidden" value="좋아요">
 					<span id="b_like_result"><%=vdto.getB_like() %></span>
@@ -359,10 +361,14 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 			<%}} %>
 		
 		
-			<!-- 댓글 작성 -->
-			<section>
+			
+		
+		
+		<!-- 댓글 작성 -->
+		<!-- border속성이 안먹어요 -->
+		<div style="border: 1px soild #ffc200">	
 				<%if(info != null){%>
-				<div class="CWriter">
+				<div style="padding-top : 5px;">
 					<ul class="commlist">
 						<li class="boardinfo">작성자</li>
 						<li class="boardinfo">
@@ -376,16 +382,16 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 					<input type="hidden" id="c_username" value="<%=info.getId() %>">
 					<input type="hidden" id="c_password" value="<%=info.getPw() %>">-->
 				</div>
-				<div class="CComment">
+				<div >
 					<ul class="commlist">
 						<li>
-							<p class="boardinfo">내용</p>
+							<p class="boardinfo" >내용</p>
 							<textarea id="comment" rows=5 style="width:93%; resize:none;"></textarea>
 						</li>
 					</ul>
 				</div>
 				<%} else {%>
-				<div class="CWriter">
+				<div >
 					<ul class="commlist">
 						<li>
 							<p class="boardinfo">작성자</p>
@@ -395,7 +401,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 				</div>
 				<!--<p class="user">작성자</p>
 					<input type="text" id="c_username"><br>-->
-				<div class="CPassword">
+				<div >
 					<ul class="commlist">
 						<li>
 							<p class="boardinfo">비밀번호</p>
@@ -403,39 +409,52 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 						</li>
 					</ul>
 				</div>
-				<div class="CComment">
+				<div >
 					<ul class="commlist">
 						<li>
 							<p class="boardinfo">내용</p>
-							<textarea id="comment" rows=5 style="width:90%; resize:none;"></textarea>
+							<textarea id="comment" rows=3 style="width:90%; resize:none;"></textarea>
+						</li>
+						<li>
+							<div align="right">
+								<button class="commbtn" onclick="commWriteCall()">등록</button>
+								<button class="commbtn" type="reset">취소</button>
+							</div>		
 						</li>
 					</ul>
 				</div>
 				<%}%>
-				<div class="Cbtn">
-					<button class="commbtn" type="reset">취소</button>
-					<button class="commbtn" onclick="commWriteCall()">등록</button>
-				</div>
-				<footer id="footer">
+				
+			</div>	
+			<!-- 댓글작성 section 끝 -->
+		
+	</div>
+</section>
+
+
+<!-- top버튼 -->
+<a id="toTop" href="#top">
+	<img src="../images/topPill.png" width="60px" height="100px" alt="" >
+</a>
+	
+	<!-- Footer -->
+				<footer id="footer" style="padding-top : 80px; padding-bottom : 80px;">
 					<div class="container">
 						<div class="row gtr-200">
-							<div class="col-12">
+							<div class="col-12" style="padding-top : 50px;">
 
 								<!-- About -->
 									<section>
-										<h2 class="major"><span></span></h2>
+										<h2 class="major" ><span></span></h2>
 									</section>
 
 							</div>
-											<!-- top버튼 -->
-											<a id="toTop" href="#top">
-												<img src="../images/topPill.png" width="60px" height="100px" alt="" >
-											</a>
+											
 
 						</div>
 
 						<!-- Copyright -->
-							<div id="copyright">
+							<div id="copyright" style="margin-top : 0px;">
 								<ul class="menu">
 									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href=#>건강한 약쟁이</a></li>
 								</ul>
@@ -443,10 +462,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 
 					</div>
 				</footer>
-			</section>
-		</div>
-	</div>
-</div>
+	
 	
 </body>
 <!-- Scripts -->
