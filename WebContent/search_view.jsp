@@ -167,7 +167,7 @@
 			</table>
 			
 			<div align="center" >
-            	<input type="button" value="목록" class="button" onclick="location.href='issue.jsp'"/>
+            	<input type="button" value="목록" class="button" onclick="location.href='search.jsp'"/>
 			
 			<!-- 해당 글의 작성자가 관리자라면 수정과 삭제가 가능하도록 코드 추가 -->
 	 			<%if(info != null && info.getId().equals("admin")) {%> 
