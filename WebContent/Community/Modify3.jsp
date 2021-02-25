@@ -55,10 +55,11 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
  -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="/Healthy_drugger_new/assets/css/issueWrite.css" />
+<link rel="stylesheet" href="/Healthy_drugger_new/assets/css/main.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="is-preload" style="padding-top:0px">
+
 <nav id="nav">
 		<ul id="menu_list">
 			<li id="main_li"><a href="/Healthy_drugger_new/main.jsp">Home</a></li>
@@ -126,6 +127,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 	}
 }
 </style>
+
 <!-- 글쓰기 -->	
 <section id="main" style="padding-bottom : 80px; margin-bottom : 70px; padding-top:44px; border-top:0px;">
 	<div align="center">
@@ -196,7 +198,7 @@ CSS에서 input, textarea 클릭 시 나오는 테두리 없애는 거
 
 <!-- top버튼 -->
 	<a id="toTop" href="#top">
-		<img src="images/topPill.png" width="60px" height="100px" alt="" >
+		<img src="../images/topPill.png" width="60px" height="100px" alt="" >
 	</a>
 
 
