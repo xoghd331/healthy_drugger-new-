@@ -46,7 +46,9 @@
                                  <header>
                                     <p><a href="WriteView?idx=<%=issueList.get(i).getIdx() %>" style="text-decoration: none;"><%=issueList.get(i).getTitle() %></a></p>
                                     <ul class="meta">
+                                    	<li><img src="images/timeLine.png" width=14 height=14></li>
                                        <li class="icon fa-clock"><%=issueList.get(i).getUp_date() %></li>
+                                       <li><img src="images/look.png" width=14 height=14></li>
                                        <li class="icon fa-comments"><a href="#">374</a></li>
                                     </ul>
                                  </header>
@@ -61,7 +63,9 @@
                                  <header>
                                     <p>겨울철 감기예방법</p>
                                     <ul class="meta">
+                                    	<li><img src="images/timeLine.png" width=14 height=14></li>
                                        <li class="icon fa-clock">8 hours ago</li>
+                                       <li><img src="images/look.png" width=14 height=14></li>
                                        <li class="icon fa-comments"><a href="#">954</a></li>
                                     </ul>
                                  </header>
@@ -75,7 +79,9 @@
                                  <header>
                                     <p>감기에 걸리는 이유</p>
                                     <ul class="meta">
+                                    	<li><img src="images/timeLine.png" width=14 height=14></li>
                                        <li class="icon fa-clock">1 days ago</li>
+                                       <li><img src="images/look.png" width=14 height=14></li>
                                        <li class="icon fa-comments"><a href="#">72</a></li>
                                     </ul>
                                  </header>
@@ -89,7 +95,9 @@
                                  <header>
                                     <p>겨울철 필수영양제</p>
                                     <ul class="meta">
+                                    	<li><img src="images/timeLine.png" width=14 height=14></li>
                                        <li class="icon fa-clock">1 days ago</li>
+                                       <li><img src="images/look.png" width=14 height=14></li>
                                        <li class="icon fa-comments"><a href="#">1,024</a></li>
                                     </ul>
                                  </header>

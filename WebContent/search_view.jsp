@@ -115,7 +115,7 @@
     		<table style="margin-left: auto; margin-right: auto;" width="700" border="3" bordercolor="lightgray" align="center">
 				<thead>
 					<tr height=70>
-						<th colspan="3" width=860 height=100 style="background-color: #eeeeee; text-align: center;"><h2><br>게시판 글 보기</h2></th>
+						<th colspan="3" width=860 height=100 style="background-color: #eeeeee; text-align: center;"><h2><br>약 정보 보기</h2></th>
 					</tr>
 					
 					<!-- 행과 행사이 칸 띄우기 -->
